@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-03T09:54:03.751Z</updated>
+  <updated>2018-06-03T12:33:39.858Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2018/06/03/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%90%8E%E6%84%9F/"/>
+    <id>http://yoursite.com/2018/06/03/hexo博客搭后感/</id>
+    <published>2018-06-03T12:35:34.221Z</published>
+    <updated>2018-06-03T12:33:39.858Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h3><ul><li>node.js</li><li>git</li><li>github仓库</li><li>hexo框架<h3 id="错误历史"><a href="#错误历史" class="headerlink" title="错误历史"></a>错误历史</h3><h4 id="node-js版本问题"><a href="#node-js版本问题" class="headerlink" title="node.js版本问题"></a>node.js版本问题</h4></li><li>一定要下载node.js最新版，这个是木有向后兼容性滴~所以不是最新版的话，安装hexo时会比别人多出一个版本的warn，直接后面安不了hexo。表示被这第一步坑了三次左右！<h4 id="下载hexo出错"><a href="#下载hexo出错" class="headerlink" title="下载hexo出错"></a>下载hexo出错</h4></li><li>多出来的那个warn绝对不是让你骄傲的，因为后面一串的err才真是够你吹一年了。。。起初很傻地跟着教程做，结果在cmd里执行安装hexo的命令。因为这个小错误，我把node.js卸载重装了七八次。</li><li>我认为最后能装上完全靠的是信念。因为就在第七次/第八次的时候，我偶然发现在hexo目录下git bash,然后执行一系列安装命令，居然能跟教程匹配上了！老泪纵横，于是一口气把一系列的块都下好了。<h4 id="更换主题滞后"><a href="#更换主题滞后" class="headerlink" title="更换主题滞后"></a>更换主题滞后</h4></li><li>博客给人第一眼感觉就是“长得怎么样”，下面一起来换主题吧！查了下网，比较火的主题是next、indigo等，我选择后者。那么就要修改一哈根目录以及theme目录下的_config.yml，把一些个性化配置修改为个人相关信息。</li><li>然后问题来了，乱码加修改不生效。我是修改后保存并运行hexo d。看上去没毛病，但其实我故意修改了一个关键项之后，重复上述操作，博客并没有丝毫改变……后来在hexo d命令之前加上hexo clean清理缓存即可，可能是前面操作太多了！<h3 id="一些命令"><a href="#一些命令" class="headerlink" title="一些命令"></a>一些命令</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B74536354.PNG" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;工具使用&quot;&gt;&lt;a href=&quot;#工具使用&quot; class=&quot;headerlink&quot; title=&quot;工具使用&quot;&gt;&lt;/a&gt;工具使用&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;node.js&lt;/li&gt;
+&lt;li&gt;git&lt;/li&gt;
+&lt;li&gt;github仓库&lt;/li&gt;
+&lt;li&gt;hexo框架&lt;h
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>PageName</title>
