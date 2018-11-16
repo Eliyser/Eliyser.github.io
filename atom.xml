@@ -5,9 +5,9 @@
   <subtitle>love youself,love life</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://47.107.237.149/"/>
+  <link href="http://hexo.com/"/>
   <updated>2018-06-03T12:52:52.512Z</updated>
-  <id>http://47.107.237.149/</id>
+  <id>http://hexo.com/</id>
   
   <author>
     <name>Haien</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>hexo搭后感</title>
-    <link href="http://47.107.237.149/2018/06/03/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%90%8E%E6%84%9F/"/>
-    <id>http://47.107.237.149/2018/06/03/hexo博客搭后感/</id>
+    <link href="http://hexo.com/2018/06/03/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%90%8E%E6%84%9F/"/>
+    <id>http://hexo.com/2018/06/03/hexo博客搭后感/</id>
     <published>2018-06-03T12:35:34.221Z</published>
     <updated>2018-06-03T12:52:52.512Z</updated>
     
@@ -43,8 +43,8 @@
   
   <entry>
     <title>PageName</title>
-    <link href="http://47.107.237.149/2018/06/03/PageName/"/>
-    <id>http://47.107.237.149/2018/06/03/PageName/</id>
+    <link href="http://hexo.com/2018/06/03/PageName/"/>
+    <id>http://hexo.com/2018/06/03/PageName/</id>
     <published>2018-06-03T09:54:03.000Z</published>
     <updated>2018-06-03T09:54:03.751Z</updated>
     
@@ -57,8 +57,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://47.107.237.149/2018/06/03/hello-world/"/>
-    <id>http://47.107.237.149/2018/06/03/hello-world/</id>
+    <link href="http://hexo.com/2018/06/03/hello-world/"/>
+    <id>http://hexo.com/2018/06/03/hello-world/</id>
     <published>2018-06-03T09:07:17.740Z</published>
     <updated>2018-06-03T09:07:17.740Z</updated>
     
