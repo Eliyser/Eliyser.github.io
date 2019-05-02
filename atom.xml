@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://47.107.237.149/"/>
-  <updated>2018-08-30T11:55:58.819Z</updated>
+  <updated>2019-04-28T05:40:38.096Z</updated>
   <id>http://47.107.237.149/</id>
   
   <author>
@@ -15,6 +15,410 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://47.107.237.149/2019/04/30/classpath%E6%A0%B9%E7%9B%AE%E5%BD%95/"/>
+    <id>http://47.107.237.149/2019/04/30/classpath根目录/</id>
+    <published>2019-04-30T08:25:44.644Z</published>
+    <updated>2019-04-28T05:40:38.096Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>在编程的时候，就是放在src下面，和你自己创建的包同一级</li><li>在eclipse编译并发布到服务器端后，src路径对应WEB-INF路径，包中的<strong><em>.java文件对应 WEB-INF下的classes文件夹下即calsses/com/javaweb/environment/test/</em></strong>.class。        </li><li>classPath即class类文件的根路径，所以发布前根路径是src,对应发布后的WEB-INF/classes/</li><li>用maven构建项目的时候，classpath即src/main/下的resources、java和webapp。若在main下新建一个properties文件，则classpath也指该文件。</li><li><p>项目中文件加载pojo对象、其他文件的默认路径都是classpath，不需要加前缀，直接写包名即可，如：</p><pre><code>//加载pojo对象&lt;context: component-scan base-package=&quot;com.taotao.controller&quot; /&gt;//加载其他文件&lt;servlet&gt;    &lt;servlet-name&gt;spring&lt;/servlet-name&gt;    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;    &lt;init-param&gt;        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;        &lt;param-value&gt;classpath:spring-mvc.xml&lt;/param-value&gt;    &lt;/init-param&gt;&lt;/servlet&gt;&lt;context:property-placeholder location=&quot;classpath:resource/db.properties&quot; /&gt;</code></pre></li><li><p><a href="https://blog.csdn.net/seudongnan/article/details/78255922" target="_blank" rel="noopener">参考文章</a></p></li><li><p>编译后，classpath是指WEB-INF文件夹下的classes目录</p><ul><li>解释classes含义：</li></ul><ol><li>存放各种资源配置文件，eg. init.properties,log4j.properties.struts.xml</li><li>存放模板文件，eg. actionerror.ftl</li><li>存放class文件，对应的是项目开发时的src目录的编译文件</li></ol><ul><li>总结：这是一个定位资源的入口</li></ul></li></ul><pre><code>       //加载classpath下以applicationContext开头的配置文件&lt;param-value&gt;classpath:applicationContext-*.xml&lt;/param-value&gt;//加载其子目录下的文件&lt;param-value&gt;classpath:context/conf/controller.xml&lt;/param-value&gt;</code></pre><ul><li>**/：表示任意目录<ul><li><em>**/applicationContext-</em>.xml表示任意目录下以applicationContext开头的xml文件。</li></ul></li><li><a href="https://blog.csdn.net/u011095110/article/details/76152952" target="_blank" rel="noopener">classpath和classpath*的区别</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;在编程的时候，就是放在src下面，和你自己创建的包同一级&lt;/li&gt;
+&lt;li&gt;在eclipse编译并发布到服务器端后，src路径对应WEB-INF路径，包中的&lt;strong&gt;&lt;em&gt;.java文件对应 WEB-INF下的classes文件夹下即calsses/co
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://47.107.237.149/2019/04/30/Cannot%20add%20or%20update%20a%20child%20row-a%20foreign%20key%20constraint%20fails/"/>
+    <id>http://47.107.237.149/2019/04/30/Cannot add or update a child row-a foreign key constraint fails/</id>
+    <published>2019-04-30T08:25:44.639Z</published>
+    <updated>2018-05-19T14:56:55.891Z</updated>
+    
+    <content type="html"><![CDATA[<p>可能插入了一个主表中并不存在的外键，这时候要检查这个外键在主表中是否存在</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;可能插入了一个主表中并不存在的外键，这时候要检查这个外键在主表中是否存在&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://47.107.237.149/2019/04/30/CallableStatement%E6%8E%A5%E5%8F%A3/"/>
+    <id>http://47.107.237.149/2019/04/30/CallableStatement接口/</id>
+    <published>2019-04-30T08:25:44.637Z</published>
+    <updated>2018-06-15T06:57:00.718Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7157.PNG" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><ul><li>CallableStatement是prepareStatement的子接口</li><li>如何用程序调用存储过程呢？<ul><li>设置输入参数</li><li>设置返回参数</li><li>获取返回参数</li></ul></li><li>代码实例：ideaProject-&gt;src.main.java.com.haien.MyCallableStatement</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;image-bubble&quot;&gt;
+                &lt;div class=&quot;img-lightbox&quot;&gt;
+                    &lt;div class=&quot;overlay&quot;&gt;&lt;/div&gt;
+                   
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://47.107.237.149/2019/04/30/Cache%E5%92%8CBuffer%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://47.107.237.149/2019/04/30/Cache和Buffer的区别/</id>
+    <published>2019-04-30T08:25:44.630Z</published>
+    <updated>2019-03-20T13:55:52.104Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h3><ul><li>高速缓存。</li><li>我们知道各种硬件存在制作工艺上的差别，所以当两种硬件需要交互时，肯定会存在速度上的差异，而且只有交互双方都完成了这一步才能同时解放去处理其他书屋。</li><li>假如现在有A、B两个设备，A用来交互的接口速度是1000M/s，B是500M/s，那么以下两种情况：</li></ul><ol><li>A从B取一个1000M的文件原本需要1s，实际却需要2s，额外的1s是等待B把剩余的500M找出来，而这1s的空闲时间除了等待干不了其他事情。</li><li>A给B1000M文件也需要2s，本来也只需要1s,但B 1s内只能拿500M，剩下的500M还得等下一个1sB来取，等待的这1s也是不能干别的事。</li></ol><ul><li>解决的办法就是在A和B之间加一层区域ab，它提供了两个接口，a接口的速率接近A，b接口则接近B，然后我们把ab的a和A相连，b和B相连，让A、B把文件通过ab传给对方：</li></ul><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/917695-20160327123829839-630260780.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><ul><li>A要从B中取1000M文件，它把需求告诉了ab，接下来ab通过b和B进行文件传送，对于第一次传送ab并没起什么作用，但第一次之后ab就背着B偷偷缓存了一个一模一样的文件，而且只要从B取东西，ab都会缓存一个副本下来，下次谁来取都直接把该副本通过a接口给它，由于a的速率相对接近A，所以A觉得节省了时间。说白了ab就是提供了缓存能力，即cache。ab会定期清cache以保证提供的东西是最新的。例如，CPU读取内存数据时，一般都是经过内存的一部分作为缓存来增加系统的读取性能。</li></ul><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7681.PNG" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><ul><li>A要给B发个1000M的文件，它通过a接口给了ab。站在A的角度上好像它认为已经交到B手上了，但其实ab并不先交给B，而是先缓存下来，等到系统空闲或buffer满了再通过b接口慢慢给B，这样A就不用等了。此时，ab提供的就是缓冲的能力，即Buffer。它存在的目的就是适用于速度快的往速度慢的输出东西，例如，内存的数据要写到磁盘，CPU寄存器里的数据写到内存。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Cache&quot;&gt;&lt;a href=&quot;#Cache&quot; class=&quot;headerlink&quot; title=&quot;Cache&quot;&gt;&lt;/a&gt;Cache&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;高速缓存。&lt;/li&gt;
+&lt;li&gt;我们知道各种硬件存在制作工艺上的差别，所以当两种硬件需要交互时，肯定会存在
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://47.107.237.149/2019/04/30/Cache%E9%AB%98%E9%80%9F%E7%BC%93%E5%86%B2%E5%AD%98%E5%82%A8/"/>
+    <id>http://47.107.237.149/2019/04/30/Cache高速缓冲存储/</id>
+    <published>2019-04-30T08:25:44.622Z</published>
+    <updated>2019-03-21T12:00:30.911Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="计算机中的缓存"><a href="#计算机中的缓存" class="headerlink" title="计算机中的缓存"></a>计算机中的缓存</h3><ul><li>存储器是计算机五大组成部分之一（控制器、运算器、存储器、输入和输出），分为主存储器和辅助存储器。</li></ul><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190320214403.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><ul><li>主存储器又称内存Memory，辅助存储器又称外存。</li><li>我们平时使用的程序，如Windows操作系统、打字软件、游戏软件，一般都是安装在硬盘等外存上的，使用时才将其调入内存运行。我们平时输入一段文字，或玩一个游戏，都是在内存中进行的。</li><li>就好比在一个书房里，外存相当于存放书籍的书架，内存则是我们工作的书桌。</li><li>内存是计算机程序与CPU进行沟通的桥梁，计算机中所有程序的运行都是在内存中进行的，其作用是战术存放CPU中的运算数据。只要计算机在运行中，CPU就会把需要运算的数据调到内存中。为了配合CPU的高速，内存和CPU之间还加了一层高速缓存。</li></ul><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7681.PNG" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><ul><li>通常我们把要永久保存的、大量的数据存储在外存，而把一些临时或少量的数据和程序放在内存。</li></ul><h3 id="程序中的缓存"><a href="#程序中的缓存" class="headerlink" title="程序中的缓存"></a>程序中的缓存</h3><ul><li>当程序的并发量较高、对实时性的要求较高时，我们的程序就必须使用缓存了，否则，可能显示一个公司的报表、在搜索引擎上搜索资料都要花几分钟的时间。</li><li>使用缓存，就是在取出数据结果后，暂时将数据存储在某些可以快速存取的位置，如Nosql、MemoryCache，让这些耗时的数据重复地利用，不必每次重复请求相同的数据，读取时先从缓存中找，节省CPU和io。</li><li>缓存的终点在于更新，如果数据没有及时更新和删除，就会成为脏数据。</li></ul><h3 id="缓存策略"><a href="#缓存策略" class="headerlink" title="缓存策略"></a>缓存策略</h3><ul><li>也就是用一些算法决定什么时候清缓存、清哪一部分。</li></ul><h3 id="缓存控制"><a href="#缓存控制" class="headerlink" title="缓存控制"></a>缓存控制</h3><ul><li>在Java中，我们一般对方法进行缓存控制。当调用findUserById(long id)时，先从缓存查找有没有结果。没有再调用该方法从数据库加载用户，并添加到缓存中。下次调用前将会从缓存中获取数据。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;计算机中的缓存&quot;&gt;&lt;a href=&quot;#计算机中的缓存&quot; class=&quot;headerlink&quot; title=&quot;计算机中的缓存&quot;&gt;&lt;/a&gt;计算机中的缓存&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;存储器是计算机五大组成部分之一（控制器、运算器、存储器、输入和输出），分为主存储器和辅助
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://47.107.237.149/2019/04/30/c%20forEach/"/>
+    <id>http://47.107.237.149/2019/04/30/c forEach/</id>
+    <published>2019-04-30T08:25:44.619Z</published>
+    <updated>2018-05-03T12:01:12.494Z</updated>
+    
+    <content type="html"><![CDATA[<p>-&lt;c:forEach var=”pow” items=”${power }”&gt;<br>        ${pow }<br>    &lt;/c:forEach&gt;<br>在作用域比如request、session里面存了power这个集合，然后这边${power }取一下就可以遍历了</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;-&amp;lt;c:forEach var=”pow” items=”${power }”&amp;gt;&lt;br&gt;        ${pow }&lt;br&gt;    &amp;lt;/c:forEach&amp;gt;&lt;br&gt;在作用域比如request、session里面存了power这个集合，然后这边${p
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://47.107.237.149/2019/04/30/byte%E6%95%B0%E7%BB%84%E6%9C%AC%E8%B4%A8%E3%80%810xff%E3%80%81String%E8%BD%ACbyte%5B%5D%E5%8E%9F%E7%90%86/"/>
+    <id>http://47.107.237.149/2019/04/30/byte数组本质、0xff、String转byte[]原理/</id>
+    <published>2019-04-30T08:25:44.609Z</published>
+    <updated>2019-02-23T05:49:46.416Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>0x（零叉）前缀表示后面的数为十六进制数，0（零）前缀表示八进制。</li><li>把number转换为二进制，只取最低的8位，也就是一个字节。而0xff二进制最后8位就是1111 1111，前面全是0。将number &amp; 0xff，只有最后8位被显示出来，前面无论是0是1最后都是0，被遮蔽。</li><li>byte的本质就是一个8位的二进制数字，即表示从0~255的一个数字，所以byte数组中存的是数字。比如，byte[] byteArrary = { 0x01, 0x02, 0x03, 34 };其中，int型常量不能超过255，若将34改为340则报错，而int型变量不允许存入，原因是变量是不确定的，它可能超过了255。</li><li>String转byte[]，就是先转ASCII码，然后再转成二进制，如，A-&gt;65-&gt;65的二进制表示.</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;0x（零叉）前缀表示后面的数为十六进制数，0（零）前缀表示八进制。&lt;/li&gt;
+&lt;li&gt;把number转换为二进制，只取最低的8位，也就是一个字节。而0xff二进制最后8位就是1111 1111，前面全是0。将number &amp;amp; 0xff，只有最后8位被显示
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://47.107.237.149/2019/04/30/BufferedImage%E7%B1%BB%E3%80%81Image%E7%B1%BB%E3%80%81Graphics%E7%B1%BB/"/>
+    <id>http://47.107.237.149/2019/04/30/BufferedImage类、Image类、Graphics类/</id>
+    <published>2019-04-30T08:25:44.600Z</published>
+    <updated>2019-02-10T02:35:03.455Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="BufferedImage"><a href="#BufferedImage" class="headerlink" title="BufferedImage"></a>BufferedImage</h3><ul><li><p>Image是一个抽象类，BufferedImage是其实现类，是一个带缓冲区图像类，主要作用是将一幅图片加载到内存中（BufferedImage生成的图片在内存里有一个图像缓冲区，利用这个缓冲区我们可以很方便地操作这个图片），提供获得绘图对象、图像缩放、选择图像平滑度等功能，通常用来做图片大小变换、图片变灰、设置透明不透明等。</p><pre><code>public abstract Graphics getGraphics()； //获得在图像上绘图的Graphics对象</code></pre></li><li><p>Java将一幅图片加载到内存的方法是：</p><pre><code>String imgPath = &quot;C://demo.jpg&quot;;  BufferedImage image = ImageIO.read(new FileInputStream(imgPath));</code></pre></li><li>继而可以对图片进行操作,比如，获得图片的宽度：image.getWidth()</li><li>图片只有加载到内存中才能进行进一步的处理。</li><li>RGB:R（红）G（绿）B（蓝）色彩模式是工业界的一种颜色标准。在Java中每个RGB像素所占的位数为8.</li><li>创建：<ul><li>直接调用构造函数</li></ul></li></ul><pre><code>    //指定宽高、图像字节灰度    BufferedImage  bi = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_GRAY)    //创建一个不带透明色的对象    BufferedImage bimage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);    //创建一个带透明色的对象    new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);- 根据已经存在的BufferedImage对象创建一个copy体    public BufferedImage createBufferedImage(BufferedImage src)- 通过创建ColorModel（颜色转换为Java中的像素表示）和Raster（光栅，描述像素的）对象创建BufferedImage对象    public BufferedImage createBufferedImage（int width , int height, byte[] pixels）{ //pixel像素    　　ColorModel   cm = getColorModel();    　　SampleModel sm = getIndexSampleModel((IndexColorModel)cm, width,height);    　　DataBuffer db = new DataBufferByte(pixels, width*height,0);    　　WritableRaster raster = Raster.creatWritableRaster(sm, db,null);    　　BufferedImage  image =  new BufferedImage (cm, raster,false, null);    　　return image;    }- 读取一个图片文件来转换.    　　　　BufferedImage  image = ImageIo.read(new FileInputStream(filePath));</code></pre><ul><li>保存：找个位置写出去</li></ul><pre><code>    　　File outputfile  = new File(&quot;save.png&quot;);    　　ImageIO.write(bi,&quot;png&quot;,outputfile);　　</code></pre><ul><li><a href="https://www.cnblogs.com/bigdream6/p/8366248.html" target="_blank" rel="noopener">Raster和ColorModel对象、BufferedImage的创建与保存</a><h3 id="ImageIO"><a href="#ImageIO" class="headerlink" title="ImageIO"></a>ImageIO</h3></li><li>提供read()和write()静态方法，读写图片，比以往的InputStream读写更方便。<h3 id="BufferedImage与byte数组的转换"><a href="#BufferedImage与byte数组的转换" class="headerlink" title="BufferedImage与byte数组的转换"></a>BufferedImage与byte数组的转换</h3></li><li>在传输中，图片是不能直接传的，需要先转为字节数组再传输较为方便；而字节数组再转回BufferedImage则还原图片。</li><li><p>BufferedImage–&gt;byte[]</p><pre><code>ImageIO.write(BufferedImage image,String format,OutputStream out);//format:图片格式，“gif&quot;等；//out:目标；特别的，如果目标为byte数组，则将其预设为ByteArrayOutputStream即可传入此方法，执行完后，只要toByteArray()即可获得byte[].</code></pre></li><li><p>byte[]–&gt;bufferedImage</p><pre><code>ByteArrayInputStream in = new ByteArrayInputStream(byte[]b); //将b作为输入流；BufferedImage image = ImageIO.read(InputStream in);//将in作为输入流，读取图片存入image中，而这里in可以为ByteArrayInputStream();</code></pre></li><li><a href="https://blog.csdn.net/rhl127/article/details/76850562" target="_blank" rel="noopener">参考文章</a><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3></li><li><p>缓存网络图片</p><pre><code>//获得图片地址Url img = new  URL(url);//获得图片输入流InputStream in = img.openStream();//把输入流转为BufferedImageJPEGImageDecoder decoderFile = JPEGCodec.createJPEGDecoder(in);BufferedImage image = decoderFile.decodeAsBufferedImage();//获得其byte数组ImageIO.write(image, &quot;jpg&quot;, bos);//写出InputStream is = new ByteArrayInputStream(os.toByteArray());</code></pre></li><li><p>具体测试与改动</p><pre><code>URL url = new URL(&quot;http://www.google.com/intl/en_ALL/images/logo.gif&quot;);BufferedImage image = ImageIO.read(url);ByteArrayOutputStream os = new ByteArrayOutputStream();ImageIO.write(image, &quot;gif&quot;, os);InputStream is = new ByteArrayInputStream(os.toByteArray());</code></pre><h3 id="Graphics"><a href="#Graphics" class="headerlink" title="Graphics"></a>Graphics</h3></li><li>提供基本绘图和显示格式化文字的方法，画图用的坐标系原点在左上角，纵轴向下。主要有画线段、矩形、圆、椭圆、圆弧、多边形等各种颜色的图形、线条。</li><li>Graphics2D类提供更强大的绘图能力。</li><li><p>在窗口画一条直线：drawLine(int x1,int y1,int x2,int y2)</p><pre><code>g.drawLine(3,3,50,50);//在(3,3)与(50,50)之间画一条线段g.drawLine(100,100,100,100);//画一个点</code></pre></li><li>画折线：drawPolyline(int[],int[],int)，各点的x、y坐标，折线数。</li><li><p>画字符串：drawString(String str,int x,int y)，x、y是开始显示的位置，使用默认字体、大小、黑色。再写下一行要写在什么位置就很难精确定位了。若要精确定位，则需要知道字符串显示的长度和字高，可以通过FontMetrics类来实现。</p><pre><code>FontMetrics fm = g.getFontMetrics(font); //从Graphics对象获取FontMetrics对象int height = fm.getHeight(); //调用其getHeight()获得字高int width = fm.stringWidth(s1); //获得字符串宽度</code></pre></li><li><p>应用FontMetrics精确定位</p><pre><code>String s1 = &quot;Hello, Java World!&quot;;g.setColor(Color.red);setBackground(new Color(0,255,0));Font font = new Font(&quot;Arial&quot;, Font.BOLD, 18);g.setFont(font);FontMetrics fm = g.getFontMetrics(font);int height = fm.getHeight();int width = fm.stringWidth(s1);int posx =50; int posy = 50;g.drawString(s1 ,posx, posy);g.drawString(&quot;I will come in.&quot; ,posx +width, posy+height);</code></pre></li><li>显示效果</li></ul><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7600.PNG" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><ul><li><p>设置画笔字体：setFont(Font font)；Java有一个类叫GraphicsEnvironment提供绘图环境，其中getAvailableFontFamilyNames()方法可获取程序所在操作系统的所有字体名（是String不是Font）。</p><pre><code>GraphicsEnvironment gv =GraphicsEnvironment.getLocalGraphicsEnvironment();String[] ftNames = gv.getAvailableFontFamilyNames();for (int i=0; i&lt;ftNames.length; i++)    Font ft = new Font(ftNames[i], Font.BOLD, 14);</code></pre></li><li><p>设置前景色（画笔颜色）：setColor(Color color)，选择颜色有两种方法，一是直接用颜色值RGB创建Color对象：Color color=new Color(int R,int G,int B),由于是8位，所以不能超过255;二是用颜色常量如Color.red,Color.green等，Color类提供了13中颜色常量。</p></li><li>设置背景色：setBackground(new Color(int,int,int))</li><li><p>来个写不同字体的小例子</p><pre><code>public void paint (Graphics g){   String s1 = &quot;This Font is &quot;;   Font font = new Font(&quot;Arial&quot;, Font.BOLD, 18);   g.setColor(Color.red);    setBackground(new Color(0,255,0));   g.setFont(font);   g.drawString(s1 + font.getName() ,20, 60);   g.setFont(new Font(&quot;隶书&quot;, Font.BOLD, 28));   g.drawString(&quot;现在是隶书&quot; ,20, 120);   g.setColor(new Color(0,0,0));}</code></pre></li><li>显示效果</li></ul><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7599.PNG" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><ul><li><p>画矩形：drawRect(int x,int y,int width,int height),画矩形线框，x,y指定了左上角位置，后两个为矩形宽高；fillRect(iny x.int y,int width,int height),指定填充颜色。</p><pre><code>g.drawRect(80,100,40,25);//画线框g.setColor(Color.yellow);g.fillRect(20,70,20,30);//画着色块</code></pre></li><li><p>画圆角矩形：drawRoundRect(int x,int y,int width,int height,int arcWidth,int arcHeight),线框，最后两个宽高是圆角弧的横向直径和纵向直径；fillRoundRect(int x,int y,int width,int height,int arcWidth,int arcHeight),颜色填充。</p><pre><code>g.drawRoundRect(10,10,150,70,40,25);//画一个圆角矩形g.setColor(Color.blue); g.fillRoundRect(80,100,100,100,60,40);//涂一个圆角矩形块g.drawRoundRect(10,150,40,40,40,40);//画圆g.setColor(Color.red); g.fillRoundRect(80,100,100,100,100,100);//画圆块</code></pre></li><li><p>画三维矩形: draw3DRect(int x,int y,int width,int height,boolean raised),画一个突出显示的矩形（即3D矩形），raise是突出与否；fill3DRect(int x,int y,int width,int height,boolean raised)，颜色填充。</p><pre><code>g.draw3DRect(80,100,40,25,true);//画一个线框g.setColor(Color.yellow); g.fill3DRect(20,70,20,30,true);//画一个着色块</code></pre></li><li>画椭圆：drawOval(int x,int y,int width,int height),x、y是中心坐标，长轴、短轴；fillOval(int x,int y,int width,int height),填充。</li><li><p>画圆弧：drawArc(int x,int y,int width,int height,int startAngle,int arcAngle),画椭圆一部分的圆弧线，椭圆中心时它的外接矩形的中心，外接矩形左上角坐标为(x,y)，宽width，高height，startAngle单位是度，其实角度0度是指3点钟方向，startAngle和arcAngle表示从startAngle角度开始，逆时针方向画arcAngle度的弧，约定，正值度数是逆时针方向，负数为顺时针，例如-90°是6点钟方向；fillArc(int x,int y,int width, int height, int startAngle, int arcAngle)，着色。</p><pre><code>g.drawArc(10,40,90,50,0,180);//画圆弧线g.drawArc(100,40,90,50,180,180);//画圆弧线g.setColor(Color.yellow); g.fillArc(10,100,40,40,0,-270);//填充缺右上角的四分之三的椭圆g.setColor(Color.green); g.fillArc(60,110,110,60,-90,-270);//填充缺左下角的四分之三的椭圆</code></pre></li><li><p>画多边形：drawPolygon(int xPoints[],int yPoints[],int nPoints),多边形是多条线段首尾连接而成的封笔平面图，多边形线段端点的x,y坐标存储在两个数组中，画多边形就是按给定的坐标点顺序用直线段将它们连起来，nPoints是坐标点个数；fillPolygon(int xPoints[],int yPoints[],int nPoints)，着色。</p><pre><code>int px1[]={50,90,10,50};//首末点相重,才能画多边形int py1[]={10,50,50,10};int px2[]={140,180,170,180,140,100,110,140};int py2[]={5,25,35,45,65,35,25,5};g.setColor(Color.blue);g.fillPolygon(px1,py1,4);g.setColor(Color.red);g.drawPolygon(px2,py2,9);</code></pre><ul><li>也可以用多边形对象Polygon画多边形<ul><li>Polygon()：创建多边形对象，暂时没有坐标点。</li><li>Polygon(int xPoints[],int yPoints[],int nPoints)：用指定的坐标点创建多边形对象。</li><li>addPoint()：将一个坐标点加入到Polygon对象中。</li><li>drawPolygon(Polygon p)：绘制多边形。</li><li>fillPolygon(Polygon p)：和指定的颜色填充多边形。</li></ul></li><li>画一个三角形</li></ul></li></ul><pre><code>int x[]={140,180,170,180,140,100,110,100}; //用多边形对象不要求首末点重合int y[]={5,25,35,45,65,45,35,25};Polygon ponlygon1=new Polygon();polygon1.addPoint(50,10);polygon1.addPoint(90,50);polygon1.addPoint(10,50);g.drawPolygon(polygon1);g.setColor(Color.yellow);Polygon polygon2 = new Polygon(x,y,8);g.fillPolygon(polygon2);</code></pre><ul><li>画图片：drawImage(Image image,int x,int y)</li><li><p>擦除矩形块：clearREct(int x,int y,int width,int height),当需要在一个着色图形中有一个空缺的矩形时，可用背景色填充一矩形块实现，相当于在该图形上使用了橡皮擦。以下代码实现了在一个圆中擦除了一个矩形块</p><pre><code>g.setColor(Color.blue);g.fillOval(50,50,100,100);g.clearRect(70,70,40,55);</code></pre></li><li><p>限定作图显示区域：clipRect(int x,int y,int width,int height),用一个矩形表示图形的显示区域，超出部分不显示，多个限制区有覆盖时，得到交集区域</p><pre><code>g.clipRect(0,0,100,50);g.clipRect(50,25,100,50);</code></pre></li><li><p>复制图形：copyArea(int x,int y,int width,int height,int dx,int dy),dx和dy表示将图形复制到原位置偏移的像素点数，正值为往右或往下偏移，负值为往左或往上偏移，x、y是要复制矩形区域的左上角坐标。以下代码将一个矩形的部分、另一个矩形的全部分别平移</p><pre><code>g.drawRect(10,10,60,90);g.fillRect(90,10,60,90);g.copyArea(40,50,60,70,-20,80);g.copyArea(110,50,60,60,10,80);</code></pre></li><li><p>对Point、Rectangle类的应用</p><pre><code>Point p = new Point(cx / 2, cy / 2); //定义一个点Rectangle rect = new Rectangle((p.x - 40), (p.y - 40), 80, 40); //定义一个矩形int[] xP = {(p.x - 40), (p.x + 90), p.x+200, (p.x - 40)};int[] yP = {(p.y - 40), (p.y +140), (p.y + 60), (p.y-40)};g.drawArc(rect.x, rect.y, rect.width, rect.height * 2, 270, 90); //画弧g.drawPolygon(xP, yP,3); //画多边形g.setColor(Color.red);</code></pre></li><li><a href="https://www.cnblogs.com/donghb/p/7637990.html" target="_blank" rel="noopener">画图形方法</a><h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3></li><li>github/image_verifyCode分支/thz-parent/thz-manager-web/WebPageController、thz-common/tool/RandomValidateCodeUtil、RandomValidateCodeUtilTest</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;BufferedImage&quot;&gt;&lt;a href=&quot;#BufferedImage&quot; class=&quot;headerlink&quot; title=&quot;BufferedImage&quot;&gt;&lt;/a&gt;BufferedImage&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Image是一个抽象类，Buffe
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://47.107.237.149/2019/04/30/Boot/"/>
+    <id>http://47.107.237.149/2019/04/30/Boot/</id>
+    <published>2019-04-30T08:25:44.597Z</published>
+    <updated>2019-03-18T09:21:41.585Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>boot是系统引导文件。</li><li>也解作Build Own Operate Transfer,即创建、拥有、运营和移交。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;boot是系统引导文件。&lt;/li&gt;
+&lt;li&gt;也解作Build Own Operate Transfer,即创建、拥有、运营和移交。&lt;/li&gt;
+&lt;/ul&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://47.107.237.149/2019/04/30/BCrypt%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"/>
+    <id>http://47.107.237.149/2019/04/30/BCrypt加密算法/</id>
+    <published>2019-04-30T08:25:44.593Z</published>
+    <updated>2019-02-06T01:30:40.963Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>BCrypt算法与md5、sha算法主要区别为，每次生成的密文（hash）都是不同的，这样暴力猜解起来要更困难一点，而且密文长度较长，为60位。</li><li><p>使用方法：</p><pre><code>BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();String hashedPassword = passwordEncoder.encode(password); //hashedPassword即为密文</code></pre></li><li><a href="https://blog.csdn.net/qq_35232663/article/details/80913873" target="_blank" rel="noopener">参考文章</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;BCrypt算法与md5、sha算法主要区别为，每次生成的密文（hash）都是不同的，这样暴力猜解起来要更困难一点，而且密文长度较长，为60位。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用方法：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;BCryptPasswordEncoder pas
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://47.107.237.149/2019/04/30/a%E6%A0%87%E7%AD%BE%E6%B7%BB%E5%8A%A0onclick%E4%BA%8B%E4%BB%B6/"/>
+    <id>http://47.107.237.149/2019/04/30/a标签添加onclick事件/</id>
+    <published>2019-04-30T08:25:44.589Z</published>
+    <updated>2018-05-10T10:48:32.279Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>a href=”javascript:void(0);” onclick=”js_method()”</li><li>a href=”javascript:;” onclick=”js_method()”</li><li>a href=”#” onclick=”js_method();return false;”</li><li><a href="https://blog.csdn.net/manmanwei/article/details/56835602" target="_blank" rel="noopener">参考地址</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;a href=”javascript:void(0);” onclick=”js_method()”&lt;/li&gt;
+&lt;li&gt;a href=”javascript:;” onclick=”js_method()”&lt;/li&gt;
+&lt;li&gt;a href=”#” onclick
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://47.107.237.149/2019/04/30/assert/"/>
+    <id>http://47.107.237.149/2019/04/30/assert/</id>
+    <published>2019-04-30T08:25:44.586Z</published>
+    <updated>2018-06-03T01:29:08.013Z</updated>
+    
+    <content type="html"><![CDATA[<p>assert()宏是用于保证满足某个特定条件，用法是：</p><p>assert(表达式);</p><p>如果表达式的值为假，整个程序将退出，并输出一条错误信息。如果表达式的值为真则继续执行后面的语句。</p><p>使用这个宏前需要包含头文件assert.h</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7243534545.PNG" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>注意：</p><ol><li>每个assert只检验一个条件，因为同时检验多个条件时，如果断言失败，无法直观的判断是哪个条件失败</li><li>不能使用改变环境的语言，因为assert只在debug时生效，如果这么做，会使程序在真正运行时遇到问题。如，assert（i++&lt;100）</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;assert()宏是用于保证满足某个特定条件，用法是：&lt;/p&gt;
+&lt;p&gt;assert(表达式);&lt;/p&gt;
+&lt;p&gt;如果表达式的值为假，整个程序将退出，并输出一条错误信息。如果表达式的值为真则继续执行后面的语句。&lt;/p&gt;
+&lt;p&gt;使用这个宏前需要包含头文件assert.h&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://47.107.237.149/2019/04/30/ArrayList.this%E7%B1%BB%E5%90%8D.this%E4%BD%95%E6%84%8F/"/>
+    <id>http://47.107.237.149/2019/04/30/ArrayList.this类名.this何意/</id>
+    <published>2019-04-30T08:25:44.570Z</published>
+    <updated>2018-10-23T14:04:58.451Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>ArrayList的源码中，有一个实现了Iterator接口的内部类Itr，其中有两个elementData变量，一个是内部类的属性，一个是外部类的，那么外部类的就必须标识为ArrayList.this.elemtData</li><li><p>注意，不是this.elementData，因为外部类的对象是不能调用内部类的，所以只能用类名.this来区别内部类和外部类的属性。</p><pre><code>//内部类private class Itr implements Iterator&lt;E&gt; {    transient Object[] elementData;    @SuppressWarnings(&quot;unchecked&quot;)    public E next() {        //同名变量        Object[] elementData = ArrayList.this.elementData;    }}</code></pre></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;ArrayList的源码中，有一个实现了Iterator接口的内部类Itr，其中有两个elementData变量，一个是内部类的属性，一个是外部类的，那么外部类的就必须标识为ArrayList.this.elemtData&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;注意，不是th
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://47.107.237.149/2019/04/30/Apache%20POI/"/>
+    <id>http://47.107.237.149/2019/04/30/Apache POI/</id>
+    <published>2019-04-30T08:25:44.556Z</published>
+    <updated>2018-09-08T08:30:26.970Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul><li>一种用java代码读写文档（Excel、word、PPT）的方式<h3 id="读写Excel方面"><a href="#读写Excel方面" class="headerlink" title="读写Excel方面"></a>读写Excel方面</h3></li><li>针对不同的Excel版本，要采用不同的工具类。<ul><li>HSSFWorkbook：操作Excel2003以前的版本，扩展名为.xls</li><li>XSSFWorkbook：操作2007的版本，扩展名是.xlsx</li></ul></li><li>如果版本匹配错了，会抛出异常：<ul><li>org.apache.poi.openxml4j.exceptions.InvalidOperationException</li><li>org.apache.poi.poifs.filesystem.OfficeXmlFileException</li></ul></li><li>从POI 3.8版本开始，提供了一种基于XSSF的低内存占用的API—-SXSSF</li><li>当数据量超出65536条后，在使用HSSFWorkbook或XSSFWorkbook，程序会报OutOfMemoryError：Javaheap space;内存溢出错误。这时应该用SXSSFworkbook。<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a><a href="https://blog.csdn.net/qq_34869143/article/details/76512289" target="_blank" rel="noopener">参考文章</a></h3><h3 id="读取各种文档的类"><a href="#读取各种文档的类" class="headerlink" title="读取各种文档的类"></a>读取各种文档的类</h3></li><li>HSSF–读写.xls格式文档</li><li>XSSF–读写.xlsx格式文档</li><li>HWPF–读写.doc格式文档</li><li>HSLF–读写PPT<h3 id="工作簿概念"><a href="#工作簿概念" class="headerlink" title="工作簿概念"></a>工作簿概念</h3></li><li>打个比方，工作簿就像一本书或者一本账册，工作表就像其中的一张或一篇。工作簿中包含一个或多个工作表，工作表依托于工作簿存在。</li><li>新建Excel文档（.xls)其实就是新建工作簿,然后在里面可以有sheet1、sheet2等等。<h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7239.PNG" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></li><li><p>一个较为复杂的例子</p><pre><code>public void excel() throws Exception{    String excelName = year+&quot;泛珠赛全国总决赛终评评委打分审核表(&quot;+model+&quot;)&quot;; //工作簿名称    Workbook wb = new HSSFWorkbook();    Map&lt;String, CellStyle&gt; styles = createStyles(wb); //设置各种单元格对应的样式    for (int i = 0; i &lt; pingweiList.size(); i++) {        //创建Excel表格        CreatePingweiScore(wb, styles, headers,pingweiList.get(i), model,year);    }    // 写出    String file = excelName+&quot;.xls&quot;; //文件命名    FileOutputStream out  = new FileOutputStream(file);    wb.write(out);    out.close();}/* * 设置各种单元格对应的样式* （基本上样式都是应用于单元格的，没见过应用在行上的顶多设置下行高这样）*/private static Map&lt;String, CellStyle&gt; createStyles(Workbook wb){    Map&lt;String, CellStyle&gt; styles = new HashMap&lt;&gt;();    CellStyle style;    /*设置标题格式*/    Font titleFont = wb.createFont();    //字号    titleFont.setFontHeightInPoints((short)18);    //加粗    titleFont.setBold(true);    //设置单元格样式    style = wb.createCellStyle();    //水平居中    style.setAlignment(HorizontalAlignment.CENTER);    //垂直居中    style.setVerticalAlignment(VerticalAlignment.CENTER);    //将字体样式加入到样式当中    style.setFont(titleFont);    //将样式应用到标题当中    styles.put(&quot;title&quot;, style);    /*设置表头格式*/    Font monthFont = wb.createFont();    monthFont.setFontHeightInPoints((short)11);    monthFont.setBold(true);    //字体颜色    monthFont.setColor(IndexedColors.BLACK.getIndex());    style = wb.createCellStyle();    style.setAlignment(HorizontalAlignment.CENTER);    style.setVerticalAlignment(VerticalAlignment.CENTER);    style.setFont(monthFont);    //自动换行    style.setWrapText(true);    //应用到表头    styles.put(&quot;header&quot;, style);    /*设置单元格*/    CellStyle cellStyle = wb.createCellStyle();    cellStyle.setAlignment(HorizontalAlignment.CENTER);    cellStyle.setWrapText(true);    //右边框    cellStyle.setBorderRight(BorderStyle.THIN);    //右边框颜色    cellStyle.setRightBorderColor(IndexedColors.BLACK.getIndex());    cellStyle.setBorderLeft(BorderStyle.THIN);    cellStyle.setLeftBorderColor(IndexedColors.BLACK.getIndex());    cellStyle.setBorderTop(BorderStyle.THIN);    cellStyle.setTopBorderColor(IndexedColors.BLACK.getIndex());    cellStyle.setBorderBottom(BorderStyle.THIN);    cellStyle.setBottomBorderColor(IndexedColors.BLACK.getIndex());    //应用到单元格    styles.put(&quot;cell&quot;, cellStyle);    return styles;//styles：应用单元-单元属性的Map集合}/** 设置Excel表格*/private int CreatePingweiScore(Workbook wb, Map&lt;String, CellStyle&gt; styles,                           String[] headers,String pid, String model,int year){    //所有作品的分    List&lt;PingweiScore&gt; pingweiScoreList =            pingweiScoreService.selectByPidAndModelAndYear(pid,model,year);    String titleName = year+&quot;泛珠赛全国总决赛终评评委打分审核表(&quot;+model+&quot;)&quot;;    String pingweiName = &quot;评委&quot;+pid;    //打印设置    Sheet sheet = wb.createSheet(pingweiName); //pingweiName为表名    PrintSetup printSetup = sheet.getPrintSetup();    printSetup.setLandscape(true); //true表示页面方向为横向，false为纵向    sheet.setFitToPage(true);    sheet.setHorizontallyCenter(true);    //title row    Row titleRow = sheet.createRow(0);    titleRow.setHeightInPoints(45);    Cell titleCell = titleRow.createCell(0);    titleCell.setCellValue(titleName);    titleCell.setCellStyle(styles.get(&quot;title&quot;));    sheet.addMergedRegion(CellRangeAddress.valueOf(&quot;$A$1:$J$1&quot;)); //从A1到J1单元格合并；可以直接CellRangeAddress（起始行，终止行，起始列，终止列）    //Second row    Row secondRow = sheet.createRow(1);    secondRow.setHeightInPoints(40); //行高    Cell secondCell = secondRow.createCell(0);    secondCell.setCellValue(&quot;评委编号：&quot;+pid+&quot;          评委签名：&quot;);    secondCell.setCellStyle(styles.get(&quot;header&quot;)); //设置单元格样式    sheet.addMergedRegion(CellRangeAddress.valueOf(&quot;$A$2:$J$2&quot;)); //合并单元格，前面设置的样式都应用到了这些单元格上了    //header row    Row headerRow = sheet.createRow(2);    headerRow.setHeightInPoints(40);    Cell headerCell;    for (int i = 0; i &lt; headers.length; i++) {        headerCell = headerRow.createCell(i);        headerCell.setCellValue(headers[i]);        headerCell.setCellStyle(styles.get(&quot;header&quot;));    }    //评委分数    int rownum = 3; //前三列为固定值先不管    for (int i = 0; i &lt; pingweiScoreList.size(); i++) {        Row row = sheet.createRow(rownum++);        for (int j = 0; j &lt; headers.length; j++) {            Cell cell = row.createCell(j);            //逐项分数写入            switch (j){                case 0: cell.setCellValue(pingweiScoreList.get(i).getProId());break;                case 1: cell.setCellValue(pingweiScoreList.get(i).getBianHao());break;                case 2: cell.setCellValue(pingweiScoreList.get(i).getProName());break;                case 3: cell.setCellValue(pingweiScoreList.get(i).getOption1());break;                case 4: cell.setCellValue(pingweiScoreList.get(i).getOption2());break;                case 5: cell.setCellValue(pingweiScoreList.get(i).getOption3());break;                case 6: cell.setCellValue(pingweiScoreList.get(i).getOption4());break;                case 7: cell.setCellValue(pingweiScoreList.get(i).getOption5());break;                case 8: cell.setCellValue(pingweiScoreList.get(i).getOption6());break;                case 9: cell.setCellValue(pingweiScoreList.get(i).getTotalScore());break;            }        }    }    //所有行第1~3列的宽度，分别用来填写序号、作品编号和作品名称    sheet.setColumnWidth(0, 10*256); //10 characters wide    sheet.setColumnWidth(1, 10*256); //10 characters wide    sheet.setColumnWidth(2, 30*256); //30 characters wide    //后面列的宽度    for (int i = 3; i &lt; headers.length; i++) {        sheet.setColumnWidth(i, 9*256); //9 characters wide    }    return  0;</code></pre><p>  }</p></li><li><p>其中write(Outputstream)为HSSFWork唯一写出方法</p><h3 id="一些样式设置参考"><a href="#一些样式设置参考" class="headerlink" title="一些样式设置参考"></a><a href="https://www.cnblogs.com/huajiezh/p/5467821.html" target="_blank" rel="noopener">一些样式设置参考</a></h3><h3 id="解析Excel保存到数据库"><a href="#解析Excel保存到数据库" class="headerlink" title="解析Excel保存到数据库"></a>解析Excel保存到数据库</h3><pre><code>public class ResolveExcelServiceImpl implements ResolveExcelService {    private static final String SUFFIX_2003=&quot;.xls&quot;;    private static final String SUFFIX_2007=&quot;.xlsx&quot;;    @Override    public List&lt;Works&gt; resolveExcel(MultipartFile file) throws BusinessException {        List&lt;Works&gt; list=new ArrayList&lt;Works&gt;();        if(file==null){            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;文件不存在！&quot;);        }        //获取文件名        String originalFilename=file.getOriginalFilename();        Workbook workbook=null;        //判断格式        try{            if(originalFilename.endsWith(SUFFIX_2003)){                /*                getInputStream()返回InputStream                经测试，全部文件都返回ByteArrayInputStream                */                workbook=new HSSFWorkbook(file.getInputStream());            }else if(originalFilename.endsWith(SUFFIX_2007)){  //不知道为什么这种格式会抛异常                workbook=new XSSFWorkbook(file.getInputStream());            }        }catch (Exception e){            e.printStackTrace();            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;格式错误！&quot;);        }        if(null==workbook){            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;格式错误！&quot;);        }else{            //获取所有工作表的数量            int numOfSheet=workbook.getNumberOfSheets();            //遍历这些表            for(int i=0;i&lt;numOfSheet;i++){                //获取一个sheet                Sheet sheet=workbook.getSheetAt(i);                int lastRowNum=sheet.getLastRowNum();                //从第三行开始，第1行一般是标题，第二行是表头                for(int j=2;j&lt;=lastRowNum;j++){                    Row row=sheet.getRow(j);                    Works works=new Works();                    //获取序号单元格                    if(row.getCell(0)!=null){                        row.getCell(0).setCellType(Cell.CELL_TYPE_STRING);                        //获取单元格内容（将内容当做字符串处理）                        String code=row.getCell(0).getStringCellValue();                        //正则对比                        boolean matche=Pattern.matches(&quot;^\\d{1,2}$&quot;,code);                        if(!matche){                            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;序号错误！&quot;);                        }                        works.setCode(code);                    }                    //编号                    if(row.getCell(1)!=null){                        row.getCell(1).setCellType(Cell.CELL_TYPE_STRING);                        String bianHao=row.getCell(1).getStringCellValue();                        //校验编号长度                        boolean matche=Pattern.matches(&quot;^\\d{6}$&quot;,bianHao);                        if(!matche){                            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;序号错误！&quot;);                        }                        works.setBianHao(bianHao);                    }                    //名称                    if(row.getCell(2)!=null){                        row.getCell(2).setCellType(Cell.CELL_TYPE_STRING);                        String name=row.getCell(2).getStringCellValue();                        //正则对比                        boolean matche=Pattern.matches(&quot;^[\\u4E00-\\u9FA5\\w\\-\\——]{1,}$&quot;,name);                        if(!matche){                            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;作品名称错误！&quot;);                        }                        works.setName(name);                    }                    //分赛区                    if(row.getCell(3)!=null){                        row.getCell(3).setCellType(Cell.CELL_TYPE_STRING);                        String district=row.getCell(3).getStringCellValue();                        //正则对比                        boolean matche=Pattern.matches(&quot;^[\\u4E00-\\u9FA5]{1,}$&quot;,district);                        if(!matche){                            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;分赛区名称错误！&quot;);                        }                        works.setPartName(district);                    }                    //学校                    if(row.getCell(4)!=null){                        row.getCell(4).setCellType(Cell.CELL_TYPE_STRING);                        String school=row.getCell(4).getStringCellValue();                        //正则对比                        boolean matche=Pattern.matches(&quot;^[\\u4E00-\\u9FA5]{1,}$&quot;,school);                        if(!matche){                            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;学校名称错误！&quot;);                        }                        works.setSchool(school);                    }                    //指导老师                    if(row.getCell(5)!=null){                        row.getCell(5).setCellType(Cell.CELL_TYPE_STRING);                        String teachers=row.getCell(5).getStringCellValue();                        //正则对比                        boolean matche=Pattern.matches(&quot;^[\\u4E00-\\u9FA5\\s,，、]{1,}$&quot;,teachers);                        if(!matche){                            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;老师姓名格式错误！&quot;);                        }                        works.setTeachers(teachers);                    }                    //学生                    if(row.getCell(6)!=null){                        row.getCell(6).setCellType(Cell.CELL_TYPE_STRING);                        String students=row.getCell(6).getStringCellValue();                        //正则对比                        boolean matche=Pattern.matches(&quot;^[\\u4E00-\\u9FA5\\s,，、]{1,}$&quot;,students);                        if(!matche){                            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;学生姓名格式错误！&quot;);                        }                        works.setStudents(students);                    }                    //组别                    if(row.getCell(7)!=null){                        row.getCell(7).setCellType(Cell.CELL_TYPE_STRING);                        String model=row.getCell(7).getStringCellValue();                        //正则对比                        boolean matche=Pattern.matches(&quot;^[\\u4E00-\\u9FA5]{1,}$&quot;,model);                        if(!matche){                            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;组别格式错误！&quot;);                        }                        works.setModel(model);                    }                    list.add(works);                }            }        }        return list;}</code></pre></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;一种用java代码读写文档（Excel、word、PPT）的方式&lt;h3 id=&quot;读写Excel方面&quot;&gt;&lt;a href=&quot;#读写E
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://47.107.237.149/2019/04/30/Ant%E9%A3%8E%E6%A0%BC/"/>
+    <id>http://47.107.237.149/2019/04/30/Ant风格/</id>
+    <published>2019-04-30T08:25:44.553Z</published>
+    <updated>2019-02-28T06:23:03.321Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>Ant风格，为请求路径的一种匹配方式。</li><li>Ant通配符</li></ul><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7608.PNG" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7609.PNG" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><ul><li><a href="https://blog.csdn.net/wangshfa/article/details/26471641" target="_blank" rel="noopener">参考文章</a></li><li><p>支持Ant风格：</p><ul><li>Spring资源加载————classpath：com/t?st.xml</li><li>SpringMvc的url映射————@RequestMapping(“/teach”)</li><li><p>Spring注释扫描</p>  <!--根上下文只扫描dao,service.impl以及webservice包下的class--><p>  &lt;context:component-scan </p><pre><code>base-package=&quot;org.xxx.**.dao, org.xxx.**.service.impl, org.xx.**.webservice&quot;/&gt;</code></pre></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;Ant风格，为请求路径的一种匹配方式。&lt;/li&gt;
+&lt;li&gt;Ant通配符&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;image-bubble&quot;&gt;
+                &lt;div class=&quot;img-lightbox&quot;&gt;
+           
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://47.107.237.149/2019/04/30/alibabaJava%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C%E4%B9%8B%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"/>
+    <id>http://47.107.237.149/2019/04/30/alibabaJava开发手册之异常处理/</id>
+    <published>2019-04-30T08:25:44.544Z</published>
+    <updated>2018-09-26T09:45:28.353Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p>异常不要用来做流程控制、条件控制，因为异常的处理效率比条件分支低。</p><pre><code>//正例if(obj!=null){    ...}//反例try{    obj.method()}catch(NullPointException e){    ...}</code></pre></li><li>对大段代码进行try/catch,这是不负责任的表现。请分清稳定代码和非稳定代码。</li><li>捕获代码是为了处理它，如果不想处理它，请把该异常抛给它的调用者。最外层的业务处理者，必须处理异常，并将其转化为用户可以理解的内容。</li><li>避免直接抛出new RuntimeException(),更不允许抛出Exception或者Throwable，应该用有业务含义的自定义异常。推荐业界已定义过的自定义异常，如：DAOException、ServiceException等。</li><li>避免出现重复的代码（Don’t Repeat Youself),即DRY原则。必要时抽取公共方法，或者抽象公共类，甚至是组件化。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;异常不要用来做流程控制、条件控制，因为异常的处理效率比条件分支低。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//正例
+if(obj!=null){
+    ...
+}
+
+//反例
+try{
+    obj.method()
+}catch(NullPointExcep
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://47.107.237.149/2019/04/30/Ajax/"/>
+    <id>http://47.107.237.149/2019/04/30/Ajax/</id>
+    <published>2019-04-30T08:25:44.537Z</published>
+    <updated>2018-10-13T08:36:16.852Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>创建一个XMLHttpRequest 对象，用于在后台与服务器交换数据。这意味着可以在不重载的整个网页的 情况下，对网页的某部分进行更新。然后使用该对象的open方法来打开一个Http请求。</li><li>open(method,url,async): 规定请求的类型（get或post）、URL与是否异步（一般为true）</li><li><p>send(String): 发送请求，String仅用于post请求。</p><pre><code>function loadName(){    var xmlHttp;    if(window.XMLHttpRequest){ //检查浏览器是否存在XMLHttpRequest对象，它用于在后台与服务器交换数据        xmlHttp=new XMLHttpRequest();    }else{ //IE5|IE6不支持        xmlHttp=new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);    }    //get，请求方式，中间是URL，文件在服务器上的位置，在web.xml中找到URL为getAjaxName的servlet来处理请求；true，启用异步    xmlHttp.open(&quot;get&quot;, &quot;getAjaxName?name=jack&amp;age=11&quot;, true);//直接加参数    //xmlHttp.open(&quot;post&quot;, &quot;getAjaxName&quot;, true);//不带参数    //xmlHttp.open(&quot;post&quot;, &quot;getAjaxName?name=jack&amp;age=11&quot;, true);    xmlHttp.send();//记得要加个send才能把数据发送到后台}</code></pre></li></ul><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7979.PNG" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7951.PNG" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><ul><li>代码实例：HeadFirstAjaxJsonChap02-&gt;ajax.jsp、onreadystatechange.jsp</li><li>注意要使用到json.lib的话就要引入很多个jar包</li><li>xmlHttp.open:url栏写法：xmlHttp.open(“get”, “login?action=view&amp;userName=”+userName, true);//带action回去，userName不是一个字符串而是一个字符串对象就不要放引号里面了</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;创建一个XMLHttpRequest 对象，用于在后台与服务器交换数据。这意味着可以在不重载的整个网页的 情况下，对网页的某部分进行更新。然后使用该对象的open方法来打开一个Http请求。&lt;/li&gt;
+&lt;li&gt;open(method,url,async): 规定
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title></title>

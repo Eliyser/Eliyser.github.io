@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简介 一种用java代码读写文档（Excel、word、PPT）的方式读写Excel方面 针对不同的Excel版本，要采用不同的工具类。 HSSFWorkbook：操作Excel2003以前的版本，扩展名为.xls XSSFWorkbook：操作2007的版本，扩展名是.xlsx   如果版本匹配错了，会抛出异常： org.apache.poi.openxml4j.exceptions.Inval">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Apache POI/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="简介 一种用java代码读写文档（Excel、word、PPT）的方式读写Excel方面 针对不同的Excel版本，要采用不同的工具类。 HSSFWorkbook：操作Excel2003以前的版本，扩展名为.xls XSSFWorkbook：操作2007的版本，扩展名是.xlsx   如果版本匹配错了，会抛出异常： org.apache.poi.openxml4j.exceptions.Inval">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7239.PNG">
+<meta property="og:updated_time" content="2018-09-08T08:30:26.970Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="简介 一种用java代码读写文档（Excel、word、PPT）的方式读写Excel方面 针对不同的Excel版本，要采用不同的工具类。 HSSFWorkbook：操作Excel2003以前的版本，扩展名为.xls XSSFWorkbook：操作2007的版本，扩展名是.xlsx   如果版本匹配错了，会抛出异常： org.apache.poi.openxml4j.exceptions.Inval">
+<meta name="twitter:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7239.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:44.556Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#读写Excel方面"><span class="post-toc-number">2.</span> <span class="post-toc-text">读写Excel方面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考文章"><span class="post-toc-number">3.</span> <span class="post-toc-text">参考文章</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#读取各种文档的类"><span class="post-toc-number">4.</span> <span class="post-toc-text">读取各种文档的类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#工作簿概念"><span class="post-toc-number">5.</span> <span class="post-toc-text">工作簿概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码实例"><span class="post-toc-number">6.</span> <span class="post-toc-text">代码实例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一些样式设置参考"><span class="post-toc-number">7.</span> <span class="post-toc-text">一些样式设置参考</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解析Excel保存到数据库"><span class="post-toc-number">8.</span> <span class="post-toc-text">解析Excel保存到数据库</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Apache POI"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.556Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>一种用java代码读写文档（Excel、word、PPT）的方式<h3 id="读写Excel方面"><a href="#读写Excel方面" class="headerlink" title="读写Excel方面"></a>读写Excel方面</h3></li>
+<li>针对不同的Excel版本，要采用不同的工具类。<ul>
+<li>HSSFWorkbook：操作Excel2003以前的版本，扩展名为.xls</li>
+<li>XSSFWorkbook：操作2007的版本，扩展名是.xlsx</li>
+</ul>
+</li>
+<li>如果版本匹配错了，会抛出异常：<ul>
+<li>org.apache.poi.openxml4j.exceptions.InvalidOperationException</li>
+<li>org.apache.poi.poifs.filesystem.OfficeXmlFileException</li>
+</ul>
+</li>
+<li>从POI 3.8版本开始，提供了一种基于XSSF的低内存占用的API—-SXSSF</li>
+<li>当数据量超出65536条后，在使用HSSFWorkbook或XSSFWorkbook，程序会报OutOfMemoryError：Javaheap space;内存溢出错误。这时应该用SXSSFworkbook。<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a><a href="https://blog.csdn.net/qq_34869143/article/details/76512289" target="_blank" rel="noopener">参考文章</a></h3><h3 id="读取各种文档的类"><a href="#读取各种文档的类" class="headerlink" title="读取各种文档的类"></a>读取各种文档的类</h3></li>
+<li>HSSF–读写.xls格式文档</li>
+<li>XSSF–读写.xlsx格式文档</li>
+<li>HWPF–读写.doc格式文档</li>
+<li>HSLF–读写PPT<h3 id="工作簿概念"><a href="#工作簿概念" class="headerlink" title="工作簿概念"></a>工作簿概念</h3></li>
+<li>打个比方，工作簿就像一本书或者一本账册，工作表就像其中的一张或一篇。工作簿中包含一个或多个工作表，工作表依托于工作簿存在。</li>
+<li>新建Excel文档（.xls)其实就是新建工作簿,然后在里面可以有sheet1、sheet2等等。<h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7239.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li><p>一个较为复杂的例子</p>
+<pre><code>public void excel() throws Exception{
+    String excelName = year+&quot;泛珠赛全国总决赛终评评委打分审核表(&quot;+model+&quot;)&quot;; //工作簿名称
+    Workbook wb = new HSSFWorkbook();
+    Map&lt;String, CellStyle&gt; styles = createStyles(wb); //设置各种单元格对应的样式
+    for (int i = 0; i &lt; pingweiList.size(); i++) {
+        //创建Excel表格
+        CreatePingweiScore(wb, styles, headers,pingweiList.get(i), model,year);
+    }
+
+    // 写出
+    String file = excelName+&quot;.xls&quot;; //文件命名
+    FileOutputStream out  = new FileOutputStream(file);
+    wb.write(out);
+    out.close();
+}
+
+/* 
+* 设置各种单元格对应的样式
+* （基本上样式都是应用于单元格的，没见过应用在行上的顶多设置下行高这样）
+*/
+private static Map&lt;String, CellStyle&gt; createStyles(Workbook wb){
+    Map&lt;String, CellStyle&gt; styles = new HashMap&lt;&gt;();
+    CellStyle style;
+
+    /*设置标题格式*/
+    Font titleFont = wb.createFont();
+    //字号
+    titleFont.setFontHeightInPoints((short)18);
+    //加粗
+    titleFont.setBold(true);
+    //设置单元格样式
+    style = wb.createCellStyle();
+    //水平居中
+    style.setAlignment(HorizontalAlignment.CENTER);
+    //垂直居中
+    style.setVerticalAlignment(VerticalAlignment.CENTER);
+    //将字体样式加入到样式当中
+    style.setFont(titleFont);
+    //将样式应用到标题当中
+    styles.put(&quot;title&quot;, style);
+
+    /*设置表头格式*/
+    Font monthFont = wb.createFont();
+    monthFont.setFontHeightInPoints((short)11);
+    monthFont.setBold(true);
+    //字体颜色
+    monthFont.setColor(IndexedColors.BLACK.getIndex());
+    style = wb.createCellStyle();
+    style.setAlignment(HorizontalAlignment.CENTER);
+    style.setVerticalAlignment(VerticalAlignment.CENTER);
+    style.setFont(monthFont);
+    //自动换行
+    style.setWrapText(true);
+    //应用到表头
+    styles.put(&quot;header&quot;, style);
+
+    /*设置单元格*/
+    CellStyle cellStyle = wb.createCellStyle();
+    cellStyle.setAlignment(HorizontalAlignment.CENTER);
+    cellStyle.setWrapText(true);
+    //右边框
+    cellStyle.setBorderRight(BorderStyle.THIN);
+    //右边框颜色
+    cellStyle.setRightBorderColor(IndexedColors.BLACK.getIndex());
+    cellStyle.setBorderLeft(BorderStyle.THIN);
+    cellStyle.setLeftBorderColor(IndexedColors.BLACK.getIndex());
+    cellStyle.setBorderTop(BorderStyle.THIN);
+    cellStyle.setTopBorderColor(IndexedColors.BLACK.getIndex());
+    cellStyle.setBorderBottom(BorderStyle.THIN);
+    cellStyle.setBottomBorderColor(IndexedColors.BLACK.getIndex());
+    //应用到单元格
+    styles.put(&quot;cell&quot;, cellStyle);
+
+    return styles;//styles：应用单元-单元属性的Map集合
+}
+
+/*
+* 设置Excel表格
+*/
+private int CreatePingweiScore(Workbook wb, Map&lt;String, CellStyle&gt; styles,
+                           String[] headers,String pid, String model,int year){
+    //所有作品的分
+    List&lt;PingweiScore&gt; pingweiScoreList =
+            pingweiScoreService.selectByPidAndModelAndYear(pid,model,year);
+
+    String titleName = year+&quot;泛珠赛全国总决赛终评评委打分审核表(&quot;+model+&quot;)&quot;;
+    String pingweiName = &quot;评委&quot;+pid;
+
+    //打印设置
+    Sheet sheet = wb.createSheet(pingweiName); //pingweiName为表名
+    PrintSetup printSetup = sheet.getPrintSetup();
+    printSetup.setLandscape(true); //true表示页面方向为横向，false为纵向
+    sheet.setFitToPage(true);
+    sheet.setHorizontallyCenter(true);
+
+    //title row
+    Row titleRow = sheet.createRow(0);
+    titleRow.setHeightInPoints(45);
+    Cell titleCell = titleRow.createCell(0);
+    titleCell.setCellValue(titleName);
+    titleCell.setCellStyle(styles.get(&quot;title&quot;));
+    sheet.addMergedRegion(CellRangeAddress.valueOf(&quot;$A$1:$J$1&quot;)); //从A1到J1单元格合并；可以直接CellRangeAddress（起始行，终止行，起始列，终止列）
+
+    //Second row
+    Row secondRow = sheet.createRow(1);
+    secondRow.setHeightInPoints(40); //行高
+    Cell secondCell = secondRow.createCell(0);
+    secondCell.setCellValue(&quot;评委编号：&quot;+pid+&quot;          评委签名：&quot;);
+    secondCell.setCellStyle(styles.get(&quot;header&quot;)); //设置单元格样式
+    sheet.addMergedRegion(CellRangeAddress.valueOf(&quot;$A$2:$J$2&quot;)); //合并单元格，前面设置的样式都应用到了这些单元格上了
+
+    //header row
+    Row headerRow = sheet.createRow(2);
+    headerRow.setHeightInPoints(40);
+    Cell headerCell;
+    for (int i = 0; i &lt; headers.length; i++) {
+        headerCell = headerRow.createCell(i);
+        headerCell.setCellValue(headers[i]);
+        headerCell.setCellStyle(styles.get(&quot;header&quot;));
+    }
+
+    //评委分数
+    int rownum = 3; //前三列为固定值先不管
+    for (int i = 0; i &lt; pingweiScoreList.size(); i++) {
+        Row row = sheet.createRow(rownum++);
+        for (int j = 0; j &lt; headers.length; j++) {
+            Cell cell = row.createCell(j);
+            //逐项分数写入
+            switch (j){
+                case 0: cell.setCellValue(pingweiScoreList.get(i).getProId());break;
+                case 1: cell.setCellValue(pingweiScoreList.get(i).getBianHao());break;
+                case 2: cell.setCellValue(pingweiScoreList.get(i).getProName());break;
+                case 3: cell.setCellValue(pingweiScoreList.get(i).getOption1());break;
+                case 4: cell.setCellValue(pingweiScoreList.get(i).getOption2());break;
+                case 5: cell.setCellValue(pingweiScoreList.get(i).getOption3());break;
+                case 6: cell.setCellValue(pingweiScoreList.get(i).getOption4());break;
+                case 7: cell.setCellValue(pingweiScoreList.get(i).getOption5());break;
+                case 8: cell.setCellValue(pingweiScoreList.get(i).getOption6());break;
+                case 9: cell.setCellValue(pingweiScoreList.get(i).getTotalScore());break;
+            }
+        }
+    }
+
+    //所有行第1~3列的宽度，分别用来填写序号、作品编号和作品名称
+    sheet.setColumnWidth(0, 10*256); //10 characters wide
+    sheet.setColumnWidth(1, 10*256); //10 characters wide
+    sheet.setColumnWidth(2, 30*256); //30 characters wide
+    //后面列的宽度
+    for (int i = 3; i &lt; headers.length; i++) {
+        sheet.setColumnWidth(i, 9*256); //9 characters wide
+    }
+    return  0;
+</code></pre><p>  }</p>
+</li>
+<li><p>其中write(Outputstream)为HSSFWork唯一写出方法</p>
+<h3 id="一些样式设置参考"><a href="#一些样式设置参考" class="headerlink" title="一些样式设置参考"></a><a href="https://www.cnblogs.com/huajiezh/p/5467821.html" target="_blank" rel="noopener">一些样式设置参考</a></h3><h3 id="解析Excel保存到数据库"><a href="#解析Excel保存到数据库" class="headerlink" title="解析Excel保存到数据库"></a>解析Excel保存到数据库</h3><pre><code>public class ResolveExcelServiceImpl implements ResolveExcelService {
+
+    private static final String SUFFIX_2003=&quot;.xls&quot;;
+    private static final String SUFFIX_2007=&quot;.xlsx&quot;;
+
+    @Override
+    public List&lt;Works&gt; resolveExcel(MultipartFile file) throws BusinessException {
+        List&lt;Works&gt; list=new ArrayList&lt;Works&gt;();
+        if(file==null){
+            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;文件不存在！&quot;);
+        }
+        //获取文件名
+        String originalFilename=file.getOriginalFilename();
+        Workbook workbook=null;
+        //判断格式
+        try{
+            if(originalFilename.endsWith(SUFFIX_2003)){
+                /*
+                getInputStream()返回InputStream
+                经测试，全部文件都返回ByteArrayInputStream
+                */
+                workbook=new HSSFWorkbook(file.getInputStream());
+            }else if(originalFilename.endsWith(SUFFIX_2007)){  //不知道为什么这种格式会抛异常
+                workbook=new XSSFWorkbook(file.getInputStream());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;格式错误！&quot;);
+        }
+        if(null==workbook){
+            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;格式错误！&quot;);
+        }else{
+            //获取所有工作表的数量
+            int numOfSheet=workbook.getNumberOfSheets();
+            //遍历这些表
+            for(int i=0;i&lt;numOfSheet;i++){
+                //获取一个sheet
+                Sheet sheet=workbook.getSheetAt(i);
+                int lastRowNum=sheet.getLastRowNum();
+                //从第三行开始，第1行一般是标题，第二行是表头
+                for(int j=2;j&lt;=lastRowNum;j++){
+                    Row row=sheet.getRow(j);
+                    Works works=new Works();
+                    //获取序号单元格
+                    if(row.getCell(0)!=null){
+                        row.getCell(0).setCellType(Cell.CELL_TYPE_STRING);
+                        //获取单元格内容（将内容当做字符串处理）
+                        String code=row.getCell(0).getStringCellValue();
+                        //正则对比
+                        boolean matche=Pattern.matches(&quot;^\\d{1,2}$&quot;,code);
+                        if(!matche){
+                            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;序号错误！&quot;);
+                        }
+                        works.setCode(code);
+                    }
+                    //编号
+                    if(row.getCell(1)!=null){
+                        row.getCell(1).setCellType(Cell.CELL_TYPE_STRING);
+                        String bianHao=row.getCell(1).getStringCellValue();
+                        //校验编号长度
+                        boolean matche=Pattern.matches(&quot;^\\d{6}$&quot;,bianHao);
+                        if(!matche){
+                            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;序号错误！&quot;);
+                        }
+                        works.setBianHao(bianHao);
+                    }
+                    //名称
+                    if(row.getCell(2)!=null){
+                        row.getCell(2).setCellType(Cell.CELL_TYPE_STRING);
+                        String name=row.getCell(2).getStringCellValue();
+                        //正则对比
+                        boolean matche=Pattern.matches(&quot;^[\\u4E00-\\u9FA5\\w\\-\\——]{1,}$&quot;,name);
+                        if(!matche){
+                            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;作品名称错误！&quot;);
+                        }
+                        works.setName(name);
+                    }
+                    //分赛区
+                    if(row.getCell(3)!=null){
+                        row.getCell(3).setCellType(Cell.CELL_TYPE_STRING);
+                        String district=row.getCell(3).getStringCellValue();
+                        //正则对比
+                        boolean matche=Pattern.matches(&quot;^[\\u4E00-\\u9FA5]{1,}$&quot;,district);
+                        if(!matche){
+                            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;分赛区名称错误！&quot;);
+                        }
+                        works.setPartName(district);
+                    }
+                    //学校
+                    if(row.getCell(4)!=null){
+                        row.getCell(4).setCellType(Cell.CELL_TYPE_STRING);
+                        String school=row.getCell(4).getStringCellValue();
+                        //正则对比
+                        boolean matche=Pattern.matches(&quot;^[\\u4E00-\\u9FA5]{1,}$&quot;,school);
+                        if(!matche){
+                            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;学校名称错误！&quot;);
+                        }
+                        works.setSchool(school);
+                    }
+                    //指导老师
+                    if(row.getCell(5)!=null){
+                        row.getCell(5).setCellType(Cell.CELL_TYPE_STRING);
+                        String teachers=row.getCell(5).getStringCellValue();
+                        //正则对比
+                        boolean matche=Pattern.matches(&quot;^[\\u4E00-\\u9FA5\\s,，、]{1,}$&quot;,teachers);
+                        if(!matche){
+                            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;老师姓名格式错误！&quot;);
+                        }
+                        works.setTeachers(teachers);
+                    }
+                    //学生
+                    if(row.getCell(6)!=null){
+                        row.getCell(6).setCellType(Cell.CELL_TYPE_STRING);
+                        String students=row.getCell(6).getStringCellValue();
+                        //正则对比
+                        boolean matche=Pattern.matches(&quot;^[\\u4E00-\\u9FA5\\s,，、]{1,}$&quot;,students);
+                        if(!matche){
+                            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;学生姓名格式错误！&quot;);
+                        }
+                        works.setStudents(students);
+                    }
+                    //组别
+                    if(row.getCell(7)!=null){
+                        row.getCell(7).setCellType(Cell.CELL_TYPE_STRING);
+                        String model=row.getCell(7).getStringCellValue();
+                        //正则对比
+                        boolean matche=Pattern.matches(&quot;^[\\u4E00-\\u9FA5]{1,}$&quot;,model);
+                        if(!matche){
+                            throw new BusinessException(ReturnCode.CODE_FAIL,&quot;组别格式错误！&quot;);
+                        }
+                        works.setModel(model);
+                    }
+                    list.add(works);
+                }
+            }
+        }
+        return list;
+}
+</code></pre></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-09-08T08:30:26.970Z" itemprop="dateUpdated">2018-09-08 16:30:26</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Apache POI/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Apache POI/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Apache POI/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Apache POI/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Apache POI/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Apache POI/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Apache POI/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/ArrayList.this类名.this何意/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Ant风格/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Apache POI/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Apache POI/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Apache POI/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Apache POI/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Apache POI/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3a227DIBBF0fz/T7uvlSrMPgNu5GHzVEUOYbnSiLl8Pnhdv9b959efdb/baM/PE0uGDBmvZVy3K2WMDjTa8x5GziZDhoxzGOQQPO6lUZFQJ78iQ4YMGTj48msl/y0ZMmTIqDFWniRhV4YMGTJWtt5VsPtaLi5DhowXMtLU9D//fqS/IUOGjFcxrnDVmpHpRTA+lQwZMlozeIDjvLSsRgp5qIQnQ4aMpgySrPLLHAmdtcvfZMhDhgwZrRnpaAUfpFj5hA9eyJAh4wTGevrKw2JtNxSaZciQ0ZpRK8qTduMTIXhyQhkyZDRl8HI///m0ecBLcuj/IEOGjHaM58Yv0sYnaW2mSbUMGTI6MXhLkhw3bQPUGpnDTqwMGTLaMUjrMS2u1ZLhWrCON5IhQ8YLGWm5v3btI8MZtWELGTJknMNYaUby98RhxRchQ4aMpgxe+q89ud5yQC9FhgwZBzB4QCSHXjlWrb0qQ4aM3oyVEn8KqBX4ePlPhgwZJzB4OzMtou0N3JNhCxkyZLRmkEvhyugqaQmkF0cZMmTI4EFzvSHKG5nD52XIkNGUcYWLH33vDpNvyZAhozWDLz4AcR92dwX3NFjLkCHj7YyVELk+NsFLfpN3L0OGjAMYZOtaYH0ulR32N2TIkCEDh9F0LCzFbwi4MmTIaM3goRY1IPG4xiSJlSFDRmtGLR1Nv5smsUE7U4YMGa0ZPHXc9fyucCxDhowDGD8b3omH8ihkHAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

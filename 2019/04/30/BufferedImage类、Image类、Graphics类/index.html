@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="BufferedImage Image是一个抽象类，BufferedImage是其实现类，是一个带缓冲区图像类，主要作用是将一幅图片加载到内存中（BufferedImage生成的图片在内存里有一个图像缓冲区，利用这个缓冲区我们可以很方便地操作这个图片），提供获得绘图对象、图像缩放、选择图像平滑度等功能，通常用来做图片大小变换、图片变灰、设置透明不透明等。 public abstract Graph">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/BufferedImage类、Image类、Graphics类/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="BufferedImage Image是一个抽象类，BufferedImage是其实现类，是一个带缓冲区图像类，主要作用是将一幅图片加载到内存中（BufferedImage生成的图片在内存里有一个图像缓冲区，利用这个缓冲区我们可以很方便地操作这个图片），提供获得绘图对象、图像缩放、选择图像平滑度等功能，通常用来做图片大小变换、图片变灰、设置透明不透明等。 public abstract Graph">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7600.PNG">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7599.PNG">
+<meta property="og:updated_time" content="2019-02-10T02:35:03.455Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="BufferedImage Image是一个抽象类，BufferedImage是其实现类，是一个带缓冲区图像类，主要作用是将一幅图片加载到内存中（BufferedImage生成的图片在内存里有一个图像缓冲区，利用这个缓冲区我们可以很方便地操作这个图片），提供获得绘图对象、图像缩放、选择图像平滑度等功能，通常用来做图片大小变换、图片变灰、设置透明不透明等。 public abstract Graph">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7600.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:44.600Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#BufferedImage"><span class="post-toc-number">1.</span> <span class="post-toc-text">BufferedImage</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ImageIO"><span class="post-toc-number">2.</span> <span class="post-toc-text">ImageIO</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#BufferedImage与byte数组的转换"><span class="post-toc-number">3.</span> <span class="post-toc-text">BufferedImage与byte数组的转换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#应用"><span class="post-toc-number">4.</span> <span class="post-toc-text">应用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Graphics"><span class="post-toc-number">5.</span> <span class="post-toc-text">Graphics</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码实例"><span class="post-toc-number">6.</span> <span class="post-toc-text">代码实例</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-BufferedImage类、Image类、Graphics类"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.600Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="BufferedImage"><a href="#BufferedImage" class="headerlink" title="BufferedImage"></a>BufferedImage</h3><ul>
+<li><p>Image是一个抽象类，BufferedImage是其实现类，是一个带缓冲区图像类，主要作用是将一幅图片加载到内存中（BufferedImage生成的图片在内存里有一个图像缓冲区，利用这个缓冲区我们可以很方便地操作这个图片），提供获得绘图对象、图像缩放、选择图像平滑度等功能，通常用来做图片大小变换、图片变灰、设置透明不透明等。</p>
+<pre><code>public abstract Graphics getGraphics()； //获得在图像上绘图的Graphics对象
+</code></pre></li>
+<li><p>Java将一幅图片加载到内存的方法是：</p>
+<pre><code>String imgPath = &quot;C://demo.jpg&quot;;  
+BufferedImage image = ImageIO.read(new FileInputStream(imgPath));
+</code></pre></li>
+<li>继而可以对图片进行操作,比如，获得图片的宽度：image.getWidth()</li>
+<li>图片只有加载到内存中才能进行进一步的处理。</li>
+<li>RGB:R（红）G（绿）B（蓝）色彩模式是工业界的一种颜色标准。在Java中每个RGB像素所占的位数为8.</li>
+<li>创建：<ul>
+<li>直接调用构造函数</li>
+</ul>
+</li>
+</ul>
+<pre><code>    //指定宽高、图像字节灰度
+    BufferedImage  bi = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_GRAY)
+    //创建一个不带透明色的对象
+    BufferedImage bimage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+    //创建一个带透明色的对象
+    new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+- 根据已经存在的BufferedImage对象创建一个copy体
+
+
+    public BufferedImage createBufferedImage(BufferedImage src)
+- 通过创建ColorModel（颜色转换为Java中的像素表示）和Raster（光栅，描述像素的）对象创建BufferedImage对象
+
+
+    public BufferedImage createBufferedImage（int width , int height, byte[] pixels）{ //pixel像素
+
+    　　ColorModel   cm = getColorModel();
+
+    　　SampleModel sm = getIndexSampleModel((IndexColorModel)cm, width,height);
+
+    　　DataBuffer db = new DataBufferByte(pixels, width*height,0);
+
+    　　WritableRaster raster = Raster.creatWritableRaster(sm, db,null);
+
+    　　BufferedImage  image =  new BufferedImage (cm, raster,false, null);
+
+    　　return image;
+
+    }
+- 读取一个图片文件来转换.
+
+
+    　　　　BufferedImage  image = ImageIo.read(new FileInputStream(filePath));
+</code></pre><ul>
+<li>保存：找个位置写出去</li>
+</ul>
+<pre><code>    　　File outputfile  = new File(&quot;save.png&quot;);
+    　　ImageIO.write(bi,&quot;png&quot;,outputfile);　　
+</code></pre><ul>
+<li><a href="https://www.cnblogs.com/bigdream6/p/8366248.html" target="_blank" rel="noopener">Raster和ColorModel对象、BufferedImage的创建与保存</a><h3 id="ImageIO"><a href="#ImageIO" class="headerlink" title="ImageIO"></a>ImageIO</h3></li>
+<li>提供read()和write()静态方法，读写图片，比以往的InputStream读写更方便。<h3 id="BufferedImage与byte数组的转换"><a href="#BufferedImage与byte数组的转换" class="headerlink" title="BufferedImage与byte数组的转换"></a>BufferedImage与byte数组的转换</h3></li>
+<li>在传输中，图片是不能直接传的，需要先转为字节数组再传输较为方便；而字节数组再转回BufferedImage则还原图片。</li>
+<li><p>BufferedImage–&gt;byte[]</p>
+<pre><code>ImageIO.write(BufferedImage image,String format,OutputStream out);
+//format:图片格式，“gif&quot;等；
+//out:目标；特别的，如果目标为byte数组，则将其预设为ByteArrayOutputStream即可传入此方法，执行完后，只要toByteArray()即可获得byte[].
+</code></pre></li>
+<li><p>byte[]–&gt;bufferedImage</p>
+<pre><code>ByteArrayInputStream in = new ByteArrayInputStream(byte[]b); //将b作为输入流；
+BufferedImage image = ImageIO.read(InputStream in);
+//将in作为输入流，读取图片存入image中，而这里in可以为ByteArrayInputStream();
+</code></pre></li>
+<li><a href="https://blog.csdn.net/rhl127/article/details/76850562" target="_blank" rel="noopener">参考文章</a><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3></li>
+<li><p>缓存网络图片</p>
+<pre><code>//获得图片地址
+Url img = new  URL(url);
+//获得图片输入流
+InputStream in = img.openStream();
+//把输入流转为BufferedImage
+JPEGImageDecoder decoderFile = JPEGCodec.createJPEGDecoder(in);
+BufferedImage image = decoderFile.decodeAsBufferedImage();
+//获得其byte数组
+ImageIO.write(image, &quot;jpg&quot;, bos);
+//写出
+InputStream is = new ByteArrayInputStream(os.toByteArray());
+</code></pre></li>
+<li><p>具体测试与改动</p>
+<pre><code>URL url = new URL(&quot;http://www.google.com/intl/en_ALL/images/logo.gif&quot;);
+BufferedImage image = ImageIO.read(url);
+ByteArrayOutputStream os = new ByteArrayOutputStream();
+ImageIO.write(image, &quot;gif&quot;, os);
+InputStream is = new ByteArrayInputStream(os.toByteArray());
+</code></pre><h3 id="Graphics"><a href="#Graphics" class="headerlink" title="Graphics"></a>Graphics</h3></li>
+<li>提供基本绘图和显示格式化文字的方法，画图用的坐标系原点在左上角，纵轴向下。主要有画线段、矩形、圆、椭圆、圆弧、多边形等各种颜色的图形、线条。</li>
+<li>Graphics2D类提供更强大的绘图能力。</li>
+<li><p>在窗口画一条直线：drawLine(int x1,int y1,int x2,int y2)</p>
+<pre><code>g.drawLine(3,3,50,50);//在(3,3)与(50,50)之间画一条线段
+g.drawLine(100,100,100,100);//画一个点
+</code></pre></li>
+<li>画折线：drawPolyline(int[],int[],int)，各点的x、y坐标，折线数。</li>
+<li><p>画字符串：drawString(String str,int x,int y)，x、y是开始显示的位置，使用默认字体、大小、黑色。再写下一行要写在什么位置就很难精确定位了。若要精确定位，则需要知道字符串显示的长度和字高，可以通过FontMetrics类来实现。</p>
+<pre><code>FontMetrics fm = g.getFontMetrics(font); //从Graphics对象获取FontMetrics对象
+int height = fm.getHeight(); //调用其getHeight()获得字高
+int width = fm.stringWidth(s1); //获得字符串宽度
+</code></pre></li>
+<li><p>应用FontMetrics精确定位</p>
+<pre><code>String s1 = &quot;Hello, Java World!&quot;;
+g.setColor(Color.red);
+setBackground(new Color(0,255,0));
+Font font = new Font(&quot;Arial&quot;, Font.BOLD, 18);
+g.setFont(font);
+FontMetrics fm = g.getFontMetrics(font);
+int height = fm.getHeight();
+int width = fm.stringWidth(s1);
+int posx =50; int posy = 50;
+g.drawString(s1 ,posx, posy);
+g.drawString(&quot;I will come in.&quot; ,posx +width, posy+height);
+</code></pre></li>
+<li>显示效果</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7600.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>设置画笔字体：setFont(Font font)；Java有一个类叫GraphicsEnvironment提供绘图环境，其中getAvailableFontFamilyNames()方法可获取程序所在操作系统的所有字体名（是String不是Font）。</p>
+<pre><code>GraphicsEnvironment gv =
+GraphicsEnvironment.getLocalGraphicsEnvironment();
+String[] ftNames = gv.getAvailableFontFamilyNames();
+for (int i=0; i&lt;ftNames.length; i++)
+    Font ft = new Font(ftNames[i], Font.BOLD, 14);
+</code></pre></li>
+<li><p>设置前景色（画笔颜色）：setColor(Color color)，选择颜色有两种方法，一是直接用颜色值RGB创建Color对象：Color color=new Color(int R,int G,int B),由于是8位，所以不能超过255;二是用颜色常量如Color.red,Color.green等，Color类提供了13中颜色常量。</p>
+</li>
+<li>设置背景色：setBackground(new Color(int,int,int))</li>
+<li><p>来个写不同字体的小例子</p>
+<pre><code>public void paint (Graphics g){
+   String s1 = &quot;This Font is &quot;;
+   Font font = new Font(&quot;Arial&quot;, Font.BOLD, 18);
+   g.setColor(Color.red);
+    setBackground(new Color(0,255,0));
+   g.setFont(font);
+   g.drawString(s1 + font.getName() ,20, 60);
+   g.setFont(new Font(&quot;隶书&quot;, Font.BOLD, 28));
+   g.drawString(&quot;现在是隶书&quot; ,20, 120);
+   g.setColor(new Color(0,0,0));
+}
+</code></pre></li>
+<li>显示效果</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7599.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>画矩形：drawRect(int x,int y,int width,int height),画矩形线框，x,y指定了左上角位置，后两个为矩形宽高；fillRect(iny x.int y,int width,int height),指定填充颜色。</p>
+<pre><code>g.drawRect(80,100,40,25);//画线框
+g.setColor(Color.yellow);g.fillRect(20,70,20,30);//画着色块
+</code></pre></li>
+<li><p>画圆角矩形：drawRoundRect(int x,int y,int width,int height,int arcWidth,int arcHeight),线框，最后两个宽高是圆角弧的横向直径和纵向直径；fillRoundRect(int x,int y,int width,int height,int arcWidth,int arcHeight),颜色填充。</p>
+<pre><code>g.drawRoundRect(10,10,150,70,40,25);//画一个圆角矩形
+g.setColor(Color.blue); g.fillRoundRect(80,100,100,100,60,40);//涂一个圆角矩形块
+g.drawRoundRect(10,150,40,40,40,40);//画圆
+g.setColor(Color.red); g.fillRoundRect(80,100,100,100,100,100);//画圆块
+</code></pre></li>
+<li><p>画三维矩形: draw3DRect(int x,int y,int width,int height,boolean raised),画一个突出显示的矩形（即3D矩形），raise是突出与否；fill3DRect(int x,int y,int width,int height,boolean raised)，颜色填充。</p>
+<pre><code>g.draw3DRect(80,100,40,25,true);//画一个线框
+g.setColor(Color.yellow); g.fill3DRect(20,70,20,30,true);//画一个着色块
+</code></pre></li>
+<li>画椭圆：drawOval(int x,int y,int width,int height),x、y是中心坐标，长轴、短轴；fillOval(int x,int y,int width,int height),填充。</li>
+<li><p>画圆弧：drawArc(int x,int y,int width,int height,int startAngle,int arcAngle),画椭圆一部分的圆弧线，椭圆中心时它的外接矩形的中心，外接矩形左上角坐标为(x,y)，宽width，高height，startAngle单位是度，其实角度0度是指3点钟方向，startAngle和arcAngle表示从startAngle角度开始，逆时针方向画arcAngle度的弧，约定，正值度数是逆时针方向，负数为顺时针，例如-90°是6点钟方向；fillArc(int x,int y,int width, int height, int startAngle, int arcAngle)，着色。</p>
+<pre><code>g.drawArc(10,40,90,50,0,180);//画圆弧线
+g.drawArc(100,40,90,50,180,180);//画圆弧线
+g.setColor(Color.yellow); g.fillArc(10,100,40,40,0,-270);//填充缺右上角的四分之三的椭圆
+g.setColor(Color.green); g.fillArc(60,110,110,60,-90,-270);//填充缺左下角的四分之三的椭圆
+</code></pre></li>
+<li><p>画多边形：drawPolygon(int xPoints[],int yPoints[],int nPoints),多边形是多条线段首尾连接而成的封笔平面图，多边形线段端点的x,y坐标存储在两个数组中，画多边形就是按给定的坐标点顺序用直线段将它们连起来，nPoints是坐标点个数；fillPolygon(int xPoints[],int yPoints[],int nPoints)，着色。</p>
+<pre><code>int px1[]={50,90,10,50};//首末点相重,才能画多边形
+int py1[]={10,50,50,10};
+int px2[]={140,180,170,180,140,100,110,140};
+int py2[]={5,25,35,45,65,35,25,5};
+g.setColor(Color.blue);
+g.fillPolygon(px1,py1,4);
+g.setColor(Color.red);
+g.drawPolygon(px2,py2,9);
+</code></pre><ul>
+<li>也可以用多边形对象Polygon画多边形<ul>
+<li>Polygon()：创建多边形对象，暂时没有坐标点。</li>
+<li>Polygon(int xPoints[],int yPoints[],int nPoints)：用指定的坐标点创建多边形对象。</li>
+<li>addPoint()：将一个坐标点加入到Polygon对象中。</li>
+<li>drawPolygon(Polygon p)：绘制多边形。</li>
+<li>fillPolygon(Polygon p)：和指定的颜色填充多边形。</li>
+</ul>
+</li>
+<li>画一个三角形</li>
+</ul>
+</li>
+</ul>
+<pre><code>int x[]={140,180,170,180,140,100,110,100}; //用多边形对象不要求首末点重合
+int y[]={5,25,35,45,65,45,35,25};
+Polygon ponlygon1=new Polygon();
+polygon1.addPoint(50,10);
+polygon1.addPoint(90,50);
+polygon1.addPoint(10,50);
+g.drawPolygon(polygon1);
+g.setColor(Color.yellow);
+Polygon polygon2 = new Polygon(x,y,8);
+g.fillPolygon(polygon2);
+</code></pre><ul>
+<li>画图片：drawImage(Image image,int x,int y)</li>
+<li><p>擦除矩形块：clearREct(int x,int y,int width,int height),当需要在一个着色图形中有一个空缺的矩形时，可用背景色填充一矩形块实现，相当于在该图形上使用了橡皮擦。以下代码实现了在一个圆中擦除了一个矩形块</p>
+<pre><code>g.setColor(Color.blue);
+g.fillOval(50,50,100,100);g.clearRect(70,70,40,55);
+</code></pre></li>
+<li><p>限定作图显示区域：clipRect(int x,int y,int width,int height),用一个矩形表示图形的显示区域，超出部分不显示，多个限制区有覆盖时，得到交集区域</p>
+<pre><code>g.clipRect(0,0,100,50);g.clipRect(50,25,100,50);
+</code></pre></li>
+<li><p>复制图形：copyArea(int x,int y,int width,int height,int dx,int dy),dx和dy表示将图形复制到原位置偏移的像素点数，正值为往右或往下偏移，负值为往左或往上偏移，x、y是要复制矩形区域的左上角坐标。以下代码将一个矩形的部分、另一个矩形的全部分别平移</p>
+<pre><code>g.drawRect(10,10,60,90);
+g.fillRect(90,10,60,90);
+g.copyArea(40,50,60,70,-20,80);
+g.copyArea(110,50,60,60,10,80);
+</code></pre></li>
+<li><p>对Point、Rectangle类的应用</p>
+<pre><code>Point p = new Point(cx / 2, cy / 2); //定义一个点
+Rectangle rect = new Rectangle((p.x - 40), (p.y - 40), 80, 40); //定义一个矩形
+int[] xP = {(p.x - 40), (p.x + 90), p.x+200, (p.x - 40)};
+int[] yP = {(p.y - 40), (p.y +140), (p.y + 60), (p.y-40)};
+g.drawArc(rect.x, rect.y, rect.width, rect.height * 2, 270, 90); //画弧
+g.drawPolygon(xP, yP,3); //画多边形
+g.setColor(Color.red);
+</code></pre></li>
+<li><a href="https://www.cnblogs.com/donghb/p/7637990.html" target="_blank" rel="noopener">画图形方法</a><h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3></li>
+<li>github/image_verifyCode分支/thz-parent/thz-manager-web/WebPageController、thz-common/tool/RandomValidateCodeUtil、RandomValidateCodeUtilTest</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-02-10T02:35:03.455Z" itemprop="dateUpdated">2019-02-10 10:35:03</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/BufferedImage类、Image类、Graphics类/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/BufferedImage类、Image类、Graphics类/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/BufferedImage类、Image类、Graphics类/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/BufferedImage类、Image类、Graphics类/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/BufferedImage类、Image类、Graphics类/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/BufferedImage类、Image类、Graphics类/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/BufferedImage类、Image类、Graphics类/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/byte数组本质、0xff、String转byte[]原理/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Boot/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/BufferedImage类、Image类、Graphics类/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/BufferedImage类、Image类、Graphics类/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/BufferedImage类、Image类、Graphics类/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/BufferedImage类、Image类、Graphics类/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/BufferedImage类、Image类、Graphics类/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3awW7CMBAEUP7/p+m1FQrMeO2ISi8nVCDxM5K9nfXjEV/PX9frX17fff3u6+urd98/5XHiwsPDwxsM/ep2yQOuvpWAr9hXd0vGjIeHh3ea1y7o7UCT1Xvt9Ydn4eHh4X0Nry1/22U9uQMeHh7ef+G1AUEOyJ+Fh4eH9w28fJlOgtc8nkiCjzxExsPDw7uHl3eRvuf1kf4eHh4e3rirnoQLyaGB/DPzEf65Gx4eHt4BXtugasvW9lhAXpoXT8TDw8PbyssPUc2PBawd7RoFInh4eHjHeG3zvi21J6X5pFjHw8PDO8drm/R5xJAXxHlcuxhD4OHh4W3itUPJDxa0n8mndUPvDg8PD2/AW4sbEsw8FH6OLzw8PLxzvPkq2hbWyVaUBLUfCnE8PDy8w7y2gM5L4Xw63k9QvcHg4eHhHeO1bac8UJhED/mxrcv74OHh4d3Ca4vg/A6TOHjDoSs8PDy8Tby22F3bGNrhtkV2VKbj4eHh3chbC17XSva1DSmaJjw8PLxNvHmh/H7mkncnpfmHHwkPDw/vAO/Eoagc1hbu7baBh4eHd4KXNK6ScrYd7toRhGS6i18JDw8Pb4m3VuzuSkrzkYyOZ+Hh4eFt5a1FCZOlvI0nJjEHHh4e3gle+8//WnOr3RiSuKHYxvDw8PBu5OUZ8Nq20R7eqmMIPDw8vNt5a+2otTusbTZRMIGHh4d3mDdpPrUF8do20K78eHh4eHt5z/LKl+9i4R4cNfjQhMPDw8M7wMuvNsydl+Nt82x04eHh4ZW8XYFCsnkstv8nJTgeHh7eMV5b2s7L3M1lcZ614OHh4d3OW4sP8qMG+cYTTQoeHh7e1/DaBlUyQbumAw8PD+8eXr4055HuWsGdR8PRu3h4eHgHePniPnnA5IDCERIeHh7eyhN/AL+Sac7TCWq/AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
