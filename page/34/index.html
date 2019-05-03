@@ -165,6 +165,49 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-ArrayList.this类名.this何意"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.570Z"  itemprop="datePublished">2019-04-30</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/04/30/ArrayList.this类名.this何意/">No title</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+ArrayList的源码中，有一个实现了Iterator接口的内部类Itr，其中有两个elementData变量，一个是内部类的属性，一个是外部类的，那么外部类的就必须标识为ArrayList.this.elemtData
+注意，不是this.elementData，因为外部类的对象是不能调用内部类的，所以只能用类名.this来区别内部类和外部类的属性。
+//内部类
+private cla...
+    
+
+        <a href="/2019/04/30/ArrayList.this类名.this何意/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Apache POI"
   class="article-card article-type-post" itemprop="blogPost">
 

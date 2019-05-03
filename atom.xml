@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://47.107.237.149/"/>
-  <updated>2019-05-02T10:44:04.835Z</updated>
+  <updated>2019-05-03T03:50:33.895Z</updated>
   <id>http://47.107.237.149/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>����</title>
+    <link href="http://47.107.237.149/2019/05/03/zzzzzzzzzzzzzzzzzzzzzzzz/"/>
+    <id>http://47.107.237.149/2019/05/03/zzzzzzzzzzzzzzzzzzzzzzzz/</id>
+    <published>2019-05-03T03:49:11.738Z</published>
+    <updated>2019-05-03T03:50:33.895Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="����"><a href="#����" class="headerlink" title="����"></a>����</h3><ul><li>����</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;����&quot;&gt;&lt;a href=&quot;#����&quot; class=&quot;headerlink&quot; title=&quot;����&quot;&gt;&lt;/a&gt;����&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;����&lt;/li&gt;
+&lt;/ul&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -441,27 +465,6 @@
         &lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Java安全框架&lt;/li&gt;
 &lt;li&gt;Apache Shiro是一个强大且易用的Java安全框架，执行身份验证、授权、密码和会话管
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://47.107.237.149/2019/04/30/Shiro%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BA%8C-%E9%AA%8C%E8%AF%81%E8%80%85Authenticator%E3%80%81%E9%AA%8C%E8%AF%81%E7%AD%96%E7%95%A5AuthenticationStrategy/"/>
-    <id>http://47.107.237.149/2019/04/30/Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy/</id>
-    <published>2019-04-30T08:29:22.971Z</published>
-    <updated>2019-02-23T08:02:12.658Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Authenticator及AuthenticationStrategy"><a href="#Authenticator及AuthenticationStrategy" class="headerlink" title="Authenticator及AuthenticationStrategy"></a>Authenticator及AuthenticationStrategy</h3><ul><li><p>Authenticator的职责是验证用户，被subject的login()调用。</p><pre><code>public AuthenticationInfo authenticate(AuthenticationToken authenticationToken)    throws AuthenticationException {    //调用了Realm的getAuthenticationInfo()}</code></pre></li><li>Authenticator：SecurityManager是其子接口，默认实现类为ModularRealmAuthenticator，其委托给多个Realm进行验证。</li><li>AuthenticatorStrategy：制定多个Realm的验证规则。默认提供的实现：<ul><li>FirstSuccessfulStrategy：只要有一个Realm验证成功即可，值返回第一个验证成功的Realm的认证信息。</li><li>AtLeastSuccessfulStrategy：只要有一个Realm验证成功即可，返回所有验证成功的Realm的认证信息。</li><li>AllSuccessfulstrategy：默认使用；所有Realm都验证成功才行，返回所有认证信息。</li></ul></li><li>假设我们有三个Realm：<ul><li>myRealm1： 用户名/密码为zhang/123时成功，且返回身份/凭据为zhang/123；</li><li>myRealm2： 用户名/密码为wang/123时成功，且返回身份/凭据为wang/123；</li><li>myRealm3： 用户名/密码为zhang/123时成功，且返回身份/凭据为<a href="mailto:zhang@163.com" target="_blank" rel="noopener">zhang@163.com</a>/123。</li></ul></li><li>现在测试一下AllSuccessfulStrategy验证策略</li><li><p>首先是ini配置文件</p><pre><code>;指定securityManager的authentication实现authenticator=org.apache.shiro.authc.pam.ModularRealmAuthenticatorsecurityManager.authenticator=$authenticator;指定securityManager.authenticator的authenticationStragegyallSuccessfulStrategy=org.apache.shiro.authc.pam.AllSuccessfulStrategysecurityManager.authenticator.authenticationStrategy=$allSuccessfulStrategymyRealm1=com.haien.shiroHelloWorld.realm.MyRealm1myRealm2=com.haien.shiroHelloWorld.realm.MyRealm2myRealm3=com.haien.shiroHelloWorld.realm.MyRealm3securityManager.realms=$myRealm1,$myRealm3</code></pre></li><li><p>测试</p><pre><code>/** * @Author haien * @Description 测试AllSuccessfulStrategy成功 * @Date 2019/2/16 * @Param [] * @return void **/@Testpublic void testAllSuccessfulStrategyWithSuccess(){    //登录成功（因为ini配置文件中没有使用身份必须为wang的myRealm2）    login(&quot;classpath:config/shiro-authenticator-all-success.ini&quot;); //登录逻辑代码先通用化了    Subject subject=SecurityUtils.getSubject();    //得到一个身份集合，其包含了Realm验证成功的身份信息    PrincipalCollection principalCollection=subject.getPrincipals();    //包含了zhang和zhang@163.com的身份凭证    Assert.assertEquals(2,principalCollection.asList().size());}/** * @Author haien * @Description 测试AllSuccessfulStrategy失败 * @Date 2019/2/17 * @Param [] * @return void **/@Test(expected = UnknownAccountException.class) //括号里表明当方法抛出此异常时测试成功public void testAllSuccessfulAccountWithFail(){    //但实际登录失败（配置文件改为使用myRealm1和myRealm2）    login(&quot;classpath:config/shiro-authenticator-all-fail.ini&quot;);    Subject subject=SecurityUtils.getSubject();}</code></pre></li><li>以上测试失败方法如果捕获异常的话可获得以下调用链</li></ul><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7606.PNG" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><h3 id="自定义AuthenticationStrategy"><a href="#自定义AuthenticationStrategy" class="headerlink" title="自定义AuthenticationStrategy"></a>自定义AuthenticationStrategy</h3><ul><li><p>AuthenticationStrategy接口类</p><pre><code>//在所有Realm验证之前调用AuthenticationInfo beforeAllAttempts(Collection&lt;? extends Realm&gt; realms,    AuthenticationToken token) throws AuthenticationException;//在每个Realm之前调用AuthenticationInfo beforeAttempt(Realm realm, AuthenticationToken token,     AuthenticationInfo aggregate) throws AuthenticationException;//在每个Realm之后调用AuthenticationInfo afterAttempt(Realm realm, AuthenticationToken token,     AuthenticationInfo singleRealmInfo, AuthenticationInfo aggregateInfo, Throwable t)    throws AuthenticationException;//在所有Realm之后调用AuthenticationInfo afterAllAttempts(AuthenticationToken token,     AuthenticationInfo aggregate)throws AuthenticationException;//将所有验证成功的身份信息集合起来，便于最后一起返回；FirstSuccessfulStrategy类重写了该方法AuthenticationInfo merge(AuthenticationInfo info, AuthenticationInfo aggregate)</code></pre></li><li><p>自定义AuthenticationStrategy实现类一般继承AbstractAuthenticationStrategy即可。</p></li><li><p>AtLeastTwoAuthenticatorStrategy：至少两个通过才行，返回所有验证信息</p><pre><code>public class AtLeastTwoAuthenticatorStrategy extends AbstractAuthenticationStrategy {    /**     * @Author haien     * @Description 在所有Realm验证之前调用     * @Date 2019/2/17     * @Param [realms, token]     * @return org.apache.shiro.authc.AuthenticationInfo     **/    @Override    public AuthenticationInfo beforeAllAttempts(Collection&lt;? extends Realm&gt; realms,           AuthenticationToken token) throws AuthenticationException {        //和父类方法一样，返回一个空的身份凭证        return new SimpleAuthenticationInfo();    }    /**     * @Author haien     * @Description 在每个Realm验证之前调用     * @Date 2019/2/17     * @Param [realm, token, aggregate]     * @return org.apache.shiro.authc.AuthenticationInfo     **/    @Override    public AuthenticationInfo beforeAttempt(Realm realm, AuthenticationToken token,           AuthenticationInfo aggregate) throws AuthenticationException {        //和父类方法一样，返回之前合并的        return aggregate;    }    @Override    public AuthenticationInfo afterAttempt(Realm realm, AuthenticationToken token,      AuthenticationInfo singleRealmInfo, AuthenticationInfo aggregateInfo, Throwable t)      throws AuthenticationException {        //也是和父类方法一样        AuthenticationInfo info;        if(singleRealmInfo==null){            info=aggregateInfo;        }else {            if(aggregateInfo==null){                info=singleRealmInfo;            }else{                //调用父类merge()将所有身份凭证集合起来，最后一起返回                info=merge(singleRealmInfo,aggregateInfo);            }        }        return info;    }    /**     * @Author haien     * @Description 真正重写的方法：判断是否至少两个Realm通过     * @Date 2019/2/17     * @Param [token, aggregate]     * @return org.apache.shiro.authc.AuthenticationInfo     **/    @Override    public AuthenticationInfo afterAllAttempts(AuthenticationToken token,           AuthenticationInfo aggregate) throws AuthenticationException {        if(aggregate==null||CollectionUtils.isEmpty(aggregate.getPrincipals())                ||aggregate.getPrincipals().getRealmNames().size()&lt;2){ //是否至少两个通过            throw new AuthenticationException(&quot;Authentication token of type [&quot;                    +token.getClass()+&quot;]&quot;+&quot;could not be authenticated by any                     configured realms.Please ensure that at least two realm                     can authenticate these tokens.&quot;);        }        //这一步即父类方法体        return aggregate;    }}</code></pre></li><li><p>OnlyOneAuthenticatorStrategy：至少一个通过，重写的是afterAttempt()</p><pre><code>@Overridepublic AuthenticationInfo afterAttempt(Realm realm, AuthenticationToken token,       AuthenticationInfo singleRealmInfo, AuthenticationInfo aggregateInfo, Throwable t)        throws AuthenticationException {    AuthenticationInfo info;    if(singleRealmInfo == null){ //若当前身份凭证为空，说明未通过认证        info=aggregateInfo; //返回之前的身份凭证集合    }else{ //否则需要加入集合        if(aggregateInfo==null){ //若集合为空，则返回当前的身份凭证            info=singleRealmInfo;        }else{ //两个都不为空才需要加入集合            info=merge(singleRealmInfo,aggregateInfo);            if(info.getPrincipals().getRealmNames().size()&gt;1){                System.out.println(info.getPrincipals().getRealmNames()); //打印集合                throw new AuthenticationException(&quot;Authentication token of type [&quot;                  +token.getClass()+&quot;]&quot;+&quot;could not be authenticated by any configured &quot; +                        &quot;realms. Please ensure that only one realm can authenticated &quot; +                        &quot;these tokens&quot;);            }        }    }    return info;}</code></pre></li><li>代码实例：ideaProjects/shiroHelloWord/authenticationstrategy</li><li><a href="https://github.com/zhangkaitao/shiro-example/blob/master/shiro-example-chapter2/src/test/java/com/github/zhangkaitao/shiro/chapter2/authenticator/strategy/OnlyOneAuthenticatorStrategy.java" target="_blank" rel="noopener">张开涛跟我学shiro第二章源码</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Authenticator及AuthenticationStrategy&quot;&gt;&lt;a href=&quot;#Authenticator及AuthenticationStrategy&quot; class=&quot;headerlink&quot; title=&quot;Authenticator及Authen
       
     
     </summary>
