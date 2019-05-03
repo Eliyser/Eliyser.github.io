@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://47.107.237.149/"/>
-  <updated>2019-05-03T05:47:10.695Z</updated>
+  <updated>2019-05-03T05:56:11.598Z</updated>
   <id>http://47.107.237.149/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>array</title>
+    <title>数组</title>
     <link href="http://47.107.237.149/2019/05/02/%E6%95%B0%E7%BB%84/"/>
     <id>http://47.107.237.149/2019/05/02/数组/</id>
     <published>2019-05-02T10:31:33.753Z</published>
-    <updated>2019-05-03T05:47:10.695Z</updated>
+    <updated>2019-05-03T05:56:11.598Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h3><ul><li><p>int[] a = new int[100];    定义数组</p></li><li><p>a.length；计算数组长度（把这个直接看成数字）</p></li><li>for(int r:a){System.out.println(r);数组遍历</li><li><p>int[] a={2,3,4,5};省长度、省new</p><p>new int[]={2,3,4,5};省长度，省变量名</p></li><li>a=new int[]{6,7,8,9};对a进行重新初始化</li><li><p>new int[0];省变量名，创建长度为0数组；在编写结果为数组的方法时，若碰巧结果为零则可以用上</p><pre><code>int [][]  fun(int[][] a)//数组作为返回结果及形参{对传入的数组a进行操作；return a；//返回数组，实际只是一个引用}//把数组名当作一个指针来看待就好了，指针怎么用数组就怎么用</code></pre></li><li><p>int[] b=a;拷贝数组，a,b只是引用</p></li><li>System.out.println(from,fromIndex,to,toIndex,count);值覆盖</li><li>Array.sort(a);数组排序</li></ul><h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><ul><li>double[][] a=new double[2][2];定义二维数组</li><li><p>初始化</p><pre><code>int[][] a={{1,2},{3,4}};省new、省长度</code></pre></li><li><p>遍历</p><pre><code>for(double[] row:a)    for(double b:row){         do something with b;    }</code></pre></li><li><p>for(int n=0;n&lt;=MAX;n++)</p><p>a[n]=new int[n+1];不规则数组</p></li></ul>]]></content>
     
