@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="参考文章注解位置 注解可以放在方法头上，也可以放在方法限定符后面 @RequestMapping(value=&amp;quot;/testuploadimg&amp;quot;, method = RequestMethod.POST) public @ResponseBody String uploadImg() {} @ReponseBody 返回json字符串或json对象。 在SpringMvc中当返回">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/spring注解/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="参考文章注解位置 注解可以放在方法头上，也可以放在方法限定符后面 @RequestMapping(value=&amp;quot;/testuploadimg&amp;quot;, method = RequestMethod.POST) public @ResponseBody String uploadImg() {} @ReponseBody 返回json字符串或json对象。 在SpringMvc中当返回">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7229.PNG">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2F94CF94E351058C8D462D5D4860519D30">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2F631856EF5B834B4240FAB77F3EBC1F25">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7682.PNG">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7227.PNG">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7228.PNG">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7598.PNG?Expires=1549183236&OSSAccessKeyId=TMP.AQGSM165-J0OkchTBC7giyDMHV-fMr21q6zqvpQQlAoiIRAw_XBWvPeemoKhAAAwLAIUMYWRg6-pjNyKbGcfoiMMCM_3OQkCFAHBZasgUb9FkdIrct01lwJjmH4K&Signature=e8uoOQgg0ts8DDRu95qllV0PZbo%3D">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/48590-20170527140328825-1849477734.png?Expires=1549182290&OSSAccessKeyId=TMP.AQGSM165-J0OkchTBC7giyDMHV-fMr21q6zqvpQQlAoiIRAw_XBWvPeemoKhAAAwLAIUMYWRg6-pjNyKbGcfoiMMCM_3OQkCFAHBZasgUb9FkdIrct01lwJjmH4K&Signature=8KKD2Izyzc2lSXDN3ERd6tu%2BTXY%3D">
+<meta property="og:updated_time" content="2019-03-24T07:02:21.413Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="参考文章注解位置 注解可以放在方法头上，也可以放在方法限定符后面 @RequestMapping(value=&amp;quot;/testuploadimg&amp;quot;, method = RequestMethod.POST) public @ResponseBody String uploadImg() {} @ReponseBody 返回json字符串或json对象。 在SpringMvc中当返回">
+<meta name="twitter:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7229.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.884Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考文章"><span class="post-toc-number">1.</span> <span class="post-toc-text">参考文章</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#注解位置"><span class="post-toc-number">2.</span> <span class="post-toc-text">注解位置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ReponseBody"><span class="post-toc-number">3.</span> <span class="post-toc-text">@ReponseBody</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RequestBody"><span class="post-toc-number">4.</span> <span class="post-toc-text">@RequestBody</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Autowired"><span class="post-toc-number">5.</span> <span class="post-toc-text">@Autowired</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#加在属性上"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">加在属性上</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#加在方法上"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">加在方法上</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Resource"><span class="post-toc-number">6.</span> <span class="post-toc-text">@Resource</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SpringBootApplication"><span class="post-toc-number">7.</span> <span class="post-toc-text">@SpringBootApplication</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Configuration"><span class="post-toc-number">8.</span> <span class="post-toc-text">@Configuration</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ComponentScan"><span class="post-toc-number">9.</span> <span class="post-toc-text">@ComponentScan</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#EnableAutoConfiguration"><span class="post-toc-number">10.</span> <span class="post-toc-text">@EnableAutoConfiguration</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Component"><span class="post-toc-number">11.</span> <span class="post-toc-text">@Component</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PostConstruct和-PreDestroy"><span class="post-toc-number">12.</span> <span class="post-toc-text">@PostConstruct和@PreDestroy</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Primary"><span class="post-toc-number">13.</span> <span class="post-toc-text">@Primary</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Named"><span class="post-toc-number">14.</span> <span class="post-toc-text">@Named</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RequestParam"><span class="post-toc-number">15.</span> <span class="post-toc-text">@RequestParam</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PathVariable"><span class="post-toc-number">16.</span> <span class="post-toc-text">@PathVariable</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ResponseBody"><span class="post-toc-number">17.</span> <span class="post-toc-text">@ResponseBody</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RequestBody-1"><span class="post-toc-number">18.</span> <span class="post-toc-text">@RequestBody</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Param"><span class="post-toc-number">19.</span> <span class="post-toc-text">@Param</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ConfigurationProperties"><span class="post-toc-number">20.</span> <span class="post-toc-text">@ConfigurationProperties</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RequestMapping"><span class="post-toc-number">21.</span> <span class="post-toc-text">@RequestMapping</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PostConstruct"><span class="post-toc-number">22.</span> <span class="post-toc-text">@PostConstruct</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PropertySource、-Value"><span class="post-toc-number">23.</span> <span class="post-toc-text">@PropertySource、@Value</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RestController"><span class="post-toc-number">24.</span> <span class="post-toc-text">@RestController</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ModelAttribute"><span class="post-toc-number">25.</span> <span class="post-toc-text">@ModelAttribute</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-spring注解"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.884Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a><a href="https://blog.csdn.net/achenyuan/article/details/72786759" target="_blank" rel="noopener">参考文章</a></h3><h3 id="注解位置"><a href="#注解位置" class="headerlink" title="注解位置"></a>注解位置</h3><ul>
+<li><p>注解可以放在方法头上，也可以放在方法限定符后面</p>
+<pre><code>@RequestMapping(value=&quot;/testuploadimg&quot;, method = RequestMethod.POST)
+public @ResponseBody String uploadImg() {}
+</code></pre><h3 id="ReponseBody"><a href="#ReponseBody" class="headerlink" title="@ReponseBody"></a>@ReponseBody</h3></li>
+<li>返回json字符串或json对象。</li>
+<li>在SpringMvc中当返回值是String时，如果不加此注解则Spring就会找这个String对应的页面，找不到则报404错误。</li>
+<li>如果加上的话@ResponseBody就会把返回值放到response对象中<h3 id="RequestBody"><a href="#RequestBody" class="headerlink" title="@RequestBody"></a>@RequestBody</h3></li>
+<li>提取json形式的入参中的属性绑定到同名属性上。</li>
+<li><p>例如：</p>
+<pre><code>$.ajax({
+    url:&quot;/login&quot;,
+    type:&quot;POST&quot;,
+    data:&apos;{&quot;userName&quot;:&quot;admin&quot;,&quot;pwd&quot;,&quot;admin123&quot;}&apos;,
+    content-type:&quot;application/json charset=utf-8&quot;,
+    success:function(data){
+        alert(&quot;request success ! &quot;);
+    }
+});
+
+@requestMapping(&quot;/login&quot;)
+public void login(@requestBody String userName,@requestBody String pwd){
+    System.out.println(userName+&quot; ：&quot;+pwd);
+}
+</code></pre></li>
+<li>以上情况是将json中的两个变量赋给了同名的字符串，假如有一个User类，拥有userName和pwd两个属性，则上述参数形式可以改为：@RequestBody User user。</li>
+<li>@RequestBody注解常用来处理content-type不是默认的application/x-www-form-urlcoded编码的内容，比如说：application/json或者是application/xml等。一般情况下来说常用其来处理application/json类型。</li>
+<li>在一些特殊情况下@RequestBody也可以用来处理content-type类型为application/x-www-form-urlcoded的内容，比如jQuery easyUI的datagrid请求数据的时候、小型项目值创建一个pojo类的话也可以。</li>
+</ul>
+<h3 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h3><h4 id="加在属性上"><a href="#加在属性上" class="headerlink" title="加在属性上"></a>加在属性上</h4><ul>
+<li>自动注入bean</li>
+<li><p>在声明变量语句前加上该注释，即完成了免new直接实例化（免new的意思是前面已通过@Configuration(+@Bean)或者@Component注册好bean了）</p>
+<pre><code>@Autowired
+private Car BMW;
+</code></pre></li>
+<li>默认先byType，找Car类的bean，如果找到多个bean，则按照byName方法比对找名为BMW的bean，如果还有多个，则抛出异常。</li>
+<li>使用@Qualifier才可以手动指定先byName方式注入，由于Spring搞成的bean默认都是类名小写，所以一般这里的值都是类名小写。</li>
+</ul>
+<p><img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7229.PNG" alt=""></p>
+<pre><code>//通过此注解完成查找满足Fruit的bean，然后找到指定的pear
+@Autowired
+@Qualifier(&quot;pear&quot;) 
+public Fruit fruit;
+</code></pre><ul>
+<li>如果要允许null值，可以设置它的required属性为false，如：@Autowired（required=false)。这样找不到bean时不会报错而是赋予null。</li>
+<li>默认单例模式，在不同的类里用此注解注入的同类的bean都是同一个。</li>
+<li>required属性：默认required=true，若设为false则表示被注解的属性即使找不到对应的bean来装配也没事，不用报错，程序照常执行。</li>
+</ul>
+<h4 id="加在方法上"><a href="#加在方法上" class="headerlink" title="加在方法上"></a>加在方法上</h4><ul>
+<li><p>同样也是注入bean，加载方法上则方法会被自动调用，方法参数则被自动装配</p>
+<pre><code>public class TextEditor {
+   //一个自定义的类    
+   private SpellChecker spellChecker;
+
+   @Autowired //自动装配，这个方法被自动调用
+   public void setSpellChecker(SpellChecker spellChecker){ //被调用后实例化一个SpellChecker
+      this.spellChecker = spellChecker; //赋予类属性
+   }
+
+   //直接调用这个方法，其中spellChecker由于上面setSpellChecker被自动调用所以已经实例化了
+   public void spellCheck() {
+      spellChecker.checkSpelling();
+   }
+}
+</code></pre></li>
+</ul>
+<h3 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a>@Resource</h3><ul>
+<li>和@Autowired相似，只是默认装配优先规则不同，并且@Resource是J2EE的注解，是Java自己的东西。因此建议使用@Resource，以减少代码和Spring之间的耦合。</li>
+<li>默认byName自动注入（用byName会快一点），如果找不到再byType，再找不到则抛异常，无论按那种方式如果找到多个则抛异常。</li>
+<li>可以手动指定bean,它有2个属性分别是name和type，使用name属性，@Resource(name=”bean名字”),则使用byName的自动注入，从上下文查找名称（id）匹配的bean注入；而使用type属性,@Resource(type=”bean的class”)则使用byType自动注入。</li>
+<li><p>不能用于注入静态属性</p>
+<pre><code>public class Zoo
+{
+    @Resource(name = &quot;tiger&quot;)
+    private Tiger tiger;
+
+    @Resource(type = Monkey.class)
+    private Monkey monkey;
+
+    public String toString()
+    {
+        return tiger + &quot;\n&quot; + monkey;
+    }
+}
+</code></pre></li>
+<li>默认单例模式，在不同的类里用此注解注入的同类的bean都是同一个。</li>
+<li><p>在service层我们经常定义接口，然后写实现类，然后搞成bean的是实现类，但是我们用本注解引入这个bean时，只能将类型声明为接口，而不能是实现类：</p>
+<pre><code>@Resource
+private UserService userService; //不能是UserServiceImpl
+</code></pre></li>
+<li>否则报错：Can not set field to $Proxy;不知道@Autowired是不是这样的。</li>
+<li><p>一定要用实现类的话可以在配置文件加入：</p>
+<pre><code>&lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot; proxy-target-class=&quot;true&quot;/&gt; 
+&lt;!--或者--&gt; 
+&lt;aop:config proxy-target-class=&quot;true&quot;&gt;
+</code></pre></li>
+</ul>
+<h3 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="@SpringBootApplication"></a>@SpringBootApplication</h3><ul>
+<li>包含下面三个注解</li>
+</ul>
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a><a href="http://tengj.top/2017/03/09/springboot3/" target="_blank" rel="noopener">@Configuration</a></h3><ul>
+<li>定义配置类，可替换xml配置文件，被注解的类内包含被@Bean注解的方法，这些方法即注册了bean。</li>
+</ul>
+<pre><code>@Configuration
+public class MockConfuration{
+    属性
+    方法
+}
+</code></pre><ul>
+<li>以上代码相当于把该类作为spring的xml配置文件中的<beans>（默认单例），作用为配置spring容器（上下文）</beans></li>
+<li>被注解的类不可以是final类型，不可以是匿名类，嵌套的@Configuration必须是静态类。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2F94CF94E351058C8D462D5D4860519D30" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>类中任何一个标注了@Bean的方法，其返回值将作为一个bean注册到spring的IOC容器，方法名则为其实例化对象</li>
+</ul>
+<pre><code>@Configuration
+public class MockConfuguration{
+    @Bean(name=&quot;...&quot;) //指定bean名称默认为方法名
+    public MockService mockService(){//假定MockService是一个接口
+        return new MockServiceImpl();//MockServiceImpl是其实现类，它未加任何注解
+    }
+}
+</code></pre><ul>
+<li><p>相当于xml中的<bean>，作用为注册bean对象。</bean></p>
+</li>
+<li><p>@Bean相当于下面配置</p>
+</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2F631856EF5B834B4240FAB77F3EBC1F25" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>在类内立即使用这个bean</li>
+</ul>
+<pre><code>@Configuration
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+    /**
+    * 注册bean
+    */
+    @Bean
+    private UserDetailsService loginService() {
+        return new LoginServiceImpl();
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(loginService());//执行这个方法，注册bean后作为方法参数使用
+    }
+}
+</code></pre><ul>
+<li>表达bean与bean之间的依赖关系</li>
+</ul>
+<p><img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7682.PNG" alt=""></p>
+<ul>
+<li>@Bean不能单独使用，应搭配@Configuration、@Component、@Controller、@Service、@Ripository使用。</li>
+<li>SpringBoot项目的config包就经常用这种方式来注册bean。</li>
+<li>也可以用@Configuration+@Component来注册bean</li>
+</ul>
+<pre><code>/*bean类*/
+@Component //添加注册bean的注解
+public class TestBean {
+}
+
+/*配置类*/
+@Configuration 
+@ComponentScan(basePackages = &quot;com.dxz.demo.configuration&quot;) //自动扫描TestBean包路径搞成bean
+public class TestConfiguration {
+
+}
+</code></pre><ul>
+<li><p>因为扫描的话会把整个包的类都搞成bean，所以只想把一个搞成bean的话，可以直接用第一种方法，或者只在那个类上加@Component、@Controller、@Service、@Ripository注解；如果确实都要搞成bean那肯定是第二种方法更适合。</p>
+</li>
+<li><p><a href="https://www.cnblogs.com/duanxz/p/7493276.html" target="_blank" rel="noopener">spring4.0之二：@Configuration的使用</a>:详细介绍了bean的注册原理与多种方式。</p>
+</li>
+</ul>
+<h3 id="ComponentScan"><a href="#ComponentScan" class="headerlink" title="@ComponentScan"></a>@ComponentScan</h3><ul>
+<li>@ComponentScan(“包路径”)：等价于&lt;context:component-scan base-package=”com.dxz.demo”/&gt;，扫描指定包下的所有类，发现带@Controller,@Service,@Repository,@Component注解的都会搞成bean，如果这些注解都没有指定bean名的话默认用类名首字母小写。默认扫描和被注解类所在包及all子包。</li>
+<li>springboot工程启动时，由于入口类有这个注解，所以会默认加载和入口类所在目录及子目录下的所有类，所以一般情况下这些类都不用再加@ComponentScan。</li>
+<li>spring的话一般会写一个配置类加上该注解，负责扫描工程所有的bean，或者在配置文件指定扫描路径</li>
+<li>写一个类</li>
+</ul>
+<pre><code>package com.study.config;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScan.Filter;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+@Configuration //必须与此连用
+@ComponentScan(basePackages={&quot;com.study&quot;},
+    excludeFilters={@Filter(type=FilterType.ANNOTATION,
+        value=EnableWebMvc.class)})
+public class RootConfig {
+
+}
+</code></pre><ul>
+<li>然后不知道是不是要在bean那边new一下这个类</li>
+<li><a href="https://blog.csdn.net/poorcoder_/article/details/70231779" target="_blank" rel="noopener">参考文章</a></li>
+</ul>
+<h3 id="EnableAutoConfiguration"><a href="#EnableAutoConfiguration" class="headerlink" title="@EnableAutoConfiguration"></a>@<a href="http://tengj.top/2017/03/09/springboot3/" target="_blank" rel="noopener">EnableAutoConfiguration</a></h3><ul>
+<li>像一只八爪鱼一样搜集所有的@Configuration配置，加载到springboot的IOC容器中</li>
+</ul>
+<h3 id="Component"><a href="#Component" class="headerlink" title="@Component"></a>@Component</h3><ul>
+<li>一种通用名称，泛指可以通过spring来管理的组件。加在类上以被扫描到并搞成bean，默认直接类名小写</li>
+<li>@Controller，@Service，@Repository则是一种特定的组件，通常用来表示某种场合下的组件。比如@Repository用来表示仓库（数据层，dao)；@Service则用来表示服务层相关的类；@Controller则用来表示展示层（控制层）的类；不是前三种一般就用@Component了。</li>
+<li><p>注解在类上之后通过配置文件制定路径来扫描（或者写个能扫描的java类）并搞成bean；如果最后还是被配置文件中的bean节点依赖的话，那么也可以不用注解</p>
+<pre><code>&lt;!-- 自定义拦截器 --&gt;
+&lt;beans:bean id=&quot;securityInterceptor&quot; 
+    class=&quot;com.ultrapower.me.util.security.interceptor.SecurityInterceptor&quot;&gt; 
+    &lt;beans:property name=&quot;securityMetadataSource&quot; ref=&quot;secureResourceFilterInvocationDefinitionSource&quot; /&gt;
+&lt;/beans:bean&gt;
+&lt;!-- 获取访问url对应的所有权限 --&gt;
+&lt;beans:bean id=&quot;secureResourceFilterInvocationDefinitionSource&quot; 
+    class=&quot;com.ultrapower.me.util.security.interceptor.SecureResourceFilterInvocationDefinitionSource&quot; /&gt; //配置class属性，那么会自动到该路径去扫描并搞成bean
+</code></pre></li>
+<li><p>@Service(“name”)：指定搞成的bean名</p>
+<h3 id="PostConstruct和-PreDestroy"><a href="#PostConstruct和-PreDestroy" class="headerlink" title="@PostConstruct和@PreDestroy"></a>@PostConstruct和@PreDestroy</h3></li>
+<li>实现初始化和销毁之前进行的操作。分别只能注释一个方法，且该方法不能有参数，返回值必须是void，方法不能是静态的。<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7227.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="Primary"><a href="#Primary" class="headerlink" title="@Primary"></a>@Primary</h3></li>
+<li>自动装配当出现多个bean候选者时，被注解的将作为首选者，无注解将抛出异常</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7228.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="Named"><a href="#Named" class="headerlink" title="@Named"></a>@Named</h3><ul>
+<li><p>@Named和Spring的@Component功能相同。@Named可以有值，如果没有值生成的Bean名称默认和类名相同。</p>
+<pre><code>@Named 
+public class Person;
+//或
+@Named(&quot;cc&quot;)
+public class Person;
+</code></pre><h3 id="RequestParam"><a href="#RequestParam" class="headerlink" title="@RequestParam"></a>@RequestParam</h3></li>
+<li><p>接收请求中的参数</p>
+<pre><code>//将请求中参数为number映射到方法的number上，required=false表示该参数不是必需的，请求上可带可不带;若为必需，则请求中没有相应参数会导致404错误；defaultValue：默认值，表示如果哦请求中没有同名参数时的默认值          
+@RequestParam(value=&quot;number&quot;,required=false,defaultValue=&quot;0&quot;)
+String number;
+</code></pre></li>
+<li>其实不写也是接收得到的，只是有时候作为一个标志或者需要它的某些属性</li>
+<li>如果参数是int类型并且required=false的话，建议以Integer变量接收，因为这时如果不传参数值会把null赋值给int，会报错。</li>
+</ul>
+<h3 id="PathVariable"><a href="#PathVariable" class="headerlink" title="@PathVariable"></a>@PathVariable</h3><ul>
+<li>将@RequestMapping指定的请求所带的参数映射到方法的参数上</li>
+</ul>
+<pre><code>@RequestMapping(&quot;/zyh/{type}&quot;)
+//传入参数type，其值来自/zyh/{type}请求所带的名为type的参数，其实括号中不写也行
+public String zyh(@PathVariable(value=&quot;type&quot;) int type)  {  
+
+}
+</code></pre><ul>
+<li>和@RequestParam类似</li>
+</ul>
+<h3 id="ResponseBody"><a href="#ResponseBody" class="headerlink" title="@ResponseBody"></a>@ResponseBody</h3><ul>
+<li>自动把被注解的类中的方法的返回值中的java对象(Map或JSONObject等)转为json串，前台才能解析</li>
+<li>可标注在方法上面或方法返回值类型前面</li>
+<li>相当于ajax请求，不用指明返回哪个页面，会自动从来的地方回去</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7598.PNG?Expires=1549183236&OSSAccessKeyId=TMP.AQGSM165-J0OkchTBC7giyDMHV-fMr21q6zqvpQQlAoiIRAw_XBWvPeemoKhAAAwLAIUMYWRg6-pjNyKbGcfoiMMCM_3OQkCFAHBZasgUb9FkdIrct01lwJjmH4K&Signature=e8uoOQgg0ts8DDRu95qllV0PZbo%3D" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="RequestBody-1"><a href="#RequestBody-1" class="headerlink" title="@RequestBody"></a>@RequestBody</h3><ul>
+<li>将前台传来的json串转为java对象，后台才能处理。</li>
+<li>前台传参格式有两种，一种是跟在url后面的键值对，一种是json串。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/48590-20170527140328825-1849477734.png?Expires=1549182290&OSSAccessKeyId=TMP.AQGSM165-J0OkchTBC7giyDMHV-fMr21q6zqvpQQlAoiIRAw_XBWvPeemoKhAAAwLAIUMYWRg6-pjNyKbGcfoiMMCM_3OQkCFAHBZasgUb9FkdIrct01lwJjmH4K&Signature=8KKD2Izyzc2lSXDN3ERd6tu%2BTXY%3D" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="Param"><a href="#Param" class="headerlink" title="@Param"></a>@Param</h3><ul>
+<li><p>给参数命名</p>
+<pre><code>@Query(&quot;from User u where u.name=:username&quot;)
+User findUser(@Param(&quot;username&quot;) String name1);
+//给name1命名为username，使入参被u.name=:username识别
+//@Param中的值必须和冒号后一样，至于形参和实参叫做什么就不重要了
+</code></pre><h3 id="ConfigurationProperties"><a href="#ConfigurationProperties" class="headerlink" title="@ConfigurationProperties"></a>@ConfigurationProperties</h3></li>
+<li>可以把配置文件中指定前缀的变量全部封装到类的实例中</li>
+<li>要配合@Component使用，因为不需保证注释的类能被Spring扫描到，不然Spring扫描到此注解也不知道装配到哪个类里去</li>
+<li>使用方式有两种</li>
+<li><p>第一种：加在类上</p>
+<pre><code>@Component
+@ConfigurationProperties(prefix = &quot;com.example.demo&quot;)
+public class People {
+
+    private String name;
+
+    private Integer age;
+
+    private List&lt;String&gt; address;
+
+    private Phone phone; //只有一个String类的number属性
+}
+</code></pre></li>
+<li><p>application.properties中的变量</p>
+<pre><code>com.example.demo.name=${aaa:hi}
+com.example.demo.age=11
+com.example.demo.address[0]=北京
+com.example.demo.address[1]=上海
+com.example.demo.address[2]=广州
+com.example.demo.phone.number=1111111
+</code></pre></li>
+<li><p>大功告成，实例化</p>
+<pre><code>@Resource
+private People people;
+</code></pre></li>
+<li>第二种：通过@Bean的方式声明，这里我们加在入口类即可</li>
+</ul>
+<pre><code>@SpringBootApplication
+public class DemoApplication {
+
+    @Bean
+    @ConfigurationProperties(prefix = &quot;com.example.demo&quot;)
+    public People people() {
+
+        return new People();
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+
+}
+</code></pre><ul>
+<li><p>大功告成，实例化</p>
+<pre><code>@Resource
+private People people;
+</code></pre></li>
+<li>PS：如果发现@ConfigurationPropertie不生效，有可能是项目的目录结构问题，你可以通过@EnableConfigurationProperties(People.class)来明确指定需要用哪个实体类来装载配置信息。</li>
+</ul>
+<h3 id="RequestMapping"><a href="#RequestMapping" class="headerlink" title="@RequestMapping"></a>@RequestMapping</h3><ul>
+<li>@RequestMapping(value=”/produces”,produces=”application/json”)：表示注解方法将返回json格式的数据，此时若请求头中的Accept为application/json则可匹配。</li>
+</ul>
+<pre><code>@RequestMapping(value=&quot;/queryLearnList&quot;,method=RequestMethod.POST,
+    produces = &quot;application/json;charset=utf-8&quot;)
+//produces:指定返回值类型和字符集，不过使用了@ResponseBody的话就不用指定返回值了
+</code></pre><ul>
+<li>支持通配符和ant风格的路径：</li>
+</ul>
+<pre><code>@RequestMapping(value = { &quot;&quot;, &quot;/page&quot;, &quot;page*&quot;, &quot;view/*,**/msg&quot; })
+</code></pre><ul>
+<li><p>匹配url如下：</p>
+<ul>
+<li>localhost:8080/home</li>
+<li>localhost:8080/home/</li>
+<li>localhost:8080/home/page</li>
+<li>localhost:8080/home/pageabc</li>
+<li>localhost:8080/home/view/</li>
+<li>localhost:8080/home/view/view</li>
+</ul>
+</li>
+<li><p>配合属性headers=”Accept=application/json”更能表明你的目的。</p>
+</li>
+<li>value值可以是含有变量或正则表达式的一类值</li>
+</ul>
+<pre><code>@RequestMapping(&quot;/preUpdate/{id}&quot;) //请求方式：/preUpdate/1
+@RequestMapping(
+    &quot;/spring-web/{symbolicName:[a-z-]+}-{version:\d\.\d\.\d}.{extension:\.[a-z]}&quot;
+)
+</code></pre><ul>
+<li>method属性默认为无，也就是什么类型的HTTP请求都可以映射。</li>
+</ul>
+<h3 id="PostConstruct"><a href="#PostConstruct" class="headerlink" title="@PostConstruct"></a>@PostConstruct</h3><ul>
+<li><p>Java EE 5引入的注解，Spring允许开发者在受管Bean中使用它。当DI容器实例化当前受管Bean时，@PostConstruct注解的方法会被自动触发，从而完成一些初始化工作。</p>
+<pre><code>@Component
+public class MySecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
+
+    @Resource
+    private ResourcesDao resourcesDao;
+
+    private static Map&lt;String, Collection&lt;ConfigAttribute&gt;&gt; resourceMap = null;
+
+    public Collection&lt;ConfigAttribute&gt; getAllConfigAttributes() {
+        return null;
+    }
+
+    public boolean supports(Class&lt;?&gt; clazz) {
+        return true;
+    }
+
+    /**
+     * @PostConstruct是Java EE 5引入的注解，
+     * Spring允许开发者在受管Bean中使用它。当DI容器实例化当前受管Bean时，
+     * @PostConstruct注解的方法会被自动触发，从而完成一些初始化工作
+     */
+    @PostConstruct
+    private void loadResourceDefine() { //加载所有资源与权限的关系
+        if (resourceMap == null) {
+            resourceMap = new HashMap&lt;String, Collection&lt;ConfigAttribute&gt;&gt;();
+            List&lt;Resources&gt; list = resourcesDao.queryAll(new Resources());
+            for (Resources resources : list) {
+                Collection&lt;ConfigAttribute&gt; configAttributes = new ArrayList&lt;ConfigAttribute&gt;();
+                // 通过资源名称来表示具体的权限 注意：必须&quot;ROLE_&quot;开头
+                ConfigAttribute configAttribute = new SecurityConfig(&quot;ROLE_&quot; + resources.getResKey());
+                configAttributes.add(configAttribute);
+                resourceMap.put(resources.getResUrl(), configAttributes);
+            }
+        }
+    }
+
+    //返回所请求资源所需要的权限
+    public Collection&lt;ConfigAttribute&gt; getAttributes(Object object) throws IllegalArgumentException {
+        String requestUrl = ((FilterInvocation) object).getRequestUrl();
+    //  System.out.println(&quot;requestUrl is &quot; + requestUrl);
+        if(resourceMap == null) {
+            loadResourceDefine();
+        }
+        //System.err.println(&quot;resourceMap.get(requestUrl); &quot;+resourceMap.get(requestUrl));
+        if(requestUrl.indexOf(&quot;?&quot;)&gt;-1){
+            requestUrl=requestUrl.substring(0,requestUrl.indexOf(&quot;?&quot;));
+        }
+        Collection&lt;ConfigAttribute&gt; configAttributes = resourceMap.get(requestUrl);
+        return configAttributes;
+    }
+
+}
+</code></pre></li>
+<li><a href="https://blog.csdn.net/danqiu2017/article/details/78853414" target="_blank" rel="noopener">参考文章</a></li>
+</ul>
+<h3 id="PropertySource、-Value"><a href="#PropertySource、-Value" class="headerlink" title="@PropertySource、@Value"></a>@PropertySource、@Value</h3><ul>
+<li>@PropertySource({“classpath:jdbc.properties”})：注解在类头上，加载资源文件</li>
+<li>然后在类内属性头上</li>
+</ul>
+<pre><code>/*
+ * 绑定资源属性
+ */
+@Value(&quot;${jdbc.driver}&quot;)
+private String driverClass=&quot;hhh&quot;; //无论此处赋值为何，都会被@Value覆盖
+
+//设置默认值
+@Value(&quot;${some.key:my default value}&quot;) //默认值也可设为空：${some.key:}
+private String stringWithDefaultValue;
+
+//数组的默认值用逗号分隔
+@Value(&quot;${some.key:1,2,3}&quot;)
+private int[] intArrayWithDefaults;
+</code></pre><ul>
+<li>不过有一个例子，它没有指定配置文件，直接注入，好像也可以，代码：ideaProjects/shiro-chapter16/service/impl/PasswordHelper、resources/spring-config.xml。</li>
+</ul>
+<h3 id="RestController"><a href="#RestController" class="headerlink" title="@RestController"></a>@RestController</h3><ul>
+<li>相当于@ResponseBody+@Controller合在一起，规定类中所有方法返回值被转换为json字符串传回前端</li>
+</ul>
+<h3 id="ModelAttribute"><a href="#ModelAttribute" class="headerlink" title="@ModelAttribute"></a>@ModelAttribute</h3><ol>
+<li>作用在参数上，将客户端请求中的参数按名称注入到指定对象中，并将此对象作为传送数据存入ModelMap，便于在前端页面取用。</li>
+</ol>
+<pre><code>public String test1(@ModelAttribute(&quot;user&quot;) User user){}
+</code></pre><ul>
+<li>将user以“user”为名绑定到模型对象的属性中，若请求参数为?username=zhang&amp;password=123&amp;workInfo.city=bj,则User类应包含username、password和workInfo属性的city属性，那么这三个参数将被注入到“user”attribute对应的属性中，并且以“user”命名被存入模型对象汇总，在前端页面可通过${user.username}来获取username属性。</li>
+</ul>
+<ol start="2">
+<li>运用在方法上，会在每一个@RequestMapping注解的方法前执行，若有返回值，则自动将其存入ModelMap。</li>
+</ol>
+<pre><code>/**
+ * 设置这个注解之后可以直接在前端页面使用hb这个对象（List）集合
+ */
+@ModelAttribute(&quot;hb&quot;) //此方法在@RequestMapping方法之前执行，并将返回值存入模型对象
+public List&lt;String&gt; hobbiesList(){
+    List&lt;String&gt; hobbise = new LinkedList&lt;String&gt;();
+    hobbise.add(&quot;basketball&quot;);
+    hobbise.add(&quot;football&quot;);
+    hobbise.add(&quot;tennis&quot;);
+    return hobbise;
+}
+
+/**
+ * 前端使用hb
+ */
+&lt;c:forEach items=&quot;${hb}&quot; var=&quot;hobby&quot; varStatus=&quot;vs&quot;&gt;
+    &lt;c:choose&gt;
+        &lt;c:when test=&quot;${hobby == &apos;basketball&apos;}&quot;&gt;
+        篮球&lt;input type=&quot;checkbox&quot; name=&quot;hobbies&quot; value=&quot;basketball&quot;&gt;
+        &lt;/c:when&gt;
+
+        ...
+
+    &lt;/c:choose&gt;
+&lt;/c:forEach&gt;
+</code></pre><ul>
+<li><p>若@ModelAttribute不指定属性名称则默认为返回类型的首字符小写，如返回类型为Account，则属性名为account。</p>
+</li>
+<li><p>若@ModelAttribute和@RequestMapping同时注释一个方法，则此时返回值并不表示一个视图的名称，而是model属性的值，视图名称则由RequestToViewNameTranslator根据请求“/helloWorld.do”转换为视图HelloWorld。</p>
+</li>
+</ul>
+<pre><code>@Controller 
+public class HelloWorldController { 
+    @RequestMapping(value = &quot;/helloWorld.do&quot;) 
+    @ModelAttribute(&quot;attributeName&quot;) 
+    public String helloWorld() { 
+         return &quot;hi&quot;; 
+      } 
+  }
+</code></pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-24T07:02:21.413Z" itemprop="dateUpdated">2019-03-24 15:02:21</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/spring注解/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/spring注解/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/spring注解/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/spring注解/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/spring注解/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/spring注解/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/spring注解/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/SringBoot学习之Jpa主要是自定义查询和条件拼接与分页/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Spring项目集成tomcat/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/spring注解/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/spring注解/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/spring注解/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/spring注解/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/spring注解/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aS27DMAwFwNz/0u62QBrlkUwDWBqtCtdxNC7A8qPHI17X05rc+fv68z3r548WBgbGbRnXcj3f8+qzyXZfXUm+980LwsDAOIBRDYvruJdExeS3yd4wMDAwktCZPGcdrNffhYGBgTEPuPkmkiQPAwMDY1LE5kleL+37Ui2OgYFxQ0a1NP3mz/8y38DAwLgV4yquvOnfC+VXa2FgYOzNyANcnpxVy91e2oeBgXEOIx8o5o9O2L0CuPKnwcDA2I1RbdlXh5Hrb6m23v7YPwYGxtaMyVaSsDhPKD/QesPAwNiakQTKfACZX/lYtouBgbEFo5qQzVtjSXpXfX0YGBgnMMofK7bqeo285PrLwQAGBsZ2jOrMszckqD6/8JowMDCOYURt9zggTl5QOZRjYGAcyZifNcuL4V6LDQMD4zTGfxz5qqaYoxeBgYGxNeNTJWgvcUxexCgBxcDA2IJRfUTviFh1DJC35zAwME5g5Lf2Do31Er5k01EBjIGBsREj2eg6r8wPfuWFaL4fDAyMcxjzRluviVb4P7C+HwMD4wBGUhZOSPNB5hswBgbGpoyruHJMb8zZrL8xMDC2ZlTDXPLoXrKYF72TYI2BgXFfRi9EVgcDk6QzCrgYGBgHMPIDEPm2ei25XujHwMDAqB7/qrbzeiOHUcDFwMA4gNFrtOXgavKKgYFxAiMpYvNgOk8l8/sxMDBOYFSPOPTGA+UAGmwdAwPjAMYPq7FLqczOerYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

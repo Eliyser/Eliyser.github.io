@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="原始的equals是比较两个对象的地址，而hashCode也是由地址构造来的。 重写equals方法并改变其中比较的参数时，hashCode也应该改变。 如果根据equals方法，两个对象是一样的，那么它们的hashCode也应该一样。 如果两个对象不相等，hashCode不强制要求不一样，但是能不一样更好。 以下代码是一个手机号码的例子，手机号码由区号和本地手机号构成。我们重写了equals方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/高效Java技巧之重写hashCode方法/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="原始的equals是比较两个对象的地址，而hashCode也是由地址构造来的。 重写equals方法并改变其中比较的参数时，hashCode也应该改变。 如果根据equals方法，两个对象是一样的，那么它们的hashCode也应该一样。 如果两个对象不相等，hashCode不强制要求不一样，但是能不一样更好。 以下代码是一个手机号码的例子，手机号码由区号和本地手机号构成。我们重写了equals方">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-24T07:19:37.487Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="原始的equals是比较两个对象的地址，而hashCode也是由地址构造来的。 重写equals方法并改变其中比较的参数时，hashCode也应该改变。 如果根据equals方法，两个对象是一样的，那么它们的hashCode也应该一样。 如果两个对象不相等，hashCode不强制要求不一样，但是能不一样更好。 以下代码是一个手机号码的例子，手机号码由区号和本地手机号构成。我们重写了equals方">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:46.134Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-高效Java技巧之重写hashCode方法"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:46" datetime="2019-04-30T08:25:46.134Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li>原始的equals是比较两个对象的地址，而hashCode也是由地址构造来的。</li>
+<li>重写equals方法并改变其中比较的参数时，hashCode也应该改变。</li>
+<li>如果根据equals方法，两个对象是一样的，那么它们的hashCode也应该一样。</li>
+<li>如果两个对象不相等，hashCode不强制要求不一样，但是能不一样更好。</li>
+<li><p>以下代码是一个手机号码的例子，手机号码由区号和本地手机号构成。我们重写了equals方法，但没有重写hashCode。</p>
+<pre><code>public class TantanitReaderPhone {
+    private String areaCode;
+    private String localNumber;
+
+    public TantanitReaderPhone(String areaCode, String localNumber) {
+        this.areaCode = areaCode;
+        this.localNumber = localNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TantanitReaderPhone that = (TantanitReaderPhone) o;
+        //区号、号码都相同即为相同
+        return Objects.equals(areaCode, that.areaCode) &amp;&amp;
+                Objects.equals(localNumber, that.localNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+}
+</code></pre></li>
+<li><p>以下测试代码定义了一个以TantanitReaderPhone为key的HashMap。我们在保存和取出时，分别都new了一个对象，这两个对象有着相同的areaCode和localNumber，根据我们重写的equals方法，它们是相等的。但是由于我们没有重写hashCode方法，导致get()时调用hashCode方法获取hashCode来定位时得到这两个对象的哈希值不同，所以第二个对象无法再HashMap里面找到第一次存进去的值。</p>
+<pre><code>Map&lt;TantanitReaderPhone,String&gt; map=new HashMap&lt;&gt;();
+map.put(new TantanitReaderPhone(&quot;86&quot;,&quot;13200001234&quot;),&quot;张三&quot;);
+//取不出来
+map.get(new TantanitReaderPhone(&quot;86&quot;,&quot;13200001234&quot;));
+</code></pre></li>
+<li><p>因此，hashCode方法应该包含equals中所有字段，而不能包含没有的字段，可能导致相等的对象有不同哈希值。比如，String的hashCode是根据每一个字符来构造的，而本例中的hashCode():</p>
+<pre><code>@Override
+public int hashCode() {
+    int result=17;
+    //若areaCode、localNumber两个字符串分别相同则返回hashCode相同
+    result=31*result+areaCode.hashCode();
+    result=31*result+localNumber.hashCode();
+    return result;
+}
+</code></pre></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-02-24T07:19:37.487Z" itemprop="dateUpdated">2019-02-24 15:19:37</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/高效Java技巧之重写hashCode方法/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/高效Java技巧之重写hashCode方法/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/高效Java技巧之重写hashCode方法/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/高效Java技巧之重写hashCode方法/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/高效Java技巧之重写hashCode方法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/高效Java技巧之重写hashCode方法/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/高效Java技巧之重写hashCode方法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/给按钮添加超链接/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/分布式/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/高效Java技巧之重写hashCode方法/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/高效Java技巧之重写hashCode方法/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/高效Java技巧之重写hashCode方法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/高效Java技巧之重写hashCode方法/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/高效Java技巧之重写hashCode方法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsElEQVR42u3a0U4jMQwF0P7/T3elfUW099oJBenMUwUzg0+QYtfO4xFfz//X18/f3fn1OvW2x40LDw8PbxT667C+fk5Cf41p8a9j+HYJ8PDw8K7x8mTwDK7X+/MmSeQx4+Hh4f0G3r6YTp5NfouHh4f3V3jJBp2Q8kI8KfHx8PDwPsVLXpeXxW1KSFq313steHh4eF2vYDgA+9TnH5rv4eHh4ZVT9fwQwGwT37c53sSJh4eHd4G3L4Lz4E41OPLGBB4eHt49Xt4aaO+ZHbHaHLp6A8bDw8M7xNsM+/OSN2HngHznx8PDw7vBS8LdFN8b/Kl2Bh4eHt4N3uwIVFLybjoD+zvx8PDwbvDaodds/TbrvYkHDw8P7ywv33Dz0VQ7+mp/UjSU8fDw8C7w8rHTLG20C9SOwYr0gIeHh3eBlz/cPjU7LLUZpz3y3IWHh4dX8mat2Nk9p1oVRcx4eHh4F3izLX4Ga5emLeIP5D08PDy8mLcf0icHtl7/tk1CbRMEDw8P7xQvCSIZjM0arEmzuE05b74x4OHh4R3iJeXsbOS/ObaVP/Wm14KHh4d3gdc2IJIS+dT97RAODw8P72d4yWgqTwxtWG0Lo3gzHh4e3gVe3gjIDwTkyWb2hraxi4eHh3ePNxvt79/TNoKTRnOU/fDw8PAWvPzhvHSehZ6PxOrY8PDw8I7y9kej2o1+dlC1XVA8PDy827xiJB/8mXz8vzpdmywrHh4e3lHes7za5NHekxfr0RcAPDw8vAu8/No8nJfmbWu4KKzx8PDwjvLyrTwf2G+GZ+1BgTdpBg8PD+8ar00Gs1bsKjuVLQk8PDy838ablcJtqb0/yIWHh4f3WV7b0j11z+oAFh4eHt41Xj6ymrV9Z5v+LMHg4eHh3ebNvuq3QbTvvP0PwMPDwxvx/gHvrBbb47uOhQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

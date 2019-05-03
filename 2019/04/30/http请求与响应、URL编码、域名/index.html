@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="http请求报文 http请求信息由三部分组成 请求方法 URI协议 http版本 请求头（Request Header） 请求正文   例子： GET /sample.jsp HTTP/1.1  Accept:image/gif.image/jpeg,*/* Accept-Language:zh-cn //客户端所用的语言 Connection:Keep-Alive Host:localhost">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/http请求与响应、URL编码、域名/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="http请求报文 http请求信息由三部分组成 请求方法 URI协议 http版本 请求头（Request Header） 请求正文   例子： GET /sample.jsp HTTP/1.1  Accept:image/gif.image/jpeg,*/* Accept-Language:zh-cn //客户端所用的语言 Connection:Keep-Alive Host:localhost">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/3985563-539378eee14fa322.png">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2F1963D77B5AC7D0BA0398F0B3134B3299">
+<meta property="og:updated_time" content="2019-04-25T08:01:53.117Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="http请求报文 http请求信息由三部分组成 请求方法 URI协议 http版本 请求头（Request Header） 请求正文   例子： GET /sample.jsp HTTP/1.1  Accept:image/gif.image/jpeg,*/* Accept-Language:zh-cn //客户端所用的语言 Connection:Keep-Alive Host:localhost">
+<meta name="twitter:image" content="http://p9vzt8d00.bkt.clouddn.com/3985563-539378eee14fa322.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.010Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#http请求报文"><span class="post-toc-number">1.</span> <span class="post-toc-text">http请求报文</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#http响应"><span class="post-toc-number">2.</span> <span class="post-toc-text">http响应</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#状态行"><span class="post-toc-number">3.</span> <span class="post-toc-text">状态行</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#响应头可能包括："><span class="post-toc-number">4.</span> <span class="post-toc-text">响应头可能包括：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Cookie"><span class="post-toc-number">5.</span> <span class="post-toc-text">Cookie</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#url、域名"><span class="post-toc-number">6.</span> <span class="post-toc-text">url、域名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#域名"><span class="post-toc-number">7.</span> <span class="post-toc-text">域名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#url编码"><span class="post-toc-number">8.</span> <span class="post-toc-text">url编码</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-http请求与响应、URL编码、域名"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.010Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="http请求报文"><a href="#http请求报文" class="headerlink" title="http请求报文"></a>http请求报文</h3><ul>
+<li>http请求信息由三部分组成<ul>
+<li>请求方法 URI协议 http版本</li>
+<li>请求头（Request Header）</li>
+<li>请求正文</li>
+</ul>
+</li>
+<li><p>例子：</p>
+<pre><code>GET /sample.jsp HTTP/1.1 
+Accept:image/gif.image/jpeg,*/*
+Accept-Language:zh-cn //客户端所用的语言
+Connection:Keep-Alive
+Host:localhost //主机名
+User-Agent:Mozila/4.0(compatible;MSIE5.01;Window NT5.0) //浏览器版本
+Accept-Encoding:gzip,deflate
+</code></pre></li>
+<li>其中URI：URI为/sample.jsp；URI完整地指定了要访问的网络资源，通常只要给出相对于服务器根目录的相对目录即可，因此以“/”开头。</li>
+<li>另外URL：统一资源定位符；&lt;协议&gt;：//&lt;主机&gt;：&lt;端口&gt;/&lt;路径&gt;？&lt;参数&gt;</li>
+<li><p>其中请求头：请求头包含许多有关的客户端环境和请求正文的有用信息。例如，请求头可以声明浏览器的版本、所用的语言、请求正文的长度等。</p>
+<ul>
+<li>Accept：客户端可识别的内容类型列表</li>
+<li><p>Content-Type: 标识向服务器发送的数据的格式。格式：type/subtype(;parameter:type).</p>
+<p>  Content-Type:text/html;charset:utf-8</p>
+</li>
+<li><p>在html页面中可以通过下面的方式指定</p>
+<ol>
+<li><p>这种方式可以指定很多种媒体类型，但是不能指定application/x-www-form-urlencoded和multipart/form-data这两种类型</p>
+<p><meta content="application/json"><br><meta content="text/plain"></p>
+<meta content="application/"></li>
+<li><p>这种方式可以指定两种类型</p>
+<form enctype="multipart/form-data"></form><br><form enctype="application/x-www-form-urlencoded"></form></li>
+</ol>
+</li>
+<li><p>Cookie：通知服务器当前页面的域生效中的Cookie</p>
+<p><img src="http://p9vzt8d00.bkt.clouddn.com/3985563-539378eee14fa322.png" alt=""></p>
+</li>
+</ul>
+</li>
+<li><p>请求正文：get没有请求正文。请求正文与请求头之间是一个空行，请求正文中包含客户端提交的字符串信息</p>
+<pre><code>username=jinqiao&amp;password=1234
+</code></pre></li>
+<li>get、post的选择</li>
+<li>get请求纯粹取得资源，例如查询数据库的数据。</li>
+<li>post请求可能会影响服务器上的数据或状态，例如增删改。<h3 id="http响应"><a href="#http响应" class="headerlink" title="http响应"></a>http响应</h3></li>
+<li>http响应也由三个部分构成：<ul>
+<li>状态行</li>
+<li>响应头（Response Header）</li>
+<li>响应正文</li>
+</ul>
+</li>
+</ul>
+<h3 id="状态行"><a href="#状态行" class="headerlink" title="状态行"></a>状态行</h3><ul>
+<li><p>状态行由协议版本、状态码和相应的状态描述组成，各元素之间以空格分开</p>
+<pre><code>HTTP/1.1 200 OK 
+</code></pre></li>
+<li>1xx: 指示信息——表示信息已接收，继续处理</li>
+<li>2xx：成功——表示请求已被成功接收、理解并接受</li>
+<li>3xx: 重定向</li>
+<li>4xx: 客户端错误——请求有语法错误或请求无法实现</li>
+<li>5xx: 服务器端错误——服务器未能实现合法的请求</li>
+<li>比如：</li>
+<li>200：OK，客户端请求成功</li>
+<li>400：Bad Request，由于客户端请求有语法错误，不能被服务器所理解</li>
+<li>401：Unauthonzed，请求未经授权。这个状态代码必须和WWW-Authenticate报头域一起使用。</li>
+<li>403：Forbidden，服务器接收到请求，但是拒绝提供服务。服务器通常会在响应正文中给出不提供服务的原因。</li>
+<li>404：Not Found，请求的资源不存在</li>
+<li>500：Internal Server Error，服务器发生不可预期的错误，导致无法完成客户端的请求。</li>
+<li>503：Service Unavailable，服务器当前不能够处理客户端的请求，在一段时间后可能会恢复正常。</li>
+</ul>
+<h3 id="响应头可能包括："><a href="#响应头可能包括：" class="headerlink" title="响应头可能包括："></a>响应头可能包括：</h3><ul>
+<li>Location响应报头域：当我们在jsp中使用重定向语句的时候，响应报头中就会有Location</li>
+<li>Server响应报头域：包含了服务器用来处理请求的软件信息，和User-Agent是相对应的。</li>
+<li><p>WWW-Authenticate响应报头域：必须被包含在401响应消息中。当客户端收到401响应消息，就要决定是否请求服务器对其进行验证。如果要求服务器对其进行验证，就可以发送一个包含了Authorization报头域的请求，小面是WWW-Authenticate响应报头域的一个例子：可知服务器对我们所请求的资源采用的是基本验证机制。</p>
+<pre><code>WWW-Authenticate: Basic realm=&quot;Basic Auth Test!&quot;
+</code></pre></li>
+<li><p>Content-Encoding实体报头域：媒体类型的修饰符，它的值指示了被应用到实体正文的附加内容编码，因为要获得Content-Type报头域中所引用的媒体类型，必须采用相应的解码机制</p>
+<pre><code>Content-Type：gzip
+</code></pre></li>
+<li><p>Content-Type实体报头域：指明发送给接收者的实体正文的媒体类型。</p>
+<pre><code>Content-Type: text/html;charset=ISO-8859-1
+</code></pre></li>
+<li>Expires实体报头域：响应过期的日期和时间。通常，代理服务器或浏览器会缓存一些页面，当用户档次访问这些页面时，直接从缓存中加载并显示给用户，这样缩短了响应时间，减少服务器的负载。为了让代理服务器或浏览器在一段时间后更新页面，我们可以使用Expires指定页面过期的时间。当用户又一次访问页面时，如果Expires给出的日期比Date普通报头域给出的日期要早或相同的话，那么代理服务器或浏览器就不会再使用缓存的页面而是从服务器上请求更新的页面。HTTP1.1的客户端和缓存必须将除RFC 1123之外的日期格式和0看做已过期。例如，为了让浏览器不要缓存页面，我们设置Expires设置为0：response.setDateHeader(“Expires”,0);</li>
+<li>Cache-Control实体报头域：指定请求和相应遵循的缓存机制。请求时的缓存指令包括：no-cache,no-store,max-age,max-stale,min-fresh,only-if-cached;响应时的指令包括:<ul>
+<li>Public指示响应可被任何缓存区缓存。</li>
+<li>Private指示对于单个用户的整个或部分响应消息，不能被共享缓存处理。这允许服务器仅仅描述当用户的部分响应消息，此响应消息对于其他用户的请求无效。</li>
+<li>no-cache指示请求或响应消息不能缓存</li>
+<li>no-store用于防止重要的信息被无意的发布。在请求消息中发送将使得请求和响应消息都不使用缓存。</li>
+<li>max-age指示客户机可以接收生存期不大于指定时间（以秒为单位）的响应。</li>
+<li>min-fresh指示客户机可以接收响应时间小于当前时间加上指定时间的响应。</li>
+<li>max-stale指示客户机可以接收超出超时期间的响应消息。如果指定max-stale消息的值，那么客户机可以接收超出超时期指定值之内的响应消息。</li>
+</ul>
+</li>
+<li><p>禁用缓存</p>
+<pre><code>response.setHeader(&quot;Pragma&quot;,&quot;no-cache&quot;);
+response.addHeader( &quot;Cache-Control&quot;, &quot;no-cache&quot; ); //作用与上一句相同，不过通常两者合用
+response.setDateHeader(&quot;Expires&quot;, 0); //好像可以单独使用，不过通常也与上两句合用
+</code></pre></li>
+<li>Set-Cookie：通知客户端保存如下cookie</li>
+<li>请求和响应步骤</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2F1963D77B5AC7D0BA0398F0B3134B3299" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><ul>
+<li>Cookie总是保存在客户端中，按在客户端中的位置可以分为：<ul>
+<li>内存Cookie：由浏览器维护，保存在内存中，浏览器关闭之后就消失，属于非持久Cookie</li>
+<li>硬盘Cookie：保存在硬盘中，有一个过期时间，除非用户手动清理或到了过期时间，否则不会被删除，属于持久Cookie</li>
+</ul>
+</li>
+<li>用途：因为HTTP协议是无状态的，即服务器不知道用户上一次做了什么，这严重阻碍了交互式web应用程序的实现。Cookie就是用来绕开HTTP的无状态性的“额外手段”之一。</li>
+<li>应用场景：当登录一个网站时，如果用户勾选“下次自动登录”，那么本次登录时，服务器就会发送包含登录凭据（用户名和密码的某种加密形式）的Cookie到用户的硬盘上。第二次登录时，浏览器会发送该Cookie到服务器，于是不必再输入用户名和密码就让用户登录了。</li>
+<li>识别功能：如果在一台计算机中安装多个浏览器，每个浏览器都会以独立的空间存放Cookie。Cookie中不但可以确认用户信息，还包含计算机和浏览器的信息，所以一个用户使用不同的浏览器登录或不同的浏览器登录，都会得到不同的Cookie信息。</li>
+<li>一般用来处理登录等场景，目的是让服务端知道谁发出的这次请求。如果你请求了接口进行登录，服务端验证通过后会在响应头加入set-cookie字段，然后下次再发请求的时候，浏览器会自动将cooker附加在请求的头字段cookie中，服务端就能知道这个用户已经登录过了。</li>
+</ul>
+<h3 id="url、域名"><a href="#url、域名" class="headerlink" title="url、域名"></a>url、域名</h3><ul>
+<li>uniform resource locator，统一资源定位符，俗称网址。</li>
+<li>格式：&lt;&gt;://&lt;ip或域名&gt;:<port>/&lt;路径&gt;,其中，port和路径可以省略，这样的路径映射默认首页，如，<a href="https://www.baidu.com/。" target="_blank" rel="noopener">https://www.baidu.com/。</a></port></li>
+</ul>
+<h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><ul>
+<li>Domain Name，网域名称，简称域名，是以文字形式记录的ip地址，理由是好记。</li>
+<li>网域名称系统，DNS，用于将域名翻译成ip地址的系统。</li>
+<li>一个ip地址可以对应多个域名，但是一个域名只有一个ip地址。</li>
+</ul>
+<h3 id="url编码"><a href="#url编码" class="headerlink" title="url编码"></a>url编码</h3><ul>
+<li><p>如果请求参数本身包括“=”等特殊字符怎么办？又或者你想发送的请求参数值时<a href="http://openhome.cc这个值呢？假设是get请求，则不能在地址栏上输入" target="_blank" rel="noopener">http://openhome.cc这个值呢？假设是get请求，则不能在地址栏上输入</a></p>
+<pre><code>http://openhome.cc/addBookmar.do?url=http://openhome.cc.
+</code></pre></li>
+<li>URI中定义了一些保留字符，如，：/ ？&amp; = @ %等。如果要在请求上表达这些字符，必须在%字符之后以十六进制数值表示方式，来表示该字符的八个位数值。这就是URI规范中的百分比编码，也即是URI编码或URL编码。</li>
+<li><p>例如，字符“:”真正存储时的八位为00111010，必须使用%3A来表示；所以若发送的请求参数值是<a href="http://openhome.cc，则必须使用以下格式" target="_blank" rel="noopener">http://openhome.cc，则必须使用以下格式</a></p>
+<pre><code>http://openhome.cc/addBookmar.do?url=http%3A%2F%2Fopenhome.cc
+</code></pre></li>
+<li><p>如果想知道某个字符的URL编码是什么，在Java中可以使用java.net.URLEncoder类的静态方法encode()。；要译码则使用decode()</p>
+<pre><code>String text=URLEncoder.encode(&quot;http://openhome.cc&quot;, &quot;utf-8&quot;);
+</code></pre></li>
+<li>不过在URI之前，HTTP也规定了请求中的保留字，这与URI规范有所差别。其中一个就是URI规范空格符为%20，而HTTP规范为“+”，上面java方法产生的字符串，空格的编码就为“+”。</li>
+<li>由于中文不在ASCⅡ字符之中，所以不能直接出现在地址栏而应该写其编码。在URI规范的URL编码中，针对的是utf-8编码的八位数。在utf-8编码下，一个中文字符有三个编码。而在HTTP规范下的URL编码，并不限使用utf-8，比如使用big5编码，一个中文的编码为两个。</li>
+<li>但其实在浏览器中我们是可以直接输入中文的，这是因为我们输入的中文被浏览器隐式转为编码了，只是表面上显示为中文而已</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-25T08:01:53.117Z" itemprop="dateUpdated">2019-04-25 16:01:53</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/http请求与响应、URL编码、域名/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/http请求与响应、URL编码、域名/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/http请求与响应、URL编码、域名/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/http请求与响应、URL编码、域名/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/http请求与响应、URL编码、域名/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/http请求与响应、URL编码、域名/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/http请求与响应、URL编码、域名/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Idea/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/https、SSL和TLS，使用KeyTool生成自签名证书/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/http请求与响应、URL编码、域名/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/http请求与响应、URL编码、域名/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/http请求与响应、URL编码、域名/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/http请求与响应、URL编码、域名/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/http请求与响应、URL编码、域名/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuElEQVR42u3aQW7jQAwEQP//08l54djpJmd2vUDpFMSKpFKAId3DxyM+vp6O50/fn/98zqvz8/seO/Dw8PDWj/58ufzn9jrtlfN74eHh4d3mvVpRk5slK3NSAGbP84sFDw8P78N47xf3pGmefYqHh4f3v/DyJT4JLNpCgoeHh/dpvGS5bwvALHpor3Ysa8HDw8OLebPF+t/+fGV/Dw8PD2+9q94uuJulOR8sKJ4WDw8P7wJvtuWfN755M91uiSWxLx4eHt493qyBzm/cxsFJWdr8M/Dw8PD2vOSk9mYtuG24iw02PDw8vKO8JG6YnZP/VVt+ipeFh4eHd4HXDjAl7e+mr88HtorRLjw8PLxrvHawKY9iN+NWs6C5CCPw8PDwSl4eHyTt7Gw1PhsWv5yMwMPDwzvES0KBNhrIW+o2xp0Fvnh4eHh/hze7XDsWsAk4ViNWeHh4eOuhgbObXnmU0EbJ+av/4xsDHh4e3gVe3jrnm/d5I97GxEWAgoeHh3eZl8COBQTrCDhqr/Hw8PAu8NpL52Fr/ihtU74KfPHw8PAu8DbgTYHJH/HUi8DDw8Ob8dpbzqKHU289/xQPDw/vNi9f7mdL/yyemBWSHwoDHh4e3gXeozzyBb0NI/ISEg0T4OHh4V3g7UcE2jA3h7VR8ss74uHh4V3mvYe1jztrymcBR1QY8PDw8I7yWtImbsgj3bYYFDO5eHh4eGtesnm/iXE35aQdbsDDw8O7x/sqj03okPz+VFGJ6gYeHh7eiNe2yPlm1WxjLI9xTw0x4OHh4c14STE4NSKwH8Nqnw0PDw/vHq8drpot7u0IwmYgDA8PD+9zeO3oVdt8z14iHh4e3ifz2qa83dxqB7N+KSF4eHh413htGDHbgmrvtQmF8fDw8O7xZl/y87GAPG5oh702o1p4eHh4ozO/AcuzCBSfd+TCAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

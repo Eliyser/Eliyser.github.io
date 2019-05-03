@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简介 使用Apache Oltu来做对OAuth的实现，因为它比较轻量、简单、灵活。 按照OAuth的角色分布，可以写三个程序：资源服务器、授权服务器和客户端Client各一个，也可以全部写到一个程序里面。 本例采用写成两个程序，一个服务器端，一个客户端。  数据库 数据库：shiro-oauth2.所在会话：mysql。 oauth2_user:用户表，资源拥有者。admin/123456。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Shiro第十七章-OAuth2集成/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="简介 使用Apache Oltu来做对OAuth的实现，因为它比较轻量、简单、灵活。 按照OAuth的角色分布，可以写三个程序：资源服务器、授权服务器和客户端Client各一个，也可以全部写到一个程序里面。 本例采用写成两个程序，一个服务器端，一个客户端。  数据库 数据库：shiro-oauth2.所在会话：mysql。 oauth2_user:用户表，资源拥有者。admin/123456。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7680.PNG">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/041748590918173.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/041748590918173.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/041749056842324.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/041749045594768.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7685.PNG">
+<meta property="og:updated_time" content="2019-04-01T13:24:42.773Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="简介 使用Apache Oltu来做对OAuth的实现，因为它比较轻量、简单、灵活。 按照OAuth的角色分布，可以写三个程序：资源服务器、授权服务器和客户端Client各一个，也可以全部写到一个程序里面。 本例采用写成两个程序，一个服务器端，一个客户端。  数据库 数据库：shiro-oauth2.所在会话：mysql。 oauth2_user:用户表，资源拥有者。admin/123456。">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7680.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:29:23.046Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据库"><span class="post-toc-number">2.</span> <span class="post-toc-text">数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务器端"><span class="post-toc-number">3.</span> <span class="post-toc-text">服务器端</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#oltu源码"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">oltu源码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#issuer"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">issuer</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#request"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">request</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#validator"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">validator</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#response"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">response</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#示例"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">示例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#授权服务器"><span class="post-toc-number">3.6.1.</span> <span class="post-toc-text">授权服务器</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#资源服务器"><span class="post-toc-number">3.6.2.</span> <span class="post-toc-text">资源服务器</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#客户端"><span class="post-toc-number">4.</span> <span class="post-toc-text">客户端</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Shiro第十七章-OAuth2集成"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:29:23" datetime="2019-04-30T08:29:23.046Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>使用Apache Oltu来做对OAuth的实现，因为它比较轻量、简单、灵活。</li>
+<li>按照OAuth的角色分布，可以写三个程序：资源服务器、授权服务器和客户端Client各一个，也可以全部写到一个程序里面。</li>
+<li>本例采用写成两个程序，一个服务器端，一个客户端。</li>
+</ul>
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><ul>
+<li>数据库：shiro-oauth2.所在会话：mysql。</li>
+<li>oauth2_user:用户表，资源拥有者。admin/123456。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7680.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>oauth2_client:客户端表，存储客户端id和客户端密钥，在进行授权时使用。</li>
+</ul>
+<h3 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h3><h4 id="oltu源码"><a href="#oltu源码" class="headerlink" title="oltu源码"></a>oltu源码</h4><ul>
+<li>源码分包：</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/041748590918173.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>issuer：生成授权码和访问令牌，刷新令牌。</li>
+<li>request：封装授权码请求和令牌请求的逻辑，并提供相应的校验服务。</li>
+<li>response：封装授权流程中的响应逻辑，提供生成不同响应结果的方法。</li>
+<li>validator：为request提供校验服务。</li>
+</ul>
+<h4 id="issuer"><a href="#issuer" class="headerlink" title="issuer"></a>issuer</h4><ul>
+<li>主要是俩接口。</li>
+<li>OAuthIssuer接口：默认实现类OAuthIssuerImpl。</li>
+</ul>
+<pre><code>public interface OAuthIssuer {
+    public String accessToken() throws OAuthSystemException;
+
+    public String authorizationCode() throws OAuthSystemException;
+
+    public String refreshToken() throws OAuthSystemException;
+}
+</code></pre><ul>
+<li>ValueGenerator接口：默认实现类MD5Generator和UUIDValueGenerator，用于生成code和token的字符串。</li>
+</ul>
+<pre><code>public interface ValueGenerator {
+    public String generateValue() throws OAuthSystemException;
+
+    public String generateValue(String param) throws OAuthSystemException;
+}
+</code></pre><h4 id="request"><a href="#request" class="headerlink" title="request"></a>request</h4><ul>
+<li>封装请求主要是为了提取其中的参数来验证是否合格，比如client_id是否正确。</li>
+<li>主要是一个父类，其他都是其子类。</li>
+<li>OAuthRequest：父类，提供最基础的逻辑和方法。</li>
+<li>OAuthAuthzRequest：授权码请求。</li>
+<li>AbstractOAuthTokenRequest：抽象类，为下一个类做准备。</li>
+<li>OAuthTokenRequest：令牌请求。</li>
+<li>OAuthUnauthenticatedTokenRequest：刷新令牌的请求。</li>
+<li><a href="https://www.cnblogs.com/jdluojing/p/4201729.html" target="_blank" rel="noopener">validator部分代码分析</a></li>
+<li>封装请求示例：</li>
+</ul>
+<pre><code>OAuthTokenRequest oAuthTokenRequest=new OAuthTokenRequest(request);
+//比如规定的参数必须要有，至少GrantType、clientId、clientSecret、code、redirectUrl；
+//否则抛出异常：OAuthProblemException；另有OAuthSystemException，这个较少出现
+</code></pre><h4 id="validator"><a href="#validator" class="headerlink" title="validator"></a>validator</h4><ul>
+<li>包下all类实现自validators包的OAuthvalidator接口，其包下还有实现了all方法的AbstractValidator类。</li>
+<li>本包下类：</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/041748590918173.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><a href="https://www.cnblogs.com/jdluojing/p/4201729.html" target="_blank" rel="noopener">部分代码分析</a></li>
+</ul>
+<h4 id="response"><a href="#response" class="headerlink" title="response"></a>response</h4><ul>
+<li>OAuthResponse：构造响应数据的父类，构造方法protected，不能创建实例，实际用到的是其静态内部类OAuthResponseBuilder，是后面要介绍到的两个Builder类的父类；不知道在不在本包；成员如下：</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/041749056842324.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>其中有两个Builder：OAuthResponseBuilder和OAuthErrorResponseBuilder，后者是前者的子类。</p>
+</li>
+<li><p>OAuthASResponse：子类，提供了组装不同请求的方法，成员如下：</p>
+</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/041749045594768.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>构造方法是protected，因此不能new此类的实例，我们实际需要用的只是它的两个静态内部类OAuthAuthorizationResponseBuilder和OAuthTokenResponseBuilder，通过它们的方法来生成最终的响应数据。</p>
+</li>
+<li><p>构造响应的方法基本也就上面框出来3个了，注意到Builder内的all方法都是返回本类的实例，也就是可以无限链式调用。我们先看一个实际使用中的场景：</p>
+</li>
+</ul>
+<pre><code>// 处理授权码请求返回的响应
+OAuthResponse oAuthResponse= OAuthASResponse.authorizationResponse(request, 200)
+        .location(redirectUrl)
+        .setCode(oauthCode)
+        .setScope(state)
+        .buildQueryMessage();
+String url=oAuthResponse.getLocationUri();
+response.sendRedirect(url);
+
+// 令牌
+OAuthResponse authASResponse = OAuthASResponse.tokenResponse(200)
+        .setAccessToken(access_token)
+        .setExpiresIn(&quot;7200&quot;)
+        .setRefreshToken(refreshToken)
+        .setTokenType(TokenType.BEARER.toString())
+        .setParam(&quot;re_expires_in&quot;, &quot;14400&quot;)
+        .buildJSONMessage();
+String json=authASResponse.getBody();
+
+// 错误响应
+OAuthResponse authASResponse = OAuthASResponse
+        .errorResponse(HttpServletResponse.SC_UNAUTHORIZED)
+        .setError(OAuthError.ResourceResponse.INVALID_TOKEN)
+        .setErrorDescription(&quot;invald expired&quot;)
+        .buildJSONMessage();
+return new ResponseEntity&lt;String&gt;(authASResponse.getBody(), headers,
+    HttpStatus.UNAUTHORIZED);
+</code></pre><ul>
+<li>buildQueryMessage()：发起新请求，url即location()中的参数redirectUrl，响应体自然也送至该url。</li>
+<li>buildJSONMessage()：返回原页面，响应体被解析为json。</li>
+<li>setter实际就是设置响应参数，最后调用一个buildXxxMessage方法生成一个包含所有响应参数的OAuthResponse对象(注意是OAuthResponse这个父类，而不是OAuthASResponse子类，所以最终都是要用OAuthResponse对象来接收)。</li>
+<li>对象返回后就可以调用getBody(),getHeaders()之类的方法获取到其中的响应数据。</li>
+<li><p>对于错误响应中的error，在set时可以直接调用alth提供的OAuthError类的常量，它们是不同场景下通用的错误标识。</p>
+</li>
+<li><p><a href="https://www.cnblogs.com/jdluojing/p/4201729.html" target="_blank" rel="noopener">参考文章</a></p>
+</li>
+</ul>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><ul>
+<li>目的：执行OAuth授权流程。</li>
+<li>实体: 客户端Client、用户User。</li>
+<li>service：客户端的增删查改、用户的增删查改、OAuthService管理code和token。</li>
+<li><p>controller：分为对内的后台管理控制器和对外的执行OAuth的控制器。后台管理主要负责QQ内部维护的用户和已在此注册的客户端，执行OAuth的控制器负责为客户端授权（给code、给token、给用户信息）。</p>
+</li>
+<li><p>依赖：authzserver授权服务器和resourceserver资源服务器两个依赖。</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.oltu.oauth2&lt;/groupId&gt;
+    &lt;artifactId&gt;org.apache.oltu.oauth2.authzserver&lt;/artifactId&gt;
+    &lt;version&gt;0.31&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.oltu.oauth2&lt;/groupId&gt;
+    &lt;artifactId&gt;org.apache.oltu.oauth2.resourceserver&lt;/artifactId&gt;
+    &lt;version&gt;0.31&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+</ul>
+<h5 id="授权服务器"><a href="#授权服务器" class="headerlink" title="授权服务器"></a>授权服务器</h5><ul>
+<li><p>以下两个controller一个负责根据登录表单给code，一个负责根据code给token，合为授权服务器。</p>
+</li>
+<li><p>AuthorizeController：授权控制器，控制客户端访问OAth服务器端的授权登录页面，通过授权验证并获取code授权码。</p>
+</li>
+</ul>
+<ol>
+<li>首先访问该controller第一个方法地址：/authorize?client_id=xxx&amp;response_type=code&amp;redirect_uri=<a href="http://localhost:9080/chapter17-client/oauth2-login，即访问授权页面。" target="_blank" rel="noopener">http://localhost:9080/chapter17-client/oauth2-login，即访问授权页面。</a></li>
+<li>控制器首先检查clientId是否正确，如果错误则返回错误响应；</li>
+<li>如果正确则判断用户是否已登录，否则跳转登录页面；</li>
+<li>已登录则生成相应auth code，并保存到缓存中。</li>
+<li>重定向回redirect_uri:<a href="http://localhost:9080/chapter17-client/oauth2-login?code=xxx,接着客户端凭此code去获取token。" target="_blank" rel="noopener">http://localhost:9080/chapter17-client/oauth2-login?code=xxx,接着客户端凭此code去获取token。</a></li>
+</ol>
+<pre><code>@Controller
+public class AuthorizeController {
+    @Resource
+    private OAuthService oAuthService;
+    @Resource
+    private ClientService clientService;
+
+    /**
+     * @Author haien
+     * @Description 映射授权页面：/authorize?clien_id=xxx &amp; response_type=code &amp;
+                 redirect_uri=http://localhost:8080/chapter17-client/oauth2-login
+     * @Date 2019/3/26
+     * @Param [model, request]
+     * @return java.lang.Object
+     **/
+    @RequestMapping(&quot;/authorize&quot;)
+    public Object authorize(Model model, HttpServletRequest request)
+            throws OAuthSystemException,URISyntaxException {
+
+        try {
+            //1. 把当前请求封装成OAth请求
+            OAuthAuthzRequest oAuthAuthzRequest=new OAuthAuthzRequest(request);
+
+            //2. 检查client_id是否正确
+            if(!oAuthService.checkClientId(oAuthAuthzRequest.getClientId())){
+                //错误则构造错误响应
+                OAuthResponse response=OAuthASResponse
+                        .errorResponse(HttpServletResponse.SC_BAD_REQUEST) 
+                        //设置错误码
+                        .setError(OAuthError.TokenResponse.INVALID_CLIENT)
+                        .setErrorDescription(
+                            Constants.INVALID_CLIENT_DESCRIPTION)
+                        .buildJSONMessage(); //返回原页面，响应体被前端解析为json
+                //获取上面构造好的响应数据
+                return new ResponseEntity(
+                        response.getBody(),
+                        HttpStatus.valueOf(response.getResponseStatus())
+                    ); //response.getBody()：获取响应体，返回string；
+                       //包含两个键值对：error和error_description
+            }
+
+            //3. 判断用户是否已登录
+            Subject subject=SecurityUtils.getSubject();
+            //若用户尚未登录，跳转登录页面
+            if(!subject.isAuthenticated()){
+                //如果登录失败则跳转回登录页面
+                if(!login(subject,request))
+                    model.addAttribute(&quot;client&quot;,
+                            clientService.findByClientId(
+                                oAuthAuthzRequest.getClientId()));
+                //跳转登录页面
+                return &quot;oauth2login&quot;;
+            }
+
+            //4. 登录成功或已登录则生成授权码code
+            String username=(String)subject.getPrincipal();
+            String authorizationCode=null;
+            /*获取请求中的response_type参数，
+            OAUTH_RESPONSE_TYPE值应为response_type；
+            responseType目前只支持code和token*/
+            String responseType=oAuthAuthzRequest
+                .getParam(OAuth.OAUTH_RESPONSE_TYPE);
+            if(responseType.equals(ResponseType.CODE.toString())){
+                //生成authCode
+                OAuthIssuerImpl oauthIssuerImpl=new OAuthIssuerImpl(
+                    new MD5Generator());
+                authorizationCode=oauthIssuerImpl.authorizationCode();
+                //添加缓存条目：key=authCode.value=username
+                oAuthService.addAuthCode(authorizationCode,username);
+            }
+
+            /*5. 重定向回客户端地址，
+            http://localhost:8080/chapter17-client/oauth2-login?
+            code=xxx*/
+            //获取请求中的重定向地址，OAUTH_REDIRECT_URI应为redirect_uri
+            String redirectURI=oAuthAuthzRequest
+                .getParam(OAuth.OAUTH_REDIRECT_URI);
+            final OAuthResponse response= OAuthASResponse
+                    .authorizationResponse(request,HttpServletResponse.SC_FOUND)
+                    .setCode(authorizationCode) //设置授权码
+                    .location(redirectURI)
+                    .buildQueryMessage(); //发起新请求，url即redirectURI
+            //获取response数据
+            HttpHeaders headers=new HttpHeaders();
+            //响应报头域中location为重定向的url
+            headers.setLocation(new URI(response.getLocationUri())); 
+            return new ResponseEntity(headers,
+                HttpStatus.valueOf(response.getResponseStatus()));
+        } catch (OAuthProblemException e) { //new OAuthAuthzRequest()抛出的
+            //异常处理
+            String redirectUri=e.getRedirectUri();
+            //如果客户端没有传入redirectUri
+            if(OAuthUtils.isEmpty(redirectUri)) {
+                //返回原页面，打印以下字符串
+                return new ResponseEntity(
+                        &quot;OAuth callback url needs to be provided by client!&quot;,
+                        HttpStatus.NOT_FOUND);
+            }
+            //否则返回其他错误信息
+            final OAuthResponse response=OAuthASResponse
+                    .errorResponse(HttpServletResponse.SC_FOUND)
+                    .error(e)
+                    .location(redirectUri)
+                    .buildQueryMessage();
+            //获取response数据
+            HttpHeaders headers=new HttpHeaders();
+            headers.setLocation(new URI(response.getLocationUri()));
+            return new ResponseEntity(headers,
+                HttpStatus.valueOf(response.getResponseStatus()));
+        }
+    }
+
+    /**
+     * @Author haien
+     * @Description shiro的登录方法
+     * @Date 2019/3/26
+     * @Param [subject, request]
+     * @return boolean
+     **/
+    private boolean login(Subject subject,HttpServletRequest request){
+        //不处理get请求
+        if(&quot;get&quot;.equalsIgnoreCase(request.getMethod()))
+            return false;
+
+        String username=request.getParameter(&quot;username&quot;);
+        String password=request.getParameter(&quot;password&quot;);
+        if(StringUtils.isEmpty(username)||StringUtils.isEmpty(password))
+            return false;
+
+        UsernamePasswordToken token=new UsernamePasswordToken(username,password);
+        try {
+            subject.login(token);
+            return true;
+        } catch(Exception e){
+            request.setAttribute(&quot;error&quot;,&quot;登录失败：&quot;+e.getClass().getName());
+            return false;
+        }
+    }
+}
+</code></pre><ul>
+<li>其中242行catch块无redirectUri时，返回原页面并打印错误信息如下：</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7685.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>AccessTokenController：令牌控制器，负责用code获取token的过程。</li>
+</ul>
+<ol>
+<li>首先访问该类方法:/accesstoken，并post数据：client_id=xxx &amp; client_secret=xxx &amp; grant_type=authorization_code &amp; code=xxx &amp; redirect_uri=<a href="http://localhost:9080/chapter17-client/oauth2-login，请求获取token。" target="_blank" rel="noopener">http://localhost:9080/chapter17-client/oauth2-login，请求获取token。</a></li>
+<li>控制器验证client_id、client_secret和code是否正确，否则生成错误响应；</li>
+<li>正确则生成Access Token。</li>
+<li>重定向回去，并带上Access Token。</li>
+</ol>
+<pre><code>@Controller
+public class AccessTokenController {
+    @Resource
+    private OAuthService oAuthService;
+    @Resource
+    private UserService userService;
+
+    @RequestMapping(&quot;/accessToken&quot;)
+    public HttpEntity token(HttpServletRequest request) 
+        throws OAuthSystemException {
+
+        try {
+            //1. 把当前请求封装成OAuth的请求
+            OAuthTokenRequest oAuthTokenRequest=new OAuthTokenRequest(request);
+
+            //2. 检查client_id、客户端key(client_secret)、许可证类型是否正确
+            if(!oAuthService.checkClientId(oAuthTokenRequest.getClientId())){
+                OAuthResponse response=OAuthASResponse
+                        .errorResponse(HttpServletResponse.SC_BAD_REQUEST)
+                        .setError(OAuthError.TokenResponse.INVALID_CLIENT)
+                        .setErrorDescription(
+                            Constants.INVALID_CLIENT_DESCRIPTION)
+                        .buildJSONMessage();
+                return new ResponseEntity(response.getBody(),
+                        HttpStatus.valueOf(response.getResponseStatus()));
+            }
+            //客户端key
+            if(!oAuthService.checkClientSecret(
+                    oAuthTokenRequest.getClientSecret())){
+                OAuthResponse response=OAuthASResponse
+                        .errorResponse(HttpServletResponse.SC_UNAUTHORIZED)
+                        .setError(OAuthError.TokenResponse.UNAUTHORIZED_CLIENT)
+                        .setErrorDescription(
+                            Constants.INVALID_CLIENT_DESCRIPTION)
+                        .buildJSONMessage();
+                return new ResponseEntity(response.getBody(),
+                        HttpStatus.valueOf(response.getResponseStatus()));
+            }
+            //许可证类型,此处只支持code类型，其他还有password和refresh_token
+            String authCode=oAuthTokenRequest.getParam(OAuth.OAUTH_CODE);
+            //从request中获取grant_type参数,判断是不是code类型
+            if(oAuthTokenRequest.getParam(OAuth.OAUTH_GRANT_TYPE).equals(
+                    GrantType.AUTHORIZATION_CODE.toString())){
+                //检查code是否正确
+                if(!oAuthService.checkAuthCode(authCode)){
+                    //生成错误响应
+                    OAuthResponse response=OAuthASResponse
+                            .errorResponse(HttpServletResponse.SC_BAD_REQUEST)
+                            .setError(OAuthError.TokenResponse.INVALID_GRANT)
+                            .setErrorDescription(&quot;错误的授权码&quot;)
+                            .buildJSONMessage();
+                    return new ResponseEntity(response.getBody(),
+                            HttpStatus.valueOf(response.getResponseStatus()));
+                }
+            }
+
+            //3. 生成Access Token
+            OAuthIssuer oauthissuer=new OAuthIssuerImpl(new MD5Generator()); 
+            final String accessToken=oauthissuer.accessToken(); //生成token
+            //加入缓存
+            oAuthService.addAccessToken(accessToken,
+                    oAuthService.getUsernameByAuthCode(authCode));
+
+            //4. 重定向回去（不知道为什么这里没有把请求中的redirect_uri放进去）
+            //不需要return，自然会作为response带回去
+            OAuthResponse response=OAuthASResponse
+                    .tokenResponse(HttpServletResponse.SC_OK)
+                    .setAccessToken(accessToken)
+                    //Long转String
+                    .setExpiresIn(String.valueOf(oAuthService.getExpireIn())) 
+                    .buildJSONMessage();
+            return new ResponseEntity(response.getBody(),
+                    HttpStatus.valueOf(response.getResponseStatus()))l
+        } catch (OAuthProblemException e) {
+            //生成错误响应
+            OAuthResponse response=OAuthASResponse
+                    .errorResponse(HttpServletResponse.SC_BAD_REQUEST)
+                    .error(e)
+                    .buildJSONMessage();
+            return new ResponseEntity(response.getBody(),
+                    HttpStatus.valueOf(response.getResponseStatus()));
+        }
+    }
+}
+</code></pre><h5 id="资源服务器"><a href="#资源服务器" class="headerlink" title="资源服务器"></a>资源服务器</h5><ul>
+<li>ResourceController：充当资源服务器，拥有user信息，根据token给客户端提供这些信息。</li>
+</ul>
+<ol>
+<li>首先访问该类方法：/userInfo?access_token=xxx，即用token请求用户信息。</li>
+<li>控制器判断token是否有效（存在并未过期），否则生成错误响应，客户端重新请求授权；</li>
+<li>是则返回用户信息（此处为用户名）。</li>
+</ol>
+<pre><code>@RestController
+public class ResourceController {
+    @Resource
+    private OAuthService oAuthService;
+
+    @RequestMapping(&quot;/userInfo&quot;)
+    public HttpEntity userInfo(HttpServletRequest request) 
+        throws OAuthSystemException {
+
+        try {
+            //1. 将request包装成OAuth请求
+            OAuthAccessResourceRequest oAuthAccessResourceRequest=
+                    new OAuthAccessResourceRequest(request);
+
+            //2. 检查Access Token是否正确
+            String accessToken=oAuthAccessResourceRequest.getAccessToken();
+            if(!oAuthService.checkAccessToken(accessToken)){ //不存再或已过期
+                //生成错误响应
+                OAuthResponse response=OAuthASResponse
+                        .errorResponse(HttpServletResponse.SC_UNAUTHORIZED)
+                        .setRealm(Constants.RESOURCE_SERVER_NAME)
+                        .setError(OAuthError.ResourceResponse.INVALID_TOKEN)
+                        .buildHeaderMessage();
+                HttpHeaders headers=new HttpHeaders();
+                headers.add(OAuth.HeaderType.WWW_AUTHENTICATE,
+                        response.getHeader(OAuth.HeaderType.WWW_AUTHENTICATE));
+                return new ResponseEntity(headers,HttpStatus.UNAUTHORIZED);
+            }
+
+            //3. 返回资源（这里是用户名）
+            String username=oAuthService.getUsernameByAccessToken(accessToken);
+            return new ResponseEntity(username,HttpStatus.OK);
+        } catch (OAuthProblemException e) {
+            //是否设置了错误码
+            String errorCode=e.getError();
+            //没有错误码则不加错误码
+            if(OAuthUtils.isEmpty(errorCode)){
+                OAuthResponse response=OAuthASResponse
+                        .errorResponse(HttpServletResponse.SC_UNAUTHORIZED)
+                        .setRealm(Constants.RESOURCE_SERVER_NAME)
+                        .buildHeaderMessage();
+                HttpHeaders headers=new HttpHeaders();
+                headers.add(OAuth.HeaderType.WWW_AUTHENTICATE,
+                        response.getHeader(OAuth.HeaderType.WWW_AUTHENTICATE));
+                return new ResponseEntity(headers,HttpStatus.UNAUTHORIZED);
+            }
+
+            //有就加上
+            OAuthResponse response=OAuthASResponse
+                    .errorResponse(HttpServletResponse.SC_UNAUTHORIZED)
+                    .setRealm(Constants.RESOURCE_SERVER_NAME)
+                    .setError(e.getError())
+                    .setErrorDescription(e.getDescription())
+                    .setErrorUri(e.getUri())
+                    .buildHeaderMessage();
+            HttpHeaders headers=new HttpHeaders();
+            headers.add(OAuth.HeaderType.WWW_AUTHENTICATE,
+                    response.getHeader(OAuth.HeaderType.WWW_AUTHENTICATE));
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+    }
+}
+</code></pre><ul>
+<li><p>配置文件：跟第十六章类似，其中要说的是过滤链的配置：OAuth的几个地址：/authorize、/accesstoken、/userInfo都是匿名可访问的。</p>
+<pre><code>&lt;property name=&quot;filterChainDefinitions&quot;&gt;
+    &lt;!--OAuth的几个地址：/authorize、/accesstoken、/userInfo都是匿名可访问的--&gt;
+    &lt;value&gt;
+        / = anon
+        /login = authc
+        /logout = logout
+
+        /authorize=anon
+        /accessToken=anon
+        /userInfo=anon
+
+        /** = user
+    &lt;/value&gt;
+&lt;/property&gt;
+</code></pre></li>
+<li><p>测试：</p>
+</li>
+</ul>
+<ol>
+<li>首先模拟豆瓣向qq发起授权请求：<a href="http://localhost:8080/chapter17-server/authorize" target="_blank" rel="noopener">http://localhost:8080/chapter17-server/authorize</a><br>?client_id=c1ebe466-1cdc-4bd3-ab69-77c3561b9dee &amp; response_type=code &amp; redirect_uri=<a href="http://localhost:9080/chapter17-client/oauth2-login。" target="_blank" rel="noopener">http://localhost:9080/chapter17-client/oauth2-login。</a></li>
+<li>转发至登录页面，url仍是上面那个。</li>
+<li>登录，提交至以上url进入login()验证，验证成功则重定向至redirect_uri（此时访问失败，因为还没有设置该url）并带上code。</li>
+<li>重定向失败了先不管，先拿着code拿token：访问<a href="http://localhost:8080/chapter17-server/accessToken，post带上参数：client_id=c1ebe466-1cdc-4bd3-ab69-77c3561b9dee" target="_blank" rel="noopener">http://localhost:8080/chapter17-server/accessToken，post带上参数：client_id=c1ebe466-1cdc-4bd3-ab69-77c3561b9dee</a> &amp; client_secret=d8346ea2-6017-43ed-ad68-19c0f971738b &amp; code=3569b277920280b33d6d86ded9022df8 &amp; grant_type=authorization_code。返回token（json格式）。</li>
+<li>带上token去请求用户信息：<a href="http://localhost:8080/chapter17-server/authorize" target="_blank" rel="noopener">http://localhost:8080/chapter17-server/authorize</a><br>?client_id=c1ebe466-1cdc-4bd3-ab69-77c3561b9dee &amp; response_type=code &amp; redirect_uri=<a href="http://localhost:9080/chapter17-client/oauth2-login，返回用户名。" target="_blank" rel="noopener">http://localhost:9080/chapter17-client/oauth2-login，返回用户名。</a></li>
+</ol>
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><ul>
+<li>流程：豆瓣客户端在登录时选择请求QQ服务器端授权登录，成功后返回code给客户端，客户端使用该code去服务器端换取token。</li>
+<li><p>依赖：</p>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.oltu.oauth2&lt;/groupId&gt;
+  &lt;artifactId&gt;org.apache.oltu.oauth2.client&lt;/artifactId&gt;
+  &lt;version&gt;0.31&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li><p>OAuth2Token类：用于存储OAuth2服务端返回的auth code；待会被login方法调用；实现了AuthenticationToken接口，它用于保存用户提交的信息，常用的实现类是UsernamePasswordToken。</p>
+</li>
+</ul>
+<pre><code>public class OAuth2Token implements AuthenticationToken {
+    private String authCode; //code
+    private String principal; //username
+
+    //构造方法
+    public OAuth2Token(String authCode) {
+        this.authCode = authCode;
+    }
+
+    //getter
+    @Override
+    public String getPrincipal() {
+        return principal;
+    }
+    @Override
+    public Object getCredentials() {
+        return authCode;
+    }
+
+    //setter
+    ......
+}
+</code></pre><ul>
+<li>OAuth2AuthenticationFilter: 过滤器，类似于FormAuthenticationFilter，控制OAuth2客户端的身份验证。</li>
+</ul>
+<ol>
+<li>首先判断响应中是否包含error参数（除非重定向才会有响应），有则直接重定向到失败页面。</li>
+<li>如果用户未身份验证且没有code，（若有code则是服务端授权之后返回的），则重定向到服务端进行授权；</li>
+<li>如果未验证但有code，则调用executeLogin()进行登录（虽然服务端那边已经登录成功并拿到了code，但是客户端这边的Subject仍未登录，按第六章的说法，默认只有同线程的Subject是同一个，这里连应用都不是同一个），用code创建OAuth2Token提交给Subject登录。</li>
+<li>登录成功回调onLoginSuccess()重定向到成功页面；</li>
+<li>失败回调onLoginFailure()重定向到失败页面。</li>
+</ol>
+<pre><code>public class OAuth2AuthenticationFilter extends AuthenticatingFilter {
+    //auth code参数名
+    private String authcCodeParam=&quot;code&quot;;
+    private String clientId;
+    //服务器端登录成功后重定向地址
+    private String redirectUrl;
+    //失败后重定向地址
+    private String failureUrl;
+    private String responseType=&quot;code&quot;;
+
+    /**
+     * @Author haien
+     * @Description 用code创建OAuth2Token
+     * @Date 2019/3/30
+     * @Param [request, response]
+     * @return org.apache.shiro.authc.AuthenticationToken
+     **/
+    @Override
+    protected AuthenticationToken createToken(ServletRequest request, 
+            ServletResponse response) throws Exception{
+        HttpServletRequest httpRequest=(HttpServletRequest)request;
+        String code=httpRequest.getParameter(authcCodeParam);
+        return new OAuth2Token(code);
+    }
+
+    @Override
+    protected boolean isAccessAllowed(ServletRequest request, 
+        ServletResponse response, Object mappedValue) {
+        return false;
+    }
+
+    /**
+     * @Author haien
+     * @Description 当访问拒绝时是否已经处理了，返回true表示需要继续处理，
+                    否则直接返回即可。不知道什么情况下会被拒绝？
+     * @Date 2019/3/30
+     * @Param [request, response]
+     * @return boolean
+     **/
+    @Override
+    protected boolean onAccessDenied(ServletRequest request, 
+            ServletResponse response) throws Exception {
+        String error=request.getParameter(&quot;error&quot;);
+        String errorDescription=request.getParameter(&quot;error_description&quot;);
+        //如果服务端返回了错误参数
+        if(!StringUtils.isEmpty(error)){
+            //重定向到失败页面
+            WebUtils.issueRedirect(request,response,
+              failureUrl+&quot;?error=&quot;+error+&quot;error_description=&quot;+errorDescription);
+            return false;
+        }
+
+        //判断用户是否已身份验证（记住我不算）
+        Subject subject=getSubject(request,response);
+        if(!subject.isAuthenticated()){
+            //如果用户未身份验证且没有code
+            if(StringUtils.isEmpty(request.getParameter(authcCodeParam))){
+                //重定向到服务端授权
+                saveRequestAndRedirectToLogin(request,response);
+                return false;
+            }
+
+            /*未身份验证但已经重定向到server端登录页面并成功登录拿到code
+            （由于拿到code后OAuthresponse.buildQueryMessage()重定向回/oauth2-login
+            又触发该过滤器，因为server端和client端并不共享一个Subject，所以那边登录后
+            这边仍未登录），则执行父类的登录逻辑，它会调用createToken()用code创建
+            OAuth2Token并交给Subject.login()登录，login()将调用OAuth2Realm进行身份
+            验证；登录成功将回调onLoginSuccess()重定向到成功页面；
+            失败则onLoginFailure()重定向到失败页面*/
+            return executeLogin(request,response);
+        }
+
+        return false;
+    }
+
+    /**
+     * @Author haien
+     * @Description 登录成功后的回调方法，重定向到成功页面；
+                    被上面executeLogin()调用
+     * @Date 2019/3/30
+     * @Param [token, subject, request, response]
+     * @return boolean
+     **/
+    @Override
+    protected boolean onLoginSuccess(AuthenticationToken token, Subject subject,
+                                     ServletRequest request, 
+                                     ServletResponse response) throws Exception {
+        //把原先的url：/oauth2-login清空，跳转默认成功页面，不然又会触发过滤器，
+        //而执行onAccessdeny()，这次直接返回false，
+        //而给前端呈现了一个空白的/oauth2-login页面
+        WebUtils.getAndClearSavedRequest(request); 
+        issueSuccessRedirect(request,response);
+        return false;
+    }
+
+    /**
+     * @Author haien
+     * @Description 登录失败后的回调；被上面executeLogin()调用
+     * @Date 2019/3/30
+     * @Param [token, e, request, response]
+     * @return boolean
+     **/
+    @Override
+    protected boolean onLoginFailure(AuthenticationToken token, 
+            AuthenticationException ae,ServletRequest request, 
+            ServletResponse response) {
+        Subject subject=getSubject(request,response);
+        //如果用户其实已登录过了
+        if(subject.isAuthenticated()||subject.isRemembered()){
+            //重定向到成功页面
+            try {
+                issueSuccessRedirect(request,response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        //如果用户未登录且目前登录失败
+        else {
+            try {
+                //重定向到失败页面
+                WebUtils.issueRedirect(request,response,failureUrl);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return false;
+    }
+}
+</code></pre><ul>
+<li><p>ShiroFilter：</p>
+<pre><code>&lt;bean id=&quot;shiroFilter&quot; class=&quot;org.apache.shiro.spring.web.ShiroFilterFactoryBean&quot;&gt;
+  &lt;property name=&quot;securityManager&quot; ref=&quot;securityManager&quot;/&gt;
+  &lt;property name=&quot;loginUrl&quot;
+            value=&quot;http://localhost:8080/chapter17-server/authorize?client_id=c1ebe466-1cdc-4bd3-ab69-77c3561b9dee&amp;amp;response_type=code&amp;amp;redirect_uri=http://localhost:9080/chapter17-client/oauth2-login&quot;/&gt;
+  &lt;property name=&quot;successUrl&quot; value=&quot;/&quot;/&gt;
+  &lt;property name=&quot;filters&quot;&gt;
+      &lt;util:map&gt;
+         &lt;entry key=&quot;oauth2Authc&quot; value-ref=&quot;oAuth2AuthenticationFilter&quot;/&gt;
+      &lt;/util:map&gt;
+  &lt;/property&gt;
+  &lt;property name=&quot;filterChainDefinitions&quot;&gt;
+      &lt;value&gt;
+          / = anon
+          /oauth2Failure.jsp = anon
+          /oauth2-login = oauth2Authc
+          /logout = logout
+          /** = user
+      &lt;/value&gt;
+  &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre></li>
+<li>loginUrl会自动设置到所有的AccessControllerFilter，包括OAuth2AuthenticationFilter。</li>
+<li><p>/oauth2-login为服务端OAuth2授权起点，指定oauth2Authc过滤器。</p>
+</li>
+<li><p>测试：</p>
+</li>
+</ul>
+<ol>
+<li>访问<a href="http://localhost:9080/chapter17-client/，展示index.jsp登录页面，点击登录按钮，其url为/oauth2-login。" target="_blank" rel="noopener">http://localhost:9080/chapter17-client/，展示index.jsp登录页面，点击登录按钮，其url为/oauth2-login。</a></li>
+<li>第一次触发OAuth2AuthenticationFilter，主要逻辑在onAccessDeny()中，它发现用户未登录，重定向到登录接口，按ShiroFilter设置的loginUrl，为<a href="http://localhost:8080/chapter17-server/authorize?带各参数，其中redirectUrl为/oauth2-login。" target="_blank" rel="noopener">http://localhost:8080/chapter17-server/authorize?带各参数，其中redirectUrl为/oauth2-login。</a></li>
+<li>填写登录信息，提交server端AuthorizeController登录并带着code重定向到以上redirectUrl：/oauth2-login。</li>
+<li>第二次又触发OAuth2AuthenticationFilter，在客户端执行login()登录一遍，其会调用OAuth2Realm中的extractUsername()拿着code去请求token进而请求userInfo获得username，封装进token，构造客户端的Subject；</li>
+<li>登录成功，执行onLoginSuccess()，情况原本要访问的url：/oauth2-login，重定向到默认成功页面。</li>
+</ol>
+<ul>
+<li>代码示例：ideaProjects/shiro-cahpter17</li>
+<li><a href="https://jinnianshilongnian.iteye.com/blog/2038646" target="_blank" rel="noopener">《跟我学shiro第十七章》</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-01T13:24:42.773Z" itemprop="dateUpdated">2019-04-01 21:24:42</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Shiro第十七章-OAuth2集成/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Shiro第十七章-OAuth2集成/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第十七章-OAuth2集成/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第十七章-OAuth2集成/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第十七章-OAuth2集成/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第十七章-OAuth2集成/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第十七章-OAuth2集成/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Shiro第十三章-RememberMe和Cookie/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Shiro第十六章-综合实例，用户、角色、资源模型，配置文件详解/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第十七章-OAuth2集成/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第十七章-OAuth2集成/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第十七章-OAuth2集成/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第十七章-OAuth2集成/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第十七章-OAuth2集成/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACpklEQVR42u3a0U4DMQwEwP7/T4OEeINe13Z8BWnyVKEjzQTpYtZ5POLx8TWuP/98/npcP/lstsfGwMPDw2stPVnEM1LyfD7yLY5mwMPDw1vjVafLD4zr7aiS8jXj4eHh/QVeXrVeb1D1OMHDw8P7v7xTMcRZKh4eHt67eL2vn0Su1XBhPWvBw8PD6ySlowbYnZ/f0N/Dw8PDO9qa6oW/zw6VeQvt+3fx8PDwFnjXDapeXJvDTl1HeHFs4OHh4d3Iy6OB5JCols7zTcTDw8Pb4E3a/L2l5IFvAr7+Y+Dh4eHt8ZICOn+V9yKJs5EHHh4e3j28XqhavbY1KdmTb4myEzw8PLxDvEnh2wsm8uOh9xM8PDy8DV7y0k/iiWteteDOw+Joc/Hw8PCO8pJJ84Cg106rHjmFLcbDw8Nb4FXj1MllrGrpXGh0Xa8TDw8P7yhvUjpXLxNUL2MdKOvx8PDw1hKDagSQF9anivV8u/Hw8PDu4fUaV70n8ytc1Uiit2Y8PDy8Dd4pfO9Q2Q6d8fDw8Hq8XgBRjVmrFwJOhSN4eHh4Z3m9wrQH7jWxDtyMwMPDwzvKe3FiFNv51UOluil56Pz0ZgQeHh7emJe8fKshbPL67m1Z+UjDw8PDW+YV0ou1Yrp6REX/MeDh4eEt8Day4Spvfjn1l9nw8PDwFnjVpfdK7Um7a3J5Cw8PD2+Dl5ewvbBg3sSqUqOsBQ8PD+8QLxnRpEFs0TtIqq01PDw8vA1ePvJDIi95qxcL8uIeDw8Pb5vXm3ryIj51BSFaDx4eHt4ar9qqn7z0k1CjGum+CHPx8PDw3sTLLxlUo4Qk5qhuHx4eHt7f5M2vXiWBb28T8fDw8LZ5yXTVNlj18sHkKDqQteDh4eHd2FufNPjz5x97Aw8PDy8dnwOD+T7vmSuWAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

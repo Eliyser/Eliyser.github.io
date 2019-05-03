@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简介 Hadoop是Apache基金会开发的一个分布式系统基础架构。用户可以在不了解分布式底层细节的情况下开发分布式程序，充分利用集群的威力进行告诉运算和存储。 得名由来：开发者的女儿给一头黄色大象起的名字。 Hadoop实现了一个分布式文件系统（Hadoop Distributed File System），简称HDFS，它有着高容错性的特性，并且设计用来部署在低廉的硬件上，提供高吞吐量（hig">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Hadoop（一）：Hadoop概述/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="简介 Hadoop是Apache基金会开发的一个分布式系统基础架构。用户可以在不了解分布式底层细节的情况下开发分布式程序，充分利用集群的威力进行告诉运算和存储。 得名由来：开发者的女儿给一头黄色大象起的名字。 Hadoop实现了一个分布式文件系统（Hadoop Distributed File System），简称HDFS，它有着高容错性的特性，并且设计用来部署在低廉的硬件上，提供高吞吐量（hig">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-24T11:46:22.260Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="简介 Hadoop是Apache基金会开发的一个分布式系统基础架构。用户可以在不了解分布式底层细节的情况下开发分布式程序，充分利用集群的威力进行告诉运算和存储。 得名由来：开发者的女儿给一头黄色大象起的名字。 Hadoop实现了一个分布式文件系统（Hadoop Distributed File System），简称HDFS，它有着高容错性的特性，并且设计用来部署在低廉的硬件上，提供高吞吐量（hig">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:44.867Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据体积"><span class="post-toc-number">2.</span> <span class="post-toc-text">数据体积</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#存储方式"><span class="post-toc-number">3.</span> <span class="post-toc-text">存储方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四大模块"><span class="post-toc-number">4.</span> <span class="post-toc-text">四大模块</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Hadoop（一）：Hadoop概述"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.867Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>Hadoop是Apache基金会开发的一个分布式系统基础架构。用户可以在不了解分布式底层细节的情况下开发分布式程序，充分利用集群的威力进行告诉运算和存储。</li>
+<li>得名由来：开发者的女儿给一头黄色大象起的名字。</li>
+<li>Hadoop实现了一个分布式文件系统（Hadoop Distributed File System），简称HDFS，它有着高容错性的特性，并且设计用来部署在低廉的硬件上，提供高吞吐量（high throughput）来访问应用程序的数据，适合那些有着超大数据集的应用程序。</li>
+<li>Hadoop的框架最核心的设计就是：HDFS和MapReduce。HDFS为海量的数据提供了存储，MapReduce为海量的数据提供了计算。</li>
+<li>Hadoop是适合海量数据的分布式存储和分布式计算平台。</li>
+<li>为什么HDFS不适合存储小文件？假如有一个100m的文件和100个1m的文件，在数据存储上面完全没有差异，但是在管理节点和元数据上面，一个100m的文件只有一份元数据信息，而后者却有100份，这会对管理节点造成非常大的压力，所以不适合存储大量的小文件。<h3 id="数据体积"><a href="#数据体积" class="headerlink" title="数据体积"></a>数据体积</h3></li>
+<li>bit、byte、kb、mb、gb、tb、……</li>
+<li>1byte=8bit</li>
+<li>1kb=1024byte</li>
+<li>1mb=1024kb<h3 id="存储方式"><a href="#存储方式" class="headerlink" title="存储方式"></a>存储方式</h3></li>
+<li>集中式存储：一个完整的数据都存储在一个存储介质中，数据的物理结构没有破坏，是完整的，比如一个100mb的数据存放在一块1t的硬盘中。</li>
+<li>分布式存储：一个完整的数据存储在不同的存储介质中，数据的物理结构被破坏了，从逻辑上看同样是完整，比如一个100mb的数据，50mb存在A机器，30mb存在B机器，20mb存在C机器。为了保证数据的健壮性，需要对数据做冗余存储（备份）。而在分布式存储系统中，分散在不同节点中的数据可能属于同一个文件，为了组织众多的文件，可以把文件放在不同的文件夹中，文件夹可以一级一级包含。我们把这种组织形式成为命名空间(namespace)。命名空间管理着整个服务器集群中的所有文件。<br>###计算方式</li>
+<li>集中式计算：计算和数据在同一台机器的同一个进程中完成。1+…+1000=50500,需要10分钟。</li>
+<li>分布式计算：机器A:1+…+100=A  1分钟<br><br> 机器B:101+…+200=B  1分钟<br><br> ……<br><br> 最终将所有机器的计算结果汇总到其中一台机器上，得到最终结果。<h3 id="四大模块"><a href="#四大模块" class="headerlink" title="四大模块"></a>四大模块</h3></li>
+<li>Hadoop Common：支持其他模块的公共组件。</li>
+<li>Hadoop Distributed File System</li>
+<li>Hadoop TARN：任务调度和集群资源管理的框架</li>
+<li>Hadoop MapResource：以YARN为基础的大数据并发处理系统。</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-12-24T11:46:22.260Z" itemprop="dateUpdated">2018-12-24 19:46:22</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Hadoop（一）：Hadoop概述/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Hadoop（一）：Hadoop概述/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Hadoop（一）：Hadoop概述/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Hadoop（一）：Hadoop概述/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Hadoop（一）：Hadoop概述/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Hadoop（一）：Hadoop概述/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Hadoop（一）：Hadoop概述/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/hexo博客部署到服务器/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Gson注解/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Hadoop（一）：Hadoop概述/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Hadoop（一）：Hadoop概述/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Hadoop（一）：Hadoop概述/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Hadoop（一）：Hadoop概述/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Hadoop（一）：Hadoop概述/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACwUlEQVR42u3aQW7cMBAEQP//0w6Qq7Ha7hly4wClUyArEosLiFTPfH3Fx/ff4+eZn+dfXfN85fNTXv312IGHh4c3GvqrY/+Y56l5Jr2aymTMeHh4eLd5z8M6+8h84pLpfmPBw8PD+6e85Eyys90vIXh4eHj/Cy/B51fmd8PDw8P7nbzkdtHHf3DnPNR43nwfzlrw8PDwJuMZPubz/75Y38PDw8NbVNVnr93nK2cFtuE48fDw8C7w8oB1NsS2JJbHDcWCgYeHh3eBlwy6DW0Tdj7cZLGpw1w8PDy8ES/f2ubFsLMxx2zSi5nGw8PDK3l5W8D+JT67ctaggIeHh3ePl3/wz4r9eXixn5qX6x4eHh7eUV6ywW0bsNpGq7ao1v4keHh4eDd4s0aBTYGqDRpWG3o8PDy8o7z8VZ6XoPZtW5vmhvp3w8PDw5tkBcP1pG0RmA00b8OKfkM8PDy8Na8tQbUb4v0CM5s4PDw8vHu8tpi0L1ntG6oKGB4eHt4FXr5hzctgbeCbF8PqAhseHh7eNd7sg3/WcNC2Z7Wb7DdfDHh4eHiHePuFIW+fyiPdfWsCHh4e3g1eG6TWr+bR6z6fpmTZwMPDw7vByzeveUzQFqs27DcjxMPDwzvKm0Wxs+aqNs5oI483TQN4eHh4h3h5E8BseTgbKOT/K+qPwMPDwzvEayPXfIh541QbhRSZMR4eHt4h3iZUbUv7bUjRFufeLAl4eHh4R3n5wtAWqNqSWJFAt2EuHh4e3pr3XR6nOhRm7QJ1+xceHh7eBd4sqsg3x2cXjDzAxcPDw7vNa1ug2kAhuXMS+Lbn8fDw8G7zZo1QSSiwbxHYBB94eHh4v4HXxr5tZJBvqev6Hh4eHt7HebNS2SwUbkMKPDw8vM/z2sig3S637QKbIhweHh7ebd6sANYWsWYxRDIFmwgDDw8Pr+T9Afp/AyeN6yxLAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

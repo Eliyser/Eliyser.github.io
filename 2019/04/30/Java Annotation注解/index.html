@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简介 annotation是Java5引入的新特征，它提供了一种安全的类似注释的机制，用来将任何的信息或元数据（metadata）与程序元素（类、方法、成员变量等）关联。 通俗来讲，就是为程序的元素加上更直观明了的说明，这些说明信息是与程序的业务逻辑无关，提供给指定的工具或框架使用的。 annotation实际是一种接口，通过Java反射机制来访问annotation信息，并根据这些信息来决定如何">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Java Annotation注解/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="简介 annotation是Java5引入的新特征，它提供了一种安全的类似注释的机制，用来将任何的信息或元数据（metadata）与程序元素（类、方法、成员变量等）关联。 通俗来讲，就是为程序的元素加上更直观明了的说明，这些说明信息是与程序的业务逻辑无关，提供给指定的工具或框架使用的。 annotation实际是一种接口，通过Java反射机制来访问annotation信息，并根据这些信息来决定如何">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-23T09:22:35.697Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="简介 annotation是Java5引入的新特征，它提供了一种安全的类似注释的机制，用来将任何的信息或元数据（metadata）与程序元素（类、方法、成员变量等）关联。 通俗来讲，就是为程序的元素加上更直观明了的说明，这些说明信息是与程序的业务逻辑无关，提供给指定的工具或框架使用的。 annotation实际是一种接口，通过Java反射机制来访问annotation信息，并根据这些信息来决定如何">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.067Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#元注解"><span class="post-toc-number">2.</span> <span class="post-toc-text">元注解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Target"><span class="post-toc-number">3.</span> <span class="post-toc-text">@Target</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Retention"><span class="post-toc-number">4.</span> <span class="post-toc-text">@Retention</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Documented"><span class="post-toc-number">5.</span> <span class="post-toc-text">@Documented</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Inherited"><span class="post-toc-number">6.</span> <span class="post-toc-text">@Inherited</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义注解"><span class="post-toc-number">7.</span> <span class="post-toc-text">自定义注解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#自定义的注解使用其他已定义注解"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">自定义的注解使用其他已定义注解</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Java Annotation注解"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.067Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>annotation是Java5引入的新特征，它提供了一种安全的类似注释的机制，用来将任何的信息或元数据（metadata）与程序元素（类、方法、成员变量等）关联。</li>
+<li>通俗来讲，就是为程序的元素加上更直观明了的说明，这些说明信息是与程序的业务逻辑无关，提供给指定的工具或框架使用的。</li>
+<li><p>annotation实际是一种接口，通过Java反射机制来访问annotation信息，并根据这些信息来决定如何使用被注解的程序元素或改变其行为。</p>
+</li>
+<li><p>annotation类型使用关键字@interface定义，表示继承了java.lang.annotation.Annotation接口，并声明它也是一个接口。</p>
+</li>
+<li>annotation与接口相似，可以定义常量、静态成员类型（如枚举类）。</li>
+<li>annotation类型的方法必须是、声明为无参数、无异常抛出的。</li>
+<li>成员方法即为成员属性，方法名为属性名，方法返回值为属性类型。</li>
+<li>方法返回值类型必须为primitive类型、Class类型、枚举类型、annotation类型或由这些类型之一作为元素的数组。方法后面可以使用default和一个默认值来声明成员的默认值（null除外）。</li>
+</ul>
+<h3 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h3><ul>
+<li>作用：注解其他注解。</li>
+<li>Java5定义了4个标准的meta-annotation类型，用于对其他annotation作说明。<ul>
+<li>@Target</li>
+<li>@Retention</li>
+<li>@Documented</li>
+<li>@Inherited</li>
+</ul>
+</li>
+</ul>
+<h3 id="Target"><a href="#Target" class="headerlink" title="@Target"></a>@Target</h3><ul>
+<li>说明了Annotation所修饰的对象范围，也即是注解的使用范围。annotation可悲用于packages、types（类、接口、枚举、annotation类型）、类型成员（方法、属性、枚举值）、方法参数和本地变量（如循环变量、catch参数），使用target可明确其修饰的目标。</li>
+<li><p>取值（ElementType）：</p>
+<ul>
+<li>CONSTRUCTOR：注解在构造器上。</li>
+<li>FIELD：成员属性。</li>
+<li>LOCAL_VARIABLE：局部变量。</li>
+<li>METHOD：方法。</li>
+<li>PACKAGE：包。</li>
+<li>PARAMETER：参数。</li>
+<li>TYPE：type。</li>
+</ul>
+</li>
+<li><p>实例：</p>
+</li>
+</ul>
+<pre><code>//数据表名注解
+@Target(ElementType.TYPE)
+public @interface Table {
+    /**
+     * 表名，默认值为被注解类名
+     * @return
+     */
+    public String tableName() default &quot;className&quot;;
+}
+
+//不映射字段注解
+@Target(ElementType.FIELD)
+public @interface NoDBColumn {
+
+}
+</code></pre><h3 id="Retention"><a href="#Retention" class="headerlink" title="@Retention"></a>@Retention</h3><ul>
+<li>作用：定义了注解被保留的时间长短。某些注解只出现在源代码中，不被编译，一些则被编译到class文件中，但它们可能会被虚拟机忽略，另一些则在加载Class时被读取。使用此元注解可对注解的生命周期进行限制，指明需要在什么级别保存该注解。</li>
+<li><p>取值（RetentionPolicy）：</p>
+<ul>
+<li>SOURCE: 在源文件中有效（即保留在源文件）</li>
+<li>CLASS：在class文件中有效。</li>
+<li>RUNTIME：在运行时有效。</li>
+</ul>
+</li>
+<li><p>实例：</p>
+</li>
+</ul>
+<pre><code>@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Column {
+    public String name() default &quot;fieldName&quot;;
+    public String setFuncName() default &quot;setField&quot;;
+    public String getFuncName() default &quot;getField&quot;; 
+    public boolean defaultDBValue() default false;
+}
+</code></pre><ul>
+<li>RetentionPolicy取值为RUNTIME，这样注解处理器可以通过反射，获取该注解的属性值，从而去做一些运行时的逻辑处理。</li>
+</ul>
+<h3 id="Documented"><a href="#Documented" class="headerlink" title="@Documented"></a>@Documented</h3><ul>
+<li>作用：使annotation被javadoc类的工具文档化。</li>
+<li>没有取值可选，直接加在annotation上即可。</li>
+</ul>
+<h3 id="Inherited"><a href="#Inherited" class="headerlink" title="@Inherited"></a>@Inherited</h3><ul>
+<li>作用：表示被annotation注解的类其子类也继承了此annotation，但实现了带此annotation的接口的实现类并不会继承该annotation，方法也不会从它重载的方法继承annotation。</li>
+<li>无取值可选。</li>
+</ul>
+<h3 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h3><ul>
+<li>使用@interface自定义注解，注意不能继承其他的注解或接口。</li>
+<li>其中的每一个方法实际上是声明了一个配置参数，方法的名称就是参数的名称，返回值类型就是参数类型。</li>
+<li>annotation里面的参数要求：</li>
+</ul>
+<ol>
+<li>只能用public或default修饰，如String value()即为default。</li>
+<li>类型只能是基本数据类型、String、Enum、Class、Annotation和它们之一的数组。</li>
+<li>如果只有一个参数成员，最好命名为value，则可以直接注入值。</li>
+</ol>
+<ul>
+<li>实例：</li>
+</ul>
+<pre><code> /**
+  * 水果名称注解
+  * @author wangsheng
+  *
+  */
+ @Target(ElementType.FIELD)
+ @Retention(RetentionPolicy.RUNTIME)
+ @Documented
+ public @interface FruitName {
+     String value() default &quot;&quot;;
+ }
+
+ /**
+  * 水果颜色注解
+  * @author peida
+  *
+  */
+ @Target(ElementType.FIELD)
+ @Retention(RetentionPolicy.RUNTIME)
+ @Documented
+ public @interface FruitColor {
+     //颜色枚举
+     public enum Color{BULE,RED,GREEN};
+
+     //颜色属性
+     Color fruitColor() default Color.GREEN;
+ }
+
+//使用注解
+ public class Apple {
+     @FruitName(&quot;Apple&quot;) //直接注入值而不用指明属性
+     private String appleName;
+
+     @FruitColor(fruitColor=Color.RED)
+     private String appleColor;
+ }
+</code></pre><ul>
+<li>非基本类型的注解属性的值不可为null，因此，使用空字符串和0作为默认值是一种常用的做法。也正是因为不能为null，处理器很难判断一个属性是否缺失，所以我们只能定义一些特殊的默认值，例如空字符串或负数来表示某个属性不存在。</li>
+</ul>
+<pre><code>@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface FruitProvider {
+    /**
+     * 供应商编号
+     * @return
+     */
+    public int id() default -1;
+
+    /**
+     * 供应商名称
+     * @return
+     */
+    public String name() default &quot;&quot;;
+}
+</code></pre><ul>
+<li>实例：最后还模拟了一下反射机制对注解的解析。</li>
+</ul>
+<pre><code>/** 
+ * 定义作者信息的注解，name和group 
+ */  
+@Retention(RetentionPolicy.RUNTIME)  
+@Target(ElementType.METHOD)  
+@Documented  
+public @interface Author {  
+    String name(); 
+    String group();  
+}
+
+/** 
+ * 定义描述信息的注解，value 
+ */  
+@Retention(RetentionPolicy.RUNTIME)  
+@Target(ElementType.TYPE)  
+@Documented  
+public @interface Description {  
+    String value();
+}
+
+/**
+ * 使用注解
+ */
+@Description(value=&quot;这是一个有用的工具类&quot;) // value可以省略
+public class Utility {
+
+    @Author(name=&quot;wangsheng&quot;, group=&quot;developer team&quot;)
+    public String work() {
+        return &quot;work over!&quot;;
+    }
+
+}
+
+/**
+ *在运行时分析处理annotation类型的信息
+ */
+public class AnalysisAnnotation {
+
+    public static void main(String[] args) {
+        try {
+
+            // 通过运行时反射API获得annotation信息
+            Class&lt;?&gt; rtClass = 
+                Class.forName(&quot;com.wsheng.aggregator.annotation.Utility&quot;);
+            Method[] methods = rtClass.getMethods();
+
+            //判断Description注解是否存在
+            boolean descriptionExist = 
+                rtClass.isAnnotationPresent(Description.class);
+            if (descriptionExist) {
+                //从类中获取注解Description
+                Description description = 
+                    (Description)rtClass.getAnnotation(Description.class);
+                //Utility&apos;s Description --- &gt; 这是一个有用的工具类
+                System.out.println(&quot;Utility&apos;s Description --- &gt; &quot; 
+                    + description.value()); 
+
+                //从方法中获取Author注解
+                for (Method method : methods) {
+                    if (method.isAnnotationPresent(Author.class)) {
+                        Author author = (Author)method.getAnnotation(Author.class);
+                        //Utility&apos;s Author ---&gt; wangsheng from developer team
+                        System.out.println(&quot;Utility&apos;s Author ---&gt; &quot; + author.name() 
+                            + &quot; from &quot; + author.group());
+                    }
+                }
+
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+}
+</code></pre><h4 id="自定义的注解使用其他已定义注解"><a href="#自定义的注解使用其他已定义注解" class="headerlink" title="自定义的注解使用其他已定义注解"></a>自定义的注解使用其他已定义注解</h4><ul>
+<li>有的时候要在自定义的注解上使用其他定义好的注解，比如：</li>
+</ul>
+<pre><code>@Caching(
+    put = {
+            @CachePut(value = &quot;user&quot;, key = &quot;#user.id&quot;),
+            @CachePut(value = &quot;user&quot;, key = &quot;#user.username&quot;),
+            @CachePut(value = &quot;user&quot;, key = &quot;#user.email&quot;)
+    }
+)
+@Target({ElementType.METHOD, ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Inherited
+public @interface UserSaveCache {
+}
+</code></pre><ul>
+<li>把要用的注解取好值加在自定义注解上，然后这个自定义注解加在方法上自然就会拥有@Caching的功能，不过属性就不能改了。</li>
+<li><p>详见笔记：Spring Cache</p>
+</li>
+<li><p><a href="https://josh-persistence.iteye.com/blog/2226493" target="_blank" rel="noopener">参考文章</a></p>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-23T09:22:35.697Z" itemprop="dateUpdated">2019-03-23 17:22:35</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Java Annotation注解/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Java Annotation注解/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java Annotation注解/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java Annotation注解/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java Annotation注解/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Java Annotation注解/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java Annotation注解/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Java assert断言/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/IO流/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java Annotation注解/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java Annotation注解/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java Annotation注解/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Java Annotation注解/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java Annotation注解/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACEUlEQVR42u3aQXLDMAgF0Nz/0ukBUrsfUNux9LzKeFxZzwsKiNcrvt7j63O1z99Xd5ZdGBgYj2Ukr8/vX23xitRb/5t1MDAwDmBcLZ08c7/FZKNX1GRvGBgYGPcvywPuFSlHYmBgYFQZa0vifwu4GBgYj2KsCp3JhuZFMgYGxmmMPET+/e9fOd/AwMB4FKN3DDkJr3k6WNgVBgbG1ow8wK06qqympMnfYmBgnMCYt+bvQ3ASZPPEFAMD40xGL/DlYTE/vKx+UAwMDIzeC/LytfmfYdJ0w8DAeCAjT9fyjU7GLJqjHhgYGAcwkiWqJWseNHuHBBgYGOcwekMVa9v61U8ZjWVgYGBsxFg26NBqpeWf44d3YWBgbM2Y51fN1K3Y5usVzBgYGHswqoFvVdBcNWyBgYFxAmM03FDcUA9WeB4DA+NgxqpDx2pz7b4viIGBcSYjL2KraWXe4q8CMDAwzmGsCpHJ5ygnfEUkBgbGroy8NJ0ceVZHLvIVMDAwTmP02v2Tcndy/1WN4hgYGJsyqvMaqxLK6m4xMDB2ZbyL1ySlqxa95fobAwNjU0Y1zFVbcnnJOsnxMDAwTmBMCtEksFaTyGbAxcDAOIDRC3zVbeXDHOUiGQMDA2PceuuNlJWzVwwMDIxWU2wyzFGgYmBgHMCYHAb0jjMTQOF5DAyMrRm9EYfJqEQ+kJEcTmBgYGzN+AIEBeZUrCdXIQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

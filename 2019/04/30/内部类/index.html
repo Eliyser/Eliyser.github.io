@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="作用 提供了更好的封装。只能让外部类直接访问，不能让其他所有类访问。 内部类可以直接访问内部类的私有属性，但外部类不能访问内部类的属性 在外部类的某个方法中new一个内部类对象之后，可以用这个内部类对象直接访问内部类的似有属性。分类非静态内部类（和平时使用的其他类没什么不同）（上一级是成员内部类，除了成员内部类还有局部内部类，即定义在方法内的类，极少用） 非静态内部类寄存于外部类对象，定义了外部类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/内部类/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="作用 提供了更好的封装。只能让外部类直接访问，不能让其他所有类访问。 内部类可以直接访问内部类的私有属性，但外部类不能访问内部类的属性 在外部类的某个方法中new一个内部类对象之后，可以用这个内部类对象直接访问内部类的似有属性。分类非静态内部类（和平时使用的其他类没什么不同）（上一级是成员内部类，除了成员内部类还有局部内部类，即定义在方法内的类，极少用） 非静态内部类寄存于外部类对象，定义了外部类">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B714.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B715.PNG">
+<meta property="og:updated_time" content="2018-10-27T03:34:54.813Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="作用 提供了更好的封装。只能让外部类直接访问，不能让其他所有类访问。 内部类可以直接访问内部类的私有属性，但外部类不能访问内部类的属性 在外部类的某个方法中new一个内部类对象之后，可以用这个内部类对象直接访问内部类的似有属性。分类非静态内部类（和平时使用的其他类没什么不同）（上一级是成员内部类，除了成员内部类还有局部内部类，即定义在方法内的类，极少用） 非静态内部类寄存于外部类对象，定义了外部类">
+<meta name="twitter:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B714.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:46.271Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#作用"><span class="post-toc-number">1.</span> <span class="post-toc-text">作用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分类"><span class="post-toc-number">2.</span> <span class="post-toc-text">分类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#非静态内部类（和平时使用的其他类没什么不同）（上一级是成员内部类，除了成员内部类还有局部内部类，即定义在方法内的类，极少用）"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">非静态内部类（和平时使用的其他类没什么不同）（上一级是成员内部类，除了成员内部类还有局部内部类，即定义在方法内的类，极少用）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#静态内部类"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">静态内部类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#匿名内部类"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">匿名内部类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#特点"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">特点</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#总结"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">总结</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-内部类"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:46" datetime="2019-04-30T08:25:46.271Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ul>
+<li>提供了更好的封装。只能让外部类直接访问，不能让其他所有类访问。</li>
+<li>内部类可以直接访问内部类的私有属性，但外部类不能访问内部类的属性</li>
+<li>在外部类的某个方法中new一个内部类对象之后，可以用这个内部类对象直接访问内部类的似有属性。<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><h4 id="非静态内部类（和平时使用的其他类没什么不同）（上一级是成员内部类，除了成员内部类还有局部内部类，即定义在方法内的类，极少用）"><a href="#非静态内部类（和平时使用的其他类没什么不同）（上一级是成员内部类，除了成员内部类还有局部内部类，即定义在方法内的类，极少用）" class="headerlink" title="非静态内部类（和平时使用的其他类没什么不同）（上一级是成员内部类，除了成员内部类还有局部内部类，即定义在方法内的类，极少用）"></a>非静态内部类（和平时使用的其他类没什么不同）（上一级是成员内部类，除了成员内部类还有局部内部类，即定义在方法内的类，极少用）</h4></li>
+<li>非静态内部类寄存于外部类对象，定义了外部类对象才会有内部类。</li>
+<li>不能有静态成员，因为静态成员从属于类，而内部类从属于对象（Java类加载顺序：先加载类，同时执行static变量初始化，并将其加载到方法区；内部类则必须在外部类实例化后才被加载，而JVM要求所有的静态变量必须在对象创建之前完成，这样便产生了矛盾。不过为什么可以有静态常量呢？因为常量放在常量池中，加载常量是不需要加载类的）。<h4 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h4></li>
+<li>但一个静态内部类的对象存在，并不一定存在对应的外部类对象。因此不能调外部类的非静态成员，因为外部对象都不一定有。</li>
+<li>静态内部类看作外部类的一个静态成员，可以直接作为一个普通类来使用，而不需实例一个外部类。</li>
+<li><p>内部接口不管写不写static它都是static的。</p>
+<h4 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h4><pre><code>//模板设计模式
+subFiles =src.listFiles(new FilenameFilter(){ //FilenameFilter是个接口，只包含accept()一个方法声明
+
+    @Override
+    /**
+    * 重写了文件过滤器，返回为真时才将文件挑选出来，否则将剔除出listFiles
+    * dir 代表src
+    */
+    public boolean accept(File dir, String name) {
+        //System.out.println(dir.getAbsolutePath());
+        return  new File(dir,name).isFile()&amp;&amp;name.endsWith(&quot;.java&quot;);
+    }
+
+});
+</code></pre><h5 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h5></li>
+<li>只能使用一次</li>
+<li><p>当你想使用一个类的protected 方法时，但是又不和这个类在同一个包下，你是没办法调用的。<br>这时候匿名类就派上用场了，你可以声明一个匿名类继承该类，并定义一个方法，在这个方法内使用super调用你想调用的那个方法（其实你也可以写个类继承这个类，就能调用父类的protected方法了，但是匿名类更简洁，因为你只想调用这个方法而已）</p>
+<p>举个栗子</p>
+<p><img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B714.PNG" alt=""></p>
+<p><img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B715.PNG" alt=""></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>反正两种都不能调与自己静态性相反的外部类成员</p>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-27T03:34:54.813Z" itemprop="dateUpdated">2018-10-27 11:34:54</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/内部类/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/内部类/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/内部类/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/内部类/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/内部类/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/内部类/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/内部类/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/排序/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/模板设计模式/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/内部类/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/内部类/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/内部类/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/内部类/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/内部类/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aS27DMAxFUe9/0+20gKHkPlJpIPp6FBiGw+MBIX6uC18/f677HXLd33b/vbqz7ZIhQ8axDPL3q4BWb3iNJ//OY5MhQ8ZzGKvgSIok998EgdnL+zJkyJABjms8TfOkLEOGDBkdRlpqknC/kHBlyJBxFIMUkyS4NGjy+TbX4jJkyDiQwdPl///+yHxDhgwZRzFqY8hvpddlVDJkyBjNqLXSOkHX2nPoSCpDhoyhjLRcTBe/+lTU7JMhQ8ZoBn+o1vYin2BbcStDhoyhjM4BrrYqwceWQVKWIUPGaEYn7fKPQsLqHBNlyJDxHMbeIyBvqPHFjm1DTRkyZBzFQG0sfIwjQaRlLXqbDBkyHsYgf9AvccnzwUBChgwZoxkkyfICkjfvCJK06oIaWoYMGccy+JJEuk7KB5abd0ZkyJAxjsFTIW+u8ec75fEyQhkyZAxlfG5hgpfEnbGoDBkyZjN4O77TMuuPMN98OBkyZIxm1IaX/HjH18JqSyFXLUPLkCHjQAY5qNVSKofVxpaodyhDhoyhjP7iRWcMQCKJJ6gyZMgYxOiQOBiFlcYpQ4aMoYzaIgVfhojnqLXELUOGjNGMzrGsk177yxzF5p0MGTKOZaSNrdphLk2sccKVIUPGAxhp4iNNf57j00+zTLgyZMiQEbbM0rWwTtksQ4YMGemyRVqUvv4o6EkZMmQ8gNEZT/IWf20kEBwNZciQMZRRa5zVXsQHpelYVIYMGUMZv5q72xk1tgMiAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

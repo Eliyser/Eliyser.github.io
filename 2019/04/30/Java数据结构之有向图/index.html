@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="术语 有向完全图：把所有顶点都用边连起来的图，共n(n-1)条边。 简单有向路径：不含重复顶点。我们讨论的“路径”都是简单的。 简单有向环：除了起终点之外不含重复顶点和边的环。 邻接表中的索引是边的起点，值是边的终点。构造图 基本和无向图相同，其中邻接表存储边的时候只需要存储一次，而addEdge(int v,int w)参数有前后之分，前一个表示起点，后一个为终点。 /**  * @Author">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Java数据结构之有向图/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="术语 有向完全图：把所有顶点都用边连起来的图，共n(n-1)条边。 简单有向路径：不含重复顶点。我们讨论的“路径”都是简单的。 简单有向环：除了起终点之外不含重复顶点和边的环。 邻接表中的索引是边的起点，值是边的终点。构造图 基本和无向图相同，其中邻接表存储边的时候只需要存储一次，而addEdge(int v,int w)参数有前后之分，前一个表示起点，后一个为终点。 /**  * @Author">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-06T03:24:04.266Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="术语 有向完全图：把所有顶点都用边连起来的图，共n(n-1)条边。 简单有向路径：不含重复顶点。我们讨论的“路径”都是简单的。 简单有向环：除了起终点之外不含重复顶点和边的环。 邻接表中的索引是边的起点，值是边的终点。构造图 基本和无向图相同，其中邻接表存储边的时候只需要存储一次，而addEdge(int v,int w)参数有前后之分，前一个表示起点，后一个为终点。 /**  * @Author">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.242Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#术语"><span class="post-toc-number">1.</span> <span class="post-toc-text">术语</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构造图"><span class="post-toc-number">2.</span> <span class="post-toc-text">构造图</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#深度优先搜索"><span class="post-toc-number">3.</span> <span class="post-toc-text">深度优先搜索</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#拓扑排序"><span class="post-toc-number">4.</span> <span class="post-toc-text">拓扑排序</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Java数据结构之有向图"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.242Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h3><ul>
+<li>有向完全图：把所有顶点都用边连起来的图，共n(n-1)条边。</li>
+<li>简单有向路径：不含重复顶点。我们讨论的“路径”都是简单的。</li>
+<li>简单有向环：除了起终点之外不含重复顶点和边的环。</li>
+<li>邻接表中的索引是边的起点，值是边的终点。<h3 id="构造图"><a href="#构造图" class="headerlink" title="构造图"></a>构造图</h3></li>
+<li><p>基本和无向图相同，其中邻接表存储边的时候只需要存储一次，而addEdge(int v,int w)参数有前后之分，前一个表示起点，后一个为终点。</p>
+<pre><code>/**
+ * @Author haien
+ * @Description Direct graph有向图
+ * @Date 2018/12/4
+ **/
+public class Digraph {
+    //顶点数
+    private  int V;
+    //边数
+    private int E;
+    //邻接点背包数组
+    private Bag&lt;Integer&gt;[] adj;
+
+    public Digraph(int V) {
+        this.V=V;
+        this.E=0;
+        adj=(Bag&lt;Integer&gt;[])new Bag[V];
+        for(int i=0;i&lt;V;i++)
+            adj[i]=new Bag&lt;Integer&gt;();
+    }
+
+    public int V(){
+        return V();
+    }
+
+    public int E(){
+        return E;
+    }
+
+    public void addEdge(int v,int w){
+        adj[v].add(w);
+        E++;
+    }
+
+    public Iterable&lt;Integer&gt; adj(int v){
+        return adj[v];
+    }
+
+    /**
+     * @Author haien
+     * @Description 将图中所有边的方向逆转 
+     * @Date 2018/12/4
+     * @Param []
+     * @return void
+     **/
+    public Digraph reverse(){
+        Digraph R=new Digraph(V);
+        for(int v=0;v&lt;V;v++){
+            for(int w:adj[v])
+                R.addEdge(w,v);
+        }
+        return R;
+    }
+}
+</code></pre><h3 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h3></li>
+<li><p>和无向图几乎一样；能够判断从给定的一个点或一组点能到达哪些其他点，即单点可达性和多点可达性。</p>
+<pre><code>public class DirectedDFS {
+    private boolean[] marked;
+
+    /**
+     * @Author haien
+     * @Description 单点可达性：从一个点出发能到达哪些点
+     * @Date 2018/12/4
+     * @Param [G, s]
+     **/
+    public DirectedDFS(Digraph G,int s) {
+        marked=new boolean[G.V()];
+        dfs(G,s);
+    }
+
+    /**
+     * @Author haien
+     * @Description 多点可达性：从一组点中任一点触发能到达哪些点
+     * @Date 11:24 2018/12/4
+     * @Param [G, sources]
+     **/
+    public DirectedDFS(Digraph G,Iterable&lt;Integer&gt; sources) {
+        marked=new boolean[G.V()];
+        for(int s:sources) {
+            if (!marked[s])
+                dfs(G,s);
+        }
+    }
+
+    private void dfs(Digraph G,int v){
+        marked[v]=true;
+        for(int w: G.adj(v)){
+            if(!marked[w])
+                dfs(G,w);
+        }
+    }
+
+    public boolean marked(int v) {
+         return marked[v];
+    }
+}
+</code></pre></li>
+<li>多点可达性的一个应用是在内存管理系统中，一个顶点表示一个对象，一条边则表示一个对象对另一个对象的引用。内存管理系统会周期性地回收不可达的对象。<h3 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h3></li>
+<li>规定一条路径中起点到终点的优先级依次递减，用这种方法实现的排序叫拓扑排序。</li>
+<li><p>拓扑排序中不可能存在环，因为环中的顶点根本无法分清优先级。</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 寻找图中的有向环
+ * @Date 2018/12/4
+ **/
+public class DirectedCycle {
+    private boolean[] marked;
+    //索引的上一个顶点
+    private int[] lastVertex;
+    //有向环中的所有顶点
+    private Stack&lt;Integer&gt; cycle;
+    //递归调用的栈上的所有顶点
+    private boolean[] onStack;
+
+    public DirectedCycle(Digraph G) {
+        onStack=new boolean[G.V()];
+        lastVertex=new int[G.V()];
+        marked=new boolean[G.V()];
+        for(int v=0;v&lt;G.V();v++){
+            if(!marked[v])
+                dfs(G,v);
+        }
+    }
+
+    private void dfs(Digraph G,int v){
+        onStack[v]=true;
+        marked[v]=true;
+        for(int w:G.adj(v)){
+            if(hasCycle()) return;
+            else if(!marked[w]){
+                lastVertex[w]=v;
+                dfs(G,w);
+            }
+            else if(onStack[w]){
+                cycle=new Stack&lt;Integer&gt;();
+                for(int x=v;x!=w;x=lastVertex[x])
+                    cycle.push(x);
+                cycle.push(w);
+                cycle.push(v);
+            }
+        }
+        //递归出栈后，刚找到的环all元素全变成false，直到遇到还有其他邻接点可遍历的顶点，才保持true
+        onStack[v]=false;
+    }
+
+    public boolean hasCycle() {
+        return cycle!=null;
+    }
+
+    public Iterable&lt;Integer&gt; cycle(){
+        return cycle;
+    }
+}
+</code></pre></li>
+<li><p>然后我们来尝试几种排序方法，从中摸索哪一种符合拓扑排序</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 基于深搜的顶点排序
+ * @Date 2018/12/5
+ **/
+public class DepthFirstOrder {
+    private boolean[] marked;
+    //所有顶点的前序排序
+    private Queue&lt;Integer&gt; pre;
+    //后序排序
+    private Queue&lt;Integer&gt; post;
+    //逆后序排序
+    private Stack&lt;Integer&gt; reversePost;
+
+    public DepthFirstOrder(Digraph G) {
+        pre=new Queue&lt;Integer&gt;();
+        post=new Queue&lt;Integer&gt;();
+        reversePost=new Stack&lt;Integer&gt;();
+        marked=new boolean[G.V()];
+
+        for (int v=0;v&lt;G.V();v++){
+            if (!marked[v])
+                dfs(G,v);
+        }
+    }
+
+    private void dfs(Digraph G,int v){
+        pre.enQueue(v);
+
+        marked[v]=true;
+        for(int w:G.adj(v)){
+            if(!marked[w])
+                dfs(G,w);
+        }
+
+        post.enQueue(v);
+
+        reversePost.push(v); //这种排序即拓扑排序
+    }
+
+    public Iterable&lt;Integer&gt; pre(){
+        return pre;
+    }
+
+    public Iterable&lt;Integer&gt; post(){
+        return post;
+    }
+
+    public Iterable&lt;Integer&gt; reversePost(){
+        return reversePost;
+    }
+}
+</code></pre></li>
+<li>详细过程参考《算法》579页reversePost过程，这就是拓扑排序了</li>
+<li>拓扑排序的前提是不存在环，因此实现算法之前必须先检测环</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-12-06T03:24:04.266Z" itemprop="dateUpdated">2018-12-06 11:24:04</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Java数据结构之有向图/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Java数据结构之有向图/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java数据结构之有向图/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java数据结构之有向图/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java数据结构之有向图/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Java数据结构之有向图/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java数据结构之有向图/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Java随机数生成器-Random类/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Java数据结构之无向图/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java数据结构之有向图/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java数据结构之有向图/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java数据结构之有向图/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Java数据结构之有向图/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java数据结构之有向图/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3aSY7DMAwFUd//0m4g27SV+qQTwGJp1cjg6GnB5qDjwOt8LfLuebHeP79+9/jGkiFDxmMZ53JdbfT9u4SxfjI/lH+oMmTIGMBIw+h6E+lBrH8X/QOQIUOGjNJ2OyFVhgwZMu4KuLyuJDAZMmTIWDN48UlK01rw/VEtLkOGjAcy0sHAL//+4nxDhgwZD2Gc4UoTQTL45MH9clcyZMjYmsHTtbQBR4adPKCjo5EhQ8bWDB7mSOLISbXE9MOhyJAhY2tGbRMksUubaylJhgwZezN4kUmKz066ya9coPJVhgwZGzFI0KxtIr20cVstLkOGjO0Ytc2RR/NvkbD+IU2UIUPGMEa6ufQKRTrUREcpQ4aMMYy0uV9rkPECNQjHMmTI2JqRlqOk6ZamkrVhpwwZMuYwSNM/DXy15K8V4mXIkDGAEReN+JVaiRsPMmXIkDGAkTb001tmPICSCxzozogMGTI2YqRXwTpFL2/DpTAZMmRMYKTpWq1y5MGap5LB12TIkPFYBtlcp1lGtt4ZQsiQIWMOo1aCpqMCcihp0StDhowJjLtCXm0T/dJXhgwZExhnuPpjgE7r7fL5MmTI2JrRaeKnrbrOUHOddMqQIWMCo9PcTy9y8SI2PnsZMmQMYPB0rRbFSWOulXTKkCFDBm7GdVLJNBzLkCFDRucn+aWN9PXLJ8uQIWMAI73ytS470wsW6cgzHmTKkCHj4Yz+YKDG5nldkCDKkCFjN8YfgigZBoetmLQAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

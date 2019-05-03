@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="spring security验证流程： spring security的登录验证是由UsernamePasswordAuthenticationFilter这个过滤器完成，在该类的父类AbstractAuthenticationProcessingFilter（585行）中有一个AuthenticationManager接口属性，验证工作主要是通过这个AuthenticationManager接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Spring Security之用户验证/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="spring security验证流程： spring security的登录验证是由UsernamePasswordAuthenticationFilter这个过滤器完成，在该类的父类AbstractAuthenticationProcessingFilter（585行）中有一个AuthenticationManager接口属性，验证工作主要是通过这个AuthenticationManager接">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7603.PNG">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7604.PNG">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20160216090211418.jpg">
+<meta property="og:updated_time" content="2019-02-15T03:49:14.759Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="spring security验证流程： spring security的登录验证是由UsernamePasswordAuthenticationFilter这个过滤器完成，在该类的父类AbstractAuthenticationProcessingFilter（585行）中有一个AuthenticationManager接口属性，验证工作主要是通过这个AuthenticationManager接">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7603.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.809Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#spring-security验证流程："><span class="post-toc-number">1.</span> <span class="post-toc-text">spring security验证流程：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#源码分析"><span class="post-toc-number">2.</span> <span class="post-toc-text">源码分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义用户验证"><span class="post-toc-number">3.</span> <span class="post-toc-text">自定义用户验证</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#代码实例"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">代码实例</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#自定义认证成功处理器"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">自定义认证成功处理器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#自定义认证失败处理器"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">自定义认证失败处理器</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码实例-1"><span class="post-toc-number">4.</span> <span class="post-toc-text">代码实例</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Spring Security之用户验证"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.809Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="spring-security验证流程："><a href="#spring-security验证流程：" class="headerlink" title="spring security验证流程："></a>spring security验证流程：</h3><ul>
+<li>spring security的登录验证是由UsernamePasswordAuthenticationFilter这个过滤器完成，在该类的父类AbstractAuthenticationProcessingFilter（585行）中有一个AuthenticationManager接口属性，验证工作主要是通过这个AuthenticationManager接口的实例来完成的。默认情况下，spring security会把ProviderManager类的实例注入到该属性。而自定义AbstractAuthenticationProcessingFilter的情况下，一般会在配置文件：<authentication-manager alias="authenticationManager">，起别名，然后注入该自定义类的某个属性中，看上面那个配置文件就知道了</authentication-manager></li>
+<li>UsernamePasswordAuthenticationFilter的验证过程如下：<ul>
+<li>首先过滤器会调用自身的attemptAuthentication方法（646行），该方法规定请求必须为post，并从request中取出authentication，authentication是在SecurityContextPersistenceFilter过滤器中通过捕获用户提交的登录表单中的内容生成的一个Authentication接口实例。</li>
+<li>attemptAuthentication方法拿到authentication对象后，在方法中又调用ProviderManager类的authenticate方法并传入authentication对象（由于只能验证用户名、密码的简单信息，所以经常重写以实现复杂的用户验证，并返回包含当前用户所有信息的authentication），验证用户是否能登录，并处理定义登录成败重定向的页面</li>
+<li>也就是说attemptAuthentication方法会调用类中的List<authenticationprovider> providers集合中各个AuthenticationProvider接口实现类中的authenticate（Authentication authentication）进行验证</authenticationprovider></li>
+<li>provider的实现类在验证用户时，会调用UserDetailsService的实现类的loadUserByUsername方法获取用户信息。</li>
+</ul>
+</li>
+<li>由此可见，真正的验证逻辑是由各个AuthenticationProvider接口实现类来完成的。DaoAuthenticationProvider类是默认情况下会被注入AuthenticationProvider的接口实现类。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7603.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7604.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h3><ul>
+<li><p>AbstractAuthenticationProcessingFilter</p>
+<pre><code>public abstract class AbstractAuthenticationProcessingFilter extends GenericFilterBean
+    implements ApplicationEventPublisherAware, MessageSourceAware {
+
+    // 过滤器doFilter方法
+    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
+            throws IOException, ServletException {
+
+        HttpServletRequest request = (HttpServletRequest) req;
+        HttpServletResponse response = (HttpServletResponse) res;
+
+        /*
+         * 1、判断当前filter是否可以处理当前请求，若不行，则交给下一个filter去处理。
+         */
+        if (!requiresAuthentication(request, response)) {
+            chain.doFilter(request, response);
+
+            return;
+        }
+
+        if (logger.isDebugEnabled()) {
+            logger.debug(&quot;Request is to process authentication&quot;);
+        }
+
+        Authentication authResult;
+
+        /*
+         * 2、调用子类（UsernamePasswordAuthenticationFilter）attemptAuthentication方法
+         */
+        try {
+            authResult = attemptAuthentication(request, response);
+            if (authResult == null) {
+                // return immediately as subclass has indicated that it hasn&apos;t completed
+                // authentication
+                return;
+            }
+
+            /*
+             * 3、最终认证成功后，会处理一些与session相关的方法
+             * （比如将认证信息存到session等操作）。
+             */ 
+            sessionStrategy.onAuthentication(authResult, request, response);
+        }
+
+        /*
+         * 3、认证失败后的一些处理。
+         */ 
+        catch (InternalAuthenticationServiceException failed) {
+            logger.error(
+                    &quot;An internal error occurred while trying to authenticate the user.&quot;,
+                    failed);
+            unsuccessfulAuthentication(request, response, failed);
+            return;
+        }
+        catch (AuthenticationException failed) {
+            unsuccessfulAuthentication(request, response, failed);
+            return;
+        }
+        /*
+         * 4、认证成功，继续下个请求
+         */
+        if (continueChainBeforeSuccessfulAuthentication) {
+            chain.doFilter(request, response);
+        }
+
+        /*
+         * 5、最终认证成功后的相关回调方法，主要将当前的认证信息放到SecurityContextHolder中
+         * 并调用认证成功处理器AuthenticationSuccessHandler接口实现类的
+         * onAuthenticationSuccess()。
+         */
+        successfulAuthentication(request, response, chain, authResult);
+    }
+}
+</code></pre></li>
+<li><p>UsernamePasswordAuthenticaionFilter，以上AbstractAuthenticationProcessingFilter的子类，主要是重写attemptAuthentication()，规定请求必须为post。</p>
+<pre><code>public class UsernamePasswordAuthenticationFilter 
+        extends AbstractAuthenticationProcessingFilter {
+
+    //实现父类的方法
+    public Authentication attemptAuthentication(HttpServletRequest request,
+            HttpServletResponse response) throws AuthenticationException {
+
+        // 认证请求的方式必须为POST
+        if (postOnly &amp;&amp; !request.getMethod().equals(&quot;POST&quot;)) {
+            throw new AuthenticationServiceException(
+                    &quot;Authentication method not supported: &quot; + request.getMethod());
+        }
+
+        // 获取表单参数
+        String username = obtainUsername(request);
+        String password = obtainPassword(request);
+        if (username == null) {
+            username = &quot;&quot;;
+        }
+        if (password == null) {
+            password = &quot;&quot;;
+        }
+        username = username.trim();
+        /*
+         * 封装进Authentication实现类UsernamePasswordAuthenticationToken
+         * public UsernamePasswordAuthenticationToken(Object principal, Object credentials)    {
+                super((Collection)null); //设置权限为null
+                this.principal = principal;
+                this.credentials = credentials;
+                this.setAuthenticated(false);
+            }
+         */
+        UsernamePasswordAuthenticationToken authRequest = 
+            new UsernamePasswordAuthenticationToken(
+                username, password); //一般来说principle是User对象较常见
+        setDetails(request, authRequest); //Allow subclasses to set the &quot;details&quot; property
+
+        //调用AuthenticationManager管理下的AuthenticationProvider接口实现类的authenticate()
+        return this.getAuthenticationManager().authenticate(authRequest);
+    }
+}
+</code></pre></li>
+<li>AuthenticationManager：AuthenticationManager仅仅是一个接口，默认实现类是ProviderManager，ProviderManager不是自己直接对请求进行验证，而是将其委派给一个AuthenticationProvider列表。例如我们要同时使用jdbc认证和ldap认证，那么就可以用这个列表。列表中的每一个AuthenticationProvider将会被一次查询是否需要通过器进行验证。每个provider的验证结果只有两种情况：抛出ProviderNotFoundException异常或者完全填充一个Authentication对象，并存储在SecurityContext中。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20160216090211418.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>ProviderManager</p>
+<pre><code>public Authentication authenticate(Authentication authentication) 
+        throws AuthenticationException {
+
+    Class toTest = authentication.getClass();
+    Object lastException = null;
+    Authentication result = null;
+    boolean debug = logger.isDebugEnabled();
+    // 拿到全部的provider
+    Iterator e = this.getProviders().iterator();
+    // 遍历provider
+    while(e.hasNext()) {
+        AuthenticationProvider provider = (AuthenticationProvider)e.next();
+        // 调用provider的supports()校验是否支持当前token
+        if(provider.supports(toTest)) {
+            if(debug) {
+                logger.debug(&quot;Authentication attempt using &quot; 
+                    + provider.getClass().getName());
+            }
+
+            try {
+                /*
+                 * 找到后直接break，并由当前provider来进行校验工作
+                 * 调用AuthenticationProvider实现类的authenticate()
+                 */
+                result = provider.authenticate(authentication);
+                if(result != null) {
+                    this.copyDetails(authentication, result);
+                    break;
+                }
+            } catch (AccountStatusException var11) {
+                this.prepareException(var11, authentication);
+                throw var11;
+            } catch (InternalAuthenticationServiceException var12) {
+                this.prepareException(var12, authentication);
+                throw var12;
+            } catch (AuthenticationException var13) {
+                lastException = var13;
+            }
+        }
+    }
+
+    // 若没有一个支持，则尝试交给父类来执行
+    if(result == null &amp;&amp; this.parent != null) {
+        try {
+            result = this.parent.authenticate(authentication);
+        } catch (ProviderNotFoundException var9) {
+            ;
+        } catch (AuthenticationException var10) {
+            lastException = var10;
+        }
+    }
+..........................
+}
+</code></pre></li>
+<li><p>DaoAuthenticationProvider:AuthenticationProvider默认实现类,实现了父类主要方法authenticate()要用到的查找用户方法retrieveUser()</p>
+<pre><code>public class DaoAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
+
+    //重现用户的方法
+    protected final UserDetails retrieveUser(String username,
+            UsernamePasswordAuthenticationToken authentication) 
+            throws AuthenticationException {
+
+        UserDetails loadedUser;
+        try {
+            /*
+             * 调用UserDetailsService接口的loadUserByUsername方法。
+             */
+            loadedUser = this.getUserDetailsService().loadUserByUsername(username);
+        } catch (UsernameNotFoundException var6) {
+            if(authentication.getCredentials() != null) {
+                String presentedPassword = authentication.getCredentials().toString();
+                this.passwordEncoder.isPasswordValid(this.userNotFoundEncodedPassword, presentedPassword, (Object)null);
+            }
+            throw var6;
+        } catch (Exception var7) {
+            throw new InternalAuthenticationServiceException(var7.getMessage(), var7);
+        }
+
+        if(loadedUser == null) {
+            throw new InternalAuthenticationServiceException(&quot;UserDetailsService returned null, which is an interface contract violation&quot;);
+        } else {
+            return loadedUser;
+        }
+    }
+}
+</code></pre></li>
+<li><p>AbstractUserDetailsAuthenticationProvider：以上DaoAuthenticationProvider的父类，定义了authenticate(),调用子类retrieveUser()查找用户all信息，可以从db查找，并进行用户验证。</p>
+<pre><code>public abstract class AbstractUserDetailsAuthenticationProvider 
+        implements AuthenticationProvider, InitializingBean, MessageSourceAware {
+
+    // 用户验证方法
+    public Authentication authenticate(Authentication authentication) 
+            throws AuthenticationException {
+
+        Assert.isInstanceOf(UsernamePasswordAuthenticationToken.class, authentication,
+            this.messages.getMessage(&quot;AbstractUserDetailsAuthenticationProvider
+            .onlySupports&quot;, &quot;Only UsernamePasswordAuthenticationToken is supported&quot;));
+
+        String username = authentication.getPrincipal() == null?
+            &quot;NONE_PROVIDED&quot;:authentication.getName();
+        boolean cacheWasUsed = true;
+        UserDetails user = this.userCache.getUserFromCache(username);
+        if(user == null) {
+            cacheWasUsed = false;
+
+            try {
+                // 调用子类retrieveUser()
+                user = this.retrieveUser(username,
+                    (UsernamePasswordAuthenticationToken)authentication);
+            } catch (UsernameNotFoundException var6) {
+                this.logger.debug(&quot;User \&apos;&quot; + username + &quot;\&apos; not found&quot;);
+                if(this.hideUserNotFoundExceptions) {
+                    throw new BadCredentialsException(this.messages
+                        .getMessage(&quot;AbstractUserDetailsAuthenticationProvider
+                            .badCredentials&quot;, &quot;Bad credentials&quot;));
+                }
+                throw var6;
+            }
+
+            Assert.notNull(user, &quot;retrieveUser returned null - a violation of the interface contract&quot;);
+        }
+
+        try {
+            /*
+             * 前检查由DefaultPreAuthenticationChecks类实现
+             * （主要判断当前用户是否锁定，有效，过期）
+             */
+            this.preAuthenticationChecks.check(user);
+            // 子类具体实现
+            this.additionalAuthenticationChecks(user, (UsernamePasswordAuthenticationToken)authentication);
+        } catch (AuthenticationException var7) {
+            if(!cacheWasUsed) {
+                throw var7;
+            }
+            cacheWasUsed = false;
+            user = this.retrieveUser(username,
+                (UsernamePasswordAuthenticationToken)authentication);
+            this.preAuthenticationChecks.check(user);
+            this.additionalAuthenticationChecks(user,
+                (UsernamePasswordAuthenticationToken)authentication);
+        }
+        // 检测用户密码是否过期
+        this.postAuthenticationChecks.check(user);
+        if(!cacheWasUsed) {
+            this.userCache.putUserInCache(user);
+        }
+
+        Object principalToReturn = user;
+        if(this.forcePrincipalAsString) {
+            principalToReturn = user.getUsername();
+        }
+
+        //进行授权成功，主要是将认证信息的一块内容放到Authentication对象中返回
+        return this.createSuccessAuthentication(principalToReturn, authentication, user);
+    }
+
+    // 成功授权
+    protected Authentication createSuccessAuthentication(Object principal,
+            Authentication authentication, UserDetails user) {
+
+        /*
+         * 回调UsernamePasswordAuthenticationToken的构造器，这里调用的是授权成功的构造器
+         * public UsernamePasswordAuthenticationToken(Object principal, Object credentials,
+                Collection&lt;? extends GrantedAuthority&gt; authorities) {
+                // 不再是null，而是传来的权限，由UserDetailsService类返回，可以从db查
+                super(authorities);
+                this.principal = principal;
+                this.credentials = credentials;
+                // 这里是true，不再是false。
+                super.setAuthenticated(true);
+            }
+        UsernamePasswordAuthenticationToken result = 
+            new UsernamePasswordAuthenticationToken(principal, 
+                authentication.getCredentials(), 
+                this.authoritiesMapper.mapAuthorities(user.getAuthorities()));
+        // 将认证信息的一块内容放到details
+        result.setDetails(authentication.getDetails());
+        return result;
+    }
+}
+</code></pre></li>
+<li>用户验证走完后回到起点，AbstractAuthenticationProcessingFilter.doFilter()，执行session存储和认证成功处理器。</li>
+<li>总结：类之间的调用顺序<ul>
+<li>UsernamePasswordAuthenticationFilter<ul>
+<li>Authentication</li>
+<li>AuthenticationManager<ul>
+<li>AuthenticationProvider<ul>
+<li>UserDetailsService</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>UsernamePasswordAuthenticationFilter回到起点进行后续操作</li>
+</ul>
+</li>
+<li><a href="https://www.jianshu.com/p/a65f883de0c1" target="_blank" rel="noopener">用户验证调用链</a><h3 id="自定义用户验证"><a href="#自定义用户验证" class="headerlink" title="自定义用户验证"></a>自定义用户验证</h3></li>
+<li>我们要做的工作主要是实现几个接口：用户信息UserDetails、用户信息获取服务UserDetailsService（自定义用户获取方式是从数据库还是别的地方）、而需要自定义验证方式（不只用户名、密码，增加验证码等）的时候还要实现验证工具AuthenticationProvider。</li>
+<li>否则默认使用authenticate方法来验证，只能验证username和密码，不够灵活</li>
+<li><p>不是通过java注册spring security的话要添加以下配置</p>
+<pre><code>&lt;!--还要在http中添加--&gt;
+&lt;security:custom-filter ref=&quot;passcard_filter&quot; after=&quot;SECURITY_CONTEXT_FILTER&quot;/&gt;
+
+&lt;!--注入authentication-provider--&gt;
+&lt;security:authentication-manager alias=&quot;authenticationManager&quot;&gt; //起别名，方便被下面filter的bean注入
+    &lt;!-- 注意，这里仅仅是系统默认的认证机制，请在正式系统中明确知道其功能再使用 --&gt;
+    &lt;security:authentication-provider ref=&quot;acocunt_defaultAnthentiactionProvider&quot;/&gt; //默认的
+    &lt;security:authentication-provider ref=&quot;registrationService&quot;/&gt; //注册的
+    &lt;security:authentication-provider ref=&quot;enrollmentService&quot;/&gt; //不知干嘛的
+    &lt;security:authentication-provider ref=&quot;userService&quot;/&gt; //登录的
+&lt;/security:authentication-manager&gt;    
+&lt;!--注入自定义的PasscardAuthenticationProcessingFilter，获取登录时提交的表单--&gt;
+&lt;bean id=&quot;passcard_filter&quot; 
+    class=&quot;cn.edu.jszg.cert.security.PasscardAuthenticationProcessingFilter&quot;&gt;
+    &lt;property name=&quot;authenticationManager&quot; ref=&quot;authenticationManager&quot;/&gt;
+    &lt;property name=&quot;useVerifyCode&quot; value=&quot;true&quot;/&gt;
+    &lt;property name=&quot;failurePage&quot; value=&quot;/portal/home/auth/&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;config&quot; ref=&quot;webAppConfig&quot;/&gt;
+    &lt;property name=&quot;userLogService&quot; ref=&quot;userLogService&quot; /&gt;
+    &lt;property name=&quot;certLoginUrl&quot; value=&quot;${cert.login.url}&quot;/&gt;
+&lt;/bean&gt;
+</code></pre></li>
+<li><p>自定义Authentication（包含着当前登录用户的信息）实现类PassCardAuthenticationToken（默认实现类为UsernamePasswordAuthenticationToken），用于保存authentication中用得到的参数，主要是重写以下方法</p>
+<pre><code>/**
+ * 凭证，用户密码
+ */
+@Override
+public Object getCredentials() {
+    return password;
+}
+
+/**
+ * 当事人，登录名 用户Id
+ */
+@Override
+public Object getPrincipal() {
+    return userID;
+}
+</code></pre></li>
+<li>Authentication类包含<ul>
+<li>principle：其实就是实现了UserDetails的User类，它包含User类的所有属性，User中的字段和表单匹配的就会被赋值</li>
+<li>details：包含remoteAddress（ip地址），sessionId</li>
+<li>…</li>
+</ul>
+</li>
+<li><p>Authentication来源</p>
+<pre><code>Authentication auth=SecurityContextHolder.getContext().getAuthentication();
+</code></pre></li>
+<li><a href="https://max.book118.com/html/2017/1220/145094133.shtm" target="_blank" rel="noopener">spring security获取（所有）登录用户的信息</a></li>
+<li><p>需要UserDetails实现类User增加一些支持authenticate()的方法</p>
+<pre><code>/*首先增加一些支持authenticate()的方法*/
+/**
+ * 返回用户所属权限
+ */
+@Override
+public Collection&lt;GrantedAuthority&gt; getAuthorities() {
+    return this.accesses;
+}
+
+@Override
+public Object getCredentials() {
+    return null;
+}
+@Override
+public Object getDetails() {
+    return null;
+}
+/**
+ * 登录名称
+ */
+@Override
+public Object getPrincipal() {
+    return loginName;
+}
+/**
+ * 是否已认证
+ */
+@Override
+public boolean isAuthenticated() {
+    return this.authenticated;
+}
+/**
+ * 设置是否已认证字段
+ */
+@Override
+public void setAuthenticated(boolean isAuthenticated)
+        throws IllegalArgumentException {
+    this.authenticated=isAuthenticated;
+}
+</code></pre></li>
+<li><p>创建AuthenticationProvider实现类，重写authenticate()。如果只是简单的用户名、密码比对的话，那有用户服务就够了，不需要这一步。</p>
+<pre><code>@Component
+public class MyAuthenticationProvider implements AuthenticationProvider {
+
+    @Autowired
+    private MyUserDetailsService userService; //如果重定义了可以用这个
+
+    /**
+     * 自定义的用户验证：判断该用户是否能登录，是则返回包含所有信息的user对象，否则返回null
+     */
+    @SuppressWarnings(&quot;unchecked&quot;)
+    @Override
+    public Authentication authenticate(Authentication authentication)
+            throws AuthenticationException {
+
+        //自定义类，继承自Authentication相同父类，用于保存authentication中用得到的参数
+        PassCardAuthenticationToken token=(PassCardAuthenticationToken)authentication;
+
+        if(token.getUserID()!=null&amp;&amp;token.getPassword()!=null){ //否则直接返回null，登录失败
+
+            /* userID：当前用户名作id
+             * 根据用户id查询数据库找到整个user信息
+             * 这里进行逻辑认证操作，可以获取token中的属性来自定义验证逻辑
+             */
+            User user=(User)this.getDao().executeQueryUnique(&quot;User.loadByLoginName&quot;, 
+                                            QueryCmdType.QUERY_NAME, token.getUserID());
+            /*当然最好是用重定义的UserDetailsService
+            User user=userService.loadUserByUsername(username)*/
+
+            String password=token.getPassword(); //用户登录上传的密码
+            if(this.passwordEncoder!=null){ //将用户提交的密码加密后再与数据库比对
+                //在第2点那里加了自定义加密器之后这里就不需要再加密
+                password=this.passwordEncoder.encodePassword(password, null);
+            }
+
+            if(!password.equalsIgnoreCase(user.getPassword())){
+                token.setErrCode(&quot;2&quot;);
+                return null;
+            }
+
+            //如果开启了额外的验证方式的话，进行验证，否则直接判为登录成功
+            //不过验证码之类的一般是用前端js当场解决，不会传到后台来解决
+            if( token.isEnablePasscard() &amp;&amp; usePassCard ){ //token中激活密码卡且系统使用密码卡
+                 int position1=((token.getRow1()-1)*7)+token.getColumn1();
+                int position2=((token.getRow2()-1)*7)+token.getColumn2();
+
+                if(user.getPassCardId()==null){
+                    token.setErrCode(&quot;10&quot;);
+                    return null;
+                }
+                PassCard passcard=this.passCardDao.findById(user.getPassCardId(), false);
+
+                if(passcard==null||passcard.getStatus()==PassCardHelper.STATUS_CANCEL ){
+                    token.setErrCode(&quot;10&quot;);
+                    return null;
+                }
+                if(passcard.getConfusedContent()==null || passcard.getConfusedContent().length()&lt;7*7*32 ){
+                    token.setErrCode(&quot;10&quot;);
+                    return null;
+                }
+
+                String content=passcard.getConfusedContent();
+                int perLen=content.length()/49;
+                String str1=content.substring((position1-1)*perLen, position1*perLen);
+                String str2=content.substring((position2-1)*perLen, position2*perLen);
+                String inputStr1=token.getCard1();
+                String inputStr2=token.getCard2();
+                if(this.passwordEncoder!=null){
+                    inputStr1 = md5.getMD5ofStr(md5.getMD5ofStr(inputStr1));
+                    inputStr2 = md5.getMD5ofStr(md5.getMD5ofStr(inputStr2));
+                }
+
+                if((!str1.equalsIgnoreCase(inputStr1))||(!str2.equalsIgnoreCase(inputStr2))){
+                    token.setErrCode(&quot;10&quot;);
+                    return null;
+                }
+            }
+
+            //可登陆情况
+            user.setLastIp(token.getIp());
+            user.setLastLogin(new Date());
+            this.getDao().saveOrUpdate(user); //更新用户的最近登录时间和ip地址        
+            user.setAuthenticated(true); //设置为已认证，表示可登陆
+
+            /*
+             * 导入当前用户角色，并且把权限set到User中，
+             * 用于spring验证用户权限(getAuthorities方法)
+             */
+            List&lt;UserRole&gt; userRoles=(List&lt;UserRole&gt;)this.getDao().
+                                        executeQueryList(&quot;UserRole.listRoleByUserID&quot;, 
+                                            QueryCmdType.QUERY_NAME, -1, -1, user.getId());
+            Set&lt;GrantedAuthority&gt; accesses=new HashSet&lt;GrantedAuthority&gt;();
+            for(UserRole ur:userRoles){
+                accesses.add(ur.getRole());                
+            }
+            user.getOrg().getOrgName();
+            if(user.getOrg().getCertTypes()!=null) user.getOrg().getCertTypes().size();//延迟载入一下
+            user.setAccesses(accesses); //导入角色
+            return user;
+        }
+        return null;
+    }
+
+    /**
+     * 如果此处验证不通过，是不会执行authentication方法的
+     */
+    @Override
+    public boolean supports(Class&lt;? extends Object&gt; authentication) {
+        // AuthenticationProvider内置实现类只支持UsernamePasswordAuthenticationToken
+        return authentication.equals(PassCardAuthenticationToken.class);
+    }
+}
+</code></pre></li>
+<li><p>定义AbstractAuthenticationProcessingFilter实现类，重写attempAuthentication()，用于获取在登录时提交的参数，否则默认只获取j_username,j_password</p>
+<pre><code>import java.io.IOException;
+import java.util.Date;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
+import org.springframework.util.StringUtils;
+
+import cn.edu.jszg.cert.user.UserLog;
+import cn.edu.jszg.cert.user.UserLogService;
+import cn.edu.jszg.cert.web.WebApplicationConfiguration;
+import cn.edu.jszg.cert.web.controller.portal.auth.RemoteDataValidator;
+
+import com.google.code.kaptcha.servlet.KaptchaServlet;
+
+public class PasscardAuthenticationProcessingFilter extends
+        AbstractAuthenticationProcessingFilter {
+
+    private String successPage = &quot;/home/admin/index&quot;;
+    private String failurePage = &quot;/public/adminLoginEntry&quot;;
+    private boolean forward = false;
+    private boolean useVerifyCode=true;
+    private String certLoginUrl;
+
+    static Logger logger = Logger.getLogger(PasscardAuthenticationProcessingFilter.class);
+
+    private WebApplicationConfiguration config;
+    private UserLogService userLogService;    
+
+    public void setConfig(WebApplicationConfiguration config) {
+        this.config = config;
+    }
+
+    /**
+     * 实现AbstractAuthenticationProcessingFilter的有参构造
+     * 没记错的话，相当于该filter的访问路径 
+     */
+    protected PasscardAuthenticationProcessingFilter() {
+        super(&quot;/adminLoginCheck&quot;); //那表单提交应该是提交到这里
+    }
+
+    public void setUseVerifyCode(boolean useVerifyCode) {
+        this.useVerifyCode = useVerifyCode;
+    }
+
+    public void setUserLogService(UserLogService userLogService) {
+        this.userLogService = userLogService;
+    }
+
+    public boolean validate(HttpServletRequest request) {
+        String userId = request.getParameter(&quot;username&quot;);
+        String md2 = request.getParameter(&quot;m&quot;);
+        String l = request.getParameter(&quot;l&quot;);
+        if (userId == null || md2 == null || l == null) {
+            return false;
+        }
+        long longTime = Long.parseLong(l);
+        if (longTime &lt; new Date().getTime()) { //获取时间秒制
+            return false;
+        }
+
+        try {
+            String md1 = RemoteDataValidator.genExamMd5Digest(userId, longTime);
+            if (md1.equals(md2))
+                return true;
+        } catch (Exception e) {            
+            //e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    /**
+     * 可以通过request获取页面传递过来的参数，并且set到相应的token中
+     */
+    @Override
+    public Authentication attemptAuthentication(HttpServletRequest request,
+            HttpServletResponse response) throws AuthenticationException,
+            IOException, ServletException {
+
+//        logger.warn(&quot;-----------------start证书登录用户----------&quot;);
+        HttpSession s = request.getSession(true);
+        //Authentication子类，自动获取表单信息
+        PassCardAuthenticationToken token = new PassCardAuthenticationToken();
+
+        String verifyCode = request.getParameter(&quot;verifyCode&quot;);
+        String userID = request.getParameter(&quot;username&quot;);
+        //....此处省略获取参数，并且验证、赋值的逻辑
+        Authentication auth = null;
+
+        try {
+            //此处调用getAuthenticationManager的authenticate方法，验证用户是否能登录
+            auth = this.getAuthenticationManager().authenticate(token); //当supports方法返回true时执行authenticate方法
+
+            //此处为登录失败后，相应的处理逻辑
+            if (auth == null || !auth.isAuthenticated()) {
+                s.setAttribute(&quot;__login_error&quot;, token.getErrCode());
+            } else  {
+                s.removeAttribute(&quot;__login_error&quot;);
+                s.removeAttribute(&quot;__login_username&quot;);
+                s.removeAttribute(&quot;__cert_userid&quot;);
+                if( token.isEnablePasscard()) {
+                    s.removeAttribute(&quot;__passcard_row1&quot;);
+                    s.removeAttribute(&quot;__passcard_row2&quot;);
+                    s.removeAttribute(&quot;__passcard_column1&quot;);
+                    s.removeAttribute(&quot;__passcard_column2&quot;);
+                }
+            }
+        } catch (AuthenticationException e) {
+            s.setAttribute(&quot;__login_error&quot;, token.getErrCode());
+            throw e;
+        }
+        return auth;
+    }
+
+    public void setSuccessPage(String successPage) {
+        this.successPage = successPage;
+    }
+
+    public void setFailurePage(String failurePage) {
+        this.failurePage = failurePage;
+    }
+
+    public void setForward(boolean forward) {
+        this.forward = forward;
+    }
+
+    public void setCertLoginUrl(String certLoginUrl) {
+        this.certLoginUrl = certLoginUrl;
+    }
+
+    @Override
+    public void afterPropertiesSet() {
+        super.afterPropertiesSet();
+        /*
+        *该处理器实现了AuthenticationSuccessHandler, AuthenticationFailureHandler
+        *用于处理登录成功或者失败后，跳转的界面
+        */
+        AuthenticationResultHandler handler = new AuthenticationResultHandler();
+        handler.setForward(forward);
+        handler.setLoginFailurePage(failurePage);
+        handler.setLoginSuccessPage(successPage);
+        handler.setCertLoginUrl(certLoginUrl);
+        //设置父类中的处理器
+        this.setAuthenticationSuccessHandler(handler);
+        this.setAuthenticationFailureHandler(handler);
+
+    }
+}
+</code></pre><h4 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h4></li>
+<li>D:/ideaprojects/thz/thz-parent/thz-manager-web</li>
+<li><h4 id="自定义认证成功处理器"><a href="#自定义认证成功处理器" class="headerlink" title="自定义认证成功处理器"></a>自定义认证成功处理器</h4></li>
+<li><a href="https://www.jianshu.com/p/5b660b32d96d" target="_blank" rel="noopener">详解过滤链版</a></li>
+<li><a href="https://blog.csdn.net/lizc_lizc/article/details/84059004" target="_blank" rel="noopener">简单版</a></li>
+<li>我们要自定义的类的被调用链：AbstractAuthenticationProcessingFilter.doFilter(调用自己的successfulAuthentication(调用AuthenticationSuccessHandler接口的onAuthenticationFailure()))</li>
+<li><p>我们要做的就是自定义AuthenticationSuccessHandler实现类，重写onAuthenticationFailure()，来处理登录成功后要做的事情，比如保存用户到session、更新用户最近登录时间到数据库等。</p>
+<pre><code>import com.thz.pojo.User;
+import com.thz.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Date;
+
+/**
+ * @Author haien
+ * @Description 自定义认证成功处理器
+ *              为什么不实现接口而是继承SavedRequestAwareAuthenticationSuccessHandler类，
+ *              因为这个类记住了上次请求路径，如果你是请求其他页面被拦截到登录页的，
+ *              这时候输入用户名和密码点击登录，还会自动跳转到该页面，而不是默认主页。
+ * @Date 2019/1/31
+ **/
+@Component
+public class MyAuthenticationSuccessHandler
+        extends SavedRequestAwareAuthenticationSuccessHandler {
+    private static final Logger logger=LoggerFactory
+            .getLogger(MyAuthenticationSuccessHandler.class);
+
+    @Resource
+    private UserService userService;
+
+    @Override
+    public void onAuthenticationSuccess(HttpServletRequest request,
+                                        HttpServletResponse response,
+                                        Authentication authentication)
+            throws ServletException, IOException {
+
+        logger.info(&quot;----登录成功，username=&quot;+request.getParameter(&quot;username&quot;)+&quot;----&quot;);
+
+        //获取当前用户
+        User user=(User)authentication.getPrincipal();
+        //获取authentication中的details中的remoteAddress
+        WebAuthenticationDetails wauth=(WebAuthenticationDetails)authentication.getDetails();
+        user=userService.findUserByName(user.getUsername());
+        user.setLoginTime(new Date());
+        user.setLoginIp(wauth.getRemoteAddress());
+        //存入session
+        request.getSession().setAttribute(&quot;user&quot;,user);
+        //更新数据库
+        userService.updateUser(user);
+
+        //执行父类重定向到原访问路径的方法
+        super.onAuthenticationSuccess(request,response,authentication);
+    }
+}
+</code></pre><h4 id="自定义认证失败处理器"><a href="#自定义认证失败处理器" class="headerlink" title="自定义认证失败处理器"></a>自定义认证失败处理器</h4></li>
+<li><p>默认处理器就只能跳转登录失败页面，自定义的话可以将用户提交的用户名保存到request，带回登录页面。</p>
+<pre><code>@Component(&quot;ctwAuthenticationFailureHandler&quot;)
+public class CtwAuthenticationFailureHandler 
+    extends SimpleUrlAuthenticationFailureHandler{
+
+    private Logger logger = LoggerFactory.getLogger(getClass());
+
+    @Autowired
+    private SecurityProperties securityProperties;
+
+    @Override
+    public void onAuthenticationFailure(HttpServletRequest request
+            , HttpServletResponse response, AuthenticationException exception) 
+            throws IOException, ServletException {
+        logger.info(&quot;登录失败！&quot;);
+
+        //根据配置loginType是否是json而定返回形式，JSON返回json
+        if (Objects.equals(securityProperties.getBrowser().getLoginType(),
+                LoginType.JSON)) {
+            response.setContentType(&quot;application/json;charset=UTF-8&quot;);
+            response.getWriter().write(JSON
+                .toJSONString(new SimpleResponse(HttpStatus.INTERNAL_SERVER_ERROR.value()
+                                                    , exception.getMessage(), null)));
+        } 
+        //REDIRECT跳转前面定义的页面：.failureUrl(&quot;/login.jsp?error=1&quot;)
+        else {
+            //存值带回
+            String username=request.getParameter(&quot;username&quot;);
+            request.setAttribute(&quot;username&quot;,username);
+
+            response.setContentType(&quot;text/html;charset=UTF-8&quot;);
+            //设置登录失败后要重定向的url
+            super.setDefaultFailureUrl(&quot;/login.jsp?error=1&amp;username=&quot;+username);
+            //重定向，request丢失
+            super.onAuthenticationFailure(request, response, exception); 
+
+            /*不然就自己转发，request就不会丢失
+            request.getRequestDispatcher(&quot;/login?error=1&quot;)
+                    .forward(request, response);*/
+        }
+
+    }
+}
+</code></pre></li>
+<li><p>或者能确定值返回json的话，直接往客户端写json字符串</p>
+<pre><code>@Component
+public class MyAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
+    private static final Logger logger=LoggerFactory
+            .getLogger(MyAuthenticationSuccessHandler.class);
+
+    @Override
+    public void onAuthenticationFailure(HttpServletRequest request
+            , HttpServletResponse response, AuthenticationException exception)
+            throws IOException, ServletException {
+
+        logger.info(&quot;----登录失败----&quot;);
+
+        response.setCharacterEncoding(&quot;UTF-8&quot;);
+        response.setContentType(&quot;application/json&quot;);
+        JSONObject result=new JSONObject();
+        result.put(&quot;message&quot;,&quot;用户名或密码错误&quot;);
+
+        PrintWriter printWriter=null;
+        String jsonString=&quot;&quot;;
+        try { //必须捕获，不能抛出，因为要保证资源被关闭
+            printWriter=response.getWriter();
+            jsonString = JSONObject.toJSONString(result);
+            printWriter.write(jsonString);
+            printWriter.flush();
+        } catch (IOException e) {
+            logger.error(&quot;Get response writer failed!&quot;,e); //不用再抛出，因为抛出了就要再生成一次报文，但既然getWrite都出错了生成的报文又怎么打印到前端呢
+        }finally {
+            if(null!=printWriter)
+                printWriter.close();
+        }
+    }
+}
+</code></pre><h3 id="代码实例-1"><a href="#代码实例-1" class="headerlink" title="代码实例"></a>代码实例</h3></li>
+<li>thz-manager-web/config</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-02-15T03:49:14.759Z" itemprop="dateUpdated">2019-02-15 11:49:14</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Spring Security之用户验证/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Spring Security之用户验证/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Spring Security之用户验证/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Spring Security之用户验证/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Spring Security之用户验证/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Spring Security之用户验证/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Spring Security之用户验证/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/springboot/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Spring Security之Java Configuration方式/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Spring Security之用户验证/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Spring Security之用户验证/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Spring Security之用户验证/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Spring Security之用户验证/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Spring Security之用户验证/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACs0lEQVR42u3a0WojMQwF0P7/T7ewT4WS5F7JbrNw5ikk6YyPC5Yi6eMjvj7/XY/e//7pz9c/v/Po0/wphy88PDy80dKfP6xdSvvEfCvzNePh4eHd5uW3S47s/P3noeX5eqLNxcPDw/tT3j5RTl6398HDw8P7v3jPF9eGmbPBAw8PD+827+yB3oaWNghdqbXg4eHhxby2AfYOry/29/Dw8PAWXfVNU79NoPPEvVgtHh4e3gVekrbmjf+8sJuPI+SJcvGLAQ8PD2/NywebNnlsXuTdZMgv7oaHh4d3mZd8eqr4u9ms4p+Bh4eHd4HXjkPNCsF52aLduGj78PDw8Na8TYLbjkmdDS11GMDDw8Nb89rH57A82c3fqRtpeHh4eBd4SXl0tsTkKM+Dx6phhoeHh3eU1x7694qtpwYL8PDw8G7z2sJB3taaLatN7ov6MR4eHt5RXlsCOFXA3QxpJRuBh4eHd4PXkvICbt7+z2HDXwx4eHh4R3mbwmt+3O83bjYWhoeHh3eDN1vc75QwZgHgRdzDw8PDO8TbFFvzqml+h/a5D7+Ph4eHd4EXZdnl8T0jzdLxvLCLh4eHd5bXDj/NgsEmjV4FJDw8PLxrvNkwU964yoeo2lIyHh4e3vvw8lvkf1uUD4LxgiiA4eHh4R3l5WnrZghgVgJuU+2iAYaHh4d3iLcpqm6S8nyYoB0gwMPDw7vBy5PXPKVOltIGodk24eHh4d3gfZZXUnrIk+xZabhop+Hh4eFd4G1S3rYdlSfEeaqdFynw8PDwzvLyYNC2xNoBqU159+Fz8fDw8K7x8kM5WdBsm4raSf4dPDw8vD/ltQnuqeCRj4U9bH3h4eHhvRkvf+RsI2ZtNjw8PLzbvHa8KR+TmpUS8rbZi+/j4eHhXeDNGmDtoZ+TNoFheOHh4eGlvC8EHgMnmTE0/gAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

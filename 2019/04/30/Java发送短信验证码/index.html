@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="要求 生成6位随机验证码 向第三方接口发送手机号和验证码，由第三方接口发送验证码到指定手机 将验证码和发送时间存入session，供controller层比对验证码是否正确和有效简介 发送短信需要借助第三方接口，目前提供短信服务的第三方平台有很多，首选秒嘀科技，注册即送10元约200条免费试用优惠，但需要企业认证才能发送短信。阿里云也提供短信服务，但必须充值才能使用。注册秒嘀科技 访问秒嘀科技：h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Java发送短信验证码/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="要求 生成6位随机验证码 向第三方接口发送手机号和验证码，由第三方接口发送验证码到指定手机 将验证码和发送时间存入session，供controller层比对验证码是否正确和有效简介 发送短信需要借助第三方接口，目前提供短信服务的第三方平台有很多，首选秒嘀科技，注册即送10元约200条免费试用优惠，但需要企业认证才能发送短信。阿里云也提供短信服务，但必须充值才能使用。注册秒嘀科技 访问秒嘀科技：h">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20170615102827930.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20170615102855375.png">
+<meta property="og:updated_time" content="2019-02-10T12:03:09.719Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="要求 生成6位随机验证码 向第三方接口发送手机号和验证码，由第三方接口发送验证码到指定手机 将验证码和发送时间存入session，供controller层比对验证码是否正确和有效简介 发送短信需要借助第三方接口，目前提供短信服务的第三方平台有很多，首选秒嘀科技，注册即送10元约200条免费试用优惠，但需要企业认证才能发送短信。阿里云也提供短信服务，但必须充值才能使用。注册秒嘀科技 访问秒嘀科技：h">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20170615102827930.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.121Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#要求"><span class="post-toc-number">1.</span> <span class="post-toc-text">要求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">2.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#注册秒嘀科技"><span class="post-toc-number">3.</span> <span class="post-toc-text">注册秒嘀科技</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#术语"><span class="post-toc-number">4.</span> <span class="post-toc-text">术语</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MessageDigest类"><span class="post-toc-number">5.</span> <span class="post-toc-text">MessageDigest类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码"><span class="post-toc-number">6.</span> <span class="post-toc-text">代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考文章"><span class="post-toc-number">7.</span> <span class="post-toc-text">参考文章</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码实例"><span class="post-toc-number">8.</span> <span class="post-toc-text">代码实例</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Java发送短信验证码"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.121Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h3><ul>
+<li>生成6位随机验证码</li>
+<li>向第三方接口发送手机号和验证码，由第三方接口发送验证码到指定手机</li>
+<li>将验证码和发送时间存入session，供controller层比对验证码是否正确和有效<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3></li>
+<li>发送短信需要借助第三方接口，目前提供短信服务的第三方平台有很多，首选秒嘀科技，注册即送10元约200条免费试用优惠，但需要企业认证才能发送短信。阿里云也提供短信服务，但必须充值才能使用。<h3 id="注册秒嘀科技"><a href="#注册秒嘀科技" class="headerlink" title="注册秒嘀科技"></a>注册秒嘀科技</h3></li>
+<li>访问秒嘀科技：<a href="http://www.miaodiyun.com/，注册账号" target="_blank" rel="noopener">http://www.miaodiyun.com/，注册账号</a></li>
+<li>登录，点击用户中心-&gt;账户管理，获取ACCOUNT_SID和AUTH_TOKEN（后者需要验证）。</li>
+<li>点击配置管理-&gt;验证码短信模板-&gt;新建模板,填写信息后提交审核，很快能好<h3 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h3></li>
+<li>SMS：Short Message Service，短信服务</li>
+<li>sig: 一种有效的数字签名，以便在手机设备上运行。</li>
+<li>sid：Security Identifiers,是用户、组合计算机账户的唯一身份标识。<h3 id="MessageDigest类"><a href="#MessageDigest类" class="headerlink" title="MessageDigest类"></a>MessageDigest类</h3></li>
+<li>为应用程序提供信息摘要算法，如MD5或SHA算法。信息摘要是安全的单向哈希函数，它接收任意大小的数据，并输出固定长度的哈希值。</li>
+<li>MessageDigest.getInstance(String algorithm):返回实现指定摘要算法的MessageDigest对象。</li>
+<li>update(byte[]):指定要生成摘要的信息，返回值为void。</li>
+<li>digest():返回计算出来的哈希摘要，是byte[]，通常与update方法同用。</li>
+<li>digest(byte[]):可以不用update方法。</li>
+<li>isEqual(byte[],byte[]):两个摘要是否相同，做简单的字节比较。<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3></li>
+<li>短信发送方面不需要导什么包，因为我们是用网络访问的方式调用第三方接口，只需要程序发起请求，不需要额外引入依赖。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20170615102827930.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20170615102855375.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>发送短信工具类</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 发送短信服务工具类
+ * @Date 2019/2/10
+ * @Param
+ * @return
+ **/
+public class SmsUtil {
+    //第三方平台接口
+    private static final String QUERY_PATH=
+            &quot;https://api.miaodiyun.com/20150822/industrySMS/sendSMS&quot;;
+    //我的账号认证
+    private static final String ACCOUNT_SID=&quot;78789aaee2d54938adb96d01f96dae79&quot;;
+    private static final String AUTH_TOKEN=&quot;1834bbf37ebc457e8141d290127a431d&quot;;
+
+    public static int sendCode(String phone,String code) 
+            throws NoSuchAlgorithmException, IOException {
+
+        //定义该次请求
+        URL url=new URL(QUERY_PATH);
+        HttpURLConnection connection=(HttpURLConnection)url.openConnection();
+        connection.setRequestMethod(&quot;POST&quot;);
+        connection.setDoInput(true); //是否允许数据写入
+        connection.setDoOutput(true); //是否允许数据输出
+        connection.setConnectTimeout(5000); //链接响应时间
+        connection.setReadTimeout(10000); //参数读取时间
+        connection.setRequestProperty(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);
+
+        //提交请求
+        String timestamp=new SimpleDateFormat(&quot;yyyyMMddHHmmss&quot;)
+                .format(new Date());//时间戳
+        String sig=getMD5(ACCOUNT_SID,AUTH_TOKEN,timestamp); //签名（用于手机设备认证）
+        String tamp=&quot;您的验证码为&quot;+code
+                +&quot;，请于5分钟内正确输入，如非本人操作，请忽略此短信。&quot;; //短信内容
+        String args=getQueryArgs(ACCOUNT_SID,tamp,phone
+                ,timestamp,sig,&quot;JSON&quot;); //请求参数拼接
+        OutputStreamWriter out=new OutputStreamWriter(connection.getOutputStream()
+                ,&quot;UTF-8&quot;); 
+        out.write(args); //发起请求
+        out.flush();
+
+        //读取返回参数
+        BufferedReader br=new BufferedReader(new InputStreamReader(connection.getInputStream()
+                ,&quot;UTF-8&quot;)); //br：{&quot;respCode&quot;:&quot;00179&quot;,&quot;respDesc&quot;:&quot;发送短信需要先认证&quot;}
+        String temp=&quot;&quot;;
+        StringBuilder result=new StringBuilder();
+        while((temp=br.readLine())!=null){ //其实也就一行
+            result.append(temp);
+        }
+
+        //解析参数，判断成功与否
+        JSONObject json=JSONObject.parseObject(result.toString()); //转为json
+        String respCode=json.getString(&quot;respCode&quot;); //获取respCode对应的值
+        String successRespCode=&quot;00000&quot;; //成功情况：respCode=00000
+        if(successRespCode.equals(respCode))  return 1; //成功
+        else return 0; //失败
+    }
+
+    /**
+     * @Author haien
+     * @Description 获得sign(签名)
+     * @Date 2019/2/10
+     * @Param [sid, token, timestamp]
+     * @return java.lang.String
+     **/
+    private static String getMD5(String sid,String token,String timestamp) throws NoSuchAlgorithmException {
+        StringBuilder result=new StringBuilder();
+        String source=sid+token+timestamp;
+
+        //MessageDigest:生成信息摘要，即加密
+        MessageDigest digest=MessageDigest.getInstance(&quot;MD5&quot;); //指定用MD5算法
+        byte[] bytes=digest.digest(source.getBytes()); //要进行加密的信息
+
+        for(byte b : bytes){
+            String hex=Integer.toHexString(b &amp; 0xff); //将一个整型转为十六进制
+            if(hex.length()==1) result.append(&quot;0&quot;+hex);
+            else    result.append(hex);
+        }
+        return result.toString();
+    }
+
+    /**
+     * @Author haien
+     * @Description 拼接请求参数
+     * @Date 2019/2/10
+     * @Param [accountSid, smsContent, to, timestamp, sig, respDataType]
+     * @return java.lang.String
+     **/
+    public static String getQueryArgs(String accountSid,String smsContent,String to,
+                                      String timestamp, String sig,String respDataType){
+        return &quot;accountSid=&quot;+accountSid+&quot;&amp;smsContent=&quot;+smsContent+&quot;&amp;to=&quot;+to+&quot;×tamp=&quot;
+                +timestamp+&quot;&amp;timestamp=&quot;+timestamp+&quot;&amp;sig=&quot;+sig+&quot;&amp;respDataType=&quot;
+                +respDataType; //tamp前面是乘号;有的例子没加timestamp参数，会报错的
+    }
+}
+</code></pre></li>
+<li><p>发送结果分析</p>
+<pre><code>发送错误：
+result==&gt;{&quot;respCode&quot;:&quot;00134&quot;,&quot;respDesc&quot;:&quot;没有和内容匹配的模板&quot;}
+发送正确:
+result==&gt;{&quot;respCode&quot;:&quot;00000&quot;,&quot;respDesc&quot;:&quot;请求成功。&quot;,
+    &quot;failCount&quot;:&quot;0&quot;,&quot;failList&quot;:[],&quot;smsId&quot;:&quot;f5d6ec80a8bc4291af8f6d9b7c6555fb&quot;}
+</code></pre></li>
+<li><p>产生随机验证码工具类</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 生成随机验证码
+ * @Date 2019/2/9
+ **/
+public class RandomValidateCodeUtil {
+    /**
+     * @Author haien
+     * @Description 生成6位数字随机验证码
+     * @Date 2019/2/10
+     * @Param []
+     * @return java.lang.String
+     **/
+    public static String getVerifyCode(){
+        return String.valueOf(new Random().nextInt(899999)+100000);
+    }
+}
+</code></pre></li>
+<li><p>controller层发送短信</p>
+<pre><code>/**
+ * @return void
+ * @Author haien
+ * @Description 发送短信验证码
+ * @Date 2019/2/9
+ * @Param [request, response]
+ **/
+@RequestMapping(&quot;/getVerifyCode&quot;)
+public Map&lt;String, String&gt; getVerifyCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    Map&lt;String, String&gt; result = new HashMap&lt;&gt;();
+    String phone = request.getParameter(&quot;phone&quot;);
+    if (StringUtil.isNull(phone)) {
+        result.put(&quot;message&quot;, &quot;请填写手机号&quot;);
+        return result;
+    }
+    if (!ValidatorUtil.isMobile(phone)) {
+        result.put(&quot;message&quot;, &quot;手机格式错误&quot;);
+        return result;
+    }
+    if (userService.findUserByPhone(phone) != null) {
+        result.put(&quot;message&quot;, &quot;手机已绑定&quot;);
+        return result;
+    }
+    String code = RandomValidateCodeUtil.getVerifyCode();
+    logger.info(&quot;----请求验证码--code={}----&quot;, code);
+    try {
+        int success = SmsUtil.sendCode(phone, code);
+    } catch (NoSuchAlgorithmException e) {
+        logger.info(&quot;----短信发送失败----&quot;);
+        throw new NoSuchFieldError(&quot;生成信息摘要异常：不存在指定的加密算法&quot;);
+    }
+    logger.info(&quot;----短信发送成功----&quot;);
+    JSONObject json = new JSONObject();
+    json.put(VERIFYCODEKEY, code);
+    json.put(CODECREATETIMEKEY, System.currentTimeMillis());
+    request.getSession().setAttribute(VERIFYMSG, json);
+    result.put(&quot;message&quot;, &quot;短信发送成功&quot;);
+    return result;
+}
+</code></pre></li>
+<li><p>controller层比对验证码</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 比对验证码是否正确
+ * @Date 2019/2/10
+ * @Param [verifyCode]
+ * @return boolean
+ **/
+@RequestMapping(value = &quot;/isVrfCodeRigth&quot;, method = RequestMethod.GET)
+public Map&lt;String,String&gt; isVrfCodeRigth(@RequestParam(&quot;verifyCode&quot;)String verifyCode
+        ,HttpServletRequest request){
+    Map&lt;String,String&gt; result=new HashMap&lt;&gt;();
+    JSONObject verifyMsg=(JSONObject)request.getSession().getAttribute(VERIFYMSG);
+    if(!verifyMsg.getString(VERIFYCODEKEY).equals(verifyCode))
+        result.put(&quot;message&quot;,&quot;验证码错误&quot;);
+    if((System.currentTimeMillis()-verifyMsg.getLong(CODECREATETIMEKEY))&gt;1000*60*5) //5分钟
+        result.put(&quot;message&quot;,&quot;验证码过期&quot;);
+    return result;
+}
+</code></pre><h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3></li>
+<li><a href="https://blog.csdn.net/qq_39135287/article/details/80907606" target="_blank" rel="noopener">秒嘀科技注册说明与发送短信代码参考</a></li>
+<li><a href="https://blog.csdn.net/zuoliangzhu/article/details/82993257" target="_blank" rel="noopener">验证码和有效时间在session中的存取操作</a><h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3></li>
+<li>D:/thz/thz-parent/thz-common/SmsUtil、thz-manager-web/WebPageController</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-02-10T12:03:09.719Z" itemprop="dateUpdated">2019-02-10 20:03:09</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Java发送短信验证码/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Java发送短信验证码/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java发送短信验证码/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java发送短信验证码/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java发送短信验证码/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Java发送短信验证码/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java发送短信验证码/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/java公有类/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Java比较两个浮点数/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java发送短信验证码/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java发送短信验证码/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java发送短信验证码/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Java发送短信验证码/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java发送短信验证码/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACGUlEQVR42u3aQW7DIBAF0Nz/0qnUVRaN+2eGRjU8VpFlEx6LLwZ4POL2/G6vv19b8tXkybKGgYFxW8bzsuXvXPeZDH30vxgYGAcwqiHbG1w+ZfnYMDAwMK5J7wZ9/TwJawwMDIxVjGpxm5AwMDAwJkVszshjOkcuq8UxMDBuyOgdDHzm95+fb2BgYPx7Rm87rLfgm2/tvR0VBgbG1oxkqdcL4snir9oDBgbG3oxqzM03zqoDjb7CwMDYmpFckpjEa4K57rPwPgYGxqaMvIv8iliOz7+NTjYwMDC2ZlQvNyRD6ZWmvUnEwMA4gdErI5PYvWZMymAMDAyManeT0KwW0j/ENAYGxtaMVYuzKrIX9OW6HAMDYztGEnP5YcCqyxbVmMbAwDiBUd1cq0b2PHYL04qBgbERI4+wamGZTMGyjTwMDIxNGfmBZd51+QCy9b8YGBinMcrFYRCsvS22KjXaF8TAwLg5oxptk+sRVWT5CQYGxqaMwqHg0oI2B0eTgoGBcRgjX2vlsTi/hPHLxGFgYGzN6F2nmBw9JjHaK54xMDB2ZUwK1yQKe0vPPJoxMDBOYOStt2hLNv2ri8VeyY2BgXF3xqoDgMlSslpal48wMTAwtmDMr1NMDiZ7RSwGBgZGHrh54ZqXyuWwxsDAwGgx8qjNF5oYGBgnM3pF7PwyWbLdHwU0BgbG1oxe6Zgs+KqwHFkGYGBg3JXxBdR5o4nutnoDAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

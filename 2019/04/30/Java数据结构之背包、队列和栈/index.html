@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="栈 先进后出 为栈中的每一个元素定义一个结点Node，这个结点包括元素本身和下一个结点的引用，栈底结点的下一个为null。 只有一个栈顶指针 实现出栈、入栈和迭代等操作。 public class Stack&amp;lt;T&amp;gt; implements Iterable&amp;lt;T&amp;gt; {     //栈顶元素     private Node&amp;lt;T&amp;gt; first;     //栈长度">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Java数据结构之背包、队列和栈/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="栈 先进后出 为栈中的每一个元素定义一个结点Node，这个结点包括元素本身和下一个结点的引用，栈底结点的下一个为null。 只有一个栈顶指针 实现出栈、入栈和迭代等操作。 public class Stack&amp;lt;T&amp;gt; implements Iterable&amp;lt;T&amp;gt; {     //栈顶元素     private Node&amp;lt;T&amp;gt; first;     //栈长度">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-30T07:21:20.488Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="栈 先进后出 为栈中的每一个元素定义一个结点Node，这个结点包括元素本身和下一个结点的引用，栈底结点的下一个为null。 只有一个栈顶指针 实现出栈、入栈和迭代等操作。 public class Stack&amp;lt;T&amp;gt; implements Iterable&amp;lt;T&amp;gt; {     //栈顶元素     private Node&amp;lt;T&amp;gt; first;     //栈长度">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.213Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#栈"><span class="post-toc-number">1.</span> <span class="post-toc-text">栈</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#队列"><span class="post-toc-number">2.</span> <span class="post-toc-text">队列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#背包"><span class="post-toc-number">3.</span> <span class="post-toc-text">背包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码实例"><span class="post-toc-number">4.</span> <span class="post-toc-text">代码实例</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Java数据结构之背包、队列和栈"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.213Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><ul>
+<li>先进后出</li>
+<li>为栈中的每一个元素定义一个结点Node，这个结点包括元素本身和下一个结点的引用，栈底结点的下一个为null。</li>
+<li>只有一个栈顶指针</li>
+<li><p>实现出栈、入栈和迭代等操作。</p>
+<pre><code>public class Stack&lt;T&gt; implements Iterable&lt;T&gt; {
+    //栈顶元素
+    private Node&lt;T&gt; first;
+    //栈长度
+    private int n;
+
+    //栈的存储单位：一个存放当前元素和下一个结点的结点
+    private static class Node&lt;T&gt;{
+        private T item;
+        private Node&lt;T&gt; next;
+    }
+
+    /**
+     * @Author haien
+     * @Description 初始化一个空栈
+     * @Date 19:56 2018/10/25
+     **/
+    public Stack(){
+        first = null;
+        n=0;
+    }
+
+    public boolean isEmpty(){
+        return first==null;
+    }
+
+    public int size(){
+        return n;
+    }
+
+    public void push(T item){
+        Node&lt;T&gt; oldfirst=first;
+        first=new Node&lt;T&gt;();
+        first.item=item;
+        first.next=oldfirst;
+        n++;
+    }
+
+    public T pop(){
+        if(isEmpty()) throw new NoSuchElementException();
+        T item=first.item;
+        first=first.next;
+        n--;
+        return item;
+    }
+
+    /**
+     * @Author haien
+     * @Description 出栈但不删除元素
+     * @Date 2018/10/25
+     * @Param []
+     * @return void
+     **/
+    public T peek(){
+        if(isEmpty()) throw new NoSuchElementException();
+        return first.item;
+    }
+
+    /**
+     * @Author haien
+     * @Description 把所有元素都连成一个字符串
+     * @Date 2018/10/25
+     * @Param []
+     * @return java.lang.String
+     **/
+    @Override
+    public String toString() {
+        StringBuilder s=new StringBuilder(); //适用于处理大量字符串
+        for(T item:this){
+            s.append(item);
+            s.append(&apos; &apos;);
+        }
+        return s.toString();
+    }
+
+    @Override
+    public Iterator&lt;T&gt; iterator(){
+        return new ListIterator&lt;T&gt;(first);
+    }
+
+    private class ListIterator&lt;T&gt; implements Iterator&lt;T&gt;{
+
+        private Node&lt;T&gt; current;
+
+        public ListIterator(Node&lt;T&gt; current) {
+            this.current = current;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return current!=null;
+        }
+
+        @Override
+        public T next() {
+            if(!hasNext()) throw new NoSuchElementException();
+            T item=current.item;
+            current=current.next;
+            return item;
+        }
+
+        @Override
+        public void remove(){
+            throw new UnsupportedOperationException();
+        }
+    }
+}
+</code></pre></li>
+<li><p>应用：用两个栈实现四则运算</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 用栈实现四则运算
+ * @Date 2018/10/29
+ **/
+public class Evaluate {
+    //设置优先级
+    public static int priority(String s) throws ValidationException {
+        switch(s){
+            case &quot;(&quot;: return 4;
+
+            case &quot;*&quot;:
+            case &quot;/&quot;: return 3;
+
+            case &quot;+&quot;:
+            case &quot;-&quot;: return 2;
+
+            case &quot;)&quot;: return 1;
+
+            default: throw new ValidationException(&quot;算术表达式格式错误!&quot;);
+        }
+    }
+
+    public static void main(String[] args) throws ValidationException {
+        //数字栈
+        Stack&lt;Double&gt; s1=new Stack&lt;&gt;();
+        //符号栈
+        Stack&lt;String&gt; s2=new Stack&lt;&gt;();
+        StringBuilder num=new StringBuilder(&quot;&quot;);
+        int i=0;
+        double a=0.0;
+        System.out.println(&quot;请输入表达式：&quot;);
+
+        //读取表达式
+        while(!StdIn.isEmpty()){
+            //获取表达式
+            String s=StdIn.readLine().replaceAll(&quot;\\s*&quot;,&quot;&quot;); //获取一行字符串；去空白符
+            //遍历表达式
+            while(i&lt;=s.length()){
+                //数字（支持多位数、小数）
+                if(i&lt;s.length()&amp;&amp;(s.charAt(i)&gt;=&apos;0&apos;&amp;&amp;s.charAt(i)&lt;=&apos;9&apos;||s.charAt(i)==&apos;.&apos;)){
+                    num.append(s.charAt(i));
+                    i++;
+                    if(i==s.length()||((s.charAt(i)&lt;&apos;0&apos;||s.charAt(i)&gt;&apos;9&apos;)&amp;&amp;s.charAt(i)!=&apos;.&apos;)){
+                        if(!ValidatorUtil.isNumeric(num)){ //是否整数或小数
+                            throw new ValidationException(&quot;算术表达式格式错误!&quot;);
+                        }
+                        s1.push(Double.parseDouble(num.toString()));
+                        num=new StringBuilder(&quot;&quot;);
+                    }
+                }
+                //运算符
+                //无效括号
+                else if(i&lt;s.length()&amp;&amp;s.charAt(i)==&apos;)&apos;&amp;&amp;!s2.isEmpty()&amp;&amp;s2.peek().equals(&quot;(&quot;)) {
+                    s2.pop(); //记得把栈里没用的左括号弹掉
+                    i++;
+                }
+                //进栈(栈为空||运算符优先级大于栈顶||栈顶为左括号)
+                else if(i&lt;s.length()
+                        &amp;&amp;(s2.isEmpty()
+                           ||priority(String.valueOf(s.charAt(i))) &gt; priority(s2.peek())
+                           ||s2.peek().equals(&quot;(&quot;))
+                        ){
+                    s2.push(String.valueOf(s.charAt(i)));
+                    i++;
+                }
+
+                //表达式只有一个数字
+                else if(s1.size()==1)
+                    break;
+                //弹栈（i&gt;=字符串长度时就已经读取完了，但是符号栈还有就还要进行运算||符号优先级低于栈顶）
+                else if((i&gt;=s.length() &amp;&amp; !s2.isEmpty())
+                        || (priority(String.valueOf(s.charAt(i))) &lt;= priority(s2.peek()))){
+                    //- / 记得颠倒过来
+                    switch (s2.pop()){
+                        case &quot;+&quot;: s1.push(s1.pop()+s1.pop()); break;
+                        case &quot;-&quot;: a=s1.pop();s1.push(s1.pop()-a); break;
+                        case &quot;*&quot;: s1.push(s1.pop()*s1.pop()); break;
+                        case &quot;/&quot;: a=s1.pop();s1.push(s1.pop()/a); break;
+                    }
+                }
+                else{
+                    throw new ValidationException(&quot;算术表达式格式错误!&quot;);
+                }
+            }
+            System.out.println(&quot;结果为：&quot;+s1.pop());
+            System.out.println(&quot;请输入表达式：&quot;);
+            i=0;
+        }
+    }
+}
+</code></pre><h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3></li>
+<li>先进先出</li>
+<li>相当于在栈的基础上加上一个队头指针，指向最早加入的成员，别新成员一来老成员就不见了</li>
+<li><p>如果是数组的话很少用循环数组，而是超出容量重新创建一个新数组并把旧元素移过去 </p>
+<pre><code>/**
+ * @Author haien
+ * @Description 基于链表的队列
+ * @Date 2018/10/26
+ **/
+public class Queue&lt;T&gt; implements Iterable&lt;T&gt;{
+    //队头，用于出队
+    private Node first;
+    //队尾，用于入队
+    private Node last;
+    //长度
+    private int n;
+    //结点
+    private class Node{
+        private T item;
+        private Node next;
+    }
+
+    public boolean isEmpty(){
+        return first==null;
+    }
+
+    public int size(){
+        return n;
+    }
+
+    public void enQueue(T item){
+        Node oldlast=last;
+        last=new Node(); //必须要new，防止栈为空时下一行出现NPE
+        last.item=item; //为什么私有属性也能访问？？？
+        last.next=null;
+        if(isEmpty()) first=last;
+        else oldlast.next=last;
+        n++; //放最后，方便前面判空
+    }
+
+    public T deQueue(){
+        if(isEmpty()) throw new NoSuchElementException();
+        n--;
+        T item=first.item;
+        first=first.next;
+        //防止游离，否则last还指着已经出队的那个元素
+        if(isEmpty()) last=null;
+        return item;
+    }
+
+    public T peek(){
+        if(isEmpty()) throw new NoSuchElementException();
+        return first.item;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder s=new StringBuilder();
+        for(T item:this){ //调用的是this的迭代器
+            s.append(item);
+            s.append(&apos; &apos;);
+        }
+        return s.toString();
+    }
+
+    @Override
+    public Iterator&lt;T&gt; iterator() {
+        return new ListIterator();
+    }
+
+    private class ListIterator implements Iterator{ //不能定义为MyIterator&lt;T&gt;，此T与外部类的T会被视为另一类
+        private Node currrent;
+
+        public ListIterator() {
+            this.currrent = first;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return currrent!=null;
+        }
+
+        @Override
+        public T next() {
+            if(!hasNext()) throw new NoSuchElementException();
+            T item=currrent.item;
+            currrent=currrent.next;
+            return item;
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
+    }
+
+    public static void main(String[] args) {
+        Queue&lt;String&gt; queue=new Queue&lt;&gt;();
+        //输入字符串，回车,进栈，输入-，回车,出栈
+        while (!StdIn.isEmpty()){ //底层是scanner.hasNext()，请求输入并获取输入流判断是否为空
+            //底层是scanner.next()，从输入流中读取字符串，遇到空格结束一次读取，直到读到输入流末尾再重新请求输入
+            String item=StdIn.readString(); 
+            if(!item.equals(&quot;-&quot;))
+                queue.enQueue(item);
+            else if(!queue.isEmpty())
+                StdOut.print(queue.deQueue()+&quot; &quot;);
+        }
+        StdOut.println(&quot;(&quot;+queue.size()+&quot; left on queue)&quot;);
+    }
+}
+</code></pre><h3 id="背包"><a href="#背包" class="headerlink" title="背包"></a>背包</h3></li>
+<li>其实就是不能出栈的栈，只能往里add元素<h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3></li>
+<li>DataStructure/dataStructure</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-30T07:21:20.488Z" itemprop="dateUpdated">2018-10-30 15:21:20</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Java数据结构之背包、队列和栈/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Java数据结构之背包、队列和栈/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java数据结构之背包、队列和栈/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java数据结构之背包、队列和栈/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java数据结构之背包、队列和栈/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Java数据结构之背包、队列和栈/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java数据结构之背包、队列和栈/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Java数据结构之查找/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/java生成验证码图片/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java数据结构之背包、队列和栈/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java数据结构之背包、队列和栈/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java数据结构之背包、队列和栈/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Java数据结构之背包、队列和栈/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java数据结构之背包、队列和栈/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtklEQVR42u3aQU7kQAwF0L7/pRlpttDhf7sKZqSXFWqapF4WtrH9esXXx9/r3Sfvfvv5er5/cp/XjQsPDw9vdPTnA33++d3DkkM8PyW5c3JmPDw8vNu85HZJsE4e+XznJG0ULxcPDw/vV3nPoXyfTvKSGg8PD+9/4eVF83NAT1JF/uLw8PDwfouX3C4Bt8F9VkZf6bXg4eHhxbx2APYv/HxxvoeHh4e3mKrPxv9tQzZpWwzPiYeHh3eBl5S27eC/LdZnI64iYeDh4eEd5e2Db3vQU22OqMmLh4eHd4GXB/3ZQWdDsnx5q25Y4OHh4a15m0F+e5QkhWzWCL6Z7OHh4eEd4iXJYL+GlRS+7dGLYhoPDw/vKK8Nwft1qFkJPiys8fDw8C7w2iB+qv+RD89mf4WHh4d3mzdrMezHVPtl2eT7eHh4eDd4s8bErEnRftIW5av5Hh4eHl7JS4rjfL0gKcr3KwXJQgMeHh7eDd5+xWoWvjdXkczw8PDwrvGSoyQleFsibxawosoZDw8P7ygvOXTbdDi7cDAbqn2xGYGHh4d3lPfcGmgH9vthVZ6Kvnm5eHh4eNd4m0e2awft0dthGx4eHt7P8GbDqlnBvUkGbWrBw8PDu8E7Ne7aIGeN4/ZUeHh4eDd494ZhecO3LabbZIaHh4d3m5c0T/PQnz+lvX/eMsbDw8M7xZuF4zY0zwZp7Yjui+/j4eHhXeNFeSNvm8ZJZdPAjV4cHh4e3lHeR3nNyvE6lMd/hYeHh/fzvPzK2wezhu/ZdQQ8PDy827zN4CpvOrRhffZ5kYXw8PDw1rw86G/GXbOFrTZ1RV1qPDw8vB/nJaQ22eQFd5Ee8PDw8H6Vly9Rzcb/VwZmeHh4eNd47UJV+1KS15R/J0lOeHh4ePd4s3/120WrfeJJXvEQiYeHh5fy/gBaFNB1dF1VbgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

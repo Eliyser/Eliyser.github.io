@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="异常处理办法之一：try/catch执行顺序                                                                                             执行顺序               遇到异常，跳出try，执行catch里面的语句 不管是否遇到异常，finally里面的代码都会被执行，但是后面的就不会。 try介绍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/异常机制/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="异常处理办法之一：try/catch执行顺序                                                                                             执行顺序               遇到异常，跳出try，执行catch里面的语句 不管是否遇到异常，finally里面的代码都会被执行，但是后面的就不会。 try介绍">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7535.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B722.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B723.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B724.PNG">
+<meta property="og:updated_time" content="2018-09-23T01:59:09.235Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="异常处理办法之一：try/catch执行顺序                                                                                             执行顺序               遇到异常，跳出try，执行catch里面的语句 不管是否遇到异常，finally里面的代码都会被执行，但是后面的就不会。 try介绍">
+<meta name="twitter:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7535.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">No title</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">No title</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:46.506Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#异常处理办法之一：try-catch"><span class="post-toc-number">1.</span> <span class="post-toc-text">异常处理办法之一：try/catch</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#执行顺序"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">执行顺序</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#try介绍"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">try介绍</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#异常如何被抛出"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">异常如何被抛出</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#异常处理办法之二：声明异常——throws"><span class="post-toc-number">2.</span> <span class="post-toc-text">异常处理办法之二：声明异常——throws</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#作用"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#手动抛出"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">手动抛出</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#try-with-resource及其异常抑制"><span class="post-toc-number">3.</span> <span class="post-toc-text">try-with-resource及其异常抑制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#背景"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#传统的资源关闭方式"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">传统的资源关闭方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#JDK7及以后的try-with-resource资源关闭方式"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">JDK7及以后的try-with-resource资源关闭方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#实现原理"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">实现原理</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-异常机制"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">No title</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:46" datetime="2019-04-30T08:25:46.506Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="异常处理办法之一：try-catch"><a href="#异常处理办法之一：try-catch" class="headerlink" title="异常处理办法之一：try/catch"></a>异常处理办法之一：try/catch</h3><h4 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7535.PNG" alt="执行顺序" title="">
+                </div>
+                <div class="image-caption">执行顺序</div>
+            </figure>
+<ul>
+<li>遇到异常，跳出try，执行catch里面的语句</li>
+<li><p>不管是否遇到异常，finally里面的代码都会被执行，但是后面的就不会。</p>
+<h4 id="try介绍"><a href="#try介绍" class="headerlink" title="try介绍"></a>try介绍</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B722.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="异常如何被抛出"><a href="#异常如何被抛出" class="headerlink" title="异常如何被抛出"></a>异常如何被抛出</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B723.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>  package cn.haien.trycatch;<br>  import java.io.*;<br>  /**</p>
+<ul>
+<li>关于FileInputStream的try/catch测试</li>
+<li>@author 14103<br><em>
+</em>/<br>public class TryCatch03 {<br>  public static void main(String[] args) {<pre><code>String str = new TryCatch03().openFile();
+System.out.println(str);
+</code></pre>  }<br>  String openFile() {<pre><code>try {
+    System.out.println(&quot;aaa&quot;);
+    //创建文件字节读取流对象fis
+    FileInputStream fis = new FileInputStream(&quot;D:\\test.txt&quot;);//将字符串路径封装成File对象
+    int a = fis.read();//返回读取到的字节
+    System.out.println(&quot;bbb&quot;);
+    System.out.println(a);
+    return &quot;step1&quot;;
+}catch(FileNotFoundException e) {
+    e.printStackTrace();
+    System.out.println(&quot;catch!!!&quot;);
+    return &quot;step2&quot;;
+}catch(IOException e) {
+    e.printStackTrace();
+    return &quot;step3&quot;;
+}finally {  //这里忽略关闭文件操作
+    System.out.println(&quot;finally1!!&quot;);
+    //return &quot;fff&quot;;  //如果这里加入return，那么返回值一定是fff了,因为会覆盖前面的返回值
+    }
+/*总结：执行顺序
+</code></pre>  执行try、catch语句，给返回值赋值<br>  执行finally<br>  return*/<br>  }<br>}<h3 id="异常处理办法之二：声明异常——throws"><a href="#异常处理办法之二：声明异常——throws" class="headerlink" title="异常处理办法之二：声明异常——throws"></a>异常处理办法之二：声明异常——throws</h3><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4>谁调我往谁抛出，就谁来处理<h4 id="手动抛出"><a href="#手动抛出" class="headerlink" title="手动抛出"></a>手动抛出</h4>可以在try里面自己new一个异常对象然后抛出，称为手动抛出，用得不多</li>
+</ul>
+</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B724.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="try-with-resource及其异常抑制"><a href="#try-with-resource及其异常抑制" class="headerlink" title="try-with-resource及其异常抑制"></a>try-with-resource及其异常抑制</h3><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><ul>
+<li>在Java编程中，如果打开了外部资源（文件、数据库连接、网络连接等），必须在使用完毕后关闭。因为外部资源不由JVM管理，无法享用JVM垃圾回收机制，如果我们不在编程时确保关闭外部资源，就会导致外部资源泄露，紧接着就会出现文件被异常占用、数据库连接过多导致数据池溢出等严重问题。<h4 id="传统的资源关闭方式"><a href="#传统的资源关闭方式" class="headerlink" title="传统的资源关闭方式"></a>传统的资源关闭方式</h4></li>
+<li><p>通常关闭代码被写入finally代码块中，当然我们还必须注意到关闭代码时可能抛出的异常。</p>
+<pre><code>public static void main(String[] args) {
+    FileInputStream inputStream = null;
+    try {
+        inputStream = new FileInputStream(new File(&quot;test&quot;));
+        System.out.println(inputStream.read());
+    } catch (IOException e) {
+        throw new RuntimeException(e.getMessage(), e);
+    } finally {
+        if (inputStream != null) {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e.getMessage(), e);
+            }
+        }
+    }
+}
+</code></pre><h4 id="JDK7及以后的try-with-resource资源关闭方式"><a href="#JDK7及以后的try-with-resource资源关闭方式" class="headerlink" title="JDK7及以后的try-with-resource资源关闭方式"></a>JDK7及以后的try-with-resource资源关闭方式</h4></li>
+<li><p>当一个外部资源的句柄对象（比如FileInputStream对象）实现了AutoCloseable接口，那么上述代码就可以简化为如下形式：</p>
+<pre><code>public static void main(String[] args) {
+    try (FileInputStream inputStream = new FileInputStream(new File(&quot;test&quot;))) {
+        System.out.println(inputStream.read());
+    } catch (IOException e) {
+        throw new RuntimeException(e.getMessage(), e);
+    }
+}
+</code></pre></li>
+<li>将外部资源的句柄对象的创建挡在try关键字的括号之中，当这个try/catch代码块执行完毕后，Java会确保外部资源的close方法被调用。代码简介许多。<h4 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h4></li>
+<li><p>try-with-resouce并不是JVM的新增功能，而是JDK实现的一个语法糖。将以上代码反编译后如下：</p>
+<pre><code>public static void main(String[] args) {
+    try {
+        FileInputStream inputStream = new FileInputStream(new File(&quot;test&quot;));
+        Throwable var2 = null; //定义一个即将抛出的异常
+
+        try {
+            System.out.println(inputStream.read());
+        } catch (Throwable var12) { //对资源进行处理（读或写）时遭遇异常
+            var2 = var12; //获取这个异常
+            throw var12; //并抛出
+        } finally {
+            if (inputStream != null) {
+                if (var2 != null) { //如果前面抛出了异常
+                    try {
+                        inputStream.close();
+                    } catch (Throwable var11) {
+                        var2.addSuppressed(var11); //则将关闭时遭遇的异常信息添加到前面的异常，控制台只打印处理异常，但通过异常的getSupperssed方法，可以提取出被抑制的关闭异常
+                    }
+                } else {
+                    inputStream.close(); //如果前面无异常，那么关闭异常将被抑制
+                }
+            }
+
+        }
+
+    } catch (IOException var14) {
+        throw new RuntimeException(var14.getMessage(), var14);
+    }
+}
+</code></pre></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-09-23T01:59:09.235Z" itemprop="dateUpdated">2018-09-23 09:59:09</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/异常机制/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/异常机制/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/异常机制/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/异常机制/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/异常机制/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/异常机制/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/异常机制/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/异常-找不到main方法/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">No title</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/异常-从数据库中获取值时报NullPointException/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">No title</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/异常机制/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/异常机制/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/异常机制/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/异常机制/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/异常机制/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3a0WrDMAwF0P3/T2cw9jDYYq4sZ7T28VMpTaLTgmpJ/viI1/W1fr+++0zyzvVjja9atjAwMN6WcQ1X8sj8DmPe+Ll3n8HAwDiHkSTZ8ePHV42DyMG372NgYGC0g4tCwcDAwFjKyKl5eYyBgYExZlRL0CQFV4PrJHcMDIy9GZ3BwNOv/2m+gYGB8cKMq7iSO+RP7MfzfR8MDIytGcn4cG3x2U+1hR0uBgbGRoy5UrZTgs7t9B5pumFgYLw8oxp0kmTntn1JI6/8C2BgYBzAGAfXSaZzY4DyZAMDA2MjRrRzLBafnVZd+SoMDIzDGHmay0PvHM5IMBgYGHszqocbEkxS3HYK5turMDAwtmbMpdpqQqx+WfnWEwMDY2/G+IK8EdY5KjG3Ab0dYWJgYGzHWNWaT2CPnxnBwMDYlNFJc/2ysz82wMDAOIEx12KrNtTmEnd+HwwMjL0ZnYHlqsK1M3JYMHfFwMB4eUYnN1cbc0/w/qjFMTAwtmN0gu6XrNUDGRgYGBhzo8p8kDnXPitMNjAwMDZlzK0EObetzBt/5a4hBgbG2zKu4srTaA6upmYMDIzTGNUkW02ac1vApN2GgYFxGiMvXJ9IgtXve3KEiYGBsQWjU2pWh5SdfwAMDAyMfGNX3eotG1iOpxwYGBgYQdqtwvI23DiVY2BgnMDIi9i5lFoIKN5iYmBgnMNY1RTLA1qVpifPiWBgYLwT4xNJZ4SaxoN2HAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="集中式版本控制系统 版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。中央服务器就好比是一个图书馆，你要改一本书，必须先从图书馆借出来，然后回到家自己改，改完了，再放回图书馆。 集中式版本控制系统最大的毛病就是必须联网才能工作，如果在局域网内还好，带宽够大，速度够快，可如果在互联网上，遇到网">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/git/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="集中式版本控制系统 版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。中央服务器就好比是一个图书馆，你要改一本书，必须先从图书馆借出来，然后回到家自己改，改完了，再放回图书馆。 集中式版本控制系统最大的毛病就是必须联网才能工作，如果在局域网内还好，带宽够大，速度够快，可如果在互联网上，遇到网">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B75636546.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7675876878.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B755675253.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7324232.PNG">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20151020143448200.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20151020143335915.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20151020143117598.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20151020143559792.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20151020143727279.png">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg04.sogoucdn.com%2Fapp%2Fa%2F100520146%2Fb330d7bea180dcb7d6bf1dc356a85608">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20180609221525153.png">
+<meta property="og:updated_time" content="2019-03-10T07:36:58.652Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="集中式版本控制系统 版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。中央服务器就好比是一个图书馆，你要改一本书，必须先从图书馆借出来，然后回到家自己改，改完了，再放回图书馆。 集中式版本控制系统最大的毛病就是必须联网才能工作，如果在局域网内还好，带宽够大，速度够快，可如果在互联网上，遇到网">
+<meta name="twitter:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B75636546.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:44.816Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建分支"><span class="post-toc-number">1.</span> <span class="post-toc-text">创建分支</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#合并冲突"><span class="post-toc-number">2.</span> <span class="post-toc-text">合并冲突</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#克隆远程仓库"><span class="post-toc-number">3.</span> <span class="post-toc-text">克隆远程仓库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pull-request"><span class="post-toc-number">4.</span> <span class="post-toc-text">pull request</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#补充一个从创建版本库到push项目全过程"><span class="post-toc-number">5.</span> <span class="post-toc-text">补充一个从创建版本库到push项目全过程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建版本库"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">创建版本库</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#克隆项目进来"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">克隆项目进来</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开发"><span class="post-toc-number">6.</span> <span class="post-toc-text">开发</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#git常用命令"><span class="post-toc-number">7.</span> <span class="post-toc-text">git常用命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#异常"><span class="post-toc-number">8.</span> <span class="post-toc-text">异常</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#gitignore"><span class="post-toc-number">9.</span> <span class="post-toc-text">.gitignore</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-git"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.816Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li>集中式版本控制系统<ul>
+<li>版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。中央服务器就好比是一个图书馆，你要改一本书，必须先从图书馆借出来，然后回到家自己改，改完了，再放回图书馆。</li>
+<li>集中式版本控制系统最大的毛病就是必须联网才能工作，如果在局域网内还好，带宽够大，速度够快，可如果在互联网上，遇到网速慢的话，可能提交一个10M的文件就需要5分钟，这还不得把人给憋死啊</li>
+</ul>
+</li>
+<li>分布式版本控制系统<ul>
+<li>分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。既然每个人电脑上都有一个完整的版本库，那多个人如何协作呢？比方说你在自己电脑上改了文件A，你的同事也在他的电脑上改了文件A，这时，你们俩之间只需把各自的修改推送给对方，就可以互相看到对方的修改了</li>
+<li>和集中式版本控制系统相比，分布式版本控制系统的安全性要高很多，因为每个人电脑里都有完整的版本库，某一个人的电脑坏掉了不要紧，随便从其他人那里复制一个就可以了。而集中式版本控制系统的中央服务器要是出了问题，所有人都没法干活了</li>
+<li>在实际使用分布式版本控制系统的时候，其实很少在两人之间的电脑上推送版本库的修改，因为可能你们俩不在一个局域网内，两台电脑互相访问不了，也可能今天你的同事病了，他的电脑压根没有开机。因此，分布式版本控制系统通常也有一台充当“中央服务器”的电脑，但这个服务器的作用仅仅是用来方便“交换”大家的修改，没有它大家也一样干活，只是交换修改不方便而已。</li>
+</ul>
+</li>
+<li>CVS作为最早的开源而且免费的集中式版本控制系统，直到现在还有不少人在用。由于CVS自身设计的问题，会造成提交文件不完整，版本库莫名其妙损坏的情况。同样是开源而且免费的SVN修正了CVS的一些稳定性问题，是目前用得最多的集中式版本库控制系统</li>
+<li><p>创建版本库</p>
+<p>版本库又名仓库，英文名repository，你可以简单理解成一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。</p>
+</li>
+<li>具体教程可以从廖雪峰网站-Git简介-创建版本库</li>
+<li>所有的版本控制系统，其实只能跟踪文本文件的改动。不幸的是，Microsoft的Word格式是二进制格式，因此，版本控制系统是没法跟踪Word文件的改动的，前面我们举的例子只是为了演示，如果要真正使用版本控制系统，就要以纯文本方式编写文件。</li>
+<li>千万不要使用Windows自带的记事本编辑任何文本文件。原因是Microsoft开发记事本的团队使用了一个非常弱智的行为来保存UTF-8编码的文件，他们自作聪明地在每个文件开头添加了0xefbbbf（十六进制）的字符，你会遇到很多不可思议的问题，比如，网页第一行可能会显示一个“?”，明明正确的程序一编译就报语法错误，等等，都是由记事本的弱智行为带来的。建议你下载Notepad++代替记事本，不但功能强大，而且免费！记得把Notepad++的默认编码设置为UTF-8 without BOM即可</li>
+<li><p>创建本地版本库</p>
+<pre><code>//进入learngit
+git init
+</code></pre></li>
+<li><p>关联远程仓库</p>
+<pre><code>git remote add origin git@github.com:owenr/repository.git //origin：给仓库起名，后面是ssh地址，可在github仓库点击clone or dowmload获取
+</code></pre></li>
+<li><p>解除关联</p>
+<pre><code>git remote rm origin //origin是远程仓库在本地git中的名称
+</code></pre></li>
+<li><p>新建文件</p>
+<pre><code>touch filename //新建文件
+vi filename //新建文件并编辑（文件已存在则直接编辑）
+</code></pre></li>
+<li>上传文件到仓库步骤(网站讲解章节：时光机穿梭)</li>
+</ul>
+<ol>
+<li>编写文件（文本文件，不能是图片之类二进制文件）比如readme.txt</li>
+<li>保存到仓库下（比如learngit）</li>
+<li>告诉git你保存了这么个东西到仓库里面了：<ol>
+<li>在learngit文件夹里右键git bash here</li>
+<li>在git bash here里面git add file,<br>也就是说git add file的这个file必须是learngit里面有的</li>
+</ol>
+</li>
+<li>修改了文件并保存之后，用git diff readme.txt查看修改细节：</li>
+</ol>
+<ul>
+<li>git log只能查看commit的历史</li>
+<li><p>执行git log 命令无法退出,按q退出历史记录列表即可重新输入其他命令</p>
+</li>
+<li><p>版本回退也可以是git reset –hard head(后面跟几个^)回到历史版本，前提是记得目标版本是要加几个^</p>
+</li>
+<li>撤销修改<br>其实有点类似于版本回退，只是版本回退是已经提交之后回退到分支里某个历史版本，而撤销修改是把工作区恢复到和版本库相同。</li>
+</ul>
+<p>有时你git add之后又在工作区对文件进行了多次修改（但是都没有git add），这时执行git checkout – file就可以撤销在工作区做的所有修改</p>
+<ul>
+<li>工作区和暂存区<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B75636546.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7675876878.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>git diff的比较<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B755675253.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>删除文件</li>
+</ul>
+<ol>
+<li>新建一个文件并add+commit到版本库的分支里面</li>
+<li>要删除的话，先将文件从工作区手动删除或rm file用命令行删除；这样，文件就从工作区被删除，但是版本库中还是有该文件</li>
+<li>发现删错了，git checkout – file，撤销修改（这里是撤销删除操作）</li>
+<li>要连版本库都删除的话，git rm file+commit;删错还可以版本回退，但是会丢失最近一次commit后的修改</li>
+</ol>
+<ul>
+<li>cat file查看的是工作区或暂存区最新的版本</li>
+<li>关联远程仓库<ul>
+<li>仓库最好同名，同名可以直接git push</li>
+<li>一个本地仓库最好只关联一个远程仓库，不然同时向两个仓库push有难度</li>
+</ul>
+</li>
+<li>新建分支</li>
+</ul>
+<p>git checkout 分支名（新建并切换到一个分支）</p>
+<h3 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h3><ol>
+<li>创建并切换到新分支：git checkout -b 分支名称</li>
+<li>之后add、commit等所有操作都是保存在新分支中的</li>
+<li>未合并分支前切换回主分支的话，查看在新建分支修改过的文件，它仍然是未修改的模样，因为修改这个操作是在其他分支上，而且还为合并。</li>
+<li>合并分支：git merge 其他分支</li>
+<li>切换分支：git checkout 其他分支,切换到其他分支,切换后电脑上的文件也会跟着变成所在分支的样子</li>
+<li>删除分支：git branch -d 分支<h3 id="合并冲突"><a href="#合并冲突" class="headerlink" title="合并冲突"></a>合并冲突</h3></li>
+</ol>
+<ul>
+<li>两个分支都对同一个（注意是同一个）文件进行了修改，合并的时候就会出现冲突</li>
+<li>解决冲突：手动修改文件（也就是选择保留一种修改），再提交，然后就可以合并了</li>
+<li><p>出现冲突的文件片段：</p>
+<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+public ModelAndView record1(@RequestParam(&quot;model&quot;)String model){
+=======
+public ModelAndView record1(@RequestParam(&quot;editor&quot;)String editor,
+                            @RequestParam(&quot;model&quot;)String model,
+                            @RequestParam(&quot;year&quot;)String year1){
+    int year=Integer.parseInt(year1);
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; add_year
+</code></pre></li>
+<li>冲突标记&lt;&lt;&lt;&lt;&lt;&lt;&lt; （7个&lt;）与=======之间的内容是我的修改；<br>=======与&gt;&gt;&gt;&gt;&gt;&gt;&gt;之间的内容是别人的修改</li>
+<li><p>修改完之后，git status会发现有未提交的修改，提交即大功告成</p>
+<pre><code>git commit -m &quot;……&quot;
+</code></pre></li>
+<li>用git log可以看到分支合并图</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7324232.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="克隆远程仓库"><a href="#克隆远程仓库" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h3><ul>
+<li>在一个合适的目录下（不用新建文件夹，clone项目后会自动生成一个以项目名命名的文件夹来存放该项目）：git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:Eliyser/仓库.git</li>
+<li>目前无法实现只复制指定目录的git功能。</li>
+<li>不用再关联，直接git push -u origin master就把本地做的修改推送上去了（首次推需要-u）<h3 id="pull-request"><a href="#pull-request" class="headerlink" title="pull request"></a>pull request</h3></li>
+<li>从别人那里fork来的仓库里点pull request，然后一路按按钮就可以请求把自己的仓库合并到别人的仓库里了，别人的仓库会自动提示主人我修改了什么东西，合并的时候也只合并修改的部分<h3 id="补充一个从创建版本库到push项目全过程"><a href="#补充一个从创建版本库到push项目全过程" class="headerlink" title="补充一个从创建版本库到push项目全过程"></a>补充一个从创建版本库到push项目全过程</h3><h4 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h4></li>
+<li><p>手动或利用一下git命令创建一个新的文件夹,如learngit</p>
+<pre><code>mkdir learngit
+cd learngit
+</code></pre></li>
+<li>新建的文件夹里只有feature分支</li>
+<li><p>进入该文件夹后，将其变为版本库</p>
+<pre><code>git init
+</code></pre></li>
+<li>git init之后只有master分支<h4 id="克隆项目进来"><a href="#克隆项目进来" class="headerlink" title="克隆项目进来"></a>克隆项目进来</h4></li>
+<li><p>在learngit里面</p>
+<pre><code>git clone url
+</code></pre></li>
+<li>一般这个url都是自己的github仓库，然后这个github仓库一般是从别人（老大）的仓库fork来的，相信我，没人会直接让你动他的源仓库的！而且直接从别人的仓库clone项目下来，到最后开发完要把代码合并上去的时候，你没有人家的公钥，根本合并不上去，你开发了等于没开发。所以还是乖乖fork源仓库，clone项目下来，开发完合并回去，再pull request到源仓库等待审核吧。PS：pull request只能发起一次，而且只能在有fork关系的仓库之间发起<h3 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h3></li>
+<li><p>创建并切换到新分支上，如add_year</p>
+<pre><code>git checkout -b add_year
+</code></pre></li>
+<li>可以每天关机前将改动add、commit到该分支</li>
+<li><p>查看所有分支的话</p>
+<pre><code>git branch
+</code></pre></li>
+<li><p>开发完成后，切换回主分支,下来远程分支到master上</p>
+<pre><code>git checkout master
+git pull(结果是Already up-to-date) //和源仓库同步（可能出现合并冲突，如果合并功能分支的冲突可能较少的话建议先合并功能分支），未添加源仓库为本地远程仓库见“本地仓库同步到远程仓库”步骤
+</code></pre></li>
+<li><p>本地仓库同步到源仓库</p>
+<ul>
+<li><p>先查询本地远程仓库</p>
+<p><img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20151020143448200.png" alt=""></p>
+</li>
+<li><p>添加源仓库</p>
+<p><img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20151020143335915.png" alt=""></p>
+</li>
+<li><p>再查看远程仓库目录</p>
+<p><img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20151020143117598.png" alt=""></p>
+</li>
+<li><p>下面这三步相当于git pull upstream master</p>
+<ul>
+<li><p>抓取源仓库的修改文件（应该可以指定分支，不指定的话抓取全部分支）</p>
+<p><img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20151020143559792.png" alt=""></p>
+<p>git fecth upstream master</p>
+</li>
+<li><p>切换到另一个要同步的分支，比如master</p>
+<pre><code>git checkout master
+</code></pre></li>
+<li><p>合并修改</p>
+<p><img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20151020143727279.png" alt=""></p>
+</li>
+<li>放心吧，合并完了自己写的东西还在</li>
+</ul>
+</li>
+<li>此时本地仓库和源仓库已同步，但是远程仓库尚未同步，要同步需将master分支git push到远程仓库</li>
+</ul>
+</li>
+<li><p>合并分支，有冲突的话就把冲突文件改改</p>
+<pre><code>git merge add_year(结果是Fast-forward，有的时候好像up-to-date还是什么的也是对的，可以到github上查看master分支看文件是否已更新)
+</code></pre></li>
+<li>改完了再commit</li>
+<li><p>推送到远程仓库</p>
+<pre><code>git push origin master
+</code></pre></li>
+<li><p>删除add_year分支</p>
+<pre><code>git branch -d add_year
+</code></pre><h3 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">git常用命令</a></h3></li>
+<li>详细开发流程可以参见笔记：git协同开发<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3></li>
+<li>git push后出现rejected non-fast-forward错误</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg04.sogoucdn.com%2Fapp%2Fa%2F100520146%2Fb330d7bea180dcb7d6bf1dc356a85608" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>括号里也可能是你的commit信息，总之这些都表示git仓库中已经有一部分代码（好像readme.txt也算），所以它不允许你直接把你的代码覆盖上去。于是你有两种选择：</li>
+<li><p>强制覆盖（有的时候真的不知道到底为什么就是push不上去就直接强推了）：</p>
+<pre><code>git push -f origin master 
+</code></pre></li>
+<li><p>先把git的东西fetch到本地来merge后再push</p>
+<pre><code>git fetch 
+git merge
+//等价于
+git pull
+</code></pre></li>
+<li><p>上面这三行代码应该还会报错：你没有指定仓库和分支，那么我们可以指定默认的仓库和分支</p>
+<pre><code>git config branch.master.remote origin
+git config branch.master.merge refs/heads/master
+</code></pre><h3 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h3></li>
+<li>需要忽略什么文件都可以写到这个文件里面，这个文件用编辑器都建不出来，只能在Git Bash里建，建在根目录或者和src包同级都可以</li>
+<li><p>格式：</p>
+<pre><code># 忽略的文件夹
+target
+out 
+# 忽略的文件，前面加！的话表示不要忽略
+*.idea
+*.iml
+</code></pre></li>
+<li>如果忽略规则创建于代码提交之后，那么不会影响到已经提交的文件，需要删除的话执行以下命令</li>
+</ul>
+<ol>
+<li>把远程项目拉下来 git pull</li>
+<li>查看文件夹 dir</li>
+<li>删除文件（夹）git rm -r –cached filename //cached应该是只删除远程库不删除本地库的意思</li>
+<li>提交修改 git commit</li>
+<li>推到远程库 git push</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20180609221525153.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>以上操作要在与远程库分支名相同的分支下操作，如过要删除develop分支下的文件夹，却在本地feature分支做了以上操作，那么要merge到develop分支并由它push。</li>
+<li><a href="https://blog.csdn.net/weixin_42152081/article/details/80635777" target="_blank" rel="noopener">参考文章</a></li>
+<li>不然就把文件先搬到别的地方，加好忽略规则之后push一遍，最后把文件搬回来，这样本地的某些文件就不会出现在远程了。</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-10T07:36:58.652Z" itemprop="dateUpdated">2019-03-10 15:36:58</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/git/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/git/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/git/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/git/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/git/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/git/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/git/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/GitHub查看仓库SSH地址/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/forEach/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/git/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/git/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/git/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/git/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/git/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwElEQVR42u3aQZKDIBAF0Nz/0s4BLPE3LYxJPVapxMjTRRf94fOJx3Ea51+vrjz/6+o+jw1cXNw2tzrBmDv+/nzP3ICLi7ufO55sXHTGhalzf1xc3G/hHsHIVym4uLi/wR0Xr6TVwcXF/RZu0vzkQUleEBf2ari4uA1unlKu+7wk38XFxZ3iHsUxtzCqNk6Xs+Pi4m7h5gWl2sBUlz6FKBYXF3cxN//DXJHqP+rke8XFxW1wq5HE3ASdY1uX7xgXF3cZt8PqhKGTs+Di4m7n5q1LHmEkYUphKxcXF/c13OrDdFg3V+Li4m7n5lFm9ZBEdZP18tXg4uJu4VYPXeVtTCGVKbZYuLi4q7lJGco3UKvXVB8VFxd3D7fVisTbJPlhjuiIBi4u7kZuXs6qAcrcsummkOHi4m7h9oOMvInKA5dCr4aLi7uAWw0vcnR13NwBFxd3Mfcojujp41dQLXO4uLh7uNXiMjdBvpn6WHHExcVtc6vFqxp/9IMSXFzc/+JWD1R1lj5zBRQXF/fN3E4TNRmSPrViwsXFXcbtF6POEgoXF3cntxpuzjU8yUvBxcV9A/eBfdr4yEXnQAYuLu4W7h+B6QEvOSMSRQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

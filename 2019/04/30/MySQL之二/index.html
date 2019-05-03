@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="索引 索引是一个排序的列表，在这个列表中存储着索引的值和包含这个值的数据所在行的物理地址，在数据十分庞大的时候，索引可以大大加快查询的速度，这是因为使用索引后可以不用扫描全表来定位某行的数据，而是先通过索引表找到该行数据对应的物理地址然后访问相应的数据。 索引包含表中所有记录的引用指针。通俗地说，数据库索引就好比是一本书前面的目录，能加快数据库的查询速度。在没有索引的情况下，数据库会遍历全部数据后">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/MySQL之二/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="索引 索引是一个排序的列表，在这个列表中存储着索引的值和包含这个值的数据所在行的物理地址，在数据十分庞大的时候，索引可以大大加快查询的速度，这是因为使用索引后可以不用扫描全表来定位某行的数据，而是先通过索引表找到该行数据对应的物理地址然后访问相应的数据。 索引包含表中所有记录的引用指针。通俗地说，数据库索引就好比是一本书前面的目录，能加快数据库的查询速度。在没有索引的情况下，数据库会遍历全部数据后">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7619.PNG">
+<meta property="og:updated_time" content="2019-03-20T02:46:08.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="索引 索引是一个排序的列表，在这个列表中存储着索引的值和包含这个值的数据所在行的物理地址，在数据十分庞大的时候，索引可以大大加快查询的速度，这是因为使用索引后可以不用扫描全表来定位某行的数据，而是先通过索引表找到该行数据对应的物理地址然后访问相应的数据。 索引包含表中所有记录的引用指针。通俗地说，数据库索引就好比是一本书前面的目录，能加快数据库的查询速度。在没有索引的情况下，数据库会遍历全部数据后">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7619.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.572Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#索引"><span class="post-toc-number">1.</span> <span class="post-toc-text">索引</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取新增记录的主键"><span class="post-toc-number">2.</span> <span class="post-toc-text">获取新增记录的主键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关联表建立与否"><span class="post-toc-number">3.</span> <span class="post-toc-text">关联表建立与否</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#菜单树形结构"><span class="post-toc-number">4.</span> <span class="post-toc-text">菜单树形结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命名规则"><span class="post-toc-number">5.</span> <span class="post-toc-text">命名规则</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-MySQL之二"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.572Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><ul>
+<li>索引是一个排序的列表，在这个列表中存储着索引的值和包含这个值的数据所在行的物理地址，在数据十分庞大的时候，索引可以大大加快查询的速度，这是因为使用索引后可以不用扫描全表来定位某行的数据，而是先通过索引表找到该行数据对应的物理地址然后访问相应的数据。</li>
+<li>索引包含表中所有记录的引用指针。通俗地说，数据库索引就好比是一本书前面的目录，能加快数据库的查询速度。在没有索引的情况下，数据库会遍历全部数据后选择符合条件的；而有了相应的索引后，数据库查找的对象就不是字段具体的值了，而是直接在索引中查找符合条件的选项。</li>
+<li>比如，SELECT * FROM article WHERE id=2000000，没有索引的话数据库会按照顺序读完全部可能百万行数据后再给你结果，而有了索引则可以直接在索引中定位。</li>
+<li>MySQL的索引分为单列索引：主键索引、唯一索引、普通索引；组合索引。<ul>
+<li>单列索引：一个索引只包含一个列，一个表可以有多个单列索引。</li>
+<li>组合索引：一个索引包含两个或以上的列。</li>
+</ul>
+</li>
+<li><p>普通索引</p>
+<pre><code>//在创建表后添加索引
+create index indexName on &apos;tableName&apos;(&apos;columnName&apos;(length)); //长度可省略
+//char,varchar型字段，length可小于字段实际长度，blob，text型则必须指定长度
+//or
+alter table tableName add index indexName(&apos;columnName&apos;(length));
+//or:创建表时同时创建索引；其他索引也可以这样写
+CREATE TABLE `table` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `title` varchar(50) NOT NULL,
+    PRIMARY KEY (`id`),
+    INDEX index_name (title) //columnName不需要引号;包含到title列的查询都会使用此索引
+)
+</code></pre></li>
+<li><p>唯一索引：与普通索引类似，但要求字段值唯一，这一点和主键索引一样，但是它允许有空值。如果程序插入一个重复的值进来将抛异常。</p>
+<pre><code>CREATE UNIQUE INDEX IndexName ON `TableName`(`ColumnName`(length));
+//or
+ALTER TABLE TableName ADD UNIQUE (column_list);
+//or
+CREATE TABLE `table` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `title` varchar(50) NOT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE index_name (title) //columnName不需要引号
+)
+</code></pre></li>
+<li>主键索引：不允许空值。</li>
+<li><p>组合索引：一个表中含有多个单列索引不代表是组合索引；组合索引包含多个字段但是只有索引名称。</p>
+<pre><code>CREATE INDEX IndexName On `TableName`(`字段名`(length),`字段名`(length),...);
+</code></pre></li>
+<li>以下相当于分别建立了两组组合索引</li>
+</ul>
+<ol>
+<li>title,time</li>
+<li><p>title</p>
+<pre><code>ALTER TABLE article ADD INDEX index_title_time (title(50),time(10));
+</code></pre></li>
+</ol>
+<ul>
+<li><p>为什么没有time这个组合呢？这是因为MySQL组合索引的“最左前缀”。简单的理解就是所有的排列组合必须包含最左边的字段，所以并不是包含了这两列的查询都会用到该组合索引。</p>
+<pre><code>//使用到上面索引
+SELECT * FROM article WHREE title=&apos;测试&apos; AND time=1234567890;
+SELECT * FROM article WHREE title=&apos;测试&apos;;
+//未使用
+SELECT * FROM article WHREE time=1234567890;
+</code></pre></li>
+<li><p>索引的删除</p>
+<pre><code>DORP INDEX IndexName ON `TableName`
+</code></pre></li>
+<li><p>索引的查看</p>
+<pre><code>show index from tableName
+</code></pre></li>
+<li><a href="https://www.cnblogs.com/chenshishuo/p/5030029.html" target="_blank" rel="noopener">参考文章</a></li>
+<li>索引的缺点：索引本身也是表，占用的空间是数据表的1.5倍，虽然大大提高了查询速度，同时也会降低更新表的速度。如对表进行insert、update和delete时，MySQL不仅要保存数据，还要保存一下索引文件，不过一般情况下这个问题不太严重。</li>
+<li>索引不会包含有null值的列：值要列中含有null值，那么这一列的索引将会失效。所以在设计数据库是尽量不要让字段的默认值为null。</li>
+<li>不要再列上进行运算：例如，select <em> from users where YEAR(adddate)&lt;2007，将对每一行进行运算，这将导致索引失效而进行全表扫描，可以改成：select </em> from users where adddate&lt;’2007-01-01′。</li>
+<li>只对以下操作符才使用索引：&lt;,&lt;=,=,&gt;,&gt;=,between,in,以及某些时候的like(不以通配符%或_开头的情形)</li>
+<li><a href="https://www.cnblogs.com/doudouxiaoye/p/5831449.html" target="_blank" rel="noopener">参考文章</a></li>
+<li><a href="https://blog.csdn.net/tongdanping/article/details/79878302" target="_blank" rel="noopener">参考文章</a></li>
+</ul>
+<h3 id="获取新增记录的主键"><a href="#获取新增记录的主键" class="headerlink" title="获取新增记录的主键"></a>获取新增记录的主键</h3><pre><code>GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
+jdbcTemplate.update(new PreparedStatementCreator() {
+    @Override
+    public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+        //第二个参数必须加，否则不会有字段返回
+        PreparedStatement psst = connection.prepareStatement(sql, new String[] { &quot;id&quot; });
+        return psst;
+    }
+}, keyHolder);
+long id=(keyHolder.getKey().longValue()); //id是int型则intValue()
+</code></pre><ul>
+<li><p>返回新增记录主键的主要方法</p>
+<pre><code>int update(PreparedStatementcreator psc,KeyHolder generatedKeyHolder)
+</code></pre></li>
+<li><p>其中，org.springframework.jdbc.support.KeyHolder是一个回调接口，使用它可保存新增记录对应的主键，方法有</p>
+<pre><code>//适用于返回的主键是能有一个，故复合主键、插入多条记录导致有多个主键返回的情况都抛异常
+int update(PreparedStatementCreator psc,KeyHolder generatedKeyHolder)
+//适用于返回一个复合主键，故插入多条记录导致返回多个复合主键抛异常；
+//底层将此主键的字段名和字段值作为一个键值对保存到Map中，故返回的Map中至少有两个键值对
+Map&lt;String,Object&gt; getKeys() throws InvalidDataAccessApiUsageException
+//返回多个（复合）主键，即插入了多条记录，每条记录对应一个Map，多个Map对应一个List
+List&lt;Map&lt;String ,Object&gt;&gt; getKeyList()
+</code></pre></li>
+<li><p><a href="https://www.cnblogs.com/fangqi/archive/2012/11/26/2788447.html" target="_blank" rel="noopener">包含其他获取方法</a></p>
+</li>
+<li><p>prepareStatement(sql, new String[] { “id” })：指定新增后要返回的某个自动生成的值，如果该sql不是insert语句则忽略此数组。前提是DataBaseMetaData.supportGetGeneratedKeys()返回true的话，即jdbc驱动程序支持insert之后返回自动生成的值。第二个参数可以是String[] columnNames(自动生成值的字段名)、int[] columnINdexes(自动生成值的字段索引)。</p>
+</li>
+<li><p>原生jdbc</p>
+<pre><code>String sql=&quot;insert into deptliu values(seq_dept_id.nextval,?,?)&quot;;
+PreparedStatement ps=conn.prepareStatement(sql,new String[]{&quot;deptno&quot;});
+ps.setString(1,dname);
+ps.setString(2,loc);
+ps.executeUpdate();
+
+//获取自动生成的字段
+ResultSet rs=ps.getGeneratedKeys();
+//获取deptno字段
+rs.next();
+int deptno=rs.getInt(1);
+</code></pre></li>
+<li>如果报错：java.sql.SQLException: 不支持的特性，则可能是jdbc版本太低，升级即可</li>
+</ul>
+<h3 id="关联表建立与否"><a href="#关联表建立与否" class="headerlink" title="关联表建立与否"></a>关联表建立与否</h3><ul>
+<li>如，用户表和角色表之间是多对多的关系，我们可能会想到建立一张中间关联表来映射两者关系，但其实简单来讲，只要在用户表中增加“角色id列表”字段role_ids，列出所有角色即可,如role_ids=1,2,3.</li>
+<li>如要查询拥有某角色的用户时，才建议建立关联表，否则没有必要。</li>
+</ul>
+<h3 id="菜单树形结构"><a href="#菜单树形结构" class="headerlink" title="菜单树形结构"></a>菜单树形结构</h3><ul>
+<li>表字段包含父id和祖先ids分别指出该记录中该实体的父亲和祖先们分别是谁。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7619.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>总公司没有父亲，parent_id和parent_ids都指向不存在的0号id记录，也就是说根结点为0；</li>
+<li>山东分公司父亲为总公司parent_id=1，parent_ids=0/1；</li>
+<li>济南分公司父亲为山东分公司parent_id=2。</li>
+</ul>
+<h3 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h3><ul>
+<li>数据库所有命名都应该用小写，多个单词用”_”分隔。</li>
+<li>同一数据库，不同表要有统一的命名前缀。</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-20T02:46:08.286Z" itemprop="dateUpdated">2019-03-20 10:46:08</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/MySQL之二/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/MySQL之二/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/MySQL之二/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/MySQL之二/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/MySQL之二/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/MySQL之二/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/MySQL之二/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/MySQL之一/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/MySQL语句/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/MySQL之二/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/MySQL之二/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/MySQL之二/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/MySQL之二/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/MySQL之二/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aQW7EIBAEwP3/pzfXlbK2u8GJZChOkZ0A5cOEGeb1isf7Y3w++f32aBzNdvT29RcDAwPjsYxk+fz50dsj/Nj8X6gYGBgbMI4i2PmS+TwXmwjYF2thYGBgnG46D7jJR8HAwMC4i3G+0TyYJkgMDAyMPIlNimVtea5Nbm/IxTEwMB7IyKvu///zn9xvYGBgPIrxLscMry3GFbvCwMBYmpEHuJlkdT6tjVbBwMDYgNFOmjd+tSE4Ka5hYGDsxpgplp1P1DaQtY0XGBgYOzDay8KZVHasRSMKyhgYGNsw2o0mAbG98kz+G0TdIhgYGMsxkj+baZton9QfGgMDYwNGFNQmDpdJ4J46kmJgYGzDGGtjbTfaFtqiBlkMDIylGXmQTQLlzFXBDQAMDIxFGXn6Ot+K0R4ii1QWAwNjG0Zb6M8TzvYgmBxGoxMuBgbGcow2jWxT36ThNT9oYmBgYLTFtbZRdQb55TcxMDCWZow1T7QhMg/fSRCPrgQwMDCWZrRluHzhmUvKKJ3GwMDYgDFzLBtry2hTVgwMDIy2VWKmWDZ2ZHzlXwIDA2MhxrscydEwD8HtofCiow0DA2NRxlhMa9/mFwB5gW8wTGNgYDyWkQfZmYuENrDWARcDA2MDRhv4Zqj5HorUFwMDA2M6dI5dfxb7wcDAwBgq/edJ6fmcSbjHwMDYgTF2GZAsf1ej2AUYAwNjaUaeOs5PnRf17toVBgbGwxk/23lLqeaSXYIAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

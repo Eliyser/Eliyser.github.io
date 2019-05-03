@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简介 首先在登录页面选中remember me然后登录成功；如果是浏览器登录，一般会把remember me的cookie写到客户端保存下来； 关闭浏览器再次打开，会发现浏览器还是记住你的； 访问一般的网页服务端还是知道你是谁的，且能正常访问； 但是比如我们访问淘宝时，如果要查看我的订单或进行支付时，还是需要再进行身份验证，以确定当前用户还是你。  remember me配置 测试用例：第十二章的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Shiro第十三章-RememberMe和Cookie/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="简介 首先在登录页面选中remember me然后登录成功；如果是浏览器登录，一般会把remember me的cookie写到客户端保存下来； 关闭浏览器再次打开，会发现浏览器还是记住你的； 访问一般的网页服务端还是知道你是谁的，且能正常访问； 但是比如我们访问淘宝时，如果要查看我的订单或进行支付时，还是需要再进行身份验证，以确定当前用户还是你。  remember me配置 测试用例：第十二章的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-07T12:33:55.770Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="简介 首先在登录页面选中remember me然后登录成功；如果是浏览器登录，一般会把remember me的cookie写到客户端保存下来； 关闭浏览器再次打开，会发现浏览器还是记住你的； 访问一般的网页服务端还是知道你是谁的，且能正常访问； 但是比如我们访问淘宝时，如果要查看我的订单或进行支付时，还是需要再进行身份验证，以确定当前用户还是你。  remember me配置 测试用例：第十二章的">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:29:23.060Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#remember-me配置"><span class="post-toc-number">2.</span> <span class="post-toc-text">remember me配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义RememberMe"><span class="post-toc-number">3.</span> <span class="post-toc-text">自定义RememberMe</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-number">4.</span> <span class="post-toc-text">总结</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Shiro第十三章-RememberMe和Cookie"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:29:23" datetime="2019-04-30T08:29:23.060Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ol>
+<li>首先在登录页面选中remember me然后登录成功；如果是浏览器登录，一般会把remember me的cookie写到客户端保存下来；</li>
+<li>关闭浏览器再次打开，会发现浏览器还是记住你的；</li>
+<li>访问一般的网页服务端还是知道你是谁的，且能正常访问；</li>
+<li>但是比如我们访问淘宝时，如果要查看我的订单或进行支付时，还是需要再进行身份验证，以确定当前用户还是你。</li>
+</ol>
+<h3 id="remember-me配置"><a href="#remember-me配置" class="headerlink" title="remember me配置"></a>remember me配置</h3><ul>
+<li>测试用例：第十二章的示例，ideaProjects/shirochapter12</li>
+<li><p>spring-shiro-web.xml:</p>
+<pre><code>&lt;!-- 会话Cookie模板 --&gt;
+&lt;bean id=&quot;sessionIdCookie&quot; class=&quot;org.apache.shiro.web.servlet.SimpleCookie&quot;&gt;
+    &lt;constructor-arg value=&quot;sid&quot;/&gt;
+    &lt;property name=&quot;httpOnly&quot; value=&quot;true&quot;/&gt;
+    &lt;property name=&quot;maxAge&quot; value=&quot;-1&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;bean id=&quot;rememberMeCookie&quot; class=&quot;org.apache.shiro.web.servlet.SimpleCookie&quot;&gt;
+    &lt;constructor-arg value=&quot;rememberMe&quot;/&gt;
+    &lt;property name=&quot;httpOnly&quot; value=&quot;true&quot;/&gt;
+    &lt;property name=&quot;maxAge&quot; value=&quot;2592000&quot;/&gt;&lt;!-- 30天 --&gt;
+&lt;/bean&gt;
+
+&lt;!-- rememberMe管理器 --&gt;
+&lt;bean id=&quot;rememberMeManager&quot; 
+  class=&quot;org.apache.shiro.web.mgt.CookieRememberMeManager&quot;&gt;
+
+    &lt;property name=&quot;cipherKey&quot; 
+      value=&quot;#{T(org.apache.shiro.codec.Base64).decode(&apos;4AvVhmFLUs0KTA3Kprsdag==&apos;)}&quot;/&gt;
+    &lt;property name=&quot;cookie&quot; ref=&quot;rememberMeCookie&quot;/&gt;
+
+&lt;/bean&gt;
+</code></pre></li>
+<li>sessionIdCookie:maxAge=-1表示浏览器关闭时Cookie失效。</li>
+<li>rememberMeCookie:记住我的cookie，保存时长30天。</li>
+<li><p>rememberMeManager：rememberMe管理器，cipherKey(cipher:密码)是加密RememberMe Cookie的密钥，默认AES算法。</p>
+<pre><code>&lt;!-- 安全管理器 --&gt;
+&lt;bean id=&quot;securityManager&quot; class=&quot;org.apache.shiro.web.mgt.DefaultWebSecurityManager&quot;&gt;
+    ……
+    &lt;property name=&quot;rememberMeManager&quot; ref=&quot;rememberMeManager&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;bean id=&quot;shiroFilter&quot; class=&quot;org.apache.shiro.spring.web.ShiroFilterFactoryBean&quot;&gt;
+    ……
+    &lt;property name=&quot;filterChainDefinitions&quot;&gt;
+        &lt;value&gt;
+            /login.jsp = authc
+            /logout = logout
+            /authenticated.jsp = authc
+            /** = user
+        &lt;/value&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre></li>
+<li>rememberMeParam：rememberMe请求参数名，请求参数是Boolean类型，true表示RememberMe。</li>
+<li>/login.jsp = authc：用户必须通过身份验证Subject.login()，则Subject.isAuthenticated()==true；一般用于访问特殊网页，如，我的订单、提交订单页面。</li>
+<li><p>/** = user：身份验证通过或记住我；一般用于普通网页，如，主页之类的。</p>
+</li>
+<li><p>测试：</p>
+</li>
+</ul>
+<ol>
+<li>访问localhost:8080/chapter12/，跳转login页面，登录成功后会设置会话及rememberMeCookie；</li>
+<li>关闭浏览器，会话cookie失效，但rememberMe有效；</li>
+<li>重新打开浏览器访问localhost:8080/chapter12/，可以访问，不再要求登录；</li>
+<li>但是访问/authenticated.jsp，则会跳转登录页面重新进行身份验证。</li>
+</ol>
+<h3 id="自定义RememberMe"><a href="#自定义RememberMe" class="headerlink" title="自定义RememberMe"></a>自定义RememberMe</h3><ul>
+<li>如果要自己做RememberMe，需要在登录之前这样创建Token：UsernamePasswordToken(用户名，密码，是否记住我)，如：</li>
+</ul>
+<pre><code>Subject subject = SecurityUtils.getSubject();
+UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+token.setRememberMe(true);
+subject.login(token);
+</code></pre><ul>
+<li>subject.isAuthenticated():表示用户是经过身份验证登录的，即Subject.login()。</li>
+<li>subject.isRemembered()：表示用户是通过记住我登录的，此时可能是别人使用你的电脑，或你的cookie被窃取；与以上方法不会同时为true。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>RememberMe需要配合相应的拦截器使用，用错了拦截器可能就不满足你的需求了。</li>
+<li>代码示例：ideaProjects/shirochapter12</li>
+<li><a href="https://jinnianshilongnian.iteye.com/blog/2031823" target="_blank" rel="noopener">《跟我学Shiro》第十三章</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-07T12:33:55.770Z" itemprop="dateUpdated">2019-03-07 20:33:55</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Shiro第十三章-RememberMe和Cookie/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Shiro第十三章-RememberMe和Cookie/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第十三章-RememberMe和Cookie/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第十三章-RememberMe和Cookie/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第十三章-RememberMe和Cookie/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第十三章-RememberMe和Cookie/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第十三章-RememberMe和Cookie/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Shiro第十四章-SSL/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Shiro第十七章-OAuth2集成/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第十三章-RememberMe和Cookie/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第十三章-RememberMe和Cookie/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第十三章-RememberMe和Cookie/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第十三章-RememberMe和Cookie/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第十三章-RememberMe和Cookie/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtklEQVR42u3aO3LDMAwFQN//0slMqhSR/AACjopV5fFH4rIg6Qe8XvH19XNdvf/7uvo0+dXV6/sxDFx4eHh4raFfXcmA7od1NcT8ub3f4uHh4W3z8qHcr70n6/b9lpBMIh4eHt7TeCfn2Or9e9sPHh4e3pN5+SG4Fyvg4eHhPZ+XhwL5MTrh5RO0nrXg4eHhxbxqAewJrxfre3h4eHgHVfU8UDiZ12S5b44WDw8Pb4GXxwrJ3/5eq0E17Kge3/Hw8PBmeb0IoErdKLMlk4uHh4e3x+vFuNXgYOrwXXgKHh4e3jKvt1jnTQP5IbsX477ZGPDw8PCGeEm1qFpdqk7TCbWwzeDh4eGN8qqLex4QTMUW1VJcOczFw8PDi3n3C3qPXf20GljkWxEeHh7eHi+/RX7kvT929xqt8mD3j/oeHh4e3hAv/9JJQStf7qtH+ahBAQ8PD2+UV41i80giWdCnDtyX7+Dh4eEt8PIHnD84aSPIt5bCOPHw8PBGedVb59crvvLAoho04+Hh4W3wkuV7I5DNf5VsDG/ugIeHhzfKqwYHyYKef6ca7JZbsvDw8PAWeMmSnTwgL031YuKTIzseHh7eLK/3hz8vieUFsJPtJ4px8fDw8IZ4J4M4GXr1iHwyfXh4eHgbvDwqrcYQeZm/t+jnWxceHh7eFK8Xs06Vvs5jkTdTiYeHh/cRXu92G8hqIa1Q38PDw8ObvHO5AasXOvSmL58OPDw8vD3eV/GaapCqTnRzG8PDw8Nb4FUbs3pNBvkGM7Wd4OHh4W3zks2g8If/oPzfC3mjpis8PDy8Bd5JMJG3XkVdDMXdrBDd4uHh4X2cVy19Jcv3SUtWoZsMDw8P7195OaY6rOrhOxoJHh4e3hovDyOqm8F5eHFShMPDw8Pb4J0U8vM2rKmjcy9WxsPDwxvifQPemOQpilpNIAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

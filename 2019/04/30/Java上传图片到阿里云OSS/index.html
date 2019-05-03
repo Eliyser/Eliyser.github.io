@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简介 OSS：阿里云对象存储服务（Object Storage Service），是阿里云提供的海里、安全、低成本、高可靠的云存储服务。您可以通过调用API上传和下载数据，也可以通过web控制台对数据进行简单的管路。它将数据文件以对象的形式上传到存储空间（bucket）中。开通OSS服务 登录阿里云官网，注册账号，首页点击产品，在下拉菜单点击对象存储OSS，点击立即开通，开通后创建空间，然后就可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Java上传图片到阿里云OSS/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="简介 OSS：阿里云对象存储服务（Object Storage Service），是阿里云提供的海里、安全、低成本、高可靠的云存储服务。您可以通过调用API上传和下载数据，也可以通过web控制台对数据进行简单的管路。它将数据文件以对象的形式上传到存储空间（bucket）中。开通OSS服务 登录阿里云官网，注册账号，首页点击产品，在下拉菜单点击对象存储OSS，点击立即开通，开通后创建空间，然后就可以">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://bbs.aliyun.com/attachment/Fid_211/211_1947499965112052_2945fe0823c19fd.png?22">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg04.sogoucdn.com%2Fapp%2Fa%2F100520146%2F9C7804A4045BE183290ED64F84F3EBEE">
+<meta property="og:updated_time" content="2018-11-18T03:24:50.127Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="简介 OSS：阿里云对象存储服务（Object Storage Service），是阿里云提供的海里、安全、低成本、高可靠的云存储服务。您可以通过调用API上传和下载数据，也可以通过web控制台对数据进行简单的管路。它将数据文件以对象的形式上传到存储空间（bucket）中。开通OSS服务 登录阿里云官网，注册账号，首页点击产品，在下拉菜单点击对象存储OSS，点击立即开通，开通后创建空间，然后就可以">
+<meta name="twitter:image" content="http://bbs.aliyun.com/attachment/Fid_211/211_1947499965112052_2945fe0823c19fd.png?22">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.176Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开通OSS服务"><span class="post-toc-number">2.</span> <span class="post-toc-text">开通OSS服务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#图形化管理工具"><span class="post-toc-number">3.</span> <span class="post-toc-text">图形化管理工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码方式"><span class="post-toc-number">4.</span> <span class="post-toc-text">代码方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#做法解析"><span class="post-toc-number">5.</span> <span class="post-toc-text">做法解析</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Java上传图片到阿里云OSS"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.176Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>OSS：阿里云对象存储服务（Object Storage Service），是阿里云提供的海里、安全、低成本、高可靠的云存储服务。您可以通过调用API上传和下载数据，也可以通过web控制台对数据进行简单的管路。它将数据文件以对象的形式上传到存储空间（bucket）中。<h3 id="开通OSS服务"><a href="#开通OSS服务" class="headerlink" title="开通OSS服务"></a>开通OSS服务</h3></li>
+<li>登录阿里云官网，注册账号，首页点击产品，在下拉菜单点击对象存储OSS，点击立即开通，开通后创建空间，然后就可以开始上传文件了。</li>
+<li>上传方式有多种，可以通过OSS控制台直接上传、通过代码上传、通过图形化管理工具ossbrowser等上传</li>
+<li><h3 id="图形化管理工具"><a href="#图形化管理工具" class="headerlink" title="图形化管理工具"></a>图形化管理工具</h3></li>
+<li>Ossutil：命令行管理工具，提供简介方便的object管理命令。简单来讲就是通过简单的命令行，即可实现往OSS上传输的功能，当然也包括其他的功能。</li>
+<li>文件总量小于30T时适用，大于30T建议使用ossimport类的工具<h3 id="代码方式"><a href="#代码方式" class="headerlink" title="代码方式"></a>代码方式</h3></li>
+<li>OSSClient:OSS服务的Java客户端，它为调用者提供了一系列的方法，用于和OSS服务进行交互。</li>
+<li><p>引入依赖：</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.aliyun.oss&lt;/groupId&gt;
+    &lt;artifactId&gt;aliyun-sdk-oss&lt;/artifactId&gt;
+    &lt;version&gt;3.1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li><p>OSS配置文件</p>
+<pre><code>ossclient.endpoint:https://xxx.aliyuncs.com #ossutil的基本endpoint配置，必须为一个二级域名，表示OSS对外服务的访问域名
+ossclient.accessKeyId:xxx #访问OSS使用的AccessKeyID
+ossclient.accessKeySecret:xxx #访问OSS使用的AccessKeySecret（密钥）
+ossclient.bucketName:xxx #存储空间，所有要存储的对象都必须隶属某个存储空间
+</code></pre></li>
+<li>OSS通过使用AccessKeyId和AccessKeySecret对称加密的方法来验证某个请求的发送者身份。AccessKeyId用于标识用户；AccessKeySecret是用户用于加密签名字符串和OSS用来验证签名字符串的密钥，必须保密。</li>
+<li><p>新建OSSClient：</p>
+<pre><code>String key = &quot;&lt;key&gt;&quot;;
+String secret = &quot;&lt;secret&gt;&quot;;
+OSSClient client = new OSSClient(key, secret);
+</code></pre></li>
+<li>上面的方式使用默认域名作为OSS的服务地址。如果你想自己制定域名，可以传入endpoint参数来指定<h3 id="做法解析"><a href="#做法解析" class="headerlink" title="做法解析"></a>做法解析</h3></li>
+<li>一般做法是用户在浏览器上传到应用服务器，然后应用服务器再把文件上传到OSS</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://bbs.aliyun.com/attachment/Fid_211/211_1947499965112052_2945fe0823c19fd.png?22" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>这种方法有三个缺点：</li>
+</ul>
+<ol>
+<li>上传慢，中间需要经过应用服务器，网络传送多了一倍，而且OSS是采用BGP带宽，能保证各地运营商的速度。</li>
+<li>扩展性不好，如果后续用户多了，应用服务器就会成为瓶颈。</li>
+<li>费用高，因为OSS上传流量是免费的。如果数据直接传到OSS，不走应用服务器，那么将能省下几台应用服务器</li>
+</ol>
+<ul>
+<li>BGP带宽：边界网关协议，运行于TCP上的一种自治系统（AS）的路由协议。通俗来讲，就是电信、移动、联通和一些拥有AS自治域的运营商可以通过BGP来实现多线互联。打个比喻，出差去伤害（网站），可以选择公路（电信）、飞机（联通）、高铁（移动）等多种方式，BGP就好比一个只能App，可以帮助用户选择最佳的交通形式，并且可以在出现临时问题时，自动帮用户选择最佳的交通方式</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg04.sogoucdn.com%2Fapp%2Fa%2F100520146%2F9C7804A4045BE183290ED64F84F3EBEE" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>改进方法，由于技术问题，暂不列出</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-18T03:24:50.127Z" itemprop="dateUpdated">2018-11-18 11:24:50</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Java上传图片到阿里云OSS/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Java上传图片到阿里云OSS/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java上传图片到阿里云OSS/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java上传图片到阿里云OSS/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java上传图片到阿里云OSS/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Java上传图片到阿里云OSS/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java上传图片到阿里云OSS/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/java生成验证码图片/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Java枚举类enum/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java上传图片到阿里云OSS/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java上传图片到阿里云OSS/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java上传图片到阿里云OSS/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Java上传图片到阿里云OSS/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java上传图片到阿里云OSS/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrklEQVR42u3aUW7CQAwFQO5/6fYAkPBsr6GVJl+IhmSHSlnz7McjPn4ujudznl9fnXP/2ee7XH32wIGHh4d3aOnJLXs3zjHVv75YCR4eHt4aL1lEb9tI8NVNpbDx4OHh4f0B3j0gQVa3Ijw8PLz/zrt/Jw8pNoIJPDw8vE/y8rK4EATEvOSrXM9a8PDw8GprKAev33290t/Dw8PDG3fV8wduNVbIm2qTAw8PD2+DV21Q5QX3PSwJESbXwcPDw9vjnX3on33ET6h4eHh4n+H1iuDqcpNGWt6ce0PFw8PDW+PNG/a9ZlX+2WRA4cX5eHh4eMu8fHwq2Uiqm0pvzOvNl46Hh4e3wKt+OIkJEnCy2cwjDDw8PLwNXq+dP9888uskZfrl9fHw8PAWeNV2V3WMIC/W58FEobDGw8PDG/Dyn/fVxlVv+ODUsAIeHh7et3jVZW1EEr2t6PIXAx4eHt4hXh6MzscC8nChGhw/qv8lPDw8vBYvj24ni5sU3/ORBTw8PLyzvHxjqJa/+dhBMnzQDH/x8PDwFnjVIYBkKT1Yr/iORgfw8PDw1niTcHbypfRGFvINCQ8PD2+DV300z0PhUXYyHufCw8PDm/B6F5oXvvmVJ5sNHh4e3gavWqr23s8XlzTkqkU8Hh4e3h6vusRquFDF55tKIXrAw8PDW+D1ooFqCJuAq2MKeHh4eJ/n5U2v3pmFZn81db4/Hw8PD+8o76d49MYImg/04lf8Yj14eHh4C7xquysvl5ONobfl5MU9Hh4e3h7v1GYwH5mqRh7lXwx4eHh4R3mTWybIatvsMTjejA7g4eHhfYnXK3BPPfQLMQceHh7eH+BNxkmT7aTaYHuzEjw8PLw1Xi+E7YWteVFeLbhHWQseHh5ezJvErJPQNg+Ok+uPIgw8PDy8lPcL9otK33yp0F0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Realm doGetAuthenticationInfo()和getAuthenticationInfo()一样，都是做用户验证和返回身份凭证的。 从调用链上，getAuthorizationInfo()会调用doGetAuthorizationInfo()，所以大部分时候是重写后者。  AuthenticationToken 收集用户提交的身份信息（如用户名和凭据（如密码））的接口。 publ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Shiro第六章-各种对象详解-完整用户登录认证与授权示例/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="Realm doGetAuthenticationInfo()和getAuthenticationInfo()一样，都是做用户验证和返回身份凭证的。 从调用链上，getAuthorizationInfo()会调用doGetAuthorizationInfo()，所以大部分时候是重写后者。  AuthenticationToken 收集用户提交的身份信息（如用户名和凭据（如密码））的接口。 publ">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/0be597af-cd61-34ce-b1f0-8ebd15dbdeb9.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/772c988b-e930-31d1-ad14-c9ae8f476f66.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/131b0c95-9aed-36b0-9c09-0a6f9c6b3605.png">
+<meta property="og:updated_time" content="2019-03-14T08:10:57.910Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="Realm doGetAuthenticationInfo()和getAuthenticationInfo()一样，都是做用户验证和返回身份凭证的。 从调用链上，getAuthorizationInfo()会调用doGetAuthorizationInfo()，所以大部分时候是重写后者。  AuthenticationToken 收集用户提交的身份信息（如用户名和凭据（如密码））的接口。 publ">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/0be597af-cd61-34ce-b1f0-8ebd15dbdeb9.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:29:22.998Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Realm"><span class="post-toc-number">1.</span> <span class="post-toc-text">Realm</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AuthenticationToken"><span class="post-toc-number">2.</span> <span class="post-toc-text">AuthenticationToken</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AuthenticationInfo"><span class="post-toc-number">3.</span> <span class="post-toc-text">AuthenticationInfo</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PincipalCollection"><span class="post-toc-number">4.</span> <span class="post-toc-text">PincipalCollection</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PrincipalCollection示例"><span class="post-toc-number">5.</span> <span class="post-toc-text">PrincipalCollection示例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AuthorizationInfo"><span class="post-toc-number">6.</span> <span class="post-toc-text">AuthorizationInfo</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Subject"><span class="post-toc-number">7.</span> <span class="post-toc-text">Subject</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Shiro第六章-各种对象详解-完整用户登录认证与授权示例"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:29:22" datetime="2019-04-30T08:29:22.998Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="Realm"><a href="#Realm" class="headerlink" title="Realm"></a>Realm</h3><ul>
+<li>doGetAuthenticationInfo()和getAuthenticationInfo()一样，都是做用户验证和返回身份凭证的。</li>
+<li>从调用链上，getAuthorizationInfo()会调用doGetAuthorizationInfo()，所以大部分时候是重写后者。</li>
+</ul>
+<h3 id="AuthenticationToken"><a href="#AuthenticationToken" class="headerlink" title="AuthenticationToken"></a>AuthenticationToken</h3><ul>
+<li><p>收集用户提交的身份信息（如用户名和凭据（如密码））的接口。</p>
+<pre><code>public interface AuthenticationToken extends Serializable {
+    Object getPrincipal(); //身份
+    Object getCredentials(); //凭据
+};
+</code></pre></li>
+<li>扩展接口RememberMeAuthenticationToken:提供boolean isRememberMe()实现记住我功能。</li>
+<li>扩展接口HostAuthenticationToken：提供String getHost()获取用户主机。</li>
+<li>内置实现类UsernamePasswordToken：仅保存用户名、密码，并实现了以上两个接口，可以实现记住我和主机验证的支持。</li>
+</ul>
+<h3 id="AuthenticationInfo"><a href="#AuthenticationInfo" class="headerlink" title="AuthenticationInfo"></a>AuthenticationInfo</h3><ul>
+<li>封装验证通过的身份信息，主要包括Object属性principal(一般存储用户名)和credentials（密码）。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/0be597af-cd61-34ce-b1f0-8ebd15dbdeb9.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>MergableAuthenticationInfo子接口：在多Realm时合并AuthenticationInfo，主要合并Principal，如果是其他信息如credentialsSalt，则会后合并进来的AuthenticationInfo覆盖。</li>
+<li>SaltedAuthenticationInfo子接口：比如HashedCredentialsMatcher，在验证时会判断AuthenticationInfo是否是SaltedAuthenticationInfo的子类，是则获取其盐。</li>
+<li>Account子接口：相当于我们之前的[users],SimpleAccount是其实现。在IniRealm、PropertiesRealm这种静态创建账号的场景中使用，它们继承了SimpleAccountRealm，其中就有API用于增删查改SimpleAccount。适用于账号不是特别多的情况。</li>
+<li>SimpleAuthenticationInfo：一般都是返回这个类型。</li>
+</ul>
+<h3 id="PincipalCollection"><a href="#PincipalCollection" class="headerlink" title="PincipalCollection"></a>PincipalCollection</h3><ul>
+<li>Principal前缀：应该是上面AuthenticationInfo的属性principal。</li>
+<li>PincipalCollection:是一个身份集合，保存登录成功的用户的身份信息。因为我们可以在Shiro中同时配置多个Realm，所以身份信息就有多个。可以传给doGetAuthorizationInfo()方法为登录成功的用户授权。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/772c988b-e930-31d1-ad14-c9ae8f476f66.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<pre><code>public interface PrincipalCollection extends Iterable, Serializable {
+    Object getPrimaryPrincipal(); //得到主要的身份
+
+    &lt;T&gt; T oneByType(Class&lt;T&gt; type); //根据身份类型获取第一个
+
+    &lt;T&gt; Collection&lt;T&gt; byType(Class&lt;T&gt; type); //根据身份类型获取一组
+
+    List asList(); //转换为List
+
+    Set asSet(); //转换为Set
+
+    Collection fromRealm(String realmName); //根据Realm名字获取
+
+    Set&lt;String&gt; getRealmNames(); //获取所有身份验证通过的Realm名字
+
+    boolean isEmpty(); //判断是否为空
+};
+</code></pre><ul>
+<li>其中，getPrimaryPrincipal()时，如果只有一个Principal，那么直接返回即可，但若有多个则返回第一个，由于其底层由Map存储，所以第一个也就是任意一个。</li>
+<li>oneByType() 、 byType()：根据凭据的类型返回对应的Principal。</li>
+<li>fromRealm()：根据Realm名字返回对应的Principal。</li>
+<li>因为此例中就一个Realm，所以直接调用getPrimaryPrincipal得到之前传入的用户名即可。</li>
+</ul>
+<pre><code>@Override
+protected AuthorizationInfo doGetAuthorizationInfo(
+        PrincipalCollection principals) {
+    //PrincipalCollection是一个身份集合，因为我们现在就一个Realm，
+    //所以直接调用getPrimaryPrincipal得到之前传入的用户名即可
+    String username=(String)principals.getPrimaryPrincipal();
+    ...
+}
+</code></pre><ul>
+<li>MutablePrincipalCollection：可变的PrincipalCollection接口，提供了如下可变方法</li>
+</ul>
+<pre><code>public interface MutablePrincipalCollection extends PrincipalCollection {
+    void add(Object principal, String realmName); //添加Realm-Principal的关联
+
+    void addAll(Collection principals, String realmName); //添加一组Realm-Principal的关联
+
+    void addAll(PrincipalCollection principals);//添加PrincipalCollection
+
+    void clear();//清空
+}
+</code></pre><ul>
+<li>SimplePrincipalCollection：MutablePrincipalCollection唯一实现类。在继承了AbstractAuthenticationStrategy的验证策略中，afterAttemp()会调用SimplePrincipalCollection的merge()将多个Principal合并到一个PrincipalCollection中。</li>
+</ul>
+<h3 id="PrincipalCollection示例"><a href="#PrincipalCollection示例" class="headerlink" title="PrincipalCollection示例"></a>PrincipalCollection示例</h3><ul>
+<li>准备三个Realm，命名分别为a,b,c，身份凭证只有细微差别。</li>
+</ul>
+<pre><code>public class MyRealm1 implements Realm {
+    @Override
+    public String getName() {
+        return &quot;a&quot;; //realm name 为 “a”
+    }
+
+    @Override
+    public AuthenticationInfo getAuthenticationInfo(AuthenticationToken token)
+            throws AuthenticationException {
+        return new SimpleAuthenticationInfo(
+                &quot;zhang&quot;, //身份 字符串类型
+                &quot;123&quot;,   //凭据
+                getName() //Realm Name
+        );
+    }
+}
+
+//和1完全一样，只是命名为b
+public class MyRealm2 implements Realm {
+    @Override
+    public String getName() {
+        return &quot;b&quot;; //realm name 为 “b”
+    }
+
+    @Override
+    public AuthenticationInfo getAuthenticationInfo(AuthenticationToken token)
+            throws AuthenticationException {
+        return new SimpleAuthenticationInfo(
+                &quot;zhang&quot;, //身份 字符串类型
+                &quot;123&quot;,   //凭据
+                getName() //Realm Name
+        );
+    }
+}
+
+//除了命名不同，只是Principal类型为User，而不是简单的String
+public class MyRealm3 implements Realm {
+    @Override
+    public String getName() {
+        return &quot;c&quot;; //realm name 为 “c”
+    }
+
+    @Override
+    public AuthenticationInfo getAuthenticationInfo(AuthenticationToken token)
+            throws AuthenticationException {
+        User user=new User(&quot;zhang&quot;,&quot;123&quot;);
+        return new SimpleAuthenticationInfo(
+                user, //身份 User类型
+                &quot;123&quot;,   //凭据
+                getName() //Realm Name
+        );
+    }
+}
+</code></pre><ul>
+<li>shiro-multirealm.ini</li>
+</ul>
+<pre><code>[main]
+realm1=com.haien.shiroHelloWorld.principalTest.realm.MyRealm1
+realm2=com.haien.shiroHelloWorld.principalTest.realm.MyRealm2
+realm3=com.haien.shiroHelloWorld.principalTest.realm.MyRealm3
+securityManager.realms=$realm1,$realm2,$realm3
+</code></pre><ul>
+<li>PrincipalCollectionTest：测试方法</li>
+</ul>
+<pre><code>public class PrincipalCollectionTest extends BaseTest {
+    @Test
+    public void testPrincipalCollection(){
+        login(&quot;classpath:config/shiro-multirealm.ini&quot;,
+                &quot;zhang&quot;,&quot;123&quot;);
+
+        Subject subject=subject();
+
+        //获取Map中第一个Principal，即PrimaryPrincipal
+        Object primaryPrincipal1=subject.getPrincipal();
+        //获取PrincipalCollection
+        PrincipalCollection principalCollection=subject.getPrincipals();
+        //也是获取PrimaryPrincipal
+        Object primaryPrincipal2=principalCollection.getPrimaryPrincipal();
+
+        //获取所有身份验证成功的Realm名字
+        Set&lt;String&gt; realmNames=principalCollection.getRealmNames();
+        for(String realmName:realmNames)
+            System.out.println(realmName);
+
+        //将身份信息转换为Set/List（实际转换为List也是先转为Set）
+        List&lt;Object&gt; principals=principalCollection.asList();
+        /*返回集合包含两个String类、一个User类，但由于两个String类都是&quot;zhang&quot;，
+        所以只只剩下一个,转为List结果也是一样*/
+        for(Object principal:principals)
+            System.out.println(&quot;set:&quot;+principal);
+
+        //根据realm名字获取身份，因为realm名字可以重复，
+        //所以可能有多个身份，建议尽量不要重复
+        Collection&lt;User&gt; users=principalCollection.fromRealm(&quot;c&quot;);
+        for(User user:users)
+            System.out.println(&quot;c:user=&quot;+user.getUsername()+user.getPassword());
+        Collection&lt;String&gt; usernames=principalCollection.fromRealm(&quot;b&quot;);
+        for(String username:usernames)
+            System.out.println(&quot;b:username=&quot;+username);
+    }
+}
+</code></pre><ul>
+<li>代码实例：ideaProjects/shiroHelloWorld/PrincipalTest</li>
+</ul>
+<h3 id="AuthorizationInfo"><a href="#AuthorizationInfo" class="headerlink" title="AuthorizationInfo"></a>AuthorizationInfo</h3><ul>
+<li>封装权限信息，主要是doGetAuthorizationInfo()时封装授权信息然后返回的。</li>
+</ul>
+<pre><code>public interface AuthorizationInfo extends Serializable {
+    Collection&lt;String&gt; getRoles(); //获取角色字符串信息
+
+    Collection&lt;String&gt; getStringPermissions(); //获取权限字符串信息
+
+    Collection&lt;Permission&gt; getObjectPermissions(); //获取Permission对象信息
+}
+</code></pre><ul>
+<li>SimpleAuthorizationInfo：实现类，大多数时候使用这个。主要增加了以下方法：</li>
+</ul>
+<pre><code>authorizationInfo.addRole(&quot;role1&quot;); //添加角色到内部维护的role集合；
+    添加角色后调用MyRolePermissionResolver解析出权限
+authorizationInfo.setRoles(Set&lt;String&gt; roles); //将内部维护的role集合设置为入参
+
+authorizationInfo.addObjectPermission(new BitPermission(&quot;+user1+10&quot;)); //添加对象型权限
+authorizationInfo.addObjectPermission(new WildcardPermission(&quot;user1:*&quot;));
+authorizationInfo.addStringPermission(&quot;+user2+10&quot;); //字符串型权限
+authorizationInfo.addStringPermission(&quot;user2:*&quot;);
+authorizationInfo.setStringPermissions(Set&lt;String&gt; permissions);
+</code></pre><h3 id="Subject"><a href="#Subject" class="headerlink" title="Subject"></a>Subject</h3><ul>
+<li>Shiro核心对象，基本所有身份验证、授权都是通过Subject完成的。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/131b0c95-9aed-36b0-9c09-0a6f9c6b3605.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<pre><code>//获取身份信息
+Object getPrincipal(); //Primary Principal
+PrincipalCollection getPrincipals(); // PrincipalCollection
+
+//身份验证
+void login(AuthenticationToken token) throws AuthenticationException; //调用各种方法；
+    登录失败抛AuthenticationException，成功则调用isAuthenticated()返回true
+boolean isAuthenticated(); //与isRemembered()一个为true一个为false
+boolean isRemembered(); //返回true表示是通过记住我登录到额而不是调用login方法
+
+//角色验证
+boolean hasRole(String roleIdentifier); //返回true或false表示成功与否
+boolean[] hasRoles(List&lt;String&gt; roleIdentifiers);
+boolean hasAllRoles(Collection&lt;String&gt; roleIdentifiers);
+void checkRole(String roleIdentifier) throws AuthorizationException; //失败抛异常
+void checkRoles(Collection&lt;String&gt; roleIdentifiers) throws AuthorizationException;
+void checkRoles(String... roleIdentifiers) throws AuthorizationException;
+
+//权限验证
+boolean isPermitted(String permission);
+boolean isPermitted(Permission permission);
+boolean[] isPermitted(String... permissions);
+boolean[] isPermitted(List&lt;Permission&gt; permissions);
+boolean isPermittedAll(String... permissions);
+boolean isPermittedAll(Collection&lt;Permission&gt; permissions);
+void checkPermission(String permission) throws AuthorizationException;
+void checkPermission(Permission permission) throws AuthorizationException;
+void checkPermissions(String... permissions) throws AuthorizationException;
+void checkPermissions(Collection&lt;Permission&gt; permissions) throws AuthorizationException;
+
+//会话（登录成功相当于建立了会话，然后调用getSession获取
+Session getSession(); //相当于getSession(true)
+Session getSession(boolean create); //当create=false，如果没有会话将返回null，
+    当create=true，没有也会强制创建一个
+
+//退出
+void logout();
+
+//RunAs
+void runAs(PrincipalCollection principals) 
+    throws NullPointerException, IllegalStateException; //实现允许A作为B进行访问，
+    调用runAs(b)即可
+boolean isRunAs(); //此时此方法返回true
+PrincipalCollection getPreviousPrincipals(); //得到a的身份信息，
+    而getPrincipals()得到b的身份信息
+PrincipalCollection releaseRunAs(); //不需要了RunAs则调用这个
+
+//多线程
+&lt;V&gt; V execute(Callable&lt;V&gt; callable) throws ExecutionException;
+void execute(Runnable runnable);
+&lt;V&gt; Callable&lt;V&gt; associateWith(Callable&lt;V&gt; callable);
+Runnable associateWith(Runnable runnable);
+</code></pre><ul>
+<li>Subject的获取：一般不需要我们创建，直接通过SecurityUtils获取即可</li>
+</ul>
+<pre><code>public static Subject getSubject() {
+    Subject subject = ThreadContext.getSubject();
+    if (subject == null) {
+        subject = (new Subject.Builder()).buildSubject();
+        ThreadContext.bind(subject);
+    }
+    return subject;
+}
+</code></pre><ul>
+<li>首先查看当前线程是否绑定了Subject，没有则通过Subject.BUilder构建一个并绑定到线程返回。</li>
+<li>如果想自定义Subject实例的创建，代码如下：</li>
+</ul>
+<pre><code>new Subject.Builder().principals(身份).authenticated(true/false).buildSubject()
+</code></pre><ul>
+<li>然后自己绑定到线程即可。在new Subject.Builder()时如果没有传入SecurityManager，则自动调用SecurityUtils.getsecurityManager()获取一个默认实现类的对象。</li>
+<li>Subject一般用法</li>
+</ul>
+<ol>
+<li>身份验证login()</li>
+<li>授权hasRole*()/isPermitted*/checkRole*()/checkPermission*()</li>
+<li>将相应的数据存储到会话Session</li>
+<li>切换身份RunAs/多线程身份传播</li>
+<li>退出</li>
+</ol>
+<ul>
+<li>完整用户登录认证与授权示例：ideaProjects/shiroHelloWorld/chapter6、src/test/UserRealmTest为主测试</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-14T08:10:57.910Z" itemprop="dateUpdated">2019-03-14 16:10:57</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Shiro第六章-各种对象详解-完整用户登录认证与授权示例/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Shiro第六章-各种对象详解-完整用户登录认证与授权示例/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第六章-各种对象详解-完整用户登录认证与授权示例/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第六章-各种对象详解-完整用户登录认证与授权示例/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第六章-各种对象详解-完整用户登录认证与授权示例/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第六章-各种对象详解-完整用户登录认证与授权示例/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第六章-各种对象详解-完整用户登录认证与授权示例/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Shiro第七章-与web集成、ShiroFilter、基于表单的拦截器/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Shiro第九章-jsp标签/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第六章-各种对象详解-完整用户登录认证与授权示例/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第六章-各种对象详解-完整用户登录认证与授权示例/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第六章-各种对象详解-完整用户登录认证与授权示例/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第六章-各种对象详解-完整用户登录认证与授权示例/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第六章-各种对象详解-完整用户登录认证与授权示例/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD7ElEQVR42u3aS27bQBAFQN//0gqQVQCb1HvdI8lAiitDEYczxQCt/nx9xdfj73X/9/33/72+f558cr+H++8cvnDgwIEDR3DUq+tq6ftP8m0lh5w98Z7s+3dw4MCBA8dZjjxY7qP6I7jy17DZLQ4cOHDg+CxHEkSvPpmF24SyDcM4cODAgeP3cMwemaMkx052jgMHDhw4fgNHkkrlRbfkSPm/Jkdqd3KgVooDBw4cOLpIt0rnftvfH5jvwIEDB47/kuNRXm0RcBOG853PzvLD03HgwIEDx5pjNjSQjyC87sD59+uBDBw4cODAseBI2kh5QW0z3LAPz21Rsv5/gQMHDhw4So48HOZtpNc1pXL0AgUHDhw4cKw59kvnD54NScwaY3nyOfwlggMHDhw4LjiSRCh/cFs6TFZod5XgPmk44cCBAweOBcesPJc3ctqtt8N5eTLWFjpx4MCBA8eGY1PIyw/TpmR5M2nWylrJ4cCBAweOgGOT1OVBtP2kHV9ooS/zWhw4cODAcZRjNsSQ3DVrSm0SvHr/OHDgwIHjEMdmo/v2VUuWlDJX43E4cODAgWPEsU978o3mYbiFzguXT8hw4MCBA8eaY1POm6G097YlxbwFdbkaDhw4cOA4xLEJvUUYW4TzfA/tnlfL4cCBAweO0ZxYu6F8KGETmDejFQfeNg4cOHDgKANPW5JLinRtaypvXG1aWThw4MCB4xRHslzSOkqaSa8I5G2TCQcOHDhwvJNjlvm1wwefLTs+wcKBAwcOHEc5ZmEyj1Cz1lFy12Z0DwcOHDhwnOXIw1ieOO0LfO2x84TtfmUcOHDgwLHnSMLqrOWzmRxoA3m+TpHV4cCBAweO+a6GSVoegIvZijLla8cpoh8WOHDgwIFjzdEeOCqxxWlbPXYQhNvZq8WBAwcOHHuOfIlZ+JyNOJxKz9r94MCBAweOPUdy22wsIAm9yfH2RcO6HYUDBw4cOF7M0SZa+5JiPjbRDkNErTUcOHDgwHGIY9PaKdo5R6cIinnAvLmFAwcOHDgWHPkowKxgF/W7RuGwDb0RHA4cOHDgOMQxa9u042hJID81TtEGYBw4cODAcYpj0yKahdU2rXrn+jhw4MCBY8/xKK+2TTVrPu3Lgnlz64ffHThw4MCBY8GRX7OEbVM6PDsGhwMHDhw43smRB9ecoy3VtUNvTwp8o/Vx4MCBA8dZjjwdyoPxcENlUyrfYRLUceDAgQPHOznaUuDm3uSoeWpXvB4cOHDgwPF2jja4zkp4Od9mbO5AoMWBAwcOHIs+S9u/ytfZJ5PtC7gMtzhw4MCBY80x68XkIfB1gw6za1ZSxIEDBw4cAccfQg9JS52N31cAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

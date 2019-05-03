@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简介 即访问url时进行权限匹配，如果没有权限则直接跳到错误页面。 在Shiro中，更多的是通过AOP进行方法级别的权限控制，而通过url进行权限控制是一种集中的权限控制。  示例 拦截器：如authc、anon等字符串为一个拦截器；拦截器链：url=authc为一条拦截器链；拦截器链集合：url1=authc，url2=anon为拦截器链集合。 仿chapter16的示例，主要功能是用户、公司、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Shiro第十九章-动态url权限控制、拦截器自定义/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="简介 即访问url时进行权限匹配，如果没有权限则直接跳到错误页面。 在Shiro中，更多的是通过AOP进行方法级别的权限控制，而通过url进行权限控制是一种集中的权限控制。  示例 拦截器：如authc、anon等字符串为一个拦截器；拦截器链：url=authc为一条拦截器链；拦截器链集合：url1=authc，url2=anon为拦截器链集合。 仿chapter16的示例，主要功能是用户、公司、">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7686.PNG">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/e529ffa2-c6da-392d-af0a-7817716d2870.png">
+<meta property="og:updated_time" content="2019-04-28T07:42:48.466Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="简介 即访问url时进行权限匹配，如果没有权限则直接跳到错误页面。 在Shiro中，更多的是通过AOP进行方法级别的权限控制，而通过url进行权限控制是一种集中的权限控制。  示例 拦截器：如authc、anon等字符串为一个拦截器；拦截器链：url=authc为一条拦截器链；拦截器链集合：url1=authc，url2=anon为拦截器链集合。 仿chapter16的示例，主要功能是用户、公司、">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7686.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:29:23.037Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#示例"><span class="post-toc-number">2.</span> <span class="post-toc-text">示例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PathMatchingFilterChainResolver过滤链解析器"><span class="post-toc-number">3.</span> <span class="post-toc-text">PathMatchingFilterChainResolver过滤链解析器</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Shiro第十九章-动态url权限控制、拦截器自定义"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:29:23" datetime="2019-04-30T08:29:23.037Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>即访问url时进行权限匹配，如果没有权限则直接跳到错误页面。</li>
+<li>在Shiro中，更多的是通过AOP进行方法级别的权限控制，而通过url进行权限控制是一种集中的权限控制。</li>
+</ul>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
+<li>拦截器：如authc、anon等字符串为一个拦截器；拦截器链：url=authc为一条拦截器链；拦截器链集合：url1=authc，url2=anon为拦截器链集合。</li>
+<li>仿chapter16的示例，主要功能是用户、公司、角色和资源之间关系的调整，如修改用户所属公司、所有角色，资源所需权限、角色所有资源等。</li>
+<li>数据库：除user、organization、role、resource外，新增一张url-filter表，映射url和角色、权限之间的关系（多个角色、权限之间用逗号分隔），即动态的拦截器链。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7686.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>实体：多一个URLFilter类，封装url和权限、角色间的关系。</li>
+</ul>
+<pre><code>public class UrlFilter implements Serializable {
+    private Long id;
+    private String name; //url名称或描述
+    private String url; //地址
+    private String roles; //所需角色，可省略，用逗号分隔
+    private String permissions; //所需权限，可省略，用逗号分隔
+
+    //setter/getter
+}
+</code></pre><ul>
+<li>dao、service、controller层都增加对UrlFilter的增删查改。</li>
+<li>controller层撤销shiro的权限注解，因为要用数据库中动态的拦截器链来实现。</li>
+<li>因为数据库中的拦截器链都是要合并到shiro中的，所以在service层中，更新数据库拦截器链后，要重置shiro中的拦截器链集合，以同步此更新，否则更新不生效。比如：</li>
+</ul>
+<pre><code>@Override
+public void deleteUrlFilter(Long urlFilterId) {
+    urlFilterDao.deleteUrlFilter(urlFilterId);
+    initFilterChain();
+}
+
+/**
+ * @Author haien
+ * @Description 初始化Shiro的url拦截器，用于在url表改动后，
+                将数据库发送的改动同步到Shiro中。
+ * @Date 2019/4/5
+ * @Param []
+ * @return void
+ **/
+@PostConstruct //当DI容器实例化当前bean时，该方法会自动执行
+public void initFilterChain() {
+    //将配置文件和数据库的拦截器链合并
+    shiroFilerChainManager.initFilterChains(findAll()); //先清空集合再去加载
+}
+</code></pre><ul>
+<li>ShiroFilterChainManager: 调用了FilterChainManager的方法，先清空拦截器链集合再重新加载。</li>
+</ul>
+<pre><code>@Service
+public class ShiroFilterChainManager {
+    //过滤链管理器，管理所有过滤器，包含增删查改等操作
+    @Resource
+    private DefaultFilterChainManager filterChainManager; //注入的是
+                                                    //CustomDefaultFilterChainManager
+    //默认过滤链，包含在配置文件中提到的所有过滤器
+    private Map&lt;String,NamedFilterList&gt; defaultFilterChains;
+
+    /**
+     * @Author haien
+     * @Description 获取配置文件中all过滤器，之后会自动与数据库中包含的过滤器合并
+     * @Date 2019/4/5
+     * @Param []
+     * @return void
+     **/
+    @PostConstruct //DI容器实例化该bean时自动执行该方法
+    public void inti(){
+        //获取配置文件中all拦截器（静态的，不会变）
+        defaultFilterChains=new HashMap&lt;&gt;(filterChainManager.getFilterChains());
+    }
+
+    /**
+     * @Author haien
+     * @Description 初始化过滤链，默认+数据库
+     * @Date 2019/4/5
+     * @Param [urlFilters]
+     * @return void
+     **/
+    public void initFilterChains(List&lt;UrlFilter&gt; urlFilters){
+        //1. 删除以前老的filter chain并注册默认的
+        filterChainManager.getFilterChains().clear();
+        if(defaultFilterChains!=null)
+            filterChainManager.getFilterChains().putAll(defaultFilterChains);
+
+        //2. 注册数据库中的
+        for(UrlFilter urlFilter:urlFilters){
+            String url=urlFilter.getUrl();
+            //注册roles-filter关系的过滤器
+            if(!StringUtils.isEmpty(urlFilter.getRoles()))
+                filterChainManager.addToChain(url,&quot;roles&quot;,urlFilter.getRoles());
+
+            //注册perms-filter关系的拦截器
+            if(!StringUtils.isEmpty(urlFilter.getPermissions()))
+                filterChainManager.addToChain(url,&quot;perms&quot;,urlFilter.getPermissions());
+        }
+    }
+}
+</code></pre><ul>
+<li>为了实现本例功能，加载数据库中动态的拦截器链，我们需要自定义FilterChainManager；而为了实现一个url匹配多个拦截器链，我们还要自定义FilterChainResolver。下面先介绍一下这俩都是什么。</li>
+</ul>
+<h3 id="PathMatchingFilterChainResolver过滤链解析器"><a href="#PathMatchingFilterChainResolver过滤链解析器" class="headerlink" title="PathMatchingFilterChainResolver过滤链解析器"></a>PathMatchingFilterChainResolver过滤链解析器</h3><ul>
+<li>按照第八章过滤链步骤，第一步是要先根据当前请求的url获取拦截器链。</li>
+<li>PathMatchingFilterChainResolver：遍历配置文件中all拦截器链，如，/<strong>=athc，将其名字/</strong>与当前url/index比对，匹配则执行该拦截器链，如，/**匹配/index。所以，如果要改变url的拦截器匹配方法，则要自定义Resolver。</li>
+</ul>
+<pre><code>public FilterChain getChain(ServletRequest request, ServletResponse response, 
+        FilterChain originalChain) {
+    //1、首先获取拦截器链管理器
+    FilterChainManager filterChainManager = getFilterChainManager();
+    if (!filterChainManager.hasChains()) {
+        return null;
+    }
+
+    //2、接着获取当前请求的URL（不带上下文）
+    String requestURI = getPathWithinApplication(request);
+
+    //3、遍历配置文件中all拦截器链（拦截器链的名字就是URL，如/**）
+    for (String pathPattern : filterChainManager.getChainNames()) {
+        //4、如匹配当前url
+        if (pathMatches(pathPattern, requestURI)) {
+            //5、和原始拦截器链进行合并后返回
+            return filterChainManager.proxy(originalChain, pathPattern);
+        }
+    }
+    return null;
+}
+</code></pre><ul>
+<li><p>缺点：最后一步找到即返回，如果后面还有其他拦截器也是匹配当url的呢？后面我们会自定义一个能将all拦截器链合并返回的解析器。</p>
+</li>
+<li><p>第1步中，默认使用DefaultFilterChainManager管理拦截器链，其内部采用Map管理url-拦截器链的关系，因为Map不可重复，所以每个url只能配置一条拦截器链（但可以包含多个拦截器），如果定义了多条则最终采用哪条也说不定。</p>
+</li>
+<li>FilterChainManager接口：主要功能是注册拦截器链、添加拦截器以及对原始拦截器链生成代理之后的拦截器链。如果要实现动态url-拦截器配置，即注册数据库中定义的拦截器链的话，就要自定义Manager。</li>
+</ul>
+<pre><code>public interface FilterChainManager {  
+    Map&lt;String, Filter&gt; getFilters(); //得到注册的拦截器  
+
+    void addFilter(String name, Filter filter); //注册拦截器  
+
+    void addFilter(String name, Filter filter, boolean init); //注册拦截器  
+
+    //根据拦截器链定义创建拦截器链 
+    void createChain(String chainName, String chainDefinition);  
+
+    void addToChain(String chainName, String filterName); //添加拦截器到指定的拦截器链  
+
+    //添加拦截器（带配置，指明所需权限或角色）到指定的拦截器链  
+    void addToChain(String chainName, String filterName, 
+        String chainSpecificFilterConfig) throws ConfigurationException; 
+
+    NamedFilterList getChain(String chainName); //获取拦截器链  
+
+    boolean hasChains(); //是否有拦截器链  
+
+    Set&lt;String&gt; getChainNames(); //得到所有拦截器链的名字  
+
+    //使用指定的拦截器链代理原始拦截器链 
+    FilterChain proxy(FilterChain original, String chainName); 
+}
+</code></pre><ul>
+<li><p>解析以下配置文件：filters定义了拦截器，filterChainDefinitions定义了拦截器链，/login为拦截器链名字，user,sysUser是拦截器名字。</p>
+<pre><code>&lt;bean id=&quot;shiroFilter&quot; class=&quot;org.apache.shiro.spring.web.ShiroFilterFactoryBean&quot;&gt;  
+    ……  
+    &lt;property name=&quot;filters&quot;&gt;  
+        &lt;util:map&gt;  
+            &lt;entry key=&quot;authc&quot; value-ref=&quot;formAuthenticationFilter&quot;/&gt;  
+            &lt;entry key=&quot;sysUser&quot; value-ref=&quot;sysUserFilter&quot;/&gt;  
+        &lt;/util:map&gt;  
+    &lt;/property&gt;  
+    &lt;property name=&quot;filterChainDefinitions&quot;&gt;  
+        &lt;value&gt;  
+            /login = authc  
+            /logout = logout  
+            /authenticated = authc  
+            /** = user,sysUser  
+        &lt;/value&gt;  
+    &lt;/property&gt;  
+&lt;/bean&gt;   
+</code></pre></li>
+<li><p>前面说过PathMatchingFilterChainResolver和DefaultFilterChainManager不能满足我们的需求，我们稍微扩展一下。</p>
+</li>
+<li>CustomPathMatchingFilterChainResolver：本例自定义的Resolver;返回匹配当前url的多条拦截器链，默认的只能返回第一条。</li>
+</ul>
+<pre><code>public class CustomPathMatchingFilterChainResolver  
+    extends PathMatchingFilterChainResolver {  //继承自默认解析器
+
+      private CustomDefaultFilterChainManager customDefaultFilterChainManager;  
+
+      //Manager setter
+      public void setCustomDefaultFilterChainManager(  
+            CustomDefaultFilterChainManager customDefaultFilterChainManager) {  
+
+          this.customDefaultFilterChainManager = customDefaultFilterChainManager;  
+          setFilterChainManager(customDefaultFilterChainManager);  
+      }  
+
+      //为当前url匹配拦截器链，匹配多条，而不是遇到一条就返回
+      @Override
+      public FilterChain getChain(ServletRequest request, ServletResponse response, 
+            FilterChain originalChain) {  
+
+          FilterChainManager filterChainManager = getFilterChainManager();  
+          if (!filterChainManager.hasChains()) {  
+              return null;  
+          }  
+
+          //遍历配置文件all拦截器链
+          String requestURI = getPathWithinApplication(request);  
+          List&lt;String&gt; chainNames = new ArrayList&lt;String&gt;(); //拦截器链集合
+          for (String pathPattern : filterChainManager.getChainNames()) {  
+            if (pathMatches(pathPattern, requestURI)) {  
+                //遇到匹配的不急着返回，而是添加到集合
+                chainNames.add(pathPattern);   
+            }  
+          }  
+
+          //集合为空则返回null
+          if(chainNames.size() == 0) {  
+            return null;  
+          }  
+
+          return customDefaultFilterChainManager.proxy(originalChain, chainNames);  
+      }  
+    }
+</code></pre><ul>
+<li>CustomDefaultFilterChainManager：本例自定义的Manager；主要是改变注册拦截器链的方式，比如说吧数据库中的合并进来。</li>
+</ul>
+<pre><code>public class CustomDefaultFilterChainManager extends DefaultFilterChainManager {  
+    //配置文件中all拦截器链，即默认的静态拦截器链，会与数据库中动态的拦截器链合并
+    private Map&lt;String, String&gt; filterChainDefinitionMap = null;  
+    //登录地址
+    private String loginUrl;  
+    //登录成功后默认跳转地址
+    private String successUrl;
+    //未授权跳转地址
+    private String unauthorizedUrl;  
+
+    public CustomDefaultFilterChainManager() {  
+        //调用父类方法，注册默认拦截器
+        setFilters(new LinkedHashMap&lt;String, Filter&gt;());  
+        //注册默认拦截器链
+        setFilterChains(new LinkedHashMap&lt;String, NamedFilterList&gt;());  
+        addDefaultFilters(true);  
+    }  
+
+    //省略setter
+
+    //注册我们自定义的拦截器，相当于ShiroFilterFactoryBean的filters属性
+    //只要是我们在配置文件中声明注册bean的，不管shiro本身提供的还是我们自定义的拦截器，
+    //都算自定义拦截器
+    public void setCustomFilters(Map&lt;String, Filter&gt; customFilters) {  
+        for(Map.Entry&lt;String, Filter&gt; entry : customFilters.entrySet()) {  
+            addFilter(entry.getKey(), entry.getValue(), false);  
+        }  
+    }  
+
+    //解析配置文件中all拦截器链，相当于ShiroFilterFactoryBean的filterChainDefinitions
+    public void setDefaultFilterChainDefinitions(String definitions) {  
+        Ini ini = new Ini();  
+        ini.load(definitions);  
+        Ini.Section section = ini.getSection(IniFilterChainResolverFactory.URLS);  
+        if (CollectionUtils.isEmpty(section)) {  
+            section = ini.getSection(Ini.DEFAULT_SECTION_NAME);  
+        }  
+        setFilterChainDefinitionMap(section);  
+    }  
+
+    @PostConstruct //Spring容器启动时自动调用
+    public void init() {  
+        ////给拦截器配置上属性，这里是三个url
+        Map&lt;String, Filter&gt; filters = getFilters();  
+        if (!CollectionUtils.isEmpty(filters)) { //判空
+            //注册拦截器
+            for (Map.Entry&lt;String, Filter&gt; entry : filters.entrySet()) {  
+                String name = entry.getKey(); //拦截器名
+                Filter filter = entry.getValue(); //配置，即角色或权限
+                applyGlobalPropertiesIfNecessary(filter); //给拦截器设置三个url 
+                if (filter instanceof Nameable) {  
+                    ((Nameable) filter).setName(name);  
+                }
+                addFilter(name, filter, false);  
+            }  
+        }  
+
+        //将拦截器构建成拦截器链
+        Map&lt;String, String&gt; chains = getFilterChainDefinitionMap();  
+        if (!CollectionUtils.isEmpty(chains)) { //判空 
+            for (Map.Entry&lt;String, String&gt; entry : chains.entrySet()) {  
+                String url = entry.getKey(); //如，/**
+                String chainDefinition = entry.getValue(); //如，authc,user
+                createChain(url, chainDefinition); //创建过滤器链 
+            }  
+        }  
+    }  
+
+    protected void initFilter(Filter filter) {  
+        //ignore，因为交给Spring管理了，因此Filter的相关配置会在Spring配置中完成  
+    }  
+
+    //组合多个拦截器链为一个新的FilterChain代理
+    public FilterChain proxy(FilterChain original, List&lt;String&gt; chainNames) {
+        //chainNames中的元素，如，/index、/**
+        NamedFilterList configured = new SimpleNamedFilterList(chainNames.toString()); 
+
+        //遍历过滤器链名，找到对应的过滤器链，添加到集合
+        for(String chainName : chainNames) {  
+            configured.addAll(getChain(chainName));  
+        }
+
+        //再和原始的过滤器链合并
+        return configured.proxy(original);  
+    }  
+
+    private void applyGlobalPropertiesIfNecessary(Filter filter) {  
+        applyLoginUrlIfNecessary(filter);  
+        applySuccessUrlIfNecessary(filter);  
+        applyUnauthorizedUrlIfNecessary(filter);  
+    }  
+    private void applyLoginUrlIfNecessary(Filter filter) {  
+        ...配置loginUrl...
+    }  
+    private void applySuccessUrlIfNecessary(Filter filter) {  
+        ...配置SuccessUrl...
+    }  
+    private void applyUnauthorizedUrlIfNecessary(Filter filter) {  
+        ...配置UnauthorizedUrl...
+    }  
+}
+</code></pre><ul>
+<li><p>spring-config-shiro.xml: 其中拦截器链的配置较特别。</p>
+<pre><code>&lt;!-- 基于Form表单的身份验证过滤器 --&gt;
+&lt;bean id=&quot;formAuthenticationFilter&quot;
+      class=&quot;org.apache.shiro.web.filter.authc.FormAuthenticationFilter&quot;&gt;
+    &lt;property name=&quot;usernameParam&quot; value=&quot;username&quot;/&gt;
+    &lt;property name=&quot;passwordParam&quot; value=&quot;password&quot;/&gt;
+    &lt;property name=&quot;rememberMeParam&quot; value=&quot;rememberMe&quot;/&gt;
+    &lt;property name=&quot;loginUrl&quot; value=&quot;/login&quot;/&gt;
+&lt;/bean&gt;
+&lt;bean id=&quot;sysUserFilter&quot;
+      class=&quot;com.haien.chapter16.web.shiro.filter.SysUserFilter&quot;/&gt;
+&lt;!--自定义的拦截器链管理器，要添加数据库中动态的拦截器链就必须自定义--&gt;
+&lt;bean id=&quot;filterChainManager&quot;
+      class=&quot;com.haien.chapter19.service.impl.CustomDefaultFilterChainManager&quot;&gt;
+    &lt;property name=&quot;loginUrl&quot; value=&quot;/login&quot;/&gt;
+    &lt;property name=&quot;successUrl&quot; value=&quot;/&quot;/&gt;
+    &lt;property name=&quot;unauthorizedUrl&quot; value=&quot;/unauthorized.jsp&quot;/&gt;
+    &lt;property name=&quot;customFilters&quot;&gt;
+        &lt;util:map&gt;
+            &lt;entry key=&quot;authc&quot; value-ref=&quot;formAuthenticationFilter&quot;/&gt;
+            &lt;entry key=&quot;sysUser&quot; value-ref=&quot;sysUserFilter&quot;/&gt;
+        &lt;/util:map&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;filterChainDefinitions&quot;&gt;
+        &lt;value&gt;
+            /login = authc
+            /logout = logout
+            /authenticated = authc
+            /** = user,sysUser
+        &lt;/value&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+&lt;!--拦截器链解析器，为当前url匹配多条拦截器链；注入以上管理器--&gt;
+&lt;bean id=&quot;filterChainResolver&quot;
+      class=&quot;com.haien.chapter19.service.impl.CustomPathMatchingFilterChainResolver&quot;&gt;
+    &lt;property name=&quot;customDefaultFilterChainManager&quot; ref=&quot;filterChainManager&quot;/&gt;
+&lt;/bean&gt;
+&lt;!-- Shiro的Web过滤器 --&gt;
+&lt;bean id=&quot;shiroFilter&quot; class=&quot;org.apache.shiro.spring.web.ShiroFilterFactoryBean&quot;&gt;
+    &lt;property name=&quot;securityManager&quot; ref=&quot;securityManager&quot;/&gt;
+    &lt;!--拦截器链配置已被拦截器链管理器代劳
+    &lt;property name=&quot;loginUrl&quot; value=&quot;/login&quot;/&gt;
+    &lt;property name=&quot;filters&quot;&gt;
+        &lt;util:map&gt;
+            &lt;entry key=&quot;authc&quot; value-ref=&quot;formAuthenticationFilter&quot;/&gt;
+            &lt;entry key=&quot;sysUser&quot; value-ref=&quot;sysUserFilter&quot;/&gt;
+        &lt;/util:map&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;filterChainDefinitions&quot;&gt;
+        &lt;value&gt;
+            /login = authc
+            /logout = logout
+            /authenticated = authc
+            /** = user,sysUser
+        &lt;/value&gt;
+    &lt;/property&gt;
+    --&gt;
+&lt;/bean&gt;
+&lt;!--最后把filterChainResolver设置给ShiroFilter，其使用它进行动态url动态控制--&gt;
+&lt;bean class=&quot;org.springframework.beans.factory.config.MethodInvokingFactoryBean&quot;&gt;
+    &lt;property name=&quot;targetObject&quot; ref=&quot;shiroFilter&quot;/&gt;
+    &lt;property name=&quot;targetMethod&quot; ref=&quot;setFilterChainResolver&quot;/&gt;
+    &lt;property name=&quot;arguments&quot; ref=&quot;filterChainResolver&quot;/&gt;
+&lt;/bean&gt;
+</code></pre></li>
+<li><p>测试：</p>
+</li>
+</ul>
+<ol>
+<li>访问/urlFilter；</li>
+<li>跳转登录页面，登录后点击新增，增加以下拦截器链：</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/e529ffa2-c6da-392d-af0a-7817716d2870.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>不用分配任何权限。</p>
+<ol start="3">
+<li>再访问/user则要求用户拥有aa角色，因此跳转未授权页面。</li>
+<li>在数据库中将aa角色添加给用户，再访问/user则可以访问了。</li>
+</ol>
+<ul>
+<li>代码实例：ideaProjects/shiro-chapter19</li>
+<li><a href="https://jinnianshilongnian.iteye.com/blog/2040929" target="_blank" rel="noopener">《跟我学Shiro》</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-28T07:42:48.466Z" itemprop="dateUpdated">2019-04-28 15:42:48</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Shiro第十九章-动态url权限控制、拦截器自定义/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Shiro第十九章-动态url权限控制、拦截器自定义/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第十九章-动态url权限控制、拦截器自定义/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第十九章-动态url权限控制、拦截器自定义/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第十九章-动态url权限控制、拦截器自定义/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第十九章-动态url权限控制、拦截器自定义/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第十九章-动态url权限控制、拦截器自定义/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Shiro第十六章-综合实例，用户、角色、资源模型，配置文件详解/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Shiro第十二章-与Spring集成、配置文件初解/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第十九章-动态url权限控制、拦截器自定义/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第十九章-动态url权限控制、拦截器自定义/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第十九章-动态url权限控制、拦截器自定义/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第十九章-动态url权限控制、拦截器自定义/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第十九章-动态url权限控制、拦截器自定义/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADLklEQVR42u3aS27jQAwFwNz/0p7NLAYI3PNIyoBEV68CJZG6WoBpfn5+4vX6Z/2+/u5K/tvXr/VuD/n1CxY2Njb2Q9iv4zoDzn95ZlR3mB/l2YKNjY29lV19WLKJd/jzkVWf29snNjY2NnYenM73zwPnta8HGxsb+zvZebC5CpMkFdjY2NjYeSCJijXx8X3iDh+ppWFjY2Pfnj0p0N/t54/0t7GxsbFvzH4VV17Er47mzINoQYGNjY29iD0Z2emlFpOkohqb/lNawsbGxl7H7oWiZDSnXLhvJRjn/bwNYNjY2NgPZ/eqUOe0pBrkqsFy8tzmiWJjY2PfmN2roleHcnrBLAlIefqBjY2N/T3s5EM/DzlXBbkqr1oaw8bGxt7ErhZr8rZur0TVaw+PUhFsbGzsB7KriUSvcFMd0Jms6M7Y2NjYi9jVL/R5MWhe6M/bt702MzY2NvbT2Ve1Ts9loDxdqV6vth+wsbGx97Hz0s8k5PSShMkLiO6DjY2NvYJdfWQ1Mag2j3NSXn7CxsbG3s3OQ0VeSKomNvmBzoMZNjY29lZ2r6E7GamsJg+T8Z1CoxcbGxv7gezeWGS1YZAcZR72JqWlv9exsbGxF7Enj+/B8ozg3NDtXcfGxsbex07A1TLNJG1IAHkIfLtzbGxs7EXsXumnOnYzafpWg1bhKLGxsbFXsJsf/cU0o9qCzbOoasrUnA/CxsbGvjE7H6DJE5V5q2DS+i2/GGxsbOxF7GrKkWxx/nM+3FNNb7CxsbF3sCeN2DxUJNd7LYrRu8XGxsZewb4qjFXbDL3VS6I+mJBgY2NjP4Sdl+kn7YFqI3nSeMbGxsbex87D0vkIcl6eWlT/vnAQ2NjY2EvZvcL9VQWjXvu5GoaxsbGxN7F7ZZ3qYE1vBGc+EvR2z9jY2NiL2NVgkG+31wD+xJDQJARiY2NjP4U9adBWy1LzO0+aFtjY2Ni72b3BnSTNmFS8qo2BwrOwsbGxv57dSy0medLFZS9sbGzsr2dfVY7/YCXs/MKwsbGx17F7pZ9eMWhyt+Se0X9hY2NjL2JXyzHnL/p5+3YeAvPUaDSyg42NjX1f9h+a7punfbeIKwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

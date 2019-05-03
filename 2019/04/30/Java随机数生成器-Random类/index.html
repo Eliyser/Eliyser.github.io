@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="两种构造方法 Random(); //创建一个新的随机数生成器，默认使用当前系统时间的毫秒数作为种子，一旦选中即不变，而不是根据时间改变 Random(20); //指定种子，即随机算法的起源数字  生成随机整数 Random rand =new Random(25); int i=rand.nextInt(100); //100是上上限，[0,100)  种子的作用：对于种子相同的Random">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Java随机数生成器-Random类/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="两种构造方法 Random(); //创建一个新的随机数生成器，默认使用当前系统时间的毫秒数作为种子，一旦选中即不变，而不是根据时间改变 Random(20); //指定种子，即随机算法的起源数字  生成随机整数 Random rand =new Random(25); int i=rand.nextInt(100); //100是上上限，[0,100)  种子的作用：对于种子相同的Random">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-10T02:58:16.338Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="两种构造方法 Random(); //创建一个新的随机数生成器，默认使用当前系统时间的毫秒数作为种子，一旦选中即不变，而不是根据时间改变 Random(20); //指定种子，即随机算法的起源数字  生成随机整数 Random rand =new Random(25); int i=rand.nextInt(100); //100是上上限，[0,100)  种子的作用：对于种子相同的Random">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.246Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">方法简介</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Java随机数生成器-Random类"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.246Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li><p>两种构造方法</p>
+<pre><code>Random(); //创建一个新的随机数生成器，默认使用当前系统时间的毫秒数作为种子，一旦选中即不变，而不是根据时间改变
+Random(20); //指定种子，即随机算法的起源数字
+</code></pre></li>
+<li><p>生成随机整数</p>
+<pre><code>Random rand =new Random(25);
+int i=rand.nextInt(100); //100是上上限，[0,100)
+</code></pre></li>
+<li><p>种子的作用：对于种子相同的Random对象，生成的随机数序列是一样的。</p>
+<pre><code>public static void main(String[] args) {
+    Random ran1 = new Random(10);
+    System.out.println(&quot;使用种子为10的Random对象生成[0,10)内随机整数序列: &quot;);
+    for (int i = 0; i &lt; 10; i++) {
+        System.out.print(ran1.nextInt(10) + &quot; &quot;);
+    }
+
+    Random ran2 = new Random(10);
+    System.out.println(&quot;使用另一个种子为10的Random对象生成[0,10)内随机整数序列: &quot;);
+    for (int i = 0; i &lt; 10; i++) {
+        System.out.print(ran2.nextInt(10) + &quot; &quot;);
+    }
+    /**
+     * 输出结果为：
+     * 
+     * 使用种子为10的Random对象生成[0,10)内随机整数序列: 
+     * 3 0 3 0 6 6 7 8 1 4 
+     * 使用另一个种子为10的Random对象生成[0,10)内随机整数序列: 
+     * 3 0 3 0 6 6 7 8 1 4 
+     * 
+     */
+}
+</code></pre></li>
+<li>相同种子的Random对象，相同次数两个对象生成的随机数相同，但同个对象不同次数生成的随机数不同。</li>
+<li>只有一个Random对象，上次执行程序与下次产生的随机数不同。</li>
+<li>如果想避免出现测试数据相同的情况，则无论需要生成多少个随机数，都只是用一个Random对象即可。</li>
+<li>使用时间或自定义种子都很容易生成重复的随机数，可借助数组和集合类剔除重复数</li>
+</ul>
+<pre><code>//生成 [0-n) 个不重复的随机数
+public ArrayList getDiffNO(int n){
+    ArrayList list = new ArrayList(); //list 用来保存这些随机数
+    Random rand = new Random();
+    boolean[] bool = new boolean[n]; //默认初始值为false
+    int num = 0;
+    //开始产生随机数
+    for (int i = 0; i &lt; n; i++) {
+        do {
+            //如果产生的数相同继续循环
+            num = rand.nextInt(n);
+        } while (bool[num]); //第一个肯定是false，不会循环的
+        bool[num] = true;
+        list.add(num);
+    }
+    return list;
+}
+</code></pre><h3 id="方法简介"><a href="#方法简介" class="headerlink" title="方法简介"></a>方法简介</h3><ul>
+<li>protected int next(int bits)：生成下一个伪随机数（其随机算法实际是有规则的，故称为伪随机）。</li>
+<li>boolean nextBoolean()：返回下一个伪随机数，false或true。</li>
+<li><p>void nextBytes(byte[] bytes)：生成随机字节并将其置于用户提供的 byte 数组中。若Random对象时同一个，则每次生成的数组都相同。</p>
+<pre><code>public static void main(String[] args) {
+    byte[] bytes=new byte[10];
+    Random random=new Random(); //加不加种子、加什么种子都一样
+    random.nextBytes(bytes);
+    System.out.println(bytes); //每次调用生成的数组都一样
+
+    //下面这一块产生的数组也和上面一样
+    Random random2=new Random();
+    random2.nextBytes(bytes);
+    System.out.println(bytes);
+}
+</code></pre></li>
+<li>double nextDouble()：[0.0,1.0)之间均匀分布的 double值。</li>
+<li>float nextFloat()：[0.0,1.0)之间均匀分布float值。</li>
+<li>double nextGaussian()：返回下一个伪随机数，它是取自此随机数生成器序列的、呈高斯（“正态”）分布的double值，其平均值是0.0标准差是1.0。即一个double型的Gaussian值。</li>
+<li>int nextInt()：随机 int 值，[-2^31,2^31-1]。</li>
+<li>int nextInt(int n)：返回指定上限的随机int值。</li>
+<li>long nextLong()：随机 long 值。</li>
+<li>void setSeed(long seed)：设置种子。</li>
+<li>生成[0,5.0)区间的小数：double d2 = r.nextDouble() * 5;</li>
+<li>生成[1,2.5)区间的小数：先把左区间减到0，double d3 = r.nextDouble() * 1.5 + 1;</li>
+<li>生成[0,10)区间的整数：
+　　　　<pre><code>int n2 = r.nextInt(10);//方法一
+</code></pre>　　　　n2 = Math.abs(r.nextInt() % 10);//方法二</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-02-10T02:58:16.338Z" itemprop="dateUpdated">2019-02-10 10:58:16</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Java随机数生成器-Random类/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Java随机数生成器-Random类/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java随机数生成器-Random类/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java随机数生成器-Random类/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java随机数生成器-Random类/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Java随机数生成器-Random类/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java随机数生成器-Random类/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Java项目命名规范/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Java数据结构之有向图/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java随机数生成器-Random类/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java随机数生成器-Random类/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java随机数生成器-Random类/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Java随机数生成器-Random类/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java随机数生成器-Random类/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACq0lEQVR42u3aS27DMAwFwNz/0um2QGv38aPABUarAHFijhcSTfL1itf7Yt1fk3z7Dtb3K18nFh4eHt5S6EkQP//n5/VX19wHnf//fVR4eHh453j3N6h+vkJeBhE8lOSQwMPDw3smL8FUU+fqHfHw8PD+Fy/Z3O8rA5NKAh4eHt5zeL0tu1euTdLoPDVfq7Xg4eHhxbx8g37O5yP9PTw8PLxxVz3ZcPOWWPXxzRceHh7eCV4eRI+dtK96KXXhSjw8PLwDvGrxdDIKkH/eenx4eHh4u7xqKtx7ZskQQLWpVq5P4+Hh4S3xkrCSP8oHraoJce8owsPDwzvHS4YA8mbYpFC7FU8hUDw8PLwxb7JNT4oaebpcbtHh4eHhHeDtjmHlW3/vSOjdEQ8PD+8cr9fa7zW0JqWN5kADHh4e3hKvd3r0joFeQWGh9YWHh4e3ystT52rhoFpc6MHmxWU8PDy8Kq/6gyTV7h0Sk/GCP2Yi8PDw8FZ5eYl2a7wgYSQPrteQw8PDw9vi9TbZvFDbC65XdPjlSjw8PLwDvF7Dfj6MVS2FTAa58PDw8E7zkh/nhYxe8WI+BIaHh4d3grc1SlUNtDqU0GzU4eHh4X2Ql2OSwkHybc4uNNLw8PDwDvB6L/+n+2/VAm7hejw8PLwl3loKG7fT8gMm2e7/iBkPDw/vGC8vsFbDnRcgJg0zPDw8vM/weqMA1UJDNUGv3h0PDw/vBO9dXJOsdRJ6s8GGh4eHd4CXr8k2XR1E2E3Q8fDw8E7wksNgkl5Xix29N4PojQEPDw9vlZc3xqqjV9Ui7Gu8LkcH8PDw8B7A6yW7eXk3KStHVWo8PDy8x/CqB8OkHFx9THh4eHineUlYydjoZIRrPkwwqrXg4eHhrb7v54nv5PDIj5CFnh4eHh5eh/cF8kaccabREKcAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

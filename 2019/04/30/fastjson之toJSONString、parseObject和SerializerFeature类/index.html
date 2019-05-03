@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简介 fastjson是一个java编写的JSON处理器 依赖 &amp;lt;dependency&amp;gt;     &amp;lt;groupId&amp;gt;com.alibaba&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;fastjson&amp;lt;/artifactId&amp;gt;     &amp;lt;version&amp;gt;1.2.31&amp;lt;/version&amp;gt; &amp;lt;/depen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/fastjson之toJSONString、parseObject和SerializerFeature类/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="简介 fastjson是一个java编写的JSON处理器 依赖 &amp;lt;dependency&amp;gt;     &amp;lt;groupId&amp;gt;com.alibaba&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;fastjson&amp;lt;/artifactId&amp;gt;     &amp;lt;version&amp;gt;1.2.31&amp;lt;/version&amp;gt; &amp;lt;/depen">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg02.sogoucdn.com%2Fapp%2Fa%2F100520146%2F0564D43370A235F3DCA18F4542670AA4">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg02.sogoucdn.com%2Fapp%2Fa%2F100520146%2F6D0D197BA1D64F2833189AA9C143F5E2">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg03.sogoucdn.com%2Fapp%2Fa%2F100520146%2FEB3FC1FFA129BEE86C4E5C51EE9F62D4">
+<meta property="og:updated_time" content="2019-04-02T08:43:51.461Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="简介 fastjson是一个java编写的JSON处理器 依赖 &amp;lt;dependency&amp;gt;     &amp;lt;groupId&amp;gt;com.alibaba&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;fastjson&amp;lt;/artifactId&amp;gt;     &amp;lt;version&amp;gt;1.2.31&amp;lt;/version&amp;gt; &amp;lt;/depen">
+<meta name="twitter:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg02.sogoucdn.com%2Fapp%2Fa%2F100520146%2F0564D43370A235F3DCA18F4542670AA4">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:44.758Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#toJSONString-、parseObject"><span class="post-toc-number">2.</span> <span class="post-toc-text">toJSONString()、parseObject()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SerializerFeature类"><span class="post-toc-number">3.</span> <span class="post-toc-text">SerializerFeature类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SerializeConfig类"><span class="post-toc-number">4.</span> <span class="post-toc-text">SerializeConfig类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SerialzeFilter接口"><span class="post-toc-number">5.</span> <span class="post-toc-text">SerialzeFilter接口</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-fastjson之toJSONString、parseObject和SerializerFeature类"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.758Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>fastjson是一个java编写的JSON处理器</li>
+<li><p>依赖</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+    &lt;artifactId&gt;fastjson&lt;/artifactId&gt;
+    &lt;version&gt;1.2.31&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li><p>常用的方法都是静态方法</p>
+<pre><code>public static final Object parse(String text); // 把JSON文本parse为JSONObject或者JSONArray 
+public static final JSONObject parseObject(String text)； // 把JSON文本parse成JSONObject    
+public static final &lt;T&gt; T parseObject(String text, Class&lt;T&gt; clazz); // 把JSON文本parse为JavaBean 
+public static final JSONArray parseArray(String text); // 把JSON文本parse成JSONArray 
+public static final &lt;T&gt; List&lt;T&gt; parseArray(String text, Class&lt;T&gt; clazz); //把JSON文本parse成JavaBean集合 
+public static final String toJSONString(Object object); // 将JavaBean序列化为JSON文本（即json格式的String） 
+public static final String toJSONString(Object object, boolean prettyFormat); // 将JavaBean序列化为带格式的JSON文本 
+public static final Object toJSON(Object javaObject); 将JavaBean转换为JSONObject或者JSONArray。
+</code></pre></li>
+<li>JSONObject：就是常说的json，是一种重要的数据传输对象。</li>
+<li>JSONObject可以转为Object，但是Object却不能转为JSONObject，只能转为json格式的String类型</li>
+<li>格式：{“key”:”value”,”key”:”value”}；key必须是字符串，value是基本类型的话就不带引号</li>
+<li><p>返回方式：一般是通过response.getWriter()获取PrintWriter printWriter，然后printWriter.print(json),如果没有设置好内容类型：response.setContentType(“application/json;charset=utf-8”);就要自己到js中再进行解析。</p>
+<pre><code>response.setContentType(&quot;application/json; charset=utf-8&quot;); 
+PrintWriter pw =  response.getWriter();
+Student s = new Student(。。。);//反正就是构造一个对象，有没有数据无所谓
+JSONObjet json = JSONObjet .from(s);//将s转化成json对象。
+pw .print(json);
+pw .flush();
+pw .close();
+这样这个json对象就传到你发送请求的那个jsp上面。
+而$.post(url,datas.function(data){})这里的data就是后台返回的值，也就是这里的json
+只需要 var json = data;//就获取到了。
+再取得原来Student的属性 var name = json.name(student 的name 属性);
+</code></pre></li>
+<li>JSONArray：由JSONObject构成的数组</li>
+<li>格式：[{“key”:”value”,”key”:”value”},{“key”:”value”,”key”:”value”}];注意，最外面是中括号而不是花括号<h3 id="toJSONString-、parseObject"><a href="#toJSONString-、parseObject" class="headerlink" title="toJSONString()、parseObject()"></a>toJSONString()、parseObject()</h3></li>
+<li>JSON.parseObject()：将json字符串转为相应的对象</li>
+<li>JSON.toJSONString()：将对象转为json字符串，可同时传入一个SerializerFeature对象指定格式</li>
+<li><p>JSONObject.getString(String key):根据key获取对应的值（任何类型都转为String），key不存在时抛NPE；以下为源码</p>
+<pre><code>public String getString( String key ) {
+    verifyIsNull(); //应该是判断key是否为null
+    Object o = get( key ); //获取key对应的值，不知道是什么类型，所以用Object接收
+    //如果值不为null
+    if( o != null ){ 
+        return o.toString();//不管什么类型都转为String
+    }
+    //为null则抛异常
+    throw new JSONException( &quot;JSONObject[&quot; + JSONUtils.quote( key ) + &quot;] not found.&quot; );
+}
+</code></pre></li>
+<li><p>getInt(String key):获取对应值并转为int型，值为int型或“123”这样的字符串都可以，否则抛非数字异常。</p>
+<pre><code>public int getInt(String key)
+{
+    verifyIsNull();
+    Object o = get(key);
+    if (o != null)
+    {
+        //这里非数字的话会报非数字错误
+        return o instanceof Number ? ((Number) o).intValue() : (int) getDouble(key);
+    }
+    //无对应值的话
+    throw new JSONException(&quot;JSONObject[&quot; + JSONUtils.quote(key) + &quot;] is not a number.&quot;);
+}
+</code></pre></li>
+<li><p>首先引入fastjson的依赖</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+    &lt;artifactId&gt;fastjson&lt;/artifactId&gt;
+    &lt;version&gt;${fastjson_version}&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li><p>定义一个实体类</p>
+<pre><code>public class Staff {
+    private String name;
+    private Integer age;
+    private String sex;
+    private Date birthday;
+}
+</code></pre></li>
+<li><p>测试两个方法</p>
+<pre><code>public class jsonTest {
+    public static void main(String[] args) {
+
+        /**
+         * json字符串转化为对象
+         */
+        String jsonString = &quot;{name:&apos;Antony&apos;,age:&apos;12&apos;,sex:&apos;male&apos;,telephone:&apos;88888&apos;}&quot;; //telephone是Staff没有的属性；另外还差个birthday属性
+        Staff staff = JSON.parseObject(jsonString, Staff.class);
+        System.out.println(staff.toString()); //Staff{name=&apos;Antony&apos;, age=12, sex=&apos;male&apos;, birthday=null}
+
+        /**
+         * 对象转化为json字符串
+         */
+        String jsonStr = JSON.toJSONString(staff);
+        System.out.println(jsonStr); //{&quot;age&quot;:12,&quot;name&quot;:&quot;Antony&quot;,&quot;sex&quot;:&quot;male&quot;}；age是基本类型，无双引号；为null的属性不显示
+    }
+}
+</code></pre><h3 id="SerializerFeature类"><a href="#SerializerFeature类" class="headerlink" title="SerializerFeature类"></a>SerializerFeature类</h3></li>
+<li>主要用于将fastjson的格式进行调整，如是否要输出为null的字段、Date类型的显示格式等</li>
+<li>属性</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg02.sogoucdn.com%2Fapp%2Fa%2F100520146%2F0564D43370A235F3DCA18F4542670AA4" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg02.sogoucdn.com%2Fapp%2Fa%2F100520146%2F6D0D197BA1D64F2833189AA9C143F5E2" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg03.sogoucdn.com%2Fapp%2Fa%2F100520146%2FEB3FC1FFA129BEE86C4E5C51EE9F62D4" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>用法：直接加到toJSONString()的参数里就行，不加就用默认值，默认开就是开，不开就是不开</p>
+<pre><code>JSON.toJSONString(staff, SerializerFeature.PrettyFormat,
+                SerializerFeature.WriteMapNullValue, SerializerFeature.WriteNullStringAsEmpty,
+                SerializerFeature.DisableCircularReferenceDetect,
+                SerializerFeature.WriteNullListAsEmpty)
+</code></pre></li>
+<li><a href="https://blog.csdn.net/u010246789/article/details/52539576" target="_blank" rel="noopener">参考文章</a>:里面有更多属性的用法，靠后的黑图展示了多种属性的输出格式<h3 id="SerializeConfig类"><a href="#SerializeConfig类" class="headerlink" title="SerializeConfig类"></a>SerializeConfig类</h3></li>
+<li>对序列化过程做一些特殊配置，其实也就类似SerializerFeature类的补充</li>
+<li><p>用法</p>
+<pre><code>public static SerializeConfig mapping=new SerializeConfig();
+mapping.put(Date.class,new SimpleDateFormatSerialzer(&quot;yyyy-MM-dd&quot;);
+JOSN.toJSONString(staff,mapping); //假设staff有日期类属性那将会输出2018-11-3
+</code></pre><h3 id="SerialzeFilter接口"><a href="#SerialzeFilter接口" class="headerlink" title="SerialzeFilter接口"></a>SerialzeFilter接口</h3></li>
+<li>对每个属性定制序列化，比如当这个属性大于多少的时候才序列化，否则不用写到json里面了</li>
+<li><p>它有多个子接口</p>
+<ul>
+<li>PropertyPreFilter 根据PropertyName判断是否序列化；</li>
+<li>PropertyFilter 根据PropertyName和PropertyValue来判断是否序列化；</li>
+<li>NameFilter 修改Key，如果需要修改Key，process返回值则可；</li>
+<li>ValueFilter 修改Value；</li>
+<li>BeforeFilter 序列化时在最前添加内容；</li>
+<li>AfterFilter 序列化时在最后添加内容。</li>
+</ul>
+</li>
+<li><p>PropertyFilter的源码</p>
+<pre><code>public interface PropertyFilter extends SerializeFilter {
+      boolean apply(Object object, String propertyName, Object propertyValue); //true则序列化，否则不
+ }
+</code></pre></li>
+<li><p>用法</p>
+<pre><code>public static void main(String[] args) {
+PropertyFilter filter = new PropertyFilter() {
+
+    @Override
+    public boolean apply(Object source, String name, Object value) {
+
+        // 属性是id并且大于等于100时进行序列化
+        if (name.equals(&quot;id&quot;)) {
+            long id = ((Long) value).longValue();
+            return id &gt;= 100;
+        }
+        return false;
+    }
+};
+
+User user = new User();
+user.setId(9L);
+user.setName(&quot;挖坑埋你&quot;);
+
+String jsonString = JSON.toJSONString(user, filter); // 序列化的时候传入filter
+System.out.println(&quot;序列化,id=9：&quot; + jsonString + &quot;\n&quot;); // {}
+
+user.setId(200L);
+jsonString = JSON.toJSONString(user, filter); // 序列化的时候传入filter
+System.out.println(&quot;序列化,id=200：&quot; + jsonString); // {&quot;id&quot;:200}
+</code></pre><p>  }</p>
+</li>
+<li><a href="https://blog.csdn.net/liupeifeng3514/article/details/79167734" target="_blank" rel="noopener">参考文章</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-02T08:43:51.461Z" itemprop="dateUpdated">2019-04-02 16:43:51</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/fastjson之toJSONString、parseObject和SerializerFeature类/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/fastjson之toJSONString、parseObject和SerializerFeature类/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/fastjson之toJSONString、parseObject和SerializerFeature类/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/fastjson之toJSONString、parseObject和SerializerFeature类/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/fastjson之toJSONString、parseObject和SerializerFeature类/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/fastjson之toJSONString、parseObject和SerializerFeature类/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/fastjson之toJSONString、parseObject和SerializerFeature类/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/File/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/FastDFS文件服务器/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/fastjson之toJSONString、parseObject和SerializerFeature类/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/fastjson之toJSONString、parseObject和SerializerFeature类/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/fastjson之toJSONString、parseObject和SerializerFeature类/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/fastjson之toJSONString、parseObject和SerializerFeature类/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/fastjson之toJSONString、parseObject和SerializerFeature类/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADJ0lEQVR42u3aQW7jQAwEwPz/07sPCCx3kwpgjUunII7lKfnAsMmfn/j6V16/35Xc89Wr13d7df8bLmxsbOyHsGeA5F2/j/Xq5+SEySPLT4WNjY19Hvv6w65vnRee2WNqPyt5cNjY2NjYs+YkKVGzUoqNjY2NnbM3+LZRaUnY2NjY38xOykYe7ucRf17k8gJ2c5aGjY2N/fHsNqD/5J//ZL6NjY2N/cHsu1qIdh1nvz+zaoSwsbGxD2LnBSAZtW6aigTZBklvzo+NjY19HLsI1ketyyxI2iz3vLk/NjY29hHsvGy07UHLaB/upnXBxsbGPomdr+YkBSMZCbfLN5uv5M0DxcbGxj6O3eLveldyxLaxicohNjY29tHsNojfPKbZQHcWZmFjY2N/D/ualxw3GQ/vV3w2kRM2Njb2Sez2n/68/OQFMv+UttxiY2Njn81u12iuD9cu8STt0KwovjkPNjY29nHsZFA6++B8EWczHm4HDNjY2NgnsduIP//72Xh4FmbNxtXY2NjY57HbItQeYlauZr/PT4KNjY39dPZsWScvDEm4nxen2aLPmw4MGxsb+wj23zUYbTBUTKTjq+66sLGxsR/FbpuHFjCLjdqiOPs9NjY29hnsdv1l8/ezgCm/QzHixcbGxv4a9v6gSZNQL9nsHy42Njb2Qex21HpdzPKy144l2jPkn4WNjY39dHYe4rdx/2Y0OyuQxZ2xsbGxD2LvC0+77jMbJOShUv6FYWNjY5/BbluCdlg7C4nyBzobQmNjY2OfxG7Hq/fGQ5tFnLxYFt88NjY29mPZSWCURzbJ1TYYd4VQ9ZAAGxsb+4HsvCS0rcKMmo9785gJGxsb+1T2JjzKS+As+kmKVh1UYWNjYx/B3rQQ+0FvO0jOW6M3oRI2Njb2Qez8SpqEtmjdNTCerQdhY2Njn8Rui9YmSGrj/qQg5cNgbGxs7LPZm3ZiEy21rUVegaMdJWxsbOyvZ8/GtPeuCrVLRdjY2NjY0U0XTUseTuUNEjY2NvY3sJPykK9F3hXx7wfPL1/FxsbGPoidD3o3rcUMkJSoZCSQl1hsbGzsR7H/A9+JF3LmeKs4AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

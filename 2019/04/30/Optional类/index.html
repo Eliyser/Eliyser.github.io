@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="为了解决空指针异常 //Pre-Java 8 if(str!=null){     System.out.println(str); }  //Java 8 Optional.ofNullable(str).ifPresent(System.out::println);  Optional实际上是一个容器，可以保存任意类型的值，或者仅保存null。Optional提供很多有用的方法，这样我们就不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Optional类/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="为了解决空指针异常 //Pre-Java 8 if(str!=null){     System.out.println(str); }  //Java 8 Optional.ofNullable(str).ifPresent(System.out::println);  Optional实际上是一个容器，可以保存任意类型的值，或者仅保存null。Optional提供很多有用的方法，这样我们就不">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/265673-49bada7c6cb85d2b.png">
+<meta property="og:updated_time" content="2018-10-01T11:47:04.971Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="为了解决空指针异常 //Pre-Java 8 if(str!=null){     System.out.println(str); }  //Java 8 Optional.ofNullable(str).ifPresent(System.out::println);  Optional实际上是一个容器，可以保存任意类型的值，或者仅保存null。Optional提供很多有用的方法，这样我们就不">
+<meta name="twitter:image" content="http://p9vzt8d00.bkt.clouddn.com/265673-49bada7c6cb85d2b.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.609Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用法"><span class="post-toc-number">1.</span> <span class="post-toc-text">用法</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Optional类"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.609Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li><p>为了解决空指针异常</p>
+<pre><code>//Pre-Java 8
+if(str!=null){
+    System.out.println(str);
+}
+
+//Java 8
+Optional.ofNullable(str).ifPresent(System.out::println);
+</code></pre></li>
+<li>Optional实际上是一个容器，可以保存任意类型的值，或者仅保存null。Optional提供很多有用的方法，这样我们就不用显示进行空指针检测。</li>
+<li>它比if语句好在代码可读性更好，而且它提供的是编译时检测，能极大的降低NPF。</li>
+<li><p>Optional.of()或者Optional.ofNullable()：创建Optional对象，差别在于of不允许参数是null，返回一个包含参数的Optional对象；而ofNullable则无限制，为null则返回一个不包含值的Optional对象（底层是根据参数为null否来选择调用of()/empty()。</p>
+<pre><code>// 参数不能是null
+Optional&lt;Integer&gt; optional1 = Optional.of(1);
+
+// 参数可以是null
+Optional&lt;Integer&gt; optional2 = Optional.ofNullable(null); //返回null
+
+// 参数可以是非null
+Optional&lt;Integer&gt; optional3 = Optional.ofNullable(2);
+</code></pre></li>
+<li><p>Optional.empty()：返回一个不包含值的Optional对象：</p>
+<pre><code>Optional&lt;Integer&gt; optional1 = Optional.ofNullable(null);
+Optional&lt;Integer&gt; optional2 = Optional.ofNullable(null);
+System.out.println(optional1 == optional2);// true
+System.out.println(optional1 == Optional.&lt;Integer&gt;empty());// true
+
+Object o1 = Optional.&lt;Integer&gt;empty();
+Object o2 = Optional.&lt;String&gt;empty();
+System.out.println(o1 == o2);// true
+</code></pre></li>
+<li><p>isPresent()：判断值是否存在</p>
+<pre><code>Optional&lt;Integer&gt; optional1 = Optional.ofNullable(1);
+Optional&lt;Integer&gt; optional2 = Optional.ofNullable(null);
+
+// isPresent判断值是否存在
+System.out.println(optional1.isPresent() == true);
+System.out.println(optional2.isPresent() == false);
+</code></pre></li>
+<li><p>ifPresent(Consumer consumer)：如果option对象保存的值不是null，则调用consumer对象，否则不调用（调用指的是重写Consumer接口的方法，重写了什么内容就照着执行）</p>
+<pre><code>Optional&lt;Integer&gt; optional1 = Optional.ofNullable(1);
+Optional&lt;Integer&gt; optional2 = Optional.ofNullable(null);
+
+// 如果不是null,调用Consumer
+optional1.ifPresent(new Consumer&lt;Integer&gt;() {
+    @Override
+    public void accept(Integer t) {
+        System.out.println(&quot;value is &quot; + t);
+    }
+});
+
+// null,不调用Consumer
+optional2.ifPresent(new Consumer&lt;Integer&gt;() {
+    @Override
+    public void accept(Integer t) {
+        System.out.println(&quot;value is &quot; + t);
+    }
+});
+</code></pre></li>
+<li><p>orElse(value)：如果optional对象保存的值不是null，则返回原来的值，否则返回value</p>
+<pre><code>Optional&lt;Integer&gt; optional1 = Optional.ofNullable(1);
+Optional&lt;Integer&gt; optional2 = Optional.ofNullable(null);
+
+// orElse
+System.out.println(optional1.orElse(1000) == 1);// true
+System.out.println(optional2.orElse(1000) == 1000);// true
+</code></pre></li>
+<li><p>orElseGet(Supplier supplier)：功能与orElse一样，只不过orElseGet参数是一个对象</p>
+<pre><code>Optional&lt;Integer&gt; optional1 = Optional.ofNullable(1);
+Optional&lt;Integer&gt; optional2 = Optional.ofNullable(null);
+
+System.out.println(optional1.orElseGet(() -&gt; {
+    return 1000;
+}) == 1);//true
+
+System.out.println(optional2.orElseGet(() -&gt; {
+    return 1000;
+}) == 1000);//true
+</code></pre></li>
+<li><p>orElseGet(Supplier supplier)：功能与orElse区别在于，orElseGet()传入的参数为一个Supplier接口的方法重写，当Optional中有值时，返回值；否则返回从Supplier获得的值。</p>
+<pre><code>Optional&lt;Integer&gt; optional1 = Optional.ofNullable(1);
+Optional&lt;Integer&gt; optional2 = Optional.ofNullable(null);
+
+System.out.println(optional1.orElseGet(() -&gt; {
+    return 1000;
+}) == 1);//true
+
+System.out.println(optional2.orElseGet(() -&gt; {
+    return 1000;
+}) == 1000);//true
+</code></pre></li>
+<li><p>orElseThrow()：值不存在则抛出异常，存在则什么不做。好处在于我们可以决定抛出什么样的异常，而不总是NPE。用途举例：查询某个实体时，如果数据库中不存在该记录就可以抛出EntityNotFoundException，处理EntityNotFoundException的方法中我们可以给客户端返回404状态码和异常信息。</p>
+<pre><code>Optional&lt;Integer&gt; optional1 = Optional.ofNullable(1);
+Optional&lt;Integer&gt; optional2 = Optional.ofNullable(null);
+
+optional1.orElseThrow(()-&gt;{throw new IllegalStateException();});
+
+try
+{
+    // 抛出异常
+    optional2.orElseThrow(()-&gt;{throw new IllegalStateException();});
+}
+catch(IllegalStateException e )
+{
+    e.printStackTrace();
+}
+</code></pre></li>
+<li><p>filter(Predicate)：判断Optional对象中保存的值是否满足Predicate，是则返回原来的Optional对象，否则返回空的Optional。</p>
+<pre><code>Optional&lt;Integer&gt; optional1 = Optional.ofNullable(1);
+Optional&lt;Integer&gt; optional2 = Optional.ofNullable(null);
+
+Optional&lt;Integer&gt; filter1 = optional1.filter((a) -&gt; a == null);
+Optional&lt;Integer&gt; filter2 = optional1.filter((a) -&gt; a == 1);
+Optional&lt;Integer&gt; filter3 = optional2.filter((a) -&gt; a == null);
+System.out.println(filter1.isPresent());// false
+System.out.println(filter2.isPresent());// true
+System.out.println(filter2.get().intValue() == 1);// true
+System.out.println(filter3.isPresent());// false
+</code></pre></li>
+<li><p>get()：从Optional实例中取回实际值对象,实例不存在抛出NPE</p>
+<pre><code>String name=&quot;John&quot;;
+Optional&lt;String&gt; opt=Optional.ofNullable(name);
+assertEquals(&quot;John&quot;,opt.get());
+</code></pre></li>
+<li><p>map()：返回一个Optional对象，它包含的是函数式接口的返回值，如果返回值为null则这个Optional就是一个空Optional对象</p>
+<ul>
+<li><p>源码</p>
+<p><img src="http://p9vzt8d00.bkt.clouddn.com/265673-49bada7c6cb85d2b.png" alt=""></p>
+</li>
+<li><p>应用</p>
+<pre><code>User user=new User(&quot;anna@gmaiil.com&quot;,&quot;1234&quot;);
+String email=Optional.ofNullable(user);
+                    .map(u -&gt; u.getEmail())
+                    .orElse(&quot;default@gmail.com&quot;);
+assertEquals(email,user.getEmail());
+</code></pre></li>
+</ul>
+</li>
+<li><p>flatMap()：用法上和map()相同，但参数要求必须是Optional对象</p>
+<pre><code>Optional&lt;String&gt; username=Optional.ofNullable(getUserById())
+                                .flatMap(user -&gt; Optional.of(user.getUsername()))
+                                .flatMap(name -&gt; Optional.of(name.toLowerCase()));
+</code></pre><h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3></li>
+<li><p>假设有一个Person类，含有Address属性，Address属性包含code字段</p>
+<pre><code>//Person类
+public class Person {
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+}
+
+//Address类
+public class Address {
+    private String code;
+
+    public String getCode() {
+        return code;
+    }
+    public void setCode(String code) {
+        this.code = code;
+    }
+}
+
+//检查这些属性是否是valid的，可以看到，篇幅很长
+private boolean validAddress(Person person){
+    if(person!=null){ //第一层判断
+        if(person.getAddress()!=null){ //第二层
+            String code=person.getAddress().getCode();
+            return code!=null; //第三层
+        }else{
+            return false;
+        }
+    }else{
+        return false;
+    }
+}
+</code></pre></li>
+<li><p>但如果预先就将这些属性设置为Optional（或者在判断时构造为Optional），那么看起来会稍微舒服一点</p>
+<pre><code>//Person类
+public class Person {
+    private Optional&lt;Address&gt; address;
+
+    public Optional&lt;Address&gt; getAddress() {
+        return address;
+    }
+
+    public void setAddress(Optional&lt;Address&gt; address) {
+        this.address = address;
+    }
+}     
+
+//Address类
+public class Address {
+    private Optional&lt;String&gt; code;
+
+    public Optional&lt;String&gt; getCode() {
+        return code;
+    }
+    public void setCode(Optional&lt;String&gt; code) {
+        this.code = code;
+    }
+}
+
+//判断
+private boolean validAddress2(Person person2){
+    Optional&lt;Person&gt; person=Optional.ofNullable(person2);
+    return person.flatMap(Person::getAddress)
+                 .flatMap(Address::getCode)
+                 .filter(x -&gt; x.length()&gt;6)
+                 .isPresent();
+}
+</code></pre></li>
+<li>代码实例：SpringMvc02/Test1、Person、Address</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-01T11:47:04.971Z" itemprop="dateUpdated">2018-10-01 19:47:04</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Optional类/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Optional类/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Optional类/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Optional类/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Optional类/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Optional类/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Optional类/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Path类、Files类/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Object泛型数组转化为具体类型数组与泛型擦除/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Optional类/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Optional类/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Optional类/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Optional类/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Optional类/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIklEQVR42u3aS24CQQwFQO5/6WSLFDHzbIdEuKtXESgzXSws/x6P+Hw9nedPfn776rx62qtvH+84GBgYH8tIXv9VPDn+Gpb/NBgYGCcwXkWwPAheP+fmEgH75l0YGBgYl4w84F6H2vy9GBgYGMnjeuG4h8TAwMDIy9GkWVZtz/1DLY6BgfGBjLzr/vd/v2W+gYGB8VGMXrt/Hl6vk7zyrTAwMFYzJiVoconfKmuj+2BgYCxlVFcl8pHkJARXgzIGBsY5jN5gIEkZE/xoOIGBgXEAY75ykTfO8mFAofWGgYGxmlFF9lpyb19dxcDAWM1I/jlfgKguVVSDMgYGxsmMXgrYS+PyKyajiJsiFgMD4wBGPjaYB9zkyTeDAQwMjKWMXo2bjy3nhXEBgIGBsZSRN8jyEDwZWFaXLTAwME5g5EletQHXW9qYNPIwMDB2M+ZDx2q5mwTQUZ6LgYGxiFEtXKvt+0lzrbC6gYGBsZrRGzTmYbT84qAYLpTBGBgYixi9FYdJi3/esLvpHWJgYKxm5E355BK94WhzYICBgXEAo7oqMWmW9VLGGyoGBsZSxmSpovdJtekfBW4MDIzVjGoSNmmoVdtzvYEEBgbGVkZ1Jat69Wpq2Ay4GBgYBzAmge86NE/K40Jwx8DAwGgtW/TWwppsDAwMjFZqOA/WhSCOgYFxAKM3DMhfXw3N5fYfBgbGasZoU2O8YJE02pKfEgMDYynjG746Qc81DWHLAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

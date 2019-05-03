@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简介 基于Spring的应用程序提供声明式安全保护的安全性框架，提供了完整的安全性解决方案，能够在web请求级别和方法调用级别处理身份验证和授权，充分使用了依赖注入和面向切面的技术。 主要从两个方面解决安全性问题 web请求级别：使用servlet过滤器保护web请求并限制url的访问 方法调用级别：使用Spring AOP保护方法调用，确保具有适当权限的用户才能访问   总结：访问url时首先判">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Spring Security/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="简介 基于Spring的应用程序提供声明式安全保护的安全性框架，提供了完整的安全性解决方案，能够在web请求级别和方法调用级别处理身份验证和授权，充分使用了依赖注入和面向切面的技术。 主要从两个方面解决安全性问题 web请求级别：使用servlet过滤器保护web请求并限制url的访问 方法调用级别：使用Spring AOP保护方法调用，确保具有适当权限的用户才能访问   总结：访问url时首先判">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg03.sogoucdn.com%2Fapp%2Fa%2F100520146%2F9c7114a614b7fcbcbfeceed38f0f1c29">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2Fd3ebe10344df2c7631b35988cb11d796">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg04.sogoucdn.com%2Fapp%2Fa%2F100520146%2F5F931FE7A81FE303ED33D00151629EE0">
+<meta property="og:updated_time" content="2019-02-28T01:29:43.592Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="简介 基于Spring的应用程序提供声明式安全保护的安全性框架，提供了完整的安全性解决方案，能够在web请求级别和方法调用级别处理身份验证和授权，充分使用了依赖注入和面向切面的技术。 主要从两个方面解决安全性问题 web请求级别：使用servlet过滤器保护web请求并限制url的访问 方法调用级别：使用Spring AOP保护方法调用，确保具有适当权限的用户才能访问   总结：访问url时首先判">
+<meta name="twitter:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg03.sogoucdn.com%2Fapp%2Fa%2F100520146%2F9c7114a614b7fcbcbfeceed38f0f1c29">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.775Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SpringMvc整合Spring-Security"><span class="post-toc-number">2.</span> <span class="post-toc-text">SpringMvc整合Spring Security</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置文件实现"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">配置文件实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#登录验证"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">登录验证</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用SpEL"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">使用SpEL</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#jsp标签"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">jsp标签</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#认证用户"><span class="post-toc-number">2.1.4.</span> <span class="post-toc-text">认证用户</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#保护方法"><span class="post-toc-number">2.1.5.</span> <span class="post-toc-text">保护方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#参考文章"><span class="post-toc-number">2.1.6.</span> <span class="post-toc-text">参考文章</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#代码实例"><span class="post-toc-number">2.1.7.</span> <span class="post-toc-text">代码实例</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Java-Configuration方式参见笔记：Spring-Security之Java-Configuration方式"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Java Configuration方式参见笔记：Spring Security之Java Configuration方式</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Spring Security"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.775Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li>基于Spring的应用程序提供声明式安全保护的安全性框架，提供了完整的安全性解决方案，能够在web请求级别和方法调用级别处理身份验证和授权，充分使用了依赖注入和面向切面的技术。</li>
+<li>主要从两个方面解决安全性问题<ul>
+<li>web请求级别：使用servlet过滤器保护web请求并限制url的访问</li>
+<li>方法调用级别：使用Spring AOP保护方法调用，确保具有适当权限的用户才能访问</li>
+</ul>
+</li>
+<li>总结：访问url时首先判断是否登录，其次用户是否具有权限访问。<h2 id="SpringMvc整合Spring-Security"><a href="#SpringMvc整合Spring-Security" class="headerlink" title="SpringMvc整合Spring Security"></a>SpringMvc整合Spring Security</h2></li>
+<li><p>pom.xml添加依赖</p>
+<pre><code>&lt;!--版本管理，只需管理这个依赖即可使所有spring security的依赖版本统一--&gt;
+&lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-security-bom&lt;/artifactId&gt;
+            &lt;version&gt;5.2.0.BUILD-SNAPSHOT&lt;/version&gt;
+            &lt;type&gt;pom&lt;/type&gt;
+            &lt;scope&gt;import&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+
+&lt;!--最少的版本--&gt;
+&lt;dependencies&gt;
+    &lt;!--过滤器：身份验证与url接入控制--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-security-web&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;!--包含命名空间，springMVC整合时需要在配置文件中配置spring security，所以这个必须要--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-security-config&lt;/artifactId&gt; &lt;!--版本是n.n则命名空间也得一样--&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre></li>
+<li><p>还有一个单点登录，有时也需要</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-security-cas&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li>整合方法：</li>
+</ul>
+<ol>
+<li>配置文件实现：在配置文件中指定拦截的url、所需权限、配置userDetailsService指定用户名密码对应权限即可</li>
+<li>Java Configuration：以下可以只选一个部分来用java实现，其他可由配置文件代替，毕竟不是所有的模块都需要自定义。<ul>
+<li>实现UserDetailsService，重写loadUserByUsername(String userName)，根据username来实现自己的业务逻辑，返回UserDetails的实现类，还需要自定义实体类User implement UserDetails（顺便作为系统的用户类使用了），主要重写getAuthorities()返回该用户所拥有的权限</li>
+<li>自定义filter重写Spring Security拦截器，实现动态过滤用户权限</li>
+<li>自定义filter重写Spring Security拦截器，实现自定义参数来检验用户，并且过滤权限<h3 id="配置文件实现"><a href="#配置文件实现" class="headerlink" title="配置文件实现"></a>配置文件实现</h3></li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>web.xml中声明代理servlet过滤器。原本的实现是配置一系列相关的<filter>，使得配置文件臃肿难以阅读，而Spring security提供的代理servlet过滤器功能可以解决该问题。</filter></p>
+<pre><code>&lt;filter&gt;
+    &lt;filter-name&gt;springSecurityFilterChain&lt;/filter-name&gt;
+    &lt;filter-class&gt;
+        org.springframework.web.filter.DelegatingFilterProxy
+    &lt;/filter-class&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;springSecurityFilterChain&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</code></pre></li>
+<li>其中，DelegatingFilterProxy是一个代理的servlet过滤器，它主要负责将工作委托给javax.servlet.Filter实现类，这个实现类作为一个<bean>已经注册在Spring上下文中，其id便是上面<filter-name>的名字。也即它会自动到Spring容器查找名为filter-name的bean并把所有Filter的操作委托给它，所以如果不是默认注入到Spring容器的bean，就需要手动注入。</filter-name></bean></li>
+<li><p>applicationContext.xml中配置拦截请求</p>
+<pre><code>//添加命名空间
+xmlns:sec=&quot;http://www.springframework.org/schema/security&quot;
+xsi:http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd&quot; //对应版本是5.2.xsd才对
+
+&lt;!-- 配置为none的不经过任何spring的过滤器，主要是静态资源，我们不需要经过过滤器 --&gt;
+&lt;http pattern=&quot;/resources/**&quot; security=&quot;none&quot; /&gt;
+&lt;http pattern=&quot;/sitemap.xml&quot; security=&quot;none&quot; /&gt;
+&lt;http pattern=&quot;/favicon.ico&quot; security=&quot;none&quot; /&gt;
+
+&lt;!--或者--&gt;
+&lt;security:http use-expressions=&quot;true&quot;&gt;
+    &lt;!-- 顺序不能乱 ，按照从上往下依次过滤 --&gt;
+    &lt;security:intercept-url pattern=&quot;/ps_service/index.jsp&quot; access=&quot;permitAll&quot;/&gt;
+    &lt;security:intercept-url pattern=&quot;/ps_service/login.do&quot; access=&quot;permitAll&quot;/&gt;
+    &lt;security:intercept-url pattern=&quot;/ps_service/loginfailed.do&quot; access=&quot;permitAll&quot;/&gt;
+    &lt;security:intercept-url pattern=&quot;/cs/404.html&quot; access=&quot;permitAll&quot;/&gt;
+    &lt;!--过滤浏览器自动发起的链接--&gt;
+    &lt;security:intercept-url pattern=&quot;/favicon.ico&quot;access=&quot;permitAll&quot;/&gt;
+&lt;/security:http&gt;
+
+&lt;!-- 
+auto-config: true自动加载，自动生成一个默认登陆页面，url:localhost:8080/project/login；
+    如果不使用该属性 则默认为http-basic(没有session).；一般都是true了
+lowercase-comparisons：表示URL比较前先转为小写。
+path-type：表示使用Apache Ant的匹配模式。
+access-denied-page：访问拒绝时转向的页面。
+access-decision-manager-ref：指定了自定义的访问策略管理器。当系统角色名的前缀不是默认的ROLE_时，需要自定义访问策略管理器。
+--&gt;
+&lt;sec:http auto-config=&quot;true&quot; servlet-api-provision=&quot;false&quot; lowercase-comparisons=&quot;false&quot;
+access-denied-page=&quot;/html/error_page_access_denied.html&quot; path-type=&quot;ant&quot;
+access-decision-manager-ref=&quot;accessDecisionManager&quot;&gt;
+    &lt;!-- 
+    login-page：指定登录页面。
+    login-processing-url：指定了客户在登录页面中按下 Sign In 按钮时要访问的 URL。与登录页面form的action一致。其默认值为：/j_spring_security_check。
+    authentication-failure-url：登录的用户没有指定权限时跳转到的页面；指定权限在第120行
+    default-target-url：登录成功呈现给用户的页面。
+    always-use-default-target：指定了是否在身份验证通过后总是跳转到default-target-url属性指定的URL。
+    --&gt;
+    &lt;sec:form-login login-page=&quot;/admin/page!login.action&quot; login-processing-url=&quot;/admin/login&quot;
+    default-target-url=&quot;/admin/page!main.action&quot; authentication-failure-url=&quot;/admin/page!login.action&quot; 
+    authentication-success-handler-ref=&quot;myAuthenticationSuccessHandler&quot;
+    always-use-default-target=&quot;true&quot;  /&gt;
+
+    &lt;!-- &quot;记住我&quot;功能，采用持久化策略（将用户的登录信息存放在数据库表中） --&gt;
+    &lt;sec:remember-me data-source-ref=&quot;dataSource&quot; key=&quot;e37f8888-0ooo-22dd-bd0b-9900211c9a66&quot; /&gt;
+
+    &lt;!-- 
+    logout-url：指定了用于响应退出系统请求的URL，即注销页面。其默认值为：/j_spring_security_logout。下例与与 &lt;a href=&quot;&lt;c:url value=&quot;/admin/logout&quot; /&gt;&quot;&gt;注销&lt;/a&gt; 配合使用
+    logout-success-url：退出系统后转向的URL，即注销成功后跳转到的页面。
+    invalidate-session：指定在退出系统时是否要销毁Session。
+    --&gt;
+    &lt;sec:logout invalidate-session=&quot;true&quot; logout-success-url=&quot;/admin/page!login.action&quot; 
+    logout-url=&quot;/admin/logout&quot; /&gt;
+
+    &lt;!-- 
+    max-sessions:允许用户帐号登录的次数。范例限制用户只能登录一次。
+    exception-if-maximum-exceeded: 默认为false，此值表示：用户第二次登录时，前一次的登录信息都被清空。
+    当exception-if-maximum-exceeded=&quot;true&quot;时系统会拒绝第二次登录。
+    --&gt;
+    &lt;sec:concurrent-session-control max-sessions=&quot;1&quot; exception-if-maximum-exceeded=&quot;false&quot; /&gt;
+
+    &lt;!-- 后台登录 --&gt;
+    &lt;!--intercept-url:拦截器,可以设定哪些路径需要哪些权限来访问. filters=none 不使用过滤,也可以理解为忽略--&gt; 
+    &lt;sec:intercept-url pattern=&quot;/admin/page!login.action&quot; filters=&quot;none&quot; /&gt;
+    &lt;!-- 商品管理 --&gt;
+    &lt;!--限制具有ROLE_GOODS权限的用户才能访问
+    （4.0后版本只能用hasRole(&quot;ROLE_GOODS&quot;)--&gt;
+    &lt;sec:intercept-url pattern=&quot;/admin/goods!**&quot; access=&quot;ROLE_GOODS&quot; /&gt;
+    &lt;!-- 基础管理权限 --&gt;
+    &lt;!--拦截/admin下的所有请求--&gt;
+    &lt;sec:intercept-url pattern=&quot;/admin/**&quot; access=&quot;ROLE_BASE&quot; /&gt;
+&lt;/sec:http&gt;
+
+&lt;sec:http auto-config=&quot;true&quot; use-expressions=&quot;true&quot;&gt;
+    &lt;!-- 配置为permitAll允许所有已登录或者未登录用户访问，但依然经过过滤器处理。除此之外所有的页面都需要登录访问 --&gt;
+    &lt;sec:intercept-url pattern=&quot;/&quot;  access=&quot;permitAll&quot; /&gt;
+    &lt;sec:intercept-url pattern=&quot;/index*&quot; access=&quot;permitAll&quot; /&gt;
+    &lt;sec:intercept-url pattern=&quot;/signin*&quot; access=&quot;permitAll&quot; /&gt;
+    &lt;sec:intercept-url pattern=&quot;/login*&quot; access=&quot;permitAll&quot; /&gt;
+    &lt;sec:intercept-url pattern=&quot;/register*&quot; access=&quot;permitAll&quot; /&gt;
+    &lt;sec:intercept-url pattern=&quot;/invalidsession*&quot; access=&quot;permitAll&quot; /&gt;
+    &lt;sec:intercept-url pattern=&quot;/404*&quot; access=&quot;none&quot; /&gt;
+
+    &lt;sec:access-denied-handler error-page=&quot;/403&quot; /&gt;
+
+    &lt;!-- 关闭跨域请求,默认开启，最好关闭 --&gt;
+    &lt;security:csrf disabled=&quot;true&quot;/&gt;
+
+&lt;/sec:http&gt;
+
+&lt;!--角色继承--&gt;
+&lt;bean id=&quot;roleHierarchy&quot;
+      class=&quot;org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl&quot;&gt;
+    &lt;property name=&quot;hierarchy&quot;&gt;&lt;!-- 角色继承关系 --&gt;
+        &lt;value&gt;
+            ROLE_ADMIN &gt; ROLE_USER //ADMIN继承USER的所有权限，后者能访问的资源它也可以
+            ROLE_A &gt; ROLE_B
+            ROLE_B &gt; ROLE_C
+            ROLE_C &gt; ROLE_D
+        &lt;/value&gt;
+     &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre></li>
+<li><p>http元素将创建一个FilterChainProxy以及链中的所有过滤器的bean，同时会将FilterChainProxy的bean托管给配置在web.xml中的DelegatingFilterProxy。</p>
+<h4 id="登录验证"><a href="#登录验证" class="headerlink" title="登录验证"></a>登录验证</h4></li>
+<li><p>auto-config=”true”自动加载的同时生成默认登录页面，相当于如下配置：</p>
+<pre><code>&lt;http&gt;
+    &lt;form-login/&gt;
+　  &lt;!--HTTP 基本认证 --&gt;
+    &lt;http-basic/&gt;
+　　&lt;!-- 可以通过logout-url属性设置用户退出的url--&gt;
+    &lt;logout /&gt;
+    &lt;intercept pattern=&quot;/**&quot; access=&quot;ROLE_DEMO&quot; /&gt;
+&lt;/http&gt;
+</code></pre></li>
+<li>登录请求提交地址还是登录页面的地址，但是过滤器（不管是否自定义）会把参数获取过去验证。</li>
+<li><p>一个简单的例子</p>
+<pre><code>&lt;!--过滤器,拦截/admin下的所有请求，限制具有admin权限的用户才能访问--&gt;
+&lt;sec:http auto-config=&quot;true&quot;&gt;
+&lt;!--true则自动生成一个登陆页面，url:localhost:8080/project/login--&gt;
+    &lt;sec:intercept-url pattern=&quot;/**&quot; access=&quot;authenticated&quot; /&gt; &lt;!--访问任何页面都跳转登录界面--&gt;
+&lt;/sec:http&gt;
+
+&lt;!-- 安全认证管理，先写个简单的后面再改--&gt;
+&lt;sec:authentication-manager&gt;
+    &lt;sec:authentication-provider&gt;
+        &lt;sec:user-service&gt;
+            &lt;!--设置用户库中的用户；用此用户登录才能成功--&gt;
+            &lt;sec:user name=&quot;admin&quot; password=&quot;123456&quot; authorities=&quot;ROLE_USER&quot;/&gt;
+        &lt;/sec:user-service&gt;
+    &lt;/sec:authentication-provider&gt;
+&lt;/sec:authentication-manager&gt;
+</code></pre></li>
+<li>登录页面        </li>
+</ul>
+<p><img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&amp;url=http%3A%2F%2Fimg03.sogoucdn.com%2Fapp%2Fa%2F100520146%2F9c7114a614b7fcbcbfeceed38f0f1c29" alt=""></p>
+<ul>
+<li>登录失败转回登录页面</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2Fd3ebe10344df2c7631b35988cb11d796" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>登录成功则进入原本要访问的页面或默认主页</li>
+<li><p>虽然设置auto-config=”true”可以自动生成登录页面，但是一般都是使用自定义的登录页面</p>
+<pre><code>&lt;http auto-config=&quot;true&quot;&gt;
+    &lt;!-- 设置登录页配置 login-page指定了登录界面的视图，authentication-failure-url则设置失败后的重定向到相同的登录页面--&gt;
+    &lt;from-login login-processing-url=&quot;/static/j_spring_security_check&quot;
+        login-page=&quot;/login&quot; 
+        authentication-failure-url=&quot;/login?login_error=t&quot;
+        username-parameter=&quot;sescs_username&quot;
+        password-parameter=&quot;sescs_password&quot;&gt;
+&lt;/http&gt;
+</code></pre></li>
+<li>在自定义的登录页面中将表单提交地址定为“/static/j_spring_security_check”（3.x默认路径，而4.x则是/login），未定义username和password参数名的话将用户名和密码输入框的name分别设置为j_username和j_password。（4.x已定义为username、password）</li>
+<li>自定义时应设表单提交路径与登录页面路径不同，应为相同的话万一前面配置了不拦截对登录页面的请求，那就相当于也不拦截白哦单提交请求了，那还怎么获取表单来验证。</li>
+<li><p>实现记住密码功能</p>
+<pre><code>&lt;!--key设置cookie的秘钥的值，默认是SpringSecured。后一个属性指定有效期  --&gt;
+&lt;remember-me key=&quot;spitterKey&quot; token-validity-seconds=&quot;2419200&quot;/&gt;
+</code></pre></li>
+<li><p>则前端页面相应要有记住密码勾选框</p>
+<pre><code>&lt;input  name=&quot;_spring_security_rember_me&quot; type=&quot;checkbox&quot;/&gt;
+</code></pre></li>
+<li><p>强制使用https:保证每次对指定url请求都会自动重定向为https请求，不管用户访问时是否加入https</p>
+<pre><code>&lt;intercept pattern=&quot;/admin/**&quot; access=&quot;ROLE_DEMO&quot; requires-channel=&quot;https&quot; /&gt;
+</code></pre></li>
+<li><p><a href="https://blog.csdn.net/yin380697242/article/details/51893397" target="_blank" rel="noopener">form-login属性详解</a></p>
+<h4 id="使用SpEL"><a href="#使用SpEL" class="headerlink" title="使用SpEL"></a>使用SpEL</h4><pre><code>&lt;!--use-expressions=&quot;true&quot;:声明使用表达式--&gt;
+&lt;http auto-config=&quot;true&quot; use-expressions=&quot;true&quot;&gt; 
+    &lt;!--需要ROLE_ADMIN权限才能访问--&gt;
+    &lt;intercept-url pattern=&quot;/admin/**&quot; access=&quot;hasRole(&apos;ROLE_ADMIN&apos;)&quot;&gt;
+    &lt;intercept-url pattern=&quot;/**&quot; access=&quot;hasAnyRole(&apos;ROLE_ADMIN&apos;,&apos;ROLE_USER&apos;)&quot; /&gt;
+&lt;/http&gt;
+</code></pre></li>
+<li>所支持的SpEL如下</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg04.sogoucdn.com%2Fapp%2Fa%2F100520146%2F5F931FE7A81FE303ED33D00151629EE0" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>补充一个authenticated，应该和第一个一样</li>
+<li>isAuthenticated():是否认证过<h4 id="jsp标签"><a href="#jsp标签" class="headerlink" title="jsp标签"></a>jsp标签</h4></li>
+<li><p>Spring Security提供jsp标签库，包含三个标签</p>
+<ul>
+<li><a href="security:accesscontrollist" target="_blank" rel="noopener">security:accesscontrollist</a> :如果认证用户具有权限列表中的某一个权限，那么这个标签范围的内容将显示</li>
+<li><a href="security:authentication" target="_blank" rel="noopener">security:authentication</a>: 访问当前用户认证对象的属性。一般用户显示当前用户的用户名之类的。具有的用户认证信息有:<ul>
+<li>authorities:一组用于用户所授予的GrantedAuthority对象</li>
+<li>credentials：核实用户的凭据</li>
+<li>detail:认证的附加信息(IP地址，会话ID等)</li>
+<li>principal:用户的主要信息对象 </li>
+</ul>
+</li>
+<li><p><a href="security:authorize" target="_blank" rel="noopener">security:authorize</a>: 如果当前用户满足特定权限，则显示标签范围的内容</p>
+<pre><code>&lt;!-- 显示用户信息, 并将信息复制给var变量，该变量的使用范围为scope的范围--&gt;
+ Hello &lt;security:authentication property=&quot;principal.usrname&quot; var=&quot;loginId&quot; scope=&quot;request&quot;&gt;
+ &lt;security:authorize access=&quot;hasRole(&apos;ROLE_ADMIN&apos;)&quot;&gt;
+    如果当前用户有ROLE_ADMIN权限，则显示这部分内容
+&lt;/security:authorize&gt;
+
+&lt;!--或者--&gt;
+&lt;security:authorize url=&quot;/admin/**&quot;&gt;
+    如果当前用户有/admin/**对应的权限，则显示这部分内容
+&lt;/security:authorize&gt;
+</code></pre><h4 id="认证用户"><a href="#认证用户" class="headerlink" title="认证用户"></a>认证用户</h4></li>
+</ul>
+</li>
+<li><p>前面提到很多用户权限的问题，那么如何获取用户的权限呢？最常用的方式是查询数据库中相应用户的权限，前面登录验证的例子使用了内存用户存储库，参考文章也介绍了内存用户存储库的配置。</p>
+<pre><code>&lt;jdbc-user-service id=&quot;userService&quot; data-source-ref=&quot;dataSource&quot;
+users-by-username=&quot;select username,password,true from user where username=?&quot;
+authories-by-username-query=&quot;select username,role from user_role where username=?&quot; /&gt;  
+&lt;authentication-manager&gt;
+    &lt;!--ref:直接注入bean；user-service-ref:先将bean注入一个叫DaoAuthenticationProvider的bean
+    的变量userDetailsService中，再将DaoAuthenticationProvider注authentication-provider入--&gt;
+    &lt;authentication-provider user-service-ref=&quot;userService&quot;/&gt;
+&lt;/authentication-manager&gt;
+
+&lt;!--或者--&gt;
+&lt;authentication-manager erase-credentials=&quot;false&quot;&gt;
+    &lt;authentication-provider&gt;
+        &lt;!--如果想用传统的md5或sha的话
+        &lt;password-encoder hash=&quot;sha&quot; /&gt;
+        --&gt;
+        &lt;password-encoder ref=&quot;bcryptEncoder&quot; /&gt;
+        &lt;jdbc-user-service data-source-ref=&quot;dataSource&quot;
+              users-by-username-query=&quot;select username,password from user where username=?&quot;
+              authorities-by-username-query=&quot;select username,role from user_role where username=?&quot;/&gt;
+    &lt;/authentication-provider&gt;
+&lt;/authentication-manager&gt;
+&lt;!-- 配置加密的算法，表明在登录或密码需要加密验证；
+生成的密文有60位，且每次都不同，所以数据库密码字段至少60位 --&gt;
+&lt;beans:bean name=&quot;bcryptEncoder&quot;
+    class=&quot;org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder&quot; /&gt;
+</code></pre></li>
+<li>不写sql语句的话，Spring Security会自动生成sql语句从数据库中查找用户和权限，但一般情况下提供的查询语句并不能和我们的数据库对上，所以我们需要自己写，主要包括以下属性：<ul>
+<li>users-by-username-query：根据用户名查询用户名，密码以及是否可用状态</li>
+<li>authorities-by-username-query:根据用户名查询用户被用户名和授权的权限。</li>
+<li>group-authorities-by-username-query:根据用户名查询用户组的权限<h4 id="保护方法"><a href="#保护方法" class="headerlink" title="保护方法"></a>保护方法</h4></li>
+</ul>
+</li>
+<li><p>提供方法级别的保护，基于Spring AOP.首先需要applicationContext.xml中加入以下配置</p>
+<pre><code>&lt;!--使spring Security保护那些带相关注解的方法--&gt;
+&lt;global-method-security secured-annotations=&quot;enabled&quot; /&gt;
+</code></pre></li>
+<li><p>支持4种方法级别安全性的保护方式：</p>
+<ul>
+<li>使用@Secured注解方法，这是spring自带的注解方法。@Secured（””）内部的字符串不具有SpEL特性，只能是具体的权限。</li>
+<li>使用@JSR-250 @RelosAllowed注解的方法。作用和使用方法与@Secured一样，不同在于它不是spring框架的，所以可以做到和spring框架的解耦。</li>
+<li>使用Spring 方法调用前和调用后注解方法。这些方法支持SpEL.</li>
+<li><p>匹配一个或多个明确声明的切点方法。</p>
+<pre><code>@Secured(&quot;ROLE_ADMIN&quot;)
+public void addUser(User user){
+    ...  
+}
+@RolesAllowed(&quot;ROLE_ADMIN&quot;)
+public void updateUser(User user){
+    ...  
+}
+
+//匹配一个或多个明确声明的切点方法
+&lt;global-method-security secured-annotations=&quot;enabled&quot; &gt;
+    &lt;protect-pointcut access=&quot;ROLE_ADMIN&quot; expression=&quot;execution(@com.securitytest.service.UserService**.*(String)&quot;
+&lt;/global-method-security&gt;
+</code></pre></li>
+</ul>
+</li>
+<li><p>处理方法调用前和调用后的Spring注解（可以使用SpEL）</p>
+<ul>
+<li>@PreAuthorize： 在方法调用前，基于表达式计算结果来限制方法访问</li>
+<li>@PostAuthorize: 允许方法调用，但是如果表达式结果为fasle则抛出异常</li>
+<li>@PostFilter :允许方法调用，但必须按表达式过滤方法结果。</li>
+<li><p>@PreFilter:允许方法调用，但必须在进入方法前过滤输入值</p>
+<pre><code>@PreAuthorize(&quot;hasRole(&apos;ROLE_ADMIN&apos;)&quot;)
+public void addUser(User user){
+   //如果具有权限 ROLE_ADMIN 访问该方法
+    ....
+}
+
+//returnObject可以获取返回对象user，判断user属性username是否和访问该方法的用户对象的用户名一样。不一样则抛出异常。
+@PostAuthorize(&quot;returnObject.user.username==principal.username&quot;)
+public User getUser(int userId){
+   //允许进入
+...
+    return user;    
+}
+
+//将结果过滤，即选出性别为男的用户
+@PostFilter(&quot;returnObject.user.sex==&apos;男&apos; &quot;)
+public List&lt;User&gt; getUserList(){
+   //允许进入
+...
+    return user;    
+}
+</code></pre><h4 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h4></li>
+</ul>
+</li>
+<li><a href="https://www.cnblogs.com/jaylon/p/4905769.html" target="_blank" rel="noopener">Spring Security入门</a></li>
+<li><a href="https://blog.csdn.net/xiaosongwahaha/article/details/78947590" target="_blank" rel="noopener">SpringMvc整合Spring Security</a></li>
+<li><a href="https://blog.csdn.net/weixin_40247263/article/details/80793208" target="_blank" rel="noopener">web.xml是最好的</a></li>
+<li><a href="https://blog.csdn.net/xiaosongwahaha/article/details/78947590" target="_blank" rel="noopener">SpringMVC+Spring Security实现登录认证的简单功能</a><h4 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h4></li>
+<li>D:/ideaprojects/thz/thz-parent/thz-manager-web<h3 id="Java-Configuration方式参见笔记：Spring-Security之Java-Configuration方式"><a href="#Java-Configuration方式参见笔记：Spring-Security之Java-Configuration方式" class="headerlink" title="Java Configuration方式参见笔记：Spring Security之Java Configuration方式"></a>Java Configuration方式参见笔记：Spring Security之Java Configuration方式</h3></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-02-28T01:29:43.592Z" itemprop="dateUpdated">2019-02-28 09:29:43</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Spring Security/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Spring Security/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Spring Security/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Spring Security/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Spring Security/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Spring Security/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Spring Security/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Spring Security全局方法安全注解/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Spring Cache一之CacheManager的创建/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Spring Security/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Spring Security/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Spring Security/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Spring Security/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Spring Security/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNUlEQVR42u3a207sMAwFUP7/pwfpPB0JGrbtFjHJ6tNogCYrSFZ8+fiIn9e/5//PX7+5+qur3/z60/XbbngwMDDelvFaPvmG1u9MDmW97vqdGBgYJzDmQTb/JoHle8PAwMBItvhDKCz+PgYGBsZdjCSLrIbUanqMgYFxGiNJJpNSWrW4tj6CR3JxDAyMN2T0GgO/8/nx/gYGBsafZ7yKT15cm4TF8q4wMDC2ZiTXsl7wTbaYl+qS1gIGBsaujPnC+UH0NhqFewwMjK0Z1ZDXK35Vi27Vo8HAwNibsS73J8X6pLk4Ga0odDYwMDA2ZSQjF3lxrdfaXB9N9VAwMDD2ZlQvZ73hieeOBgMDY1dGVMYqLp9f7OapLwYGxgmMPMmcjGU8twoGBsY5jHtbjJNWQZ7ERo1MDAyMLRjVQlhvyerVsBrEMTAwTmBUk8Z8c+VEtBjQMTAwzmEkC+cvzZPV6tjZ5fsxMDC2ZqwXSDYx6pfGzctC6wIDA+MARr5AlVq9evaGxjAwMPZj5AGxNxBWHZ7ovQcDA+McxvxylgTZ/C6XHB8GBsYJjDyx7DUmexfH3q4wMDB2ZfRK8D80FAfXwTy8XvY3MDAwtmNMgm+vrFZITeNRDAwMjBMY1aGK/JqYD1jk5335H8DAwDiAUR2AuHdbN+TiGBgYGMWifLXZ2bsyfnM1xMDAwChe1/KEttqYxMDAOJMxSWKbPdJWIe/BchsGBsYfZswHLybf50nvCICBgfGujE+BEa1jF2NIpAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

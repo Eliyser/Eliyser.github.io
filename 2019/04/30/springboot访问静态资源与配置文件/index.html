@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="参考文章默认                                                                                                            上面这几个都是静态资源的映射路径，优先级顺序为：META-INF/resources &amp;gt;resources/resources &amp;gt; static &amp;gt; pu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/springboot访问静态资源与配置文件/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="参考文章默认                                                                                                            上面这几个都是静态资源的映射路径，优先级顺序为：META-INF/resources &amp;gt;resources/resources &amp;gt; static &amp;gt; pu">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/sprngboot6-1.jpg">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2FBAE17067221FB794F9B1CB1E1E9A4141">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2FAEB839CEB2848499CC325C336B648DCA">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180719154745.png">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180719162944.png">
+<meta property="og:updated_time" content="2019-03-13T04:08:22.252Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="参考文章默认                                                                                                            上面这几个都是静态资源的映射路径，优先级顺序为：META-INF/resources &amp;gt;resources/resources &amp;gt; static &amp;gt; pu">
+<meta name="twitter:image" content="http://p9vzt8d00.bkt.clouddn.com/sprngboot6-1.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.820Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考文章"><span class="post-toc-number">1.</span> <span class="post-toc-text">参考文章</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#默认"><span class="post-toc-number">2.</span> <span class="post-toc-text">默认</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开发存放目录"><span class="post-toc-number">3.</span> <span class="post-toc-text">开发存放目录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义"><span class="post-toc-number">4.</span> <span class="post-toc-text">自定义</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#指定方式访问静态资源"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">指定方式访问静态资源</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#指定方式访问页面"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">指定方式访问页面</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#拦截器"><span class="post-toc-number">5.</span> <span class="post-toc-text">拦截器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置文件"><span class="post-toc-number">6.</span> <span class="post-toc-text">配置文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#存放目录"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">存放目录</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#读取顺序"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">读取顺序</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-springboot访问静态资源与配置文件"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.820Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a><a href="http://tengj.top/2017/03/30/springboot6/" target="_blank" rel="noopener">参考文章</a></h3><h3 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/sprngboot6-1.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>上面这几个都是静态资源的映射路径，优先级顺序为：META-INF/resources &gt;resources/resources &gt; static &gt; public,在这四个目录中都写一个index.html,访问localhost：8080，会访问到META-INF/resource下的index.html，而如果该目录为空则会访问resource下的index.html，像这样依次去寻找资源来展示。<h3 id="开发存放目录"><a href="#开发存放目录" class="headerlink" title="开发存放目录"></a>开发存放目录</h3></li>
+<li>一般来说，开发时会把不需要权限就可以访问的页面直接放在static下面，比如index.html等，还有css、js、images文件夹都会建在static下面。而需要权限限制的页面放在resources/templates下面，这个位置相当于WEB-INF，这些文件一般需要通过controller来进行跳转。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2FBAE17067221FB794F9B1CB1E1E9A4141" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>如果一定要把默认主页这种可以直接访问的页面都放在templates下的话，那可以配置个controller保证访问得到它（一般我们会顺便获取一些信息，比如文件列表或者评委名单之类，带回到页面显示）：</p>
+<pre><code>@Controller
+@RequestMapping
+public class IndexController {
+
+    @RequestMapping(&quot;/index.html&quot;)
+    public ModelAndView index(){
+        ModelAndView modelAndView = new ModelAndView(&quot;index&quot;);
+        ……
+        return modelAndView;
+    }
+}
+</code></pre></li>
+<li><p>当然我们可以通过下面这种方法改变这种默认的配置</p>
+<pre><code># 默认值为 /**
+spring.mvc.static-path-pattern=
+# 默认值为 classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+spring.resources.static-locations=这里设置要指向的路径，多个使用英文逗号隔开
+</code></pre></li>
+<li>或者还可以写个class继承自WebMvcConfigurerAdapter来指定方式访问页面，参见下面指定方式访问静态资源<h3 id="自定义"><a href="#自定义" class="headerlink" title="自定义"></a>自定义</h3></li>
+<li>上面主要是修改类似默认主页这样的静态资源的访问方式，如果现在我们在项目中放了一张图片，这不是springboot能管理得了的，那么我们应该如何访问它呢？<h4 id="指定方式访问静态资源"><a href="#指定方式访问静态资源" class="headerlink" title="指定方式访问静态资源"></a>指定方式访问静态资源</h4></li>
+<li><p>这就是自己额外增加配置的情况，我们可以通过自定义资源映射来定义访问的方式，具体方法则是重写一个叫做addResourceHandlers方法。</p>
+<pre><code>@Configuration
+public class MyWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
+    /**
+    * 配置静态访问资源
+    * @param registry
+    */
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler(&quot;/my/**&quot;).addResourceLocations(&quot;classpath:/my/&quot;);
+        super.addResourceHandlers(registry);
+    }
+}
+</code></pre></li>
+<li>通过addResourceHandler添加映射路径，然后通过addResourceLocations来指定路径。我们访问resources下自定义my文件夹中的elephant.jpg 图片的地址为 <a href="http://localhost:8080/my/elephant.jpg" target="_blank" rel="noopener">http://localhost:8080/my/elephant.jpg</a></li>
+<li><p>如果你想指定外部的目录也很简单，直接addResourceLocations指定即可，代码如下：</p>
+<pre><code>@Override
+public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    registry.addResourceHandler(&quot;/my/**&quot;).addResourceLocations(&quot;file:E:/my/&quot;);
+    super.addResourceHandlers(registry);
+}
+</code></pre><h4 id="指定方式访问页面"><a href="#指定方式访问页面" class="headerlink" title="指定方式访问页面"></a>指定方式访问页面</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2FAEB839CEB2848499CC325C336B648DCA" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+</ul>
+<p>在thymeleaf的默认路径resources/templates下找login页面</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180719154745.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>一般会报下面这种错误可能是系统找到了模板页，但却不是请求的模板页，或者是th标签使用错误，比如忘记引入命名空间之类。<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180719162944.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h3></li>
+<li>实现步骤：</li>
+</ul>
+<ol>
+<li>实现HandlerInterceptor接口</li>
+<li>重写WebMvcConfigyurerAdapter的addInterceptors方法，将自定义的拦截器类添加进来</li>
+</ol>
+<ul>
+<li>代码实例：SpringMvc02/interceptor/MyInterceptor、domain/MyWebMvcConfigurerAdapter、template/login.html、controller/LearnResourceController(功能：登录后访问学习资料页面，未登录直接访问学习资料页面则会直接跳转登录页面；这里有个小bug好像登录不上去，但拦截的功能是实现了的)<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><h4 id="存放目录"><a href="#存放目录" class="headerlink" title="存放目录"></a>存放目录</h4></li>
+<li>项目根目录下</li>
+<li>项目根目录中config目录下</li>
+<li>项目的resources目录下</li>
+<li>项目resources目录中config目录下<h4 id="读取顺序"><a href="#读取顺序" class="headerlink" title="读取顺序"></a>读取顺序</h4></li>
+</ul>
+<ol>
+<li>config/application.properties（项目根目录中config目录下）</li>
+<li>config/application.yml</li>
+<li>application.properties（项目根目录下）</li>
+<li>application.yml</li>
+<li>resources/config/application.properties（项目resources目录中config目录下）</li>
+<li>resources/config/application.yml</li>
+<li>resources/application.properties（项目的resources目录下）</li>
+<li>resources/application.yml</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-13T04:08:22.252Z" itemprop="dateUpdated">2019-03-13 12:08:22</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/springboot访问静态资源与配置文件/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/springboot访问静态资源与配置文件/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/springboot访问静态资源与配置文件/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/springboot访问静态资源与配置文件/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/springboot访问静态资源与配置文件/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/springboot访问静态资源与配置文件/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/springboot访问静态资源与配置文件/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/springboot配置devtools实现热部署/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/springboot/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/springboot访问静态资源与配置文件/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/springboot访问静态资源与配置文件/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/springboot访问静态资源与配置文件/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/springboot访问静态资源与配置文件/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/springboot访问静态资源与配置文件/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtUlEQVR42u3aQY7jMAwEwPz/09nrAgM73RKV8QDlUxAktksHiWjy9Yqv93/Xz+9/fl771/viurr/2IWHh4e38er3t74HXP33HrxDjZ6Lh4eHd4x39Sr554Sd7975+3yw4OHh4T2Yl5TOyTf53fDw8PD+Oi8PIJL04P7AwMPDw3sCL49Q78vfPM7II9ovZS14eHh4Xb5ab9a/+/lIfw8PDw9vu6ueHABrnfq2NF+78PDw8E7w8g23jQPaMYI2Ai6Gw/Dw8PAO89ZGr9oAd6f1Vf8eDw8Pb5RXtJHizXpt3CqHFU01PDw8vMO8vL00Oz6VlNeLYDw8PLwDvHyDXhuKWlu+9pCIGmN4eHh4Q7y2LF47JPJFOdjfw8PDwzvQW58ti3faXTsHCR4eHt5v8fKWWNvmb0OH/DeXv8fDw8Mb5bVxQLuJ54FFXnDnz8LDw8M7wdsZmVqjtuMFY4EvHh4e3igviRXybfoVXO1SJo20YrIMDw8Pb5u3U/i2jKRMbwOR6K3w8PDwRnlrQW270SeHTRsfR0cOHh4e3igv/0NCbccOpg6Jy+/x8PDwTvWbFkea8jg1X4L2GIiOLjw8PLyv8PJyOW9utQFHMRaQDw3g4eHhDfHyyHW/QbW29bcHEh4eHt5p3s4Lta+YP32q5YaHh4f3HV57MOTFdDvy1QYZRUqBh4eHN8RLXrpdiJ12V3v84OHh4T2Bt18c78SybVRx2QDDw8PDG+K9yysPLNYWqB0v+HAHPDw8vAO8ti6tu2pLrbI8gHhNXXh4eHjl09tR1Hzcqn3uWrz7AY+Hh4d3jJeXtsmu2x4JA2Xx1X/x8PDwHsPLt/57av6sxZACDw8P7wG8tS07v8PaaFexxnh4eHhDvLbp1bas2ni3vc/lwuHh4eEd4O1v63mh3IbFU/EEHh4e3hDvH+R2DQEkD8mSAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

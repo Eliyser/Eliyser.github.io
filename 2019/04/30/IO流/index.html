@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="概念 流：从一端移动到另一端，有源头与目的地。源头即数据源：文件、数组、数据库、网络连接目的地：程序分类 按流向：输入流与输出流 按处理数据：字节类：二进制，可以处理一切文件（纯文  本、doc、音频、视频等）字符流：文本文件，只能处理纯文本(.txt、.htm、.java) 按功能分类：1. 节点流（最接近源头的；以下都是四个（不包括括号的话）都是抽象类，不可以new对象）：包裹源头 字节流的节">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/IO流/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="概念 流：从一端移动到另一端，有源头与目的地。源头即数据源：文件、数组、数据库、网络连接目的地：程序分类 按流向：输入流与输出流 按处理数据：字节类：二进制，可以处理一切文件（纯文  本、doc、音频、视频等）字符流：文本文件，只能处理纯文本(.txt、.htm、.java) 按功能分类：1. 节点流（最接近源头的；以下都是四个（不包括括号的话）都是抽象类，不可以new对象）：包裹源头 字节流的节">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/1002211-20161117161912607-283464176.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/1002211-20161117164436263-2121589071.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/1002211-20161117163958951-1709933653.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/1002211-20161117165117279-1217873195.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7281.PNG">
+<meta property="og:updated_time" content="2019-04-02T08:43:08.913Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="概念 流：从一端移动到另一端，有源头与目的地。源头即数据源：文件、数组、数据库、网络连接目的地：程序分类 按流向：输入流与输出流 按处理数据：字节类：二进制，可以处理一切文件（纯文  本、doc、音频、视频等）字符流：文本文件，只能处理纯文本(.txt、.htm、.java) 按功能分类：1. 节点流（最接近源头的；以下都是四个（不包括括号的话）都是抽象类，不可以new对象）：包裹源头 字节流的节">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/1002211-20161117161912607-283464176.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.050Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#概念"><span class="post-toc-number">1.</span> <span class="post-toc-text">概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分类"><span class="post-toc-number">2.</span> <span class="post-toc-text">分类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#读字节文件的基本操作流程"><span class="post-toc-number">3.</span> <span class="post-toc-text">读字节文件的基本操作流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#写字节文件的基本操作流程"><span class="post-toc-number">4.</span> <span class="post-toc-text">写字节文件的基本操作流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#拷贝文件（读-写）"><span class="post-toc-number">5.</span> <span class="post-toc-text">拷贝文件（读+写）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#读字符文件的基本操作流程"><span class="post-toc-number">6.</span> <span class="post-toc-text">读字符文件的基本操作流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#写字符文件的基本操作流程"><span class="post-toc-number">7.</span> <span class="post-toc-text">写字符文件的基本操作流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他流"><span class="post-toc-number">8.</span> <span class="post-toc-text">其他流</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#IOException"><span class="post-toc-number">9.</span> <span class="post-toc-text">IOException</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-IO流"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.050Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li>流：从一端移动到另一端，有源头与目的地。<br><br>源头即数据源：文件、数组、数据库、网络连接<br><br>目的地：程序<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3></li>
+<li>按流向：输入流与输出流</li>
+<li>按处理数据：<br><br>字节类：二进制，可以处理一切文件（纯文  本、doc、音频、视频等）<br><br>字符流：文本文件，只能处理纯文本(.txt、.htm、.java)</li>
+<li>按功能分类：<br><br>1. 节点流（最接近源头的；以下都是四个（不包括括号的话）都是抽象类，不可以new对象）：包裹源头<ul>
+<li>字节流的节点流:(File)InputStream、(File)OutputStream<ul>
+<li>InputStream类是所有字节输入流的父类</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/1002211-20161117161912607-283464176.png" alt=""></p>
+<pre><code>- OutputStream类是所有字节输出流的父类
+</code></pre><p><img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/1002211-20161117164436263-2121589071.png" alt=""></p>
+<ul>
+<li>字符流的节点流：(File)Reader、(File)Writer<ul>
+<li>Reader类是所有字节输出流的父类</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/1002211-20161117163958951-1709933653.png" alt=""></p>
+<pre><code>- Writer类是所有字节输出流的父类
+</code></pre><p><img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/1002211-20161117165117279-1217873195.png" alt=""></p>
+<p><br>2. 处理流（提高性能）：</p>
+<ul>
+<li>（1）缓冲流（带缓冲区的输入输出流，减少访问磁盘次数，速度更快），是io处理大文件一般要用到的：<ul>
+<li>字节缓冲流：BufferedInputStream、BufferedOutputStream；</li>
+<li>字符缓冲流：BufferedReader、BufferedWriter</li>
+<li>缓冲思想<ul>
+<li>字节流一次读写一个数组的速度明显比一次读写一个字节的速度快很多。这是加入了数组这样的缓冲区效果。java本身在设计的时候，也考虑到了这样的设计思想，所以提供了字节缓冲区流</li>
+</ul>
+</li>
+<li>比如BufferedInputStream<ul>
+<li>BufferedInputStream内置了一个缓冲区(数组)，BufferedInputStream会一次性从文件中读取8192个, 存在缓冲区中, 并返回给程序。程序再次读取时, 就不用找文件了, 直接从缓冲区中获取。直到缓冲区中所有的都被使用过, 才重新从文件中读取8192个。</li>
+</ul>
+</li>
+<li>比如BufferedOutputStream<ul>
+<li>BufferedOutputStream也内置了一个缓冲区(数组)，程序向流中写出字节时, 不会直接写到文件, 先写到缓冲区中。直到缓冲区写满, BufferedOutputStream才会把缓冲区中的数据一次性写到文件里</li>
+</ul>
+</li>
+<li>用缓冲流拷贝文件</li>
+</ul>
+</li>
+</ul>
+<pre><code>public class FileTest {
+
+    public static void main(String[] args) throws Exception{
+        FileInputStream fis = new FileInputStream(&quot;aaa.txt&quot;);
+        FileOutputStream fos = new FileOutputStream(&quot;bbb.txt&quot;);
+
+        BufferedInputStream bis=new BufferedInputStream(fis);
+        //使用装饰模式，把fis装饰进去bis中。使用缓冲读取速度变快
+        BufferedOutputStream bos=new BufferedOutputStream(fos);
+
+        int b;
+        //如果自定义了缓冲数组并传入的话就会用自定义的
+        while((b=bis.read())!=-1){ //数目随机地读到内置缓冲数组中，即使是很小的文本也要跑十几遍循环，一次几十~100个字节地读
+         bos.write(b);
+        }
+        bis.close();
+        bos.close();
+    }
+}
+</code></pre><ul>
+<li>（2）转换流：字节流转为字符流（处理乱码 编码集与解码集之间的关系）（要知道字节流的编码集才能解回来）<h3 id="读字节文件的基本操作流程"><a href="#读字节文件的基本操作流程" class="headerlink" title="读字节文件的基本操作流程"></a>读字节文件的基本操作流程</h3></li>
+</ul>
+<ol>
+<li>建立联系（封装File对象）</li>
+<li>选择流</li>
+<li>操作：用缓冲数组多次读取  -&gt; byte[] car = new byte<a href="一次少一点也没事，顶多多读几次">10</a>+read+循环读取</li>
+<li><p>关闭资源</p>
+<pre><code>public static void main(String[] args) {
+    //1.建立联系
+    File src = new File(&quot;e:/xp/test/a.txt&quot;); //读取纯文本，应该会出现乱码，因为是用字节流来读取的，无妨，真实操作下文件应该是从源文件到目标文件的，像这样中途打印出来的不是主要目标
+    //2.选择流
+    InputStream is = null;
+    //3.操作
+    byte[] car = new byte[10]; //定长一点中文乱码概率小一点
+    int len = 0;//实际读取长度（最后一次可能不到10个）
+    try {
+        is = new BufferedInputStream(new FileInputStream(src));
+        //循环读取
+        while(-1 != (len = is.read(car))) { //read(byte[] car)方法，将文件分批读入字节数组，返回实际读取个数，最后一次读取后，再读取一次并返回-1;除了最后一次，每次都是准确10个字节
+            //字节数组转字符串
+            String info = new String(car,0,len); //从car数组第0个开始读取并转换len长度个字节
+            System.out.print(info); //要想恢复文件原样就不要用println
+        }
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+        System.out.println(&quot;文件不存在&quot;);
+    } catch (IOException e) {
+        e.printStackTrace();
+        System.out.println(&quot;读取文件失败&quot;);
+    }finally {
+        //4.释放资源
+        if(null != is) { //占了资源才需要释放
+            try {
+            is.close(); //close()实际就是释放is的内存资源，相当于断开引用
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println(&quot;释放资源失败&quot;);
+            }
+        }
+    }
+}
+</code></pre><h3 id="写字节文件的基本操作流程"><a href="#写字节文件的基本操作流程" class="headerlink" title="写字节文件的基本操作流程"></a>写字节文件的基本操作流程</h3></li>
+<li>建立联系：将目的地封装成File对象</li>
+<li>选择流： OutputStream-&gt;FileOutputStream</li>
+<li>操作：write()(方法而非Write字符输出流)+flush</li>
+<li><p>关闭资源</p>
+<pre><code>public static void main(String[] args) {
+    //1.建立联系
+    File dest = new File(&quot;e:/xp/test/a.txt&quot;);
+    OutputStream os = null;
+    try {
+        //2.选择流（追加一层缓冲流提高性能）
+        os = new BufferedOutputStream(new FileOutputStream(dest,true)); //true表示目标文件已有内容时追加，默认为false覆盖
+        //3.写出
+        String car = &quot;DuDu i love you!\r\n&quot;;//写出内容
+        byte[] car2 = car.getBytes();//转为字节数组才能写入文件
+        os.write(car2, 0, car2.length); //从0位写出car2.length位出去
+        os.flush();//强制刷出，否则最后一次不满可能会残留在流中
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+        System.out.println(&quot;文件不存在&quot;);
+    } catch (IOException e) {
+        e.printStackTrace();
+        System.out.println(&quot;写入文件失败&quot;)
+    }finally {
+        //4.释放引用的内存
+        if(null != os) {
+            try {
+                os.close(); //实际上执行close方法也会先flush刷出
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println(&quot;关闭资源失败&quot;)
+            }
+        }
+    }
+
+}
+</code></pre><h3 id="拷贝文件（读-写）"><a href="#拷贝文件（读-写）" class="headerlink" title="拷贝文件（读+写）"></a>拷贝文件（读+写）</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7281.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<pre><code>public static void main(String[] args) throws Exception{
+    //1,建立联系
+    File src=new File(&quot;E:/xp/test/1.jpg&quot;);
+    File dest=new File(&quot;E:/xp/test/100.jpg&quot;);
+    //2.选择流
+    InputStream is=new FileInputStream(src);
+    OutputStream os=new FileOutputStream(dest);
+    //3.文件拷贝（循环读取+写出）
+    byte[] flush=new byte[1024];
+    int len=0;
+    while(-1!=(len=is.read(flush))) { //读取
+        os.write(flush, 0, len); //写出
+    }
+    os.flush();
+    //4.关闭资源(先开的后关）
+    os.close();
+    is.close();
+}
+</code></pre><h3 id="读字符文件的基本操作流程"><a href="#读字符文件的基本操作流程" class="headerlink" title="读字符文件的基本操作流程"></a>读字符文件的基本操作流程</h3></li>
+<li>建立联系（封装File对象）</li>
+<li>选择流</li>
+<li>操作：用缓冲数组多次读取  -&gt; char[] flush = new char[20]+read+循环读取</li>
+<li><p>关闭资源</p>
+<pre><code>public static void main(String[] args) {
+    //1.建立联系
+    File src = new File(&quot;e:/xp/test/test.txt&quot;);
+    //2.选择流
+    Reader reader = null;
+    char[] flush = new char[20];
+    int len = 0;
+    try {
+        reader = new FileReader(src);
+        //3.操作
+        while(-1!=(len=reader.read(flush))) { //这一步报编码错误可能是文本不是用notepad写的
+            /* 可以这样打印 （不过println自己会断行，再加上原文也有换行符，所以断行可能会乱）*/
+            //String flush1 = new String(flush,0,len); //字符数组转字符串
+            //System.out.println(flush1);
+
+            /* 也可以这样  */
+            for(int i=0;i&lt;len;i++) {
+                System.out.print(flush[i]); //遇到换行符自动换行，断行不会乱
+            }
+        }
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }finally {
+        //4.关闭资源
+        if(null!=reader) {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre><h3 id="写字符文件的基本操作流程"><a href="#写字符文件的基本操作流程" class="headerlink" title="写字符文件的基本操作流程"></a>写字符文件的基本操作流程</h3></li>
+<li>建立联系：将目的地封装成File对象</li>
+<li>选择流： Writer-&gt;FileWriter</li>
+<li>操作：write()/append()+flush</li>
+<li><p>关闭资源</p>
+<pre><code>public static void main(String[] args) {
+    File dest = new File(&quot;e:/xp/test/test1.txt&quot;);
+    Writer wr = null;
+    String car = &quot;PigPig i love you!\r\n&quot;;
+    try {
+        wr = new FileWriter(dest,true);//true则文件已有内容时追加
+        wr.write(car);
+        wr.append(&quot;PigPig love me,too\r\n&quot;);//同write()
+
+        wr.flush();
+    } 
+    catch(FileNotFoundException e) {
+        e.printStackTrace();
+    }catch (IOException e) {
+        e.printStackTrace();
+    }finally {
+        if(null!=wr) {
+            try {
+                wr.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre><h3 id="其他流"><a href="#其他流" class="headerlink" title="其他流"></a>其他流</h3><p>一、 节点流</p>
+</li>
+</ol>
+<ul>
+<li>字节数组节点流：流的来源或目的地不一定是文件，也可以是内存中的一块空间，例如一个字节数组。字节数组节点流就是将数组当作输入来源、输出目的地的类。这种流用于支持内存虚拟文件或内存映像文件创建，对于要创建临时文件的程序以及网络数据的传输、数据压缩后的传输等都可以提高效率，避免访问磁盘。<br><br>输入流（以io流的方式读取字节数组）：ByteArrayInputStream    read(byte[] b,int off,int len)+close<br><br>输出流（以io流的方式写入字节数组）：ByteArrayOutputStream    write(byte[] b,int off,int len)+toByteArray()（新增方法，把文件写入到字节数组里，不能使用多态）<br><br>操作：文件到字节数组（内存）<ol>
+<li>目的地  byte[] dest = null;</li>
+<li>选择流  将文件包装成输入流<pre><code>&lt;br&gt;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;开辟字节数组输出流bos
+</code></pre></li>
+<li>读取  边读到自定义字节数组作为缓冲  new byte[1024]<pre><code>&lt;br&gt;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;边写入字节数组输出流
+</code></pre></li>
+<li>强制刷出</li>
+<li>获取数据  dest = bos.toByteArray()</li>
+<li>释放资源</li>
+</ol>
+</li>
+<li><p>读字节数组</p>
+<pre><code>public void readByteArray() throws IOException {
+    /**
+     * 准备字节数组：把这个想象成是我们要从服务器上读取的内容
+     * 那为什么服务器不直接把这句话传给我们我们直接打印不就好了吗？
+     * 因为直接传字符串涉及到编码问题，所以中间的传输部分还是用字节数组来的准确
+     */
+    String meg=&quot;操作与文件输入流一致&quot;;
+    byte[] src=meg.getBytes();
+    /**
+     * 选择流
+     * ByteArrayInputStream: 把字节数组包装成输入流
+     * BufferedInputStream：再加个缓冲区调优
+     * 这里不会抛异常（FileNotFoundException之类），不是跟外部资源建立联系就不会抛异常
+     */
+    InputStream is=new BufferedInputStream(new ByteArrayInputStream(src));
+    //缓冲数组
+    byte[] flush=new byte[1024];
+    int len=0;
+    while((len=is.read(flush))!=-1){
+        System.out.println(new String(flush,0,len));
+    }
+    //释不释放资源都无所谓了
+}
+</code></pre></li>
+<li><p>写字节数组</p>
+<pre><code>public byte[] writeToByteArray(){
+    //准备字节数组
+    String msg=&quot;操作与文件输出流不一致&quot;;
+    byte[] info=msg.getBytes();
+    //目的地
+    byte[] dest; //不知道多大，先搁着
+    ByteArrayOutputStream bos=new ByteArrayOutputStream(); //不能直接把字节数组dest丢进来；不要使用多态，因为等下要使用新增方法toByteArray()
+    //写入
+    bos.write(info,0,info.length); //只是写到了管道里，没有写到目标字节数组中
+    dest=bos.toByteArray();
+    return dest;
+}
+</code></pre></li>
+<li><p>拷贝文件</p>
+<pre><code>/**
+ * 利用字节数组为桥梁实现文件拷贝（任意文件形式均可）
+ * 1、文件（文件）-&gt;字节数组（其实也是文件）
+ *   文件输入流
+ *   字节数组输出流
+ * 2、字节数组-&gt;文件
+ *   字节数组输入流
+ *   文件输出流
+ * @author 14103
+ */
+public class ByteArrayDemo02 {
+    public static void main(String[] args) throws IOException {
+        byte[] dest = getBytesFromFile(&quot;e:/xp/test/CalendarTest.java&quot;);
+        toFileFromByteArray(dest,&quot;e:/xp/test/test3.java&quot;);
+    }
+
+    /**
+     * 1、文件-&gt;字节数组
+     *   文件输入流
+     *   字节数组输出流
+     * @param srcPath
+     * @return
+     * @throws IOException
+     */
+    public static byte[] getBytesFromFile(String srcPath) throws IOException {
+        //数据源
+        File src = new File(srcPath);
+        //目的地
+        byte[] dest = null;
+        //选择流
+        InputStream is = new BufferedInputStream(new FileInputStream(src));/
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();//ByteArrayOutputStream是没有包装对象的，因为根本就不能通过它直接写入字节数组（内存）
+        //缓冲数组
+        byte[] flush = new byte[1024];
+        int len = 0;
+        while(-1!=(len=is.read(flush))) {
+            //写入通道
+            bos.write(flush,0,len);
+        }
+        bos.flush();
+        //写入字节数组
+        dest = bos.toByteArray();
+        //可以不关，因为操作的是内存，会自动关闭，执行close实际是无效的
+        bos.close();
+        return dest;
+    }
+
+    /**
+     * 2、字节数组（内存）-&gt;文件
+     *   字节数组输入流
+     *   文件输出流
+     * @param src
+     * @throws IOException
+     */
+    public static void toFileFromByteArray(byte[] src,String destPath) throws IOException {
+        //目的地
+        File dest = new File(destPath);
+        //选择流
+        InputStream is = new BufferedInputStream(new ByteArrayInputStream(src)); //把字节数组包装成流
+        OutputStream os = new BufferedOutputStream(new FileOutputStream(dest));
+
+        byte[] flush = new byte[1024];
+        int len = 0;
+
+        //这里不能直接写os.write(src,0,src.length)，因为通常都是另一台计算机上的内存传进来，比较大
+        while(-1!=(len=is.read(flush))) {
+            os.write(flush, 0, len);
+        }
+        //强制刷出
+        os.flush();
+        //释放资源
+        os.close();
+
+    }
+}
+</code></pre></li>
+<li>有的时候我们需要对同一个InputStream对象使用多次，比如，客户端从服务器获取数据，利用HttpURLConnection的getInputStream()方法获得Stream对象，我们希望把数据显示到前台（第一次读取），同时写进文件缓存到本地。</li>
+<li><p>然而第一次读取后，已经走到Stream的结尾或者Stream已经关闭了，此时我们可以把InputStream转化成ByteArrayOutputStream，下次再从ByteArrayOutputStream转化回来就好</p>
+<pre><code>public void byteArrayStreamApp() throws IOException {
+    //目的地
+    byte[] dest=null;
+    //源
+    InputStream is=httpconn.getInputStream();
+    ByteArrayOutputStream bos=new ByteArrayOutputStream();
+    byte[] buffer=new byte[1024];
+    int len;
+    while((len=is.read(buffer))!=-1){
+        bos.write(buffer,0,len);
+    }
+    bos.flush();
+    dest=bos.toByteArray();
+
+    //第一次访问
+    InputStream is1=new ByteArrayInputStream(dest);
+    //do something to print the stream...
+
+    //第二次访问
+    InputStream is2=new ByteArrayInputStream(dest);
+    //do something to save in local...
+}
+</code></pre><p>二、处理流</p>
+</li>
+</ul>
+<ol>
+<li>数据类型处理流  处理基本类型+String（能保留数据及其类型）<br><br>输入流：DataInputStream  readXxx()<br><br>输出流：DataOutput<br>sStream  writeXxx()</li>
+<li>引用类型（对象）处理流（保留数据+类型）<br><br>序列化 输入流：ObjectInputStream  readObject()<br><br>反序列化  输出流：ObjectOutputStream  writeObject()<br><br>注意：先序列化再反序列化；反序列化必须与序列化顺序一致<br><br>&emsp;&emsp;&emsp;不是所有的对象都可以序列化，java.io.Serializable<br> <br>&emsp;&emsp;&emsp;不是所有的属性都需要序列化，transient</li>
+<li>打印流PrintStream</li>
+</ol>
+<ul>
+<li>释放资源<ul>
+<li>手动关  流.close()</li>
+<li>写工具类关  close(is,os)</li>
+<li>新特性自动关  try/with/resouce</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li><p>合并流SequenceInputStream<br>sequence 队列<br><br>将输入源合并成一个或统一写出<br><br>操作：</p>
+<ol>
+<li>创建容器<br><br>Vector<inputstream> vi = new Vector<inputstream>();</inputstream></inputstream></li>
+<li><p>装入 </p>
+<pre><code>  for(int i=0;i&lt;this.blockName.size();i++){
+      bis=new BufferedInputStream(new FileInputStream(new File(blockName.get(i))));
+      vi.add(bis);
+}
+</code></pre><p>3.选择流</p>
+<p>  for(int i=0;i&lt;blockName.size();i++) {</p>
+<pre><code>sis = new SequenceInputStream(vi.elements());//返回一个元素；有序的、一个一个被返回
+...
+while(-1!=(len=sis.read(flush)))
+...
+sis.close();
+</code></pre><p>  }</p>
+<h3 id="IOException"><a href="#IOException" class="headerlink" title="IOException"></a>IOException</h3></li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>文件不存在、文件拒绝访问、读着读着突然被删了</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-02T08:43:08.913Z" itemprop="dateUpdated">2019-04-02 16:43:08</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/IO流/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/IO流/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/IO流/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/IO流/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/IO流/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/IO流/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/IO流/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Java Annotation注解/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/int型为null问题/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/IO流/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/IO流/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/IO流/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/IO流/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/IO流/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxElEQVR42u3aQW6EMAwF0N7/0vQAU+DbngRUvaxGmhBeWFix45+feBwn4/Pf3vwvD1xc3DH3uBxnc87WuQZ9zskNuLi4+7nJ65Mgdf3sZA4uLu6bucmxJlkZFxf3/3GTrORbG8PFxX2KmyQ/yfzk2U25Gi4u7oCbVynX/V5S38XFxW1xj+K4PnzMA9bN23Fxcbdw54lNAkqCY/JeXFzcPdwEUW2bmJdWb0IYLi7uYm4U56pxMW7LyFs9TtfHxcVdwM2nJqDrEFYtpP7xLy4u7hZuOc61Kpm9YspNroaLi7uYm1+iVEskVdbXrltwcXEH3EI7VLGEOvlyp8cdXFzcF3AnR5ZqVaaQq+Hi4i7mJlPzkJSs04Pi4uI+xa0mOfk1SVJgLRy2cHFxH+XmRY1JU0W1BQQXF3cntxpi5qXVvNSCi4v7LDdPgXqNGr1tF74KLi7umHsUR/VIlK8TbRIXF3cLtxpceov2GjJG78XFxR1z86CTJyrJOs0Ah4uLu5FbDTS9tKcaCm8Kpri4uK/hToomzSLpJJDh4uJu4U5CXvU6NrpKwcXFXcatFjfzhonqVnFxcd/ArRY9excw84YMXFzcLdxfY70p+EYFicIAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

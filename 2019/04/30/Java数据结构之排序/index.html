@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Comparable接口 源码： public interface Comparable&amp;lt;T&amp;gt;{     int compareTo(T other); }  主要用于比较 基本类型的包装类、String、File和URL类都实现了这个接口，所以写排序方法时入参可以定义为Comparable[]数组，这样可以接收多个类型的数组 其中浮点数的比较技巧是扩大为长度一致的整型再进行比较，但是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Java数据结构之排序/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="Comparable接口 源码： public interface Comparable&amp;lt;T&amp;gt;{     int compareTo(T other); }  主要用于比较 基本类型的包装类、String、File和URL类都实现了这个接口，所以写排序方法时入参可以定义为Comparable[]数组，这样可以接收多个类型的数组 其中浮点数的比较技巧是扩大为长度一致的整型再进行比较，但是">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2FA03926730056663D8D672CF214876AAC">
+<meta property="og:updated_time" content="2019-01-02T12:23:53.911Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="Comparable接口 源码： public interface Comparable&amp;lt;T&amp;gt;{     int compareTo(T other); }  主要用于比较 基本类型的包装类、String、File和URL类都实现了这个接口，所以写排序方法时入参可以定义为Comparable[]数组，这样可以接收多个类型的数组 其中浮点数的比较技巧是扩大为长度一致的整型再进行比较，但是">
+<meta name="twitter:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2FA03926730056663D8D672CF214876AAC">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.233Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Comparable接口"><span class="post-toc-number">1.</span> <span class="post-toc-text">Comparable接口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#选择排序"><span class="post-toc-number">2.</span> <span class="post-toc-text">选择排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#插入排序"><span class="post-toc-number">3.</span> <span class="post-toc-text">插入排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#快速排序"><span class="post-toc-number">4.</span> <span class="post-toc-text">快速排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#希尔排序"><span class="post-toc-number">5.</span> <span class="post-toc-text">希尔排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#归并排序"><span class="post-toc-number">6.</span> <span class="post-toc-text">归并排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#堆排序"><span class="post-toc-number">7.</span> <span class="post-toc-text">堆排序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#优先队列"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">优先队列</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#基于二叉堆的优先队列"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">基于二叉堆的优先队列</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#索引优先队列"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">索引优先队列</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#堆排序-1"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">堆排序</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-number">8.</span> <span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#应用"><span class="post-toc-number">9.</span> <span class="post-toc-text">应用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码实例"><span class="post-toc-number">10.</span> <span class="post-toc-text">代码实例</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Java数据结构之排序"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.233Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="Comparable接口"><a href="#Comparable接口" class="headerlink" title="Comparable接口"></a>Comparable接口</h3><ul>
+<li><p>源码：</p>
+<pre><code>public interface Comparable&lt;T&gt;{
+    int compareTo(T other);
+}
+</code></pre></li>
+<li>主要用于比较</li>
+<li>基本类型的包装类、String、File和URL类都实现了这个接口，所以写排序方法时入参可以定义为Comparable[]数组，这样可以接收多个类型的数组</li>
+<li>其中浮点数的比较技巧是扩大为长度一致的整型再进行比较，但是无法避免数据为NaN或无穷的情况，建议自定义比较方法<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3></li>
+<li><p>不具有稳定性：假设倒数四个元素是3332，当擂台是第一个3时，2会被换到它的位置上，擂轮到后面另外两个3来当时，数组都不会动了，那么第一个3变成了最后一个，稳定性就被破坏了。</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 选择排序:每趟都比较剩余未排序元素，记住最小的那个的下标，与擂台互换位置
+ *              时间复杂度：N^2
+ *              缺点：运行时间和输入无关，一个有序的数组和无序的数组所需排序时间相同
+ *              优点：数据移动是最少的，最多交换N次，这是其他算法不具备的
+ * @Date 2018/10/16
+ * @Param [a]
+ * @return void
+ **/
+public static void selectSort(Comparable[] a){
+    for (int i=0;i&lt;a.length-1;i++){
+        int min=i;
+        for(int j=i+1;j&lt;a.length;j++){
+            if(less(a[j],a[min])){
+                min=j;
+            }
+        }
+        exch(a,i,min); //每趟只需交换一次；如果令剩余未排序元素和擂台比较，只要比擂台小则交换的话，那至多交换剩余元素那么多次
+    }
+}
+</code></pre><h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3></li>
+<li><p>具有稳定性，即相等的元素，原来a1在a2前，排序后a1还在a2前</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 插入排序：每一个都跟前面所有元素比较，比人小的话就跟人互换位置，互换一次即退出内层循环
+ *              优点：运行时间跟输入有关，如果数组已接近有序则排序时间大大缩短
+ *              缺点：对于元素都一样的数组排序时间和完全无序的相同
+ *              时间复杂度：原始数组有序时为N，无序为N^2；比选择排序快1.2倍
+ * @Date 2018/10/17
+ * @Param [a]
+ * @return void
+ **/
+public static void insertSort(Comparable[] a){
+    for(int i=0;i&lt;a.length-1;i++){
+        for(int j=i+1;j&gt;0&amp;&amp;!less(a[j-1],a[j]);j--){
+            exch(a,j-1,j);
+        }
+    }
+}
+</code></pre></li>
+<li>插入排序对于某些部分有序的数组效率很高<ul>
+<li>数组中每个元素距离它的最终位置都不远</li>
+<li>一个有序的大数组接一个小数组</li>
+<li>数组中只有几个元素的位置不正确</li>
+</ul>
+</li>
+<li>这些情况下插入排序很可能比任何排序算法都要快<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3></li>
+</ul>
+<pre><code>/**
+ * @Author haien
+ * @Description 快速排序：随机选一个基数，比它大的调到右边，小的调到左边，然后对左右两边都*                        递归进行这个操作
+ *              时间复杂度：O(nlogn),logn次递归，每次递归n次比较
+ * @Date 2018/10/21
+ * @Param [a]
+ * @return void
+ **/
+public static void quickSort(Comparable[]a,int lo,int hi){
+    if(lo&lt;hi){
+        int mid=partition(a,lo,hi); //获取基数位置
+        quickSort(a,lo,mid-1); //基数左边全是小的
+        quickSort(a,mid+1,hi); //基数右边全是大的
+    }
+}
+
+/**
+ * @Author haien
+ * @Description 以lo（排头元素）为基数，i从头扫描，发现比lo的元素停下，调动j从尾开始扫描，发现小的即与i交换位置
+ *              直到两指针相遇结束
+ * @Date 2018/10/21
+ * @Param [a, lo, hi]
+ * @return int
+ **/
+public static int partition(Comparable[]a,int lo,int hi){
+    int i=lo,j=hi+1;
+    while(true){
+        while (less(a[++i],a[lo])) //i从头开始扫描，发现大于基数的元素停下
+            if(i&gt;=hi) break; //扫到尾结束
+        while (less(a[lo],a[--j])) //j从尾开始扫，发现小于基数的元素停下
+            if(j&lt;=lo) break; //扫到头结束
+        if(i&gt;=j) break; //跳出循环的原因如果是因为扫到头、尾或相遇则结束
+        exch(a,i,j); //否则就是该交换元素了
+    }
+    exch(a,lo,j); //算法没写好可能lo会被换到j所指的末尾上去
+    return j; //把相遇点返回去
+}
+
+
+/**
+ * @Author haien
+ * @Description 三向切分的快速排序：把数组分为小于、等于、大于三组；三个指针，一个跟着基数，一个从头扫描，一个从尾
+ *              优点：重复元素较多的数组适用，大大节省时间
+ *              缺点：
+ * @Date 2018/10/22
+ * @Param [a, lo, hi]
+ * @return void
+ **/
+public static void quick3way(Comparable[] a,int lo,int hi){
+    if(lo&lt;hi){
+        int lt=lo,i=lo+1,j=hi,cmp;
+        Comparable v=a[lo]; //先把基数lo取出来，若放在循环里会变
+        while (i&lt;=j) {
+            cmp = v.compareTo(a[i]);
+            if (cmp &gt; 0) //小于基数则跟基数交换位置，相当于放在了基数的左边
+                exch(a, lt++, i++); //lt++，跟上基数
+            else if (cmp &lt; 0)
+                exch(a, i, j--);
+            else i++; //等于则不用移动元素
+        }
+        quick3way(a,lo,lt-1); //左边全是比基数小但无序的数
+        quick3way(a,i,hi); //右边全是比基数大但无序的数
+    }
+}
+</code></pre><h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><ul>
+<li>前面我们说插入排序针对部分有序数组效率特别高，所以我们可以在进行选择排序前先把数组排成部分有序的。</li>
+<li>首先设想一个完全逆序的数组，想要把最小的元素排到首位要经过多次交换，这是由于插入排序每次交换只移动一位的缘故，那我们可不可以每次都把元素移动得远一点呢？</li>
+<li>希尔排序的思路就是这样的，比如有16个数据，那我们从第13位开始，让它跟第0位比较，第14位跟第1位交换，……，一直到最后一位，这样一来比较小的元素自然都到了前面去（当然可能后面这几位原本都是些大数，但是这样做却能有效应对逆序等极端情况）。这次比较的距离是13，接下来我们控制比较距离为4，第4位跟第0位，第5位跟第1位，……，一直到最后一位，这样数组进一步有序，被分为了4个各自有序的数组（0，4,8,12组成一个有序数组，…）。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2FA03926730056663D8D672CF214876AAC" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>最后比较距离设为1，即应用插入排序，由于数组基本有序，最小值一定是这4个小数组首位的其中一个，所以比较次数大大减少，性能提高。</li>
+<li><p>数组越大，希尔排序的优势越大。</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 希尔排序：前面我们说插入排序针对部分有序数组效率特别高，
+ *                       所以我们可以在进行选择排序前先把数组排成部分有序的
+ *                       思路即是比较时不要邻位比较而是隔一段距离比较
+ *              优点：适用于大数组、无序数组
+ *              时间复杂度：N^3/2（无法推算）
+ *
+ * @Date 2018/10/17
+ * @Param [a]
+ * @return void
+ **/
+public static void shellSort(Comparable[] a){
+    int h=1;
+    int n=a.length;
+    while(h&lt;n/3)
+        h=h*3+1; //保证第一次排序时距离足够远,h=1,4,13,40,121,364,1093,……
+    //当n=16时，h=13,4,1
+    while(h&gt;=1) {
+        for (int i = h; i &lt; n; i++) {
+            for (int j = i; j &gt;= h &amp;&amp; !less(a[j - h], a[j]); j -= h) {
+                exch(a, j, j - h);
+            }
+        }
+        h/=3; //逐渐缩小距离
+    }
+}
+</code></pre><h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3></li>
+<li><p>具有稳定性</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 归并排序：将两个有序数组合并为一个；所以要另写一个算法将数组分到只剩一个元素，保证有序
+ *              优点：处理数百万甚至更大规模的数组
+ *              缺点：辅助数组所需空间和N成正比
+ *              时间复杂度：NlogN
+ * @Date 2018/10/21
+ * @Param [a, lo, mid, hi]
+ * @return void
+ **/
+public static void mergeSort(Comparable[] a,int lo,int mid,int hi){
+    int i=lo,j=mid+1,n=lo; //原数组要排的是哪一段就放到预备数组的对应位置，这样复制回去的时候才不会把空元素也复制回去
+    while(i&lt;=mid&amp;&amp;j&lt;=hi){
+        if(less(a[j],a[i])){
+            aux[n++]=a[j++];
+        }
+        else{
+            aux[n++]=a[i++];
+        }
+    }
+    while(i&lt;=mid){
+        aux[n++]=a[i++];
+    }
+    while(j&lt;=hi){
+        aux[n++]=a[j++];
+    }
+    //注意：复制回去的时候一定不能把空位置也复制回去
+    for(i=lo;i&lt;=hi;i++){
+        a[i]=aux[i];
+    }
+}
+
+/**
+ * @Author haien
+ * @Description 分治
+ * @Date 2018/10/21
+ * @Param [a, lo, hi]
+ * @return void
+ **/
+public static void split(Comparable[] a,int lo,int hi){
+    int mid;
+    if(lo&lt;hi){
+        mid=(lo+hi)/2;
+        split(a,lo,mid);
+        split(a,mid+1,hi);
+        mergeSort(a,lo,mid,hi);
+    }
+}
+</code></pre></li>
+<li><p>应用：2-sum问题——找到一个数组中所有和为0的整数对（假设所有元素均不相同）。这个问题很容易用平方级别解决，但是如果先把数组排序然后用二分查找的话就能降为线性对数级别。</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 统计
+ * @Date 2018/10/30
+ * @Param [a]
+ * @return int
+ **/
+public static int count(int[] a){
+    //归并排序（为二分查找做准备）
+    //Arrays.sort(a);
+    split(a,0,a.length-1);
+    int j=0,count=0;
+    for(int i=0;i&lt;a.length-1;i++){
+        //找到返回索引，否则返回-1
+        j=binarySearch(-a[i],a,i+1,a.length-1); //i+1：从哪里开始找起；a.length-1：到哪里结束
+        if(j!=-1) count++;
+    }
+    return count;
+}
+</code></pre></li>
+<li><p>在2-sum外面套个循环就可以构建平方对数级别的3-sum解决方案</p>
+<pre><code>public static int count(int[] a){
+    //归并排序（为二分查找做准备）
+    //Arrays.sort(a);
+    split(a,0,a.length-1);
+    int k=0,count=0;
+    for(int i=0;i&lt;a.length-2;i++){
+        for(int j=i+1;j&lt;a.length-1;j++) {
+            //找到返回索引，否则返回-1
+            k = binarySearch(-a[i] - a[j], a, j + 1, a.length - 1);
+            if (k != -1) count++;
+        }
+    }
+    return count;
+}
+</code></pre></li>
+<li>代码实例：DataStructure/sort/TwoSum、ThreeSum<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><h4 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h4></li>
+<li>首先介绍优先队列：有的时候不要求元素一定要全部有序，或是不一定要一次就将它们排好序。很多情况下是要收集当前集合的最大几个元素。</li>
+<li>例如，一台电脑总是处理正在等待的程序中优先级最高的一个。</li>
+<li><p>优先队列是一种数据结构</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 优先队列：找出数组中最大的M个元素
+ *                                         定义一个固定容量的队列，把数组的元素装进去，多了就删掉最小的那个，最后剩下的就是最大的那几个
+ *              时间复杂度：NM
+ * @Date 2018/10/22
+ * @Param
+ * @return
+ **/
+public class PriorityQueue {
+    public static void main(String[] args) {
+        //打印输入流中最大的M行
+        int M=Integer.parseInt(args[0]);
+        //新建一个大小为M+,容量必须比M大
+        MinPQ&lt;Transaction&gt; pq=new MinPQ&lt;&gt;(M+1);
+        //输5行进来
+        for(int i=0;i&lt;5;i++){
+            //为下一行创建一个元素并放入优先队列
+            Scanner in=new Scanner(System.in);
+            pq.insert(new Transaction(in.nextLine()));
+            //超过容量了
+            if(pq.size()&gt;M)
+                pq.delMin(); //如果优先队列中的元素超过M+1个则删除其中最小的元素
+        }
+        //新建一个栈
+        Stack&lt;Transaction&gt; stack=new Stack&lt;&gt;();
+        while (!pq.isEmpty())
+            stack.push(pq.delMin()); //每次都弹出最小的元素进栈
+        //输出倒序的事务
+        for(Transaction t:stack)
+            StdOut.println(t);
+    }
+}
+</code></pre><h4 id="基于二叉堆的优先队列"><a href="#基于二叉堆的优先队列" class="headerlink" title="基于二叉堆的优先队列"></a>基于二叉堆的优先队列</h4></li>
+<li>二叉堆：在二叉堆的数组中，每个元素要保证大于等于另两个特定位置的元素。</li>
+<li>最大堆：父结点大于子结点，根结点是其最大结点，每一层都比下一层所有元素大</li>
+<li>最小堆：父结点小于子结点，根结点是其最小结点，每一层都比下一层元素小</li>
+<li><p>基于二叉堆实现的优先队列就是内置数组是按照最大堆的排序形式存放元素的</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 基于二叉堆的优先队列
+ *              优点：对于需要大量混杂的插入和删除最大元素的用例来说，能保证在对数时间内完成
+ * @Date 2018/10/23
+ **/
+public class BinaryHeap {
+    //泛型数组
+    private Comparable[] pq;
+    //容量
+    private int N;
+
+    /**
+     * @Author haien
+     * @Description 构造指定容量的优先队列
+     * @Date 2018/10/23
+     * @Param [maxN]
+     * @return
+     **/
+    public BinaryHeap(int maxN) {
+        pq=new Comparable[maxN+1]; //泛型数组，取元素时必须强转
+    }
+
+    public BinaryHeap(Comparable[] pq){
+        N=pq.length;
+        this.pq=(Comparable[])new Object[N+1];
+        for(int i=0;i&lt;N;i++){
+            this.pq[i+1]=pq[i];
+        }
+        /*N是最后一个结点的序号，N/2是其父结点，也就是说叶结点都是不用管的，
+        因为前面的元素如果是最小的自然会下沉到最底下代替叶结点，
+        都不是最小的则说明叶结点已经是最小的几个元素了*/
+        for(int k=N/2;k&gt;=1;k--){
+            sink(k);
+        }
+        assert isMaxHeap();
+    }
+
+    /**
+     * @Author haien
+     * @Description 判断队列是否最大堆（即父结点都比子结点大）
+     * @Date 2018/10/24
+     * @Param []
+     * @return boolean
+     **/
+    private boolean isMaxHeap(){
+        return isMaxHeap(1);
+    }
+
+    /**
+     * @Author haien
+     * @Description 判断以k号元素为首的子树是否为最大堆
+     * @Date 2018/10/24
+     * @Param [k]
+     * @return boolean
+     **/
+    private boolean isMaxHeap(int k){
+        //溢出则不存在，不存在判断为是最大堆
+        if(k&gt;N) return true;
+        int left=k*2;
+        int right=k*2+1;
+        if(left&lt;=N &amp;&amp; less(k,left)) return false;
+        if(right&lt;=N &amp;&amp; less(k,right)) return false;
+        return isMaxHeap(left) &amp;&amp; isMaxHeap(right);
+    }
+
+    public int size(){
+        return N;
+    }
+
+    /**
+     * @Author haien
+     * @Description 数组扩容：重开一个数组，把原数组的元素复制过去，再把该数组的引用赋给原数组
+     * @Date 2018/10/24
+     * @Param [capacity]
+     * @return void
+     **/
+    private void resize(int capacity){
+        assert capacity&gt;N;
+        Comparable[] temp=new Comparable[capacity];
+        for(int i=1;i&lt;=N;i++){
+            temp[i]=pq[i];
+        }
+        pq=temp;
+    }
+
+    public boolean isEmpty(){
+        return N==0;
+    }
+
+    public boolean isFull(){
+        return N+1==pq.length;
+    }
+
+    private boolean less(int i, int j){
+        return pq[i].compareTo(pq[j])&lt;0;
+    }
+
+    private void exch(int i,int j){
+        Comparable t=pq[i];
+        pq[i]=pq[j];
+        pq[j]=t;
+    }
+
+    /**
+     * @Author haien
+     * @Description 上浮：堆中出现比父结点大的子结点，令其与父结点交换直到遇到比它大的父结点为止
+     * @Date 2018/10/23
+     * @Param [k]
+     * @return void
+     **/
+    private void swim(int k){
+        while(k&gt;1&amp;&amp;less(k/2,k)){
+            exch(k/2,k);
+            k/=2;
+        }
+    }
+
+    /**
+     * @Author haien
+     * @Description 下沉：出现比子结点小的父结点，把两子结点中最大者跟它互换直到没有比它大的子结点为止
+     * @Date 2018/10/23
+     * @Param [k]
+     * @return void
+     **/
+    private void sink(int k){
+        int j=k*2;
+        while (k &lt; N) {
+            //跟最大的子结点交换
+            if(j&lt;N&amp;&amp;less(j,j+1)) {
+                j++;
+            }
+            if(less(k,j)){
+                exch(k,j);
+                k=j;
+            }
+        }
+    }
+
+    public void insert(Comparable v){
+        //已满，扩容
+        if(isFull()) resize(2*pq.length);
+        pq[++N]=v;
+        swim(N);
+    }
+
+    public Comparable delMax(){
+        if(isEmpty()) throw new NoSuchElementException(&quot;Priority queue underflow&quot;);
+        Comparable v=pq[1];
+        exch(1,N);
+        //防止对象游离
+        pq[N--]=null; //其实元素如果是int的话可能不行，不过元素不可能是int，因为int不是类，它不可能实现了Comparable接口
+        sink(1);
+        return v;
+    }
+}
+</code></pre><h4 id="索引优先队列"><a href="#索引优先队列" class="headerlink" title="索引优先队列"></a>索引优先队列</h4></li>
+<li><p>为了方便找到已经存入队列的元素，我们可以在存储的时候顺便传入一个键值作为其索引，要获取该元素的时候依据索引来获取</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 索引优先队列：存放进来的元素都带了个键，方便获取元素；做比较的是元素，实际排序的是键
+ *                          开一个数组作为队列存放键，开一个数组存放这些键在队列中的位置，开一个数组存放元素本身
+ * @Date 2018/10/24
+ **/
+public class IndexPriorityQueue {
+    //容量
+    private int N;
+    /**存放键，这才是优先队列主要维护的数组；
+     * 按照最大堆排序的是键而不是元素本身，
+     * 元素怎么排都可以，只要键有序了找出来的元素就是有序的*/
+    private int[] pq; //由于设为了int数组，所以键被限死了是int
+    //存放键在pq中的索引，可以根据键找到键在队列中的位置
+    private int[] qp;
+    //存放元素:键是几就把元素放在第几位
+    private Comparable[] value;
+
+    public IndexPriorityQueue(int maxN){
+        pq=new int[maxN+1];
+        qp=new int[maxN+1]; //所以k为0~N闭区间，至于为什么容量要定为maxN+1就不得而知了
+        value=new Comparable[maxN+1];
+        for(int i=0;i&lt;=maxN;i++)
+            qp[i]=-1;
+    }
+
+    private boolean less(int i,int j){
+        //比较的是元素的值而不是元素的键
+        return value[qp[i]].compareTo(value[qp[j]])&lt;0;
+    }
+
+    private void exch(int i,int j){
+        int t=pq[i];
+        pq[i]=pq[j];
+        pq[j]=t;
+        t=qp[pq[i]];
+        qp[pq[i]]=qp[pq[j]];
+        qp[pq[j]]=t;
+    }
+
+    public boolean isEmpty(){
+        return N==0;
+    }
+
+    public boolean isFull(){
+        return N==pq.length-1;
+    }
+
+    public boolean contains(int k){
+        return qp[k]!=-1;
+    }
+
+    private void swim(int k){
+        while(k&gt;1&amp;&amp;less(k/2,k)){
+            exch(k,k/2);
+            k/=2;
+        }
+    }
+
+    public void sink(int k){
+        while(k*2&lt;=N){
+            int j=k*2;
+            if(j&lt;N&amp;&amp;less(j,j+1)) j++;
+            if(less(j,k)) break;
+            exch(k,j);
+            k=j;
+        }
+    }
+
+    public void insert(int k,Comparable v){
+        if(contains(k)||isFull()) throw new IllegalArgumentException();
+        N++;
+        pq[N]=k;
+        qp[k]=N;
+        value[k]=v;
+        swim(N);
+    }
+
+    public int delMax(){
+        if(isEmpty()) throw new NoSuchElementException();
+        int min=pq[1];
+        exch(1,N--);
+        sink(1);
+        qp[min]=-1;
+        value[min]=null;
+        pq[N+1]=-1;
+        //返回最小元素的键
+        return min;
+    }
+}
+</code></pre></li>
+<li><p>应用：实现多向归并排序——将多个有序的小数组归并为有序的数组。从命令行读入文件名，将对应文件搞成输入流，每个文件都包含一个字符串，这几个字符串就是有序的小数组了，其中每个字符都是一个元素单位。把它们排成一个有序的字符串并打印。</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 多向归并：用索引优先队列实现；输入多个有序数组，归并为一个有序的大数组
+ * @Date 2018/10/25
+ **/
+public class MultiwayMerge {
+    /**
+     * @Author haien
+     * @Description 多向归并：入参为多个输入流组成的数组，每个输入流都是一个字符串（升序），每个字符串包含的字符是一个元素单位
+     * @Date 2018/10/25
+     * @Param [streams]
+     * @return void
+     **/
+    public static void merge(In[] streams){
+        int N=streams.length;
+        //创建一个索引优先队列，它跟IndexPriorityQueue的区别就是顺序相反而已
+        IndexMinPQ&lt;String&gt; pq=new IndexMinPQ&lt;&gt;(N);
+
+        //先读取每一个字符串的第一个字符，因为最小的肯定在这里面
+        for(int i=0;i&lt;N;i++){
+            if(!streams[i].isEmpty())
+                //把它在数组中的索引作为键插入队列
+                pq.insert(i,streams[i].readString()); //读取下一个单词，以空格为分隔符
+        }
+
+        while(!pq.isEmpty()){
+            //把目前最小的输出
+            StdOut.println(pq.minKey());
+            //删掉最小元素并返回其键
+            int i=pq.delMin();
+
+            //把最小元素原本所在的字符串的下一个字符插入队列，因为它最可能是第二小的元素，即使不是加入了队列也没事，元素出队的时候队列自然会找最小的那个出来
+            if(!streams[i].isEmpty())
+                pq.insert(i,streams[i].readString());
+        }
+    }
+    public static void main(String[] args) {
+        int N=args.length;
+        In[] streams=new In[N];
+        for(int i=0;i&lt;N;i++){
+            streams[i]=new In(args[i]); //args为文件名数组；输入指定文件
+        }
+        /**
+         * 输入文件m1.txt:A B C F G I I Z
+         * m2.txt:B D H P Q Q
+         * m3.txt:A B E F J N
+         **/
+        merge(streams);
+    }
+}
+</code></pre><h4 id="堆排序-1"><a href="#堆排序-1" class="headerlink" title="堆排序"></a>堆排序</h4><pre><code>/**
+ * @Author haien
+ * @Description 堆排序：先把数组排成最大堆，然后把根结点不断跟最后第1,2，……，n交换，最终排成升序数组 
+ *              优点：是目前同时能够最优地节省空间和时间的排序方式
+ *              时间复杂度：NlgN
+ * @Date 2018/10/25
+ * @Param [a]
+ * @return void
+ **/
+public static void heapSort(Comparable[] a){
+    int n=a.length;
+    //将原数组排成最大堆
+    for(int k=n/2;k&gt;=1;k--)
+        sink(a,k,n);
+    /**
+     * 将最大堆排成升序数组：让根结点与最后一个结点交换，把交换上来的结点下沉；
+     * 让新的根结点跟倒数第二个结点交换，然后下沉；……；
+     * 最大的结点不断被交换到最后，最终排序完毕
+     **/
+    while(n&gt;1){
+        exch(a,1,n);
+        sink(a,1,n);
+    }
+}
+
+/**
+ * @Author haien
+ * @Description 下沉：出现比子结点小的父结点，把两子结点中最大者跟它互换直到没有比它大的子结点为止
+ * @Date 2018/10/23
+ * @Param [k]
+ * @return void
+ **/
+private static void sink(Comparable[] a,int k,int N){
+    int j=k*2;
+    while (k &lt; N) {
+        //跟最大的子结点交换
+        if(j&lt;N&amp;&amp;less(a[j],a[j+1])) {
+            j++;
+        }
+        if(less(k,j)){
+            exch(a,k,j);
+            k=j;
+        }
+    }
+}
+</code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3></li>
+<li>稳定性：除了插入排序和归并排序（因为它们都是从左往右依次排的），其他算法都不具有稳定性。但是稳定性只是针对那些需要相同元素保持相对顺序的应用才另外考虑的，大部分时候都可以忽略。</li>
+<li>实践证明，快速排序是最快的、最佳的选择。</li>
+<li>但如果稳定性很重要而空间又不是问题，那么归并排序是最好的。</li>
+<li>有了SortCompare这样的工具，能够更仔细地比较</li>
+<li>以上排序算法不能排列基本数据，基本数据应该实现属于自己的只操作某种数据类型的排序算法，而不能装箱之后继续用上面的算法，因为使用引用来访问和交换数据比直接操作数据本身要耗费很多时间。<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3></li>
+<li>java.util.Arrays.sort()对基本数据采用（三向切分）快速排序，对引用类型采用保证稳定性的归并排序</li>
+<li>找出重复元素：小数组的话，用平方级别的算法将左右元素互相比较一遍；大数组，先排序，再记录连续出现的元素即可。</li>
+<li><p>查找中位数</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 找到数组中排行第K的元素
+ * @Date 2018/10/25
+ * @Param [a]
+ * @return java.lang.Comparable
+ **/
+public Comparable findRankK(Comparable[] a,int k){
+    //将数组重新排序，可避免最坏情况
+    StdRandom.shuffle(a);
+    int lo=0,hi=a.length-1,j;
+    while(lo&lt;hi){
+        j=partition(a,lo,hi);
+        if(j==k) return a[j];
+        if(j&lt;k) hi=j-1;
+        if(j&gt;k) lo=j+1;
+    }
+    return a[k];
+}
+
+/**
+ * @Author haien
+ * @Description 以lo（排头元素）为基数，i从头扫描，发现比lo的元素停下，调动j从尾开始扫描，发现小的即与i交换位置
+ *              直到两指针相遇结束
+ * @Date 2018/10/21
+ * @Param [a, lo, hi]
+ * @return int
+ **/
+public static int partition(Comparable[]a,int lo,int hi){
+    int i=lo,j=hi+1;
+    while(true){
+        while (less(a[++i],a[lo])) //i从头开始扫描，发现大于基数的元素停下
+            if(i&gt;=hi) break; //扫到尾结束
+        while (less(a[lo],a[--j])) //j从尾开始扫，发现小于基数的元素停下
+            if(j&lt;=lo) break; //扫到头结束
+        if(i&gt;=j) break; //跳出循环的原因如果是因为扫到头、尾或相遇则结束
+        exch(a,i,j); //否则就是该交换元素了
+    }
+    exch(a,lo,j); //算法没写好可能lo会被换到j所指的末尾上去
+    return j; //把相遇点返回去
+}
+</code></pre><h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3></li>
+<li>DataStructure/sort/MySort</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-01-02T12:23:53.911Z" itemprop="dateUpdated">2019-01-02 20:23:53</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Java数据结构之排序/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Java数据结构之排序/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java数据结构之排序/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java数据结构之排序/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java数据结构之排序/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Java数据结构之排序/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java数据结构之排序/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Java数据结构之无向图/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Java数据结构之带权图/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java数据结构之排序/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java数据结构之排序/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java数据结构之排序/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Java数据结构之排序/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java数据结构之排序/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aS27DMAxF0ex/0+6kgxaJ3ftIuYDF61HQNIpOBgR/rxd+jh8P+cv7c3ba2buvOx4ZMmQ8lkG+Pv2f9wv1z7zGy5AhYwLjLIKR16dHg6hIwvr13WTIkCGDXJ2HYH6aDBkyZHQY6FBcdda+V4YMGTMZaeDrJ3n8U4trcRkyZDyQkQbH/3x9y3xDhgwZj2Ic4UMK0dq7tft8f1aGDBlbM3iAq6WM/e0IvvwhQ4aMaYx09YGvkdWSP/RjyZAhYxiDhzmCSQefxYadDBkytmaQYWFtnElK336KKUOGjL0ZnaFgraAlxTBv1cmQIWMOI21+1UYCKQC12GTIkDGAkSaIa7NRXgDHSaoMGTI2YtSWtO5evIibcTJkyNiaETTcccusszDBr45GAjJkyNiCsWqUeP1l6Qk8TZQhQ8Y0RicpTIPsqsbcrwxXhgwZYxjpJkPa4ufXJc04GTJkzGGkixR8eHD9l9pQ4QNShgwZWzNIKZuOGNMwnaaPpyfIkCFjJCMdXqbNsnSc+cfJMmTIGMkgSJICpsUt+SGCiYQMGTI2YiwYJYJrkbI2XdGQIUPG3owjfHjZmQblNHEMylcZMmQ8nNEJc7XWf1qaomULGTJkDGDUVrL4eKDWdIsDrgwZMgYw+oGvE1KXLVvIkCFDxqKQ2kkcbwy4MmTI2IjRGYjycjemypAhYwCj08rvh9F04UyGDBnTGGnexUNqZ2jKhxMyZMjYmvEFJbuyUAVP8x0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

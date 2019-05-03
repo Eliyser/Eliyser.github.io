@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="缓存 Shiro提供了类似于Spring的Cache抽象，即它本身不实现cache，但是对cache进行了抽象，方便更换底层cache实现（如，Ehcache,Hazelcast,OSCache,Terracotta,Coherence,GigaSpaces,JBossCache）。 Cache接口：  public interface Cache&amp;lt;K, V&amp;gt; {     //根据Ke">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Shiro第十一章-cache缓存/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="缓存 Shiro提供了类似于Spring的Cache抽象，即它本身不实现cache，但是对cache进行了抽象，方便更换底层cache实现（如，Ehcache,Hazelcast,OSCache,Terracotta,Coherence,GigaSpaces,JBossCache）。 Cache接口：  public interface Cache&amp;lt;K, V&amp;gt; {     //根据Ke">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/722072-20171215174146058-659069124.jpg">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/722072-20171215174215261-1270582200.jpg">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/722072-20171215174236824-980527750.jpg">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/722072-20171215174251371-575269375.png">
+<meta property="og:updated_time" content="2019-04-05T02:58:49.099Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="缓存 Shiro提供了类似于Spring的Cache抽象，即它本身不实现cache，但是对cache进行了抽象，方便更换底层cache实现（如，Ehcache,Hazelcast,OSCache,Terracotta,Coherence,GigaSpaces,JBossCache）。 Cache接口：  public interface Cache&amp;lt;K, V&amp;gt; {     //根据Ke">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/722072-20171215174146058-659069124.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:29:23.078Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#缓存"><span class="post-toc-number">1.</span> <span class="post-toc-text">缓存</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Realm缓存"><span class="post-toc-number">2.</span> <span class="post-toc-text">Realm缓存</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#示例"><span class="post-toc-number">3.</span> <span class="post-toc-text">示例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#验证中缓存的使用"><span class="post-toc-number">4.</span> <span class="post-toc-text">验证中缓存的使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#授权中缓存的使用"><span class="post-toc-number">5.</span> <span class="post-toc-text">授权中缓存的使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Session缓存"><span class="post-toc-number">6.</span> <span class="post-toc-text">Session缓存</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Shiro第十一章-cache缓存"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:29:23" datetime="2019-04-30T08:29:23.078Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><ul>
+<li>Shiro提供了类似于Spring的Cache抽象，即它本身不实现cache，但是对cache进行了抽象，方便更换底层cache实现（如，Ehcache,Hazelcast,OSCache,Terracotta,Coherence,GigaSpaces,JBossCache）。</li>
+<li>Cache接口：</li>
+</ul>
+<pre><code>public interface Cache&lt;K, V&gt; {
+    //根据Key获取缓存中的值
+    public V get(K key) throws CacheException;
+
+    //往缓存中放入key-value，返回缓存中之前的值
+    public V put(K key, V value) throws CacheException; 
+
+    //移除缓存中key对应的值，返回该值
+    public V remove(K key) throws CacheException;
+
+    //清空整个缓存
+    public void clear() throws CacheException;
+
+    //返回缓存大小
+    public int size();
+
+    //获取缓存中所有的key
+    public Set&lt;K&gt; keys();
+
+    //获取缓存中所有的value
+    public Collection&lt;V&gt; values();
+}
+</code></pre><ul>
+<li>CacheManager接口：从接口方法来看就是用来获取cache的。</li>
+</ul>
+<pre><code>public interface CacheManager {
+    //根据缓存名字获取一个Cache实例，不存在则新建一个
+    public &lt;K, V&gt; Cache&lt;K, V&gt; getCache(String name) throws CacheException;
+}
+</code></pre><p><img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/722072-20171215174146058-659069124.jpg" alt=""></p>
+<ul>
+<li><p>从上面来看，我们定义缓存要做两件事，一是实现Cache接口（shiro-ehcache.xml），二是实现CacheManager接口（shiro.ini中注册EhCacheManager的bean）。</p>
+</li>
+<li><p>Shiro数据的缓存方式分为两类，一是将数据存储到本地，一是存储到集中式存储中间件，如，redis或Memcached。若使用后者，当页面使用了大量shiro标签时（如，&lt;shiro:hasPermission name=”admin”&gt;），每个标签都会发起一个查询请求，那么访问一个页面将会向缓存发送大量网络请求，这回给集中缓存组件带来一定的瞬时请求压力，而且，网络查询的效率并不高。采用本地缓存则不存在这些问题。所以，如果在项目中使用了大量shiro标签，那还是采用本次缓存更合适。</p>
+</li>
+<li>MemoryConstraintCacheManager: 本地缓存。</li>
+<li><p>EhCacheManager：集中式缓存。</p>
+</li>
+<li><p>CacheManagerAware：用于注入CacheManager</p>
+</li>
+</ul>
+<pre><code>public interface CacheManagerAware {
+    //注入CacheManager
+    void setCacheManager(CacheManager cacheManager);
+}
+</code></pre><ul>
+<li>Shiro内部的组件DefaultSecurityManager会自动检测相应的对象（如Realm）是否实现了CacheManagerAware，并自动注入相应的CacheManager。</li>
+</ul>
+<h3 id="Realm缓存"><a href="#Realm缓存" class="headerlink" title="Realm缓存"></a>Realm缓存</h3><ul>
+<li>即权限数据的缓存（其实还有用户身份AuthenticationInfo的缓存，不过用的比较少，暂且忽略），需要设置一个CacheManager来管理缓存，设置方式有两种。</li>
+</ul>
+<ol>
+<li>设置在SecurityManager中，最终也会设置给CachingRealm，其实真正使用CacheManager的组件也就realm和SessionDAO。</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/722072-20171215174215261-1270582200.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>其中CachingSecurityManager有CacheManager属性，会把它设置给CachingRealm。</li>
+</ul>
+<ol start="2">
+<li>推荐：直接设置给CachingRealm。</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/722072-20171215174236824-980527750.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/722072-20171215174251371-575269375.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<pre><code>&lt;bean id=&quot;myRealm&quot; class=&quot;org.chench.test.shiro.spring.dao.ShiroCacheJdbcRealm&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+    &lt;property name=&quot;permissionsLookupEnabled&quot; value=&quot;true&quot;/&gt;
+    &lt;property name=&quot;cacheManager&quot; ref=&quot;cacheManager&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;bean id=&quot;cacheManager&quot; class=&quot;org.apache.shiro.cache.MemoryConstrainedCacheManager&quot; /&gt;
+</code></pre><ul>
+<li>Shiro提供了几个Realm，它们实现了CacheManagerAware接口，能够实现缓存的一些基础功能。</li>
+<li>CachingRealm: 最基础的实现，实现了CacheManagerAware接口，提供了缓存的一些基础实现。</li>
+<li>AuthenticatingRealm、AuthorizingRealm：分别提供了对AuthenticationInfo和AuthorizationInfo的缓存。</li>
+</ul>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
+<li>测试用例：仿ideaProjects/shiroHelloWorld/chapter6</li>
+<li>在UserRealm中添加了6个方法用于清除缓存：</li>
+</ul>
+<pre><code>//重写以下方法并改为public，否则测试无法调用这些Protected的方法
+@Override
+public void clearCachedAuthenticationInfo(PrincipalCollection principals) {
+    super.clearCachedAuthenticationInfo(principals);
+}
+@Override
+public void clearCachedAuthorizationInfo(PrincipalCollection principals) {
+    super.clearCachedAuthorizationInfo(principals);
+}
+@Override
+public void clearCache(PrincipalCollection principals) {
+    //同时调用以上俩方法，清空两个Info
+    super.clearCache(principals); 
+}
+
+public void clearAllCachedAuthorizationInfo(){
+    getAuthorizationCache().clear();
+}
+public void clearAllCachedAuthenticationInfo() {
+    getAuthenticationCache().clear();
+}
+public void clearAllCache() {
+    clearAllCachedAuthenticationInfo();
+    clearAllCachedAuthorizationInfo();
+}
+</code></pre><ul>
+<li>shiro.ini</li>
+</ul>
+<pre><code>userRealm=com.github.zhangkaitao.shiro.chapter11.realm.UserRealm
+
+//启用缓存，默认false，看源码默认好像是true。
+userRealm.cachingEnabled=true
+//启用身份验证缓存，缓存AuthenticationInfo，默认false
+userRealm.authenticationCachingEnabled=true
+//缓存AuthenticationInfo的缓存名称
+userRealm.authenticationCacheName=authenticationCache
+//启用授权缓存，默认true
+userRealm.authorizationCachingEnabled=true
+userRealm.authorizationCacheName=authorizationCache
+securityManager.realms=$userRealm
+
+//缓存管理器，此处使用EhCacheManager，即Ehcache实现，需要导入Ehcache的依赖
+cacheManager=org.apache.shiro.cache.ehcache.EhCacheManager
+cacheManager.cacheManagerConfigFile=classpath:shiro-ehcache.xml
+securityManager.cacheManager=$cacheManager
+</code></pre><ul>
+<li><p>这篇<a href="https://www.cnblogs.com/NeverCtrl-C/p/7998992.html" target="_blank" rel="noopener">参考文章</a>又说只要设置了CacheManager就会自动开启缓存，实际测试好像也是这样。</p>
+</li>
+<li><p>Ehcache依赖</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.shiro&lt;/groupId&gt;
+    &lt;artifactId&gt;shiro-ehcache&lt;/artifactId&gt;
+    &lt;version&gt;1.2.2&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li><p>引入这个就不需要之前的ehcache-core依赖了。</p>
+</li>
+<li><p>ehcache.xml:配置Ehcache缓存，可以将数据存储到磁盘或内存中。</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;ehcache name = &quot;shirocache&quot;&gt;
+    &lt;diskStore path=&quot;java.io.tmpdir&quot;/&gt; //数据缓存地址，如，F:/develop/ehcache
+
+    &lt;cache name=&quot;authorizationCache&quot; //缓存名称
+        maxEntriesLocalHeap=&quot;2000&quot; //缓存最大条目数
+        eternal=&quot;false&quot; //对象是否永久有效，true则timeout失效
+        timeToIdleSeconds=&quot;3600&quot; //对象在失效前的闲置时间（单位：s），
+                                 //仅eternal=false时有效；默认为0，即可闲置时间无穷大。
+        timeToLiveSeconds=&quot;0&quot; //缓存数据的生成时间（单位：s），
+                              //介于创建时间和失效时间之间；仅eternal=false有效；
+                              //默认为0，即对象存活时间无穷大。
+        overflowToDisk=&quot;false&quot; //内存中对象数量达到maxElementInMemory时，
+                               //是否将对象写到磁盘
+        statistics=&quot;true&quot;&gt;
+    &lt;/cache&gt;
+
+    &lt;cache name=&quot;authenticationCache&quot;
+        maxEntriesLocalHeap=&quot;2000&quot;
+        eternal=&quot;false&quot;
+        timeToIdleSeconds=&quot;3600&quot;
+        timeToLiveSeconds=&quot;0&quot;
+        overflowToDisk=&quot;false&quot;
+        statistics=&quot;true&quot;&gt;
+    &lt;/cache&gt;
+
+    &lt;cache name=&quot;shiro-activeSessionCache&quot;
+         maxEntriesLocalHeap=&quot;2000&quot;
+         eternal=&quot;false&quot;
+         timeToIdleSeconds=&quot;3600&quot;
+         timeToLiveSeconds=&quot;0&quot;
+         overflowToDisk=&quot;false&quot;
+         statistics=&quot;true&quot;&gt;
+    &lt;/cache&gt;
+&lt;/ehcache&gt;
+</code></pre></li>
+<li><p>cache标签其他属性：</p>
+<ul>
+<li>diskSpoolBufferSizeMB：设置diskStore磁盘缓存的缓存区大小，默认30MB。每个Cache都应该有自己的一个缓存区。</li>
+<li>maxElementOnDisk：磁盘最大缓存个数。</li>
+<li>diskPersistent：是否缓存虚拟机重启期数据，默认false。</li>
+<li>diskExpiryThreadIntervalSeconds: 磁盘失效线程运行时间间隔，默认120s。</li>
+<li>memoryStoreEvictionPolicy:达到maxElementInMemory时，Ehcache将会根据此策略去清理内存，默认策略是LRU（最近最少使用），可设为FIFO（先进先出）或LFU（较少使用）。</li>
+<li>clearOnFlush: 内存数量最大时是否清除。</li>
+</ul>
+</li>
+<li><p>因为测试用例的关系，需要将Ehcache的CacheManager改为使用VM单例模式(不过本例好像没有在哪里修改)</p>
+</li>
+</ul>
+<pre><code>this.manager = new net.sf.ehcache.CacheManager(getCacheManagerConfigFileInputStream());
+//改为
+this.manager = net.sf.ehcache.CacheManager.create(getCacheManagerConfigFileInputStream());
+</code></pre><ul>
+<li>测试：首先登陆成功，此时会缓存相应的AuthenticationInfo；然后修改密码，此时AuthenticationInfo过期；接着需要调用realm的clearCacheAuthenticationInfo()清空之前的AuthenticationInfo，否则下次登录时还会获取那个修改密码前的AuthenticationInfo。</li>
+</ul>
+<pre><code>@Test
+public void testClearCachedAuthenticationInfo() {
+    //1、登陆成功即缓存AuthenticationInfo
+    login(u1.getUsername(), password);
+    //2、修改了密码则之前保存的AuthenticationInfo变旧
+    userService.changePassword(u1.getId(), password + &quot;1&quot;);
+
+    //3、清除之前缓存的AuthenticationInfo，否则下次登录时还会获取到旧的
+    //AuthenticationInfo
+    RealmSecurityManager securityManager =
+        (RealmSecurityManager) SecurityUtils.getSecurityManager();
+    //获取Realm
+    UserRealm userRealm = (UserRealm) securityManager.getRealms().iterator().next();
+    userRealm.clearCachedAuthenticationInfo(subject().getPrincipals());
+    //4、再次登录，检测到AuthenticationInfo已清空，故重新缓存
+    login(u1.getUsername(), password + &quot;1&quot;);
+}
+</code></pre><ul>
+<li>无论用户是否正常退出，缓存都将自动清空。</li>
+<li>如果修改了用户的权限，而用户不退出系统，则修改的权限无法立即生效。需要用户在修改后手动调用clearXxx()清除缓存。</li>
+</ul>
+<h3 id="验证中缓存的使用"><a href="#验证中缓存的使用" class="headerlink" title="验证中缓存的使用"></a>验证中缓存的使用</h3><ul>
+<li>以上测试中，登录后即缓存AuthenticationInfo，实际是AuthenticationRealm类中的getAuthenticationInfo()起作用，首先判断缓存中是否已有该记录，否则调用子类Realm的doGetAuthenticationInfo()查询数据库，并将结果缓存起来，下次就不用查询数据库了。核心代码：</li>
+</ul>
+<pre><code>public final AuthenticationInfo getAuthenticationInfo(AuthenticationToken token)
+        throws AuthenticationException {
+    //首先从缓存中获取记录
+    AuthenticationInfo info = getCachedAuthenticationInfo(token);
+    //若缓存中无此数据
+    if (info == null) {
+        //则从数据库查找
+        info = doGetAuthenticationInfo(token);
+        if (token != null &amp;&amp; info != null) {
+            //将记录缓存起来
+            cacheAuthenticationInfoIfPossible(token, info);
+        }
+    } else {
+        //debug级日志记录
+    }
+    if (info != null) {
+        //匹配密码
+        assertCredentialsMatch(token, info);
+    } else {
+        //debug级日志记录
+    }
+    return info;
+} 
+</code></pre><h3 id="授权中缓存的使用"><a href="#授权中缓存的使用" class="headerlink" title="授权中缓存的使用"></a>授权中缓存的使用</h3><ul>
+<li>而AuthorizationInfo的缓存则是AuthorizingRealm中的getAuthorizationInfo()在实现，也是先找缓存，没有再调用doGetAuthorizationInfo()去数据库找。</li>
+</ul>
+<pre><code>protected AuthorizationInfo getAuthorizationInfo(PrincipalCollection principals) {
+    //如果登录成功的用户身份信息集合为空，则直接返回null
+    if (principals == null) {
+        return null;
+    }
+
+    AuthorizationInfo info = null;
+    Cache&lt;Object, AuthorizationInfo&gt; cache = getAvailableAuthorizationCache();
+    if (cache != null) {
+        Object key = getAuthorizationCacheKey(principals); //这个集合只有一个key
+        info = cache.get(key);
+    }
+    //如果缓存中找不到AuthorizationInfo
+    if (info == null) {
+        //从数据库找
+        info = doGetAuthorizationInfo(principals);
+        //并存入缓存
+        if (info != null &amp;&amp; cache != null) {
+            Object key = getAuthorizationCacheKey(principals);
+            cache.put(key, info);
+        }
+    }
+    return info;
+} 
+</code></pre><ul>
+<li>如果需要实现自己的缓存，可以考虑自己<a href="https://github.com/zhangkaitao/es/tree/master/web/src/main/java/com/sishuok/es/extra/aop" target="_blank" rel="noopener">通过aop机制实现而废弃Shiro的缓存</a></li>
+<li>如果要和Spring集成可以考虑使用<a href="https://github.com/zhangkaitao/es/blob/master/web/src/main/java/org/apache/shiro/cache/spring/SpringCacheManagerWrapper.java" target="_blank" rel="noopener">SpringCacheManagerWrapper</a>,它对Spring Cache进行了包装，转换为Shiro的CacheManager实现类</li>
+</ul>
+<h3 id="Session缓存"><a href="#Session缓存" class="headerlink" title="Session缓存"></a>Session缓存</h3><ul>
+<li>为了使会话能够用上缓存（比如查询会话时先看看缓存中是否有，没有再倒数据库查询），可以先设置SecurityManager的CacheManager属性，再设置SecurityManager的SessionManager属性，那么会自动把配置的CacheManager注入到SessionManager中。</li>
+</ul>
+<pre><code>//设置CacheManager
+securityManager.cacheManager=$cacheManager
+//设置SessionManager
+sessionManager=org.apache.shiro.session.mgt.DefaultSessionManager
+securityManager.sessionManager=$sessionManager
+</code></pre><ul>
+<li>若SecurityManager实现了SessionsSecurityManager接口，则会自动判断SessionManager是否实现了CacheManagerAware接口，是则将CacheManager注入给它。然后SessionManager会判断SessionDAO是否实现了CacheManagerAware接口（如继承自CachingSessionDAO），是则会把CacheManager注入给它。</li>
+<li>对于CachingSessionDAO,可以设置缓存的名称：</li>
+</ul>
+<pre><code>sessionDAO=com.github.zhangkaitao.shiro.chapter11.session.dao.MySessionDAO
+//默认为此
+sessionDAO.activeSessionsCacheName=shiro-activeSessionCache
+</code></pre><ul>
+<li><a href="https://jinnianshilongnian.iteye.com/blog/2029217" target="_blank" rel="noopener">《跟我学Shiro》第十一章</a></li>
+<li><a href="https://www.cnblogs.com/nuccch/p/8044226.html" target="_blank" rel="noopener">参考文章</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-05T02:58:49.099Z" itemprop="dateUpdated">2019-04-05 10:58:49</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Shiro第十一章-cache缓存/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Shiro第十一章-cache缓存/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第十一章-cache缓存/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第十一章-cache缓存/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第十一章-cache缓存/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第十一章-cache缓存/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第十一章-cache缓存/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Shiro第十章-会话管理/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Shiro第十五章-单点登录/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第十一章-cache缓存/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第十一章-cache缓存/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第十一章-cache缓存/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第十一章-cache缓存/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第十一章-cache缓存/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqklEQVR42u3a0WrkMAwF0P7/T3dfF7aZ3ivZwywcP5VMGvskYAtJX1/x+P5rPF359/rTfz09/+mep7mODTw8PLzF0l8vK1/E66U8Pfn19eTXH+bFw8PDu8bLN+tkg44mjg+G2T14eHh4n8bLl5sfJPlRhIeHh/f/8pLEwWaJm6QGHh4e3m3ee9KvOTU5JA7nWvDw8PBiXl5F+py/r9T38PDw8NZV9faQ2ATfrw+e2cDDw8O7wZsVtDZX8rTv5h48PDy89/BmaYj2wDg1iiQvHh4e3lFeUUaKQ+e2cNW2IBRtWHh4eHgXeL8Eo2WpKU/Fbg6b4evAw8PDO8TbLzd5EbMGhRwWfTE8PDy8o7x8a27TDbNQ+FjCAg8PD+8tvDwSz7f+JD2Rg4vPgIeHh3eNN5s4PwaSlEf7WqM14OHh4V3m5dv3LBDfHBjDRAkeHh7eZd6++Wm2rZ8K2X+YBQ8PD+8Cb1ZqaqecJRfyJO+wDIaHh4c34m2Sqm2qty2J5YWxqOkKDw8P7wIvbxpow+K2RSAH//Iq8fDw8K7xZtOfal1tC2bFM/Hw8PAu8GYp17ZwlR8qRXK2bZbFw8PDeyNvdiRsNvecVNyJh4eHd4HXLvEUIH9ae2jh4eHh3eYlG/0s5M0TE3kyty624eHh4R3lbVqg9mnfTUtWtDY8PDy8a7zXS2zbp/ImgNlrLUJqPDw8vGu8PHGQJyYS2GyWIk+Lh4eHd5T3XY5k+943AeTxcP3d8PDw8Na8dqtN2qfaElr7WjeHFh4eHt4pXvvofLmzGH9WwYuy1Hh4eHhHecmUs2B3s8V/7QceHh7eB/DyEn6+fbcJ3/xXPDw8vE/jnWUn4XIb+uPh4eHd4+VFr035alPiSubFw8PDew9vs9C8kTRhtPccG3h4eHgp7w+jh5xxR0JYJAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

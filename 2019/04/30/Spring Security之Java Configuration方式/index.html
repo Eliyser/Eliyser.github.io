@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="java configuration方式 上面是以xml文件的方式配置，接下来介绍以自定义java类的方式来配置spring security 可先在719行：自定义过滤器一节了解认证流程。 1. 注册DelegatingFilterProxypackage com.study.config; import org.springframework.security.web.context.*;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Spring Security之Java Configuration方式/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="java configuration方式 上面是以xml文件的方式配置，接下来介绍以自定义java类的方式来配置spring security 可先在719行：自定义过滤器一节了解认证流程。 1. 注册DelegatingFilterProxypackage com.study.config; import org.springframework.security.web.context.*;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg03.sogoucdn.com%2Fapp%2Fa%2F100520146%2F6164bc2cf45a0a8971807738efccacf2">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg04.sogoucdn.com%2Fapp%2Fa%2F100520146%2Fb5f38cf4f36790c3704812508b4fbe5b">
+<meta property="og:image" content="https://img-blog.csdn.net/20170418200403491?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcG9vckNvZGVyXw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="https://img-blog.csdn.net/20170418201005087?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcG9vckNvZGVyXw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:updated_time" content="2019-02-14T03:39:04.917Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="java configuration方式 上面是以xml文件的方式配置，接下来介绍以自定义java类的方式来配置spring security 可先在719行：自定义过滤器一节了解认证流程。 1. 注册DelegatingFilterProxypackage com.study.config; import org.springframework.security.web.context.*;">
+<meta name="twitter:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg03.sogoucdn.com%2Fapp%2Fa%2F100520146%2F6164bc2cf45a0a8971807738efccacf2">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.795Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#java-configuration方式"><span class="post-toc-number">1.</span> <span class="post-toc-text">java configuration方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-注册DelegatingFilterProxy"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1. 注册DelegatingFilterProxy</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-Spring-Security安全配置"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. Spring Security安全配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#一些自定义方式"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">一些自定义方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#自定义用户服务"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">自定义用户服务</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#自定义过滤器"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">自定义过滤器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#参考文章"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">参考文章</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码实例"><span class="post-toc-number">2.</span> <span class="post-toc-text">代码实例</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Spring Security之Java Configuration方式"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.795Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="java-configuration方式"><a href="#java-configuration方式" class="headerlink" title="java configuration方式"></a>java configuration方式</h3><ul>
+<li>上面是以xml文件的方式配置，接下来介绍以自定义java类的方式来配置spring security</li>
+<li><p>可先在719行：自定义过滤器一节了解认证流程。</p>
+<h4 id="1-注册DelegatingFilterProxy"><a href="#1-注册DelegatingFilterProxy" class="headerlink" title="1. 注册DelegatingFilterProxy"></a>1. 注册DelegatingFilterProxy</h4><pre><code>package com.study.config;
+import org.springframework.security.web.context.*;
+
+public class SecurityWebApplicationInitializer
+    extends AbstractSecurityWebApplicationInitializer {
+
+    @Override
+    protected Class&lt;?&gt;[] getRootConfigClasses() {
+        return new Class[] { WebSecurityConfig.class };
+    }
+
+}
+</code></pre></li>
+<li><p>继承该类相当于在web.xml中：</p>
+<pre><code>&lt;filter&gt;
+    &lt;filter-name&gt;springSecurityFilterChain&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.springframework.web.filter.DelegatingFilterProxy&lt;/filter-class&gt;
+&lt;/filter&gt;
+</code></pre></li>
+<li><p>重写getRootConfigClasses()相当于把下一步Spring Security的配置加载到程序中。</p>
+<h4 id="2-Spring-Security安全配置"><a href="#2-Spring-Security安全配置" class="headerlink" title="2. Spring Security安全配置"></a>2. Spring Security安全配置</h4><pre><code>package com.study.config;
+
+import javax.annotation.Resource;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import com.study.security.MyFilterSecurityInterceptor;
+
+@Configuration
+@EnableWebSecurity //启用web安全功能
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+//  @Resource
+//  private DataSource dataSource;
+
+    //配置自定义的用户服务（即选择用户信息的查询方式是从用户库或数据库，怎么查询）
+    @Resource(name=&quot;myUserDetailService&quot;)
+    private UserDetailsService myUserDetailService;
+
+    //第3点：自定义用户验证
+    @Resource
+    private AuthenticationProvider myAuthenticationProvider;
+
+    //自定义认证成功处理器
+    @Resource
+    private AuthenticationSuccessHandler myAuthenticationSuccessHandler;
+
+    //第4点：自定义拦截器（自定义权限验证,而不是拦截规则）
+    @Resource
+    private MyFilterSecurityInterceptor myFilterSecurityInterceptor;
+
+    /**
+     * 密码加密
+     */
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+    /**
+    * 自定义认证过程
+    */
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth)
+            throws Exception {
+
+        /* 不重写的话默认为
+        auth
+            .inMemoryAuthentication()
+                .withUser(&quot;user&quot;).password(&quot;password&quot;).roles(&quot;USER&quot;); //默认准备了一个用户
+        */
+
+        //方式一：内存用户存储
+        /*
+        auth.inMemoryAuthentication()
+        .withUser(&quot;user1&quot;).password(&quot;123456&quot;).roles(&quot;USER&quot;).and()
+        .withUser(&quot;admin&quot;).password(&quot;admin&quot;).roles(&quot;USER&quot;,&quot;ADMIN&quot;);
+        */
+        //
+        //方式二：数据库表认证
+        /*
+        auth.jdbcAuthentication().dataSource(dataSource)
+        .usersByUsernameQuery(&quot;select username,password,enable from t_user where username=?&quot;)
+        .authoritiesByUsernameQuery(&quot;select username,rolename from t_role where username=?&quot;);
+        */
+        //方式三：自定义数据库
+        auth.userDetailsService(myUserDetailService)
+            .passwordEncoder(new Md5PasswordEncoder()); 
+            //加后MyAuthenticationProvider里比对密码时能把表单的明文和数据库的密文对应
+
+        //自定义用户验证
+        auth.authenticationProvider(myAuthenticationProvider);
+    }
+
+//  暴露默认的authenticationManager
+//  @Override
+//    public AuthenticationManager authenticationManagerBean() throws Exception {  
+//      return super.authenticationManagerBean();  
+//    }  
+
+    /**
+    * 配置Spring Security的Filter链
+    */
+    @Override
+    public void configure(WebSecurity web)throws Exception {
+        // 设置不拦截规则
+         web.ignoring().antMatchers(&quot;/css/**&quot;,&quot;/js/**&quot;,&quot;/img/**&quot;,&quot;/font-awesome/**&quot;);  
+    }
+
+    /**
+    * 配置如何通过拦截器保护请求：配置了自定义的过滤器、自定义登录登出页面
+    * 前端请求的时候先经过这里检测请求是否需要验证或权限，不需要的话直接把请求分发给controller去处理，需要就认证过了再分发
+    */
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+          http
+            .addFilterBefore(myFilterSecurityInterceptor,    
+                FilterSecurityInterceptor.class)//在正确的位置添加我们自定义的过滤器  
+            .authorizeRequests() //需要权限，权限符合与否由上面过滤器检查
+            .antMatchers(&quot;/admin/**&quot;).hasRole(&quot;ADMIN&quot;) //以admin开头的url需要admin权限
+            .antMatchers(&quot;/db/**&quot;).access(&quot;hasRole(&apos;ADMIN&apos;) and hasRole(&apos;DBA&apos;)&quot;)
+            .anyRequest().authenticated() //不与以上匹配的所有请求只需要登录验证
+//         .and().formLogin().and() //and相当于节点结束
+//          .httpBasic();
+        // 自定义登录页面：permitAll，允许all用户访问login页面
+        //未登录前访问受保护资源被转回login
+            .and()
+            /*直接/jsp/login的话会分配给controller去处理，则需要写controller映射到登录页；请求login.jsp报404
+            有后缀则直接请求资源，那么url=/login还是由controller处理；
+            那么最好是加后缀，才不用再走controller*/
+            .formLogin().loginPage(&quot;/jsp/login.jsp&quot;) 
+            .failureUrl(&quot;/jsp/login.jsp?error=1&quot;)
+            //表单提交地址，4.x默认为/login；无需认证，但是请求方式必须post
+            .loginProcessingUrl(&quot;/spring_security_check&quot;) 
+            .usernameParameter(&quot;username&quot;)
+            .passwordParameter(&quot;password&quot;)
+            .successHandler(myAuthenticationSuccessHandler) //自定义认证成功处理器
+            //.failureHandler(myAuthenticationFailureHandler)
+            .permitAll()
+            //这里也是，要么配资源路径，要么配有controller处理的url
+            .defaultSuccessUrl(&quot;/index.do&quot;)
+            .and()
+            //配置session管理
+            .sessionManagement()
+            /*指定了maximumSessions需配合web.xml中HttpSessionEventPublisher
+            清理掉过期session*/
+            .maximumSessions(1) 
+            .expiredUrl(&quot;/login.jsp?expired=1&quot;);
+
+          //如果(默认)开启了CSRF，退出则需要使用POST访问，可使用以下方式解决，但不推荐
+          http.logout().logoutRequestMatcher(new AntPathRequestMatcher(&quot;/logout&quot;))  
+          //登陆成功后跳转的地址，以及删除的cookie名称  
+          .logoutSuccessUrl(&quot;/jsp/login.jsp?error=logout&quot;)  
+         .invalidateHttpSession(true);  
+    }
+
+}
+</code></pre></li>
+<li>接收到请求，先在spring security中是否有符合的（/login、/logout、/spring_security_check、/**/favicon.ico、…），出现Checking match of request : ‘/login’; against ‘/logout’或Request ‘GET /login’ doesn’t match ‘POST /spring_security_check都表示当前请求与已存在url不匹配，后者指明spring_security_check必须是post形式的，若不匹配，则检测用户是否已认证，未认证，后台报AccessDenyException，前端转回login页面，已认证，分发给controller处理。所以用户请求的资源是他不能访问的就会报AccessDenyException。</li>
+<li>未登录时用户为匿名用户</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg03.sogoucdn.com%2Fapp%2Fa%2F100520146%2F6164bc2cf45a0a8971807738efccacf2" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>登录后若未给用户设置权限，则用户为无权限</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg04.sogoucdn.com%2Fapp%2Fa%2F100520146%2Fb5f38cf4f36790c3704812508b4fbe5b" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>所以给请求设置权限，如果没有指定权限，则至少不能是匿名用户</li>
+<li><p>大致相当于配置</p>
+<pre><code>&lt;!-- 获取访问url对应的所有权限 --&gt;
+&lt;beans:bean id=&quot;secureResourceFilterInvocationDefinitionSource&quot; 
+    class=&quot;com.ultrapower.me.util.security.interceptor.SecureResourceFilterInvocationDefinitionSource&quot; /&gt;
+&lt;!-- 校验用户的权限是否足够 --&gt;
+&lt;beans:bean id=&quot;mesecurityAccessDecisionManager&quot; 
+    class=&quot;com.ultrapower.me.util.security.interceptor.SecurityAccessDecisionManager&quot; /&gt;
+
+&lt;!-- 自定义权限认证 --&gt;
+&lt;beans:bean id=&quot;securityInterceptor&quot; 
+ class=&quot;com.ultrapower.me.util.security.interceptor.SecurityInterceptor&quot;&gt;
+    &lt;beans:property name=&quot;authenticationManager&quot; ref=&quot;authenticationManager&quot;/&gt;
+    &lt;beans:property name=&quot;accessDecisionManager&quot; ref=&quot;mesecurityAccessDecisionManager&quot;/&gt;
+    &lt;beans:property name=&quot;securityMetadataSource&quot; 
+        ref=&quot;secureResourceFilterInvocationDefinitionSource&quot; /&gt;
+&lt;/beans:bean&gt;
+
+&lt;!-- 用户服务 --&gt;
+&lt;beans:bean id=&quot;myUserDetailsService&quot; 
+    class=&quot;com.ultrapower.me.util.security.support.myUserDetailsService&quot;&gt;&lt;/beans:bean&gt;
+
+&lt;!-- 自定义用户验证--&gt;
+&lt;beans:bean id=&quot;myAuthenticationProvider&quot;
+    class=&quot;com.security.MyAuthenticationProvider&quot;&gt;
+    &lt;beans:property name=&quot;userDetailsService&quot; ref=&quot;myUserDetailsService&quot; /&gt;
+&lt;/beans:bean&gt;
+
+&lt;!-- 1、自定义权限认证:依赖上面的bean --&gt;
+&lt;http auto-config=&quot;true&quot;  use-expressions=&quot;false&quot;&gt;      
+    &lt;intercept-url pattern=&quot;/login.jsp*&quot; access=&quot;IS_AUTHENTICATED_ANONYMOUSLY&quot;/&gt;
+    &lt;intercept-url pattern=&quot;/**&quot; access=&quot;ROLE_USER&quot;/&gt;
+    &lt;form-login login-page=&quot;/login.jsp&quot; default-target-url=&quot;/jsp/index/main.jsp&quot; 
+        authentication-failure-url=&quot;/login.jsp?error=true&quot;/&gt;
+    &lt;custom-filter before=&quot;FILTER_SECURITY_INTERCEPTOR&quot; ref=&quot;securityInterceptor&quot;/&gt;
+&lt;/http&gt;
+
+&lt;!-- 2、自定义用户验证：依赖上面的bean--&gt;
+&lt;authentication-manager alias=&quot;authenticationManager&quot;&gt; //起别名，方便被下面自定义拦截器依赖
+    &lt;!--自定义用户验证--&gt;
+    &lt;authentication-provider ref=&quot;myAuthenticationProvider&quot; /&gt;
+    &lt;!--只自定义用户服务而不需要自定义用户验证的话
+    &lt;authentication-provider user-service-ref=&quot;myUserDetailsService&quot;&gt;--&gt;
+        &lt;password-encoder ref=&quot;myPasswordEncoder&quot;/&gt;
+    &lt;/authentication-provider&gt;
+&lt;/authentication-manager&gt;
+</code></pre></li>
+</ul>
+<h5 id="一些自定义方式"><a href="#一些自定义方式" class="headerlink" title="一些自定义方式"></a>一些自定义方式</h5><ul>
+<li><p>简单的自定义登录页面对比</p>
+<pre><code>protected void configure(HttpSecurity http) throws Exception {
+    http
+        .authorizeRequests()
+            .anyRequest().authenticated()
+            .and()
+        .formLogin()
+            .and()
+        .httpBasic();
+}
+</code></pre></li>
+<li><p>相当于</p>
+<pre><code>&lt;http&gt;
+    &lt;intercept-url pattern=&quot;/**&quot; access=&quot;authenticated&quot;/&gt;
+    &lt;form-login /&gt;
+    &lt;http-basic /&gt;
+&lt;/http&gt;
+</code></pre></li>
+<li><p>自定义权限</p>
+<pre><code>protected void configure(HttpSecurity http) throws Exception {
+    http
+        .authorizeRequests() //需要权限                         
+            .antMatchers(&quot;/resources/**&quot;, &quot;/signup&quot;, &quot;/about&quot;).permitAll()                  
+            .antMatchers(&quot;/admin/**&quot;).hasRole(&quot;ADMIN&quot;) 
+            //使用hasRole()可以不写ROLE_前缀，但实际上我们指定的权限还是ROLE_ADMIN     
+            .antMatchers(&quot;/db/**&quot;).access(&quot;hasRole(&apos;ADMIN&apos;) and hasRole(&apos;DBA&apos;)&quot;)
+            /*按照顺序匹配，下面是对的*/
+            //.antMatchers(&quot;/admin/**&quot;).hasRole(&quot;ADMIN&quot;)
+            //.antMatchers(&quot;/**&quot;).hasRole(&quot;USER&quot;)
+            /*下面是错的，因为满足第一个规则后将不会检查第二条，所以要从精确到广泛配置*/
+            //.antMatchers(&quot;/**&quot;).hasRole(&quot;USER&quot;)
+            //.antMatchers(&quot;/admin/**&quot;).hasRole(&quot;ADMIN&quot;)
+            .anyRequest().authenticated() //需要验证                                    
+            .and()
+        // ...
+        .formLogin();
+}
+</code></pre></li>
+<li><p>自定义登出页面</p>
+<pre><code>protected void configure(HttpSecurity http) throws Exception {
+    http
+        .logout()
+            .logoutUrl(&quot;/my/logout&quot;)
+            .logoutSuccessUrl(&quot;/my/index&quot;) 
+            .logoutSuccessHandler(logoutSuccessHandler) //自定义登出成功后的操作，上一行失效
+            .invalidateHttpSession(true)
+            //添加一个自定义登出处理器，SecurityContextLogoutHandler默认是最后一个处理器
+            .addLogoutHandler(logoutHandler) 
+            .deleteCookies(cookieNamesToClear)
+            .and()
+        ...
+}
+</code></pre></li>
+<li><p>一般前面两步都是直接用配置文件实现，然后注入自定义UserDetailServiceImpl，也就这个要用java写而已</p>
+<h4 id="自定义用户服务"><a href="#自定义用户服务" class="headerlink" title="自定义用户服务"></a>自定义用户服务</h4></li>
+<li>如果是要用数据库的话那肯定是要的，首先是用户实体类UserDetails必须改为符合数据库的字段，默认的也就用户名、密码加权限列表了，其次获取用户信息UserDetialsService的方式也要改成从数据库获取.</li>
+<li><p>首先是UserDetailsService，主要是根据用户名从数据库找出用户all信息，主要是用户名、密码和权限列表</p>
+<pre><code>package com.study.security;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import javax.annotation.Resource;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
+
+import com.study.model.Resources;
+import com.study.model.User;
+import com.study.service.ResourcesService;
+import com.study.service.UserService;
+
+@Component(&quot;myUserDetailService&quot;)
+public class MyUserDetailServiceImpl implements UserDetailsService{
+
+    //这里可以来个日志
+
+    @Resource
+    private UserService userService;
+
+    @Resource
+    private ResourcesService resourcesService;
+
+    @Override
+    public UserDetails loadUserByUsername(String username)
+            throws UsernameNotFoundException {
+        //通过用户名查询用户信息
+        User user = userService.findUserByName(username); 
+        //系统实体类User implement UsersService,系统service类userService
+        if(user ==null)
+            throw new UsernameNotFoundException(username+&quot; not exist!&quot;);  
+        //存放角色名的集合
+        Set&lt;GrantedAuthority&gt; authSet = new HashSet&lt;GrantedAuthority&gt;();
+        //系统实体类Resources，即各个url
+        Resources resources = new Resources();
+        resources.setUsername(username);
+        //找到特定用户名能访问的url集合
+        List&lt;Resources&gt; list = resourcesService.loadMenu(resources);
+        for (Resources r : list) {
+            //根据资源找到角色名，添加到角色名集合
+            authSet.add(new SimpleGrantedAuthority(&quot;ROLE_&quot; +r.getResKey()));
+            //resKey:资源名，拼成角色名
+        }
+        /*
+        username()：登录用户名
+        password()：从数据库查出来的密码
+        enable: 用户状态，true为有效，false无效
+        accoutNonExpired,credentialsNonExpired,accountNonLocked
+        roles: Collections集合，当前登录用户的角色列表
+        */
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), 
+                user.getPassword(), 
+                user.getEnable()==1?true:false, 
+                true, 
+                true,
+                true,
+                authSet); //返回的user不为空，则验证通过
+    }
+
+}
+</code></pre></li>
+<li><p>系统实体类User实现UserDetails，主要是查询数据库所有权限，返回权限列表</p>
+<pre><code>public class User implements UserDetails {
+
+    private static final long serialVersionUID = 8026813053768023527L;
+
+    private String name;
+    private String password;
+    private Set&lt;Role&gt; roles; //可以不写
+    //其他属性，随便，自定义
+
+    /**
+    * 返回系统所有角色
+    */
+    @Override
+    public Collection&lt;? extends GrantedAuthority&gt; getAuthorities() {
+        //根据自定义逻辑来返回用户权限，如果用户权限返回空或者和拦截路径对应权限不同，验证不通过
+        if(!roles.isEmpty()){
+            List&lt;GrantedAuthority&gt; list = new ArrayList&lt;GrantedAuthority&gt;();
+            GrantedAuthority au = new SimpleGrantedAuthority(role.getrName());
+            list.add(au);
+            return list;
+        }
+        return null;
+    }
+
+    /**
+    * 默认有一个方法返回当前用户的角色列表，后面介绍了它的重写；可选的
+    */
+
+    @Override
+    public String getPassword() {
+        return this.password;
+    }
+    @Override
+    public String getUsername() {
+        return this.username;
+    }
+
+    /* 
+     *帐号是否不过期，false则验证不通过
+     */
+     @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    /* 
+     * 帐号是否不锁定，false则验证不通过
+     */
+     @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    /* 
+     * 凭证是否不过期，false则验证不通过
+     */
+     @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    /* 
+     * 该帐号是否启用，false则验证不通过
+     */
+     @Override
+    public boolean isEnabled() {
+        return true;
+    }
+}
+</code></pre></li>
+<li>User类代码实例：llcweb/domain/models/</li>
+<li>数据库表介绍：五张表————用户表、角色表、资源表、用户角色表、角色资源表。给用户分配角色，给角色分配资源（即权限）。一个用户可以对应多个角色，一个角色可以对应多个资源。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdn.net/20170418200403491?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcG9vckNvZGVyXw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>其中资源表t_resources包含了后台系统的所有url</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdn.net/20170418201005087?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcG9vckNvZGVyXw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>resKey即角色名</li>
+</ul>
+<h4 id="自定义过滤器"><a href="#自定义过滤器" class="headerlink" title="自定义过滤器"></a>自定义过滤器</h4><ul>
+<li>首先整理spring security的步骤：</li>
+</ul>
+<ol>
+<li>在spring security中每一个url都是一个资源，系统启动时，spring security第一个拦截器FilterSecurityInterceptor调用SecurityMetadataSource将所有url与其权限对应。</li>
+<li>当用户发起请求时，spring security检查该请求是否需要特定权限（需不需要都在WebSecurityConfigurerAdapter中指定了），不需要的话直接访问，连是否登录都不验证。</li>
+<li>需要权限，AbstractAuthenticationProcessingFilter先验证当前用户是否已登录，否则跳转登录页面。</li>
+<li>已登录，FilterSecurityInterceptor判断该用户是否拥有当前请求所需的权限，有则允许访问，没有则给出提示信息。</li>
+</ol>
+<ul>
+<li>我们这一节说的过滤器特指这个FilterSecurityInterceptor。基于数据库的权限验证必须要自定义过滤器，因为它主要就是做权限验证的，包括资源与权限对应关系的查询、当前用户是否持有请求资源所需权限的判断。</li>
+<li><p>前面不是用java注册spring security的话就需要以下配置</p>
+<pre><code>&lt;!--还要在http中添加&lt;custom-filter before=&quot;FILTER_SECURITY_INTERCEPTOR&quot; 
+ref=&quot;securityInterceptor&quot;/&gt;--&gt;
+
+&lt;!--ProviderManager类的实例注入authenticationManager--&gt;
+&lt;authentication-manager alias=&quot;authenticationManager&quot;&gt;
+&lt;!-- 获取访问url对应的所有权限 --&gt;
+&lt;beans:bean id=&quot;secureResourceFilterInvocationDefinitionSource&quot; 
+    class=&quot;com.ultrapower.me.util.security.interceptor.SecureResourceFilterInvocationDefinitionSource&quot; /&gt;
+&lt;!-- 校验用户的权限是否足够 --&gt;
+&lt;beans:bean id=&quot;mesecurityAccessDecisionManager&quot; 
+    class=&quot;com.ultrapower.me.util.security.interceptor.SecurityAccessDecisionManager&quot; /&gt;
+
+&lt;!-- 自定义拦截器:依赖上面的bean --&gt;
+&lt;beans:bean id=&quot;securityInterceptor&quot; 
+ class=&quot;com.ultrapower.me.util.security.interceptor.SecurityInterceptor&quot;&gt;
+    &lt;beans:property name=&quot;authenticationManager&quot; ref=&quot;authenticationManager&quot;/&gt;
+    &lt;beans:property name=&quot;accessDecisionManager&quot; ref=&quot;mesecurityAccessDecisionManager&quot;/&gt;
+    &lt;beans:property name=&quot;securityMetadataSource&quot; 
+        ref=&quot;secureResourceFilterInvocationDefinitionSource&quot; /&gt;
+&lt;/beans:bean&gt;
+</code></pre></li>
+<li><p>开始自定义过滤器</p>
+<pre><code>package com.study.security;
+
+import java.io.IOException;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.SecurityMetadataSource;
+import org.springframework.security.access.intercept.AbstractSecurityInterceptor;
+import org.springframework.security.access.intercept.InterceptorStatusToken;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.web.FilterInvocation;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MyFilterSecurityInterceptor extends AbstractSecurityInterceptor implements 
+    Filter {
+    //所有资源与权限的关系（需要在外面自定义）：获取请求资源的权限
+    @Autowired
+    private MySecurityMetadataSource securityMetadataSource;
+
+    //用户是否拥有所请求资源的权限（需要在外面自定义）：判断是否拥有请求资源所需的权限
+    @Autowired
+    private MyAccessDecisionManager accessDecisionManager;
+
+    /* 默认装配够用了
+    @Resource(name=&quot;myAuthenticationManager&quot;)
+    private AuthenticationManager authenticationManager;  
+    */
+
+    @Resource
+    private AuthenticationConfiguration authenticationConfiguration;
+
+//  @Autowired
+//  public void setAuthenticationConfiguration(AuthenticationConfiguration authenticationConfiguration) {
+//       this.authenticationConfiguration = authenticationConfiguration;
+//  }
+
+    @PostConstruct
+    public void init() throws Exception{
+        super.setAccessDecisionManager(accessDecisionManager);
+        super.setAuthenticationManager(authenticationConfiguration.getAuthenticationManager());   
+    }
+
+    @Override
+    public SecurityMetadataSource obtainSecurityMetadataSource() {
+        return this.securityMetadataSource;
+    }
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response,
+            FilterChain chain) throws IOException, ServletException {
+        FilterInvocation fi = new FilterInvocation(request, response, chain);
+
+        /*beforeInvocation做的事*/
+        //super.beforeInvocation(fi);源码
+        //获取请求资源的权限
+        //执行Collection&lt;ConfigAttribute&gt; attributes =
+            SecurityMetadataSource.getAttributes(object); //object为FilterInvocation对象
+        //是否拥有权限；authentication：封装了用户拥有的权限
+        //this.accessDecisionManager.decide(authenticated, object, attributes);
+        InterceptorStatusToken token = super.beforeInvocation(fi);
+
+        try {
+            //执行下一个拦截器
+            fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
+        } finally {
+            super.afterInvocation(token, null);
+        }
+    }
+
+    @Override
+    public void init(FilterConfig arg0) throws ServletException {
+    }
+
+    @Override
+    public void destroy() {
+
+    }
+
+    @Override
+    public Class&lt;? extends Object&gt; getSecureObjectClass() {
+        //下面的MyAccessDecisionManager的supports方法必须返回true,否则会提醒类型错误
+        return FilterInvocation.class;
+    }
+}
+</code></pre></li>
+<li><p>自定义过滤器需要用到的用户是否拥有所请求资源的权限：MyAccessDecisionManager。默认使用AbstractAccessDecisionManager，具体是继承了AbstractAccessDecisionManager的AffirmativeBased，还有其他其他的决策管理器，不过不知道怎么启用，只是投票方式不同而已，有的是只要有赞成票就通过权限验证，有的是只要有反对票就不通过。但是看不懂底层是根据什么投赞成票和反对票的，反正不通过就抛AccessDenyException，一层层向上抛出，由ExceptionTranslationFilter打印异常日志。</p>
+<pre><code>package com.study.security;
+
+import java.util.Collection;
+import java.util.Iterator;
+
+import org.springframework.security.access.AccessDecisionManager;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.access.ConfigAttribute;
+import org.springframework.security.authentication.InsufficientAuthenticationException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MyAccessDecisionManager implements AccessDecisionManager {
+
+    /**
+    * 决定authentication拥有的权限中有没有指定资源的权限
+    * object：受保护对象，其可以是一个MethodInvocation、JoinPoint或FilterInvocation
+    * authentication：封装了用户拥有的权限
+    * configAttributes：受保护对象的相关配置属性，主要是访问资源需要的权限
+    */
+    public void decide(Authentication authentication, Object object,
+        Collection&lt;ConfigAttribute&gt; configAttributes) throws AccessDeniedException, InsufficientAuthenticationException {
+
+        if(configAttributes == null) {
+            return;
+        }
+
+        //所请求的资源需要的权限(一个资源对多个权限)
+        Iterator&lt;ConfigAttribute&gt; iterator = configAttributes.iterator();
+        while(iterator.hasNext()) {
+            ConfigAttribute configAttribute = iterator.next();
+            //访问所请求资源所需要的权限
+            String Permission = configAttribute.getAttribute();
+            System.out.println(&quot;needPermission is &quot; + Permission);
+            //用户所拥有的权限authentication
+            for(GrantedAuthority ga : authentication.getAuthorities()) {
+                if(Permission.equals(ga.getAuthority())) {
+                    return;
+                }
+            }
+        }
+
+        //没有权限，后台抛异常而前端显示access-denied-page页面
+        throw new AccessDeniedException(&quot; 没有权限访问或未重新登录！ &quot;);
+    }
+
+     /**
+     * 判断AccessDecisionManager是否能够处理对应的ConfigAttribute
+     */
+    public boolean supports(ConfigAttribute attribute) {
+        // TODO Auto-generated method stub
+        return true;
+    }
+
+    /**
+     * 判断AccessDecisionManager是否支持对应的受保护对象类型
+     */
+    public boolean supports(Class&lt;?&gt; clazz) {
+        // TODO Auto-generated method stub
+        return true;
+    }
+
+}
+</code></pre></li>
+<li><p>自定义过滤器需要用到的获取资源权限（即查询t_resources表中所有resKey与resUrl的关系）：MySecurityMetadataSource</p>
+<pre><code>package com.study.security;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
+
+import org.springframework.security.access.ConfigAttribute;
+import org.springframework.security.access.SecurityConfig;
+import org.springframework.security.web.FilterInvocation;
+import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
+import org.springframework.stereotype.Component;
+
+import com.study.dao.ResourcesDao;
+import com.study.model.Resources;
+
+@Component
+public class MySecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
+
+    @Resource
+    private ResourcesDao resourcesDao;
+
+    private static Map&lt;String, Collection&lt;ConfigAttribute&gt;&gt; resourceMap = null;
+
+    public Collection&lt;ConfigAttribute&gt; getAllConfigAttributes() {
+        return null;
+    }
+
+    public boolean supports(Class&lt;?&gt; clazz) {
+        return true;
+    }
+
+    /**
+     * @PostConstruct是Java EE 5引入的注解，
+     * Spring允许开发者在受管Bean中使用它。当DI容器实例化当前受管Bean时，
+     * @PostConstruct注解的方法会被自动触发，从而完成一些初始化工作
+     */
+    @PostConstruct
+    private void loadResourceDefine() { //加载所有资源与权限的关系
+        if (resourceMap == null) {
+            resourceMap = new HashMap&lt;String, Collection&lt;ConfigAttribute&gt;&gt;();
+            //数据库查询所有资源
+            List&lt;Resources&gt; list = resourcesDao.queryAll(new Resources());
+            //Resources:本项目自定义的实体
+            for (Resources resources : list) {
+                Collection&lt;ConfigAttribute&gt; configAttributes = new ArrayList&lt;ConfigAttribute&gt;();
+                // 通过资源名称来表示具体的权限 注意：必须&quot;ROLE_&quot;开头
+                /*SecurityConfig：ConfigAttribute实现类；
+                只有一个成员，是个常量，构造函数传入string赋予此常量，
+                configAttribute.getAttribute()返回此常量*/
+                ConfigAttribute configAttribute = new SecurityConfig(&quot;ROLE_&quot; + resources.getResKey());
+                configAttributes.add(configAttribute);
+                resourceMap.put(resources.getResUrl(), configAttributes);
+            }
+        }
+    }
+
+    //返回所请求资源所需要的权限
+    public Collection&lt;ConfigAttribute&gt; getAttributes(Object object) throws IllegalArgumentException {
+        //从过滤链中获取当前请求
+        String requestUrl = ((FilterInvocation) object).getRequestUrl();
+        //如果资源角色库为空的话说明还未初始化
+        if(resourceMap == null) {
+            loadResourceDefine(); //强制初始化
+        }
+        //System.err.println(&quot;resourceMap.get(requestUrl); &quot;+resourceMap.get(requestUrl));
+        //如果是get请求的话去掉后面参数
+        if(requestUrl.indexOf(&quot;?&quot;)&gt;-1){
+            requestUrl=requestUrl.substring(0,requestUrl.indexOf(&quot;?&quot;));
+        }
+        //获取该请求对应权限，url作为key
+        Collection&lt;ConfigAttribute&gt; configAttributes = resourceMap.get(requestUrl);
+        return configAttributes;
+    }
+}
+</code></pre></li>
+<li><p>ExceptionTranslationFilter处理AuthenticationException和AccessDeniedException两种异常。</p>
+<pre><code>private void handleSpringSecurityException(HttpServletRequest request,     
+    HttpServletResponse response, FilterChain chain, RuntimeException exception) throws IOException, ServletException {
+
+    //如果异常是AuthenticationException（未登录即访问受保护资源）
+    if (exception instanceof AuthenticationException) { 
+        //打印异常
+        this.logger.debug(&quot;Authentication exception occurred; 
+            redirecting to authentication entry point&quot;, exception);
+        /*传入此方法后主要是调用AuthenticationEntryPoint的默认实现类
+        LoginUrlAuthenticationEntryPoint中的commence方法重定向到登录页*/
+        this.sendStartAuthentication(request, response, chain, 
+            (AuthenticationException)exception);
+        /* sendStartAuthentication源码
+        protected void sendStartAuthentication(HttpServletRequest request, 
+                HttpServletResponse response, FilterChain chain, 
+                AuthenticationException reason) throws ServletException, IOException {
+            SecurityContextHolder.getContext().setAuthentication((Authentication)null);
+            this.requestCache.saveRequest(request, response);
+            this.logger.debug(&quot;Calling Authentication entry point.&quot;);
+            this.authenticationEntryPoint.commence(request, response, reason);
+        }
+        */
+    } 
+
+    //如果是AccessDeniedException
+    else if (exception instanceof AccessDeniedException) {
+
+        //且是匿名用户(未登录即访问受保护资源;一般是该异常，少为AuthenticationException)
+        if (this.authenticationTrustResolver.isAnonymous(SecurityContextHolder
+                .getContext().getAuthentication())) {
+            this.logger.debug(&quot;Access is denied (user is anonymous); 
+                redirecting to authentication entry point&quot;, exception);
+            //重定向到登录页，且把AccessDeniedException包装成AuthenticationException
+            this.sendStartAuthentication(request, response, chain, 
+                new InsufficientAuthenticationException(&quot;Full authentication is required 
+                    to access this resource&quot;));
+        } 
+        //非匿名用户（已登录但权限不足）
+        else {
+            this.logger.debug(&quot;Access is denied (user is not anonymous); 
+                delegating to AccessDeniedHandler&quot;, exception);
+            //重定向到403页面；AccessDeniedHandler默认实现类：AccessDeniedHandlerImpl
+            this.accessDeniedHandler.handle(request, response
+                ,(AccessDeniedException)exception);
+        }
+    }
+
+}
+</code></pre><h4 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h4></li>
+<li><a href="https://blog.csdn.net/poorcoder_/article/details/70231779" target="_blank" rel="noopener">SSM整合SpringSecurity实现权限管理实例 javaconfig配置方式</a>:做到了完全不用web.xml等任何配置文件，连bean的装载都全靠java类和注解完成。</li>
+<li><a href="https://docs.spring.io/spring-security/site/docs/5.2.0.BUILD-SNAPSHOT/reference/htmlsingle/#spring-security-oauth2-core" target="_blank" rel="noopener">spring官方手册（从第6点看起）</a></li>
+<li><a href="https://blog.csdn.net/tzdwsy/article/details/50738043" target="_blank" rel="noopener">在springboot中整合spring security并自定义验证代码</a></li>
+<li><a href="https://blog.csdn.net/abcd_d_/article/details/50478344" target="_blank" rel="noopener">SpringMVC + security模块 框架整合详解</a></li>
+<li><a href="https://www.cnblogs.com/weilu2/p/springsecurity_custom_decision_metadata.html" target="_blank" rel="noopener">SpringSecurity——基于Spring、SpringMVC和MyBatis自定义SpringSecurity权限认证规则</a></li>
+<li><a href="https://www.cnblogs.com/dongying/p/6106855.html" target="_blank" rel="noopener">自定义过滤器中有关AccessDecisionManager决策管理器的部分</a></li>
+<li><a href="https://blog.csdn.net/honghailiang888/article/details/52679264" target="_blank" rel="noopener">有关ExceptionTranslationFilter</a><h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3></li>
+<li>thz-manager-web/config</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-02-14T03:39:04.917Z" itemprop="dateUpdated">2019-02-14 11:39:04</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Spring Security之Java Configuration方式/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Spring Security之Java Configuration方式/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Spring Security之Java Configuration方式/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Spring Security之Java Configuration方式/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Spring Security之Java Configuration方式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Spring Security之Java Configuration方式/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Spring Security之Java Configuration方式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Spring Security之用户验证/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Spring Security全局方法安全注解/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Spring Security之Java Configuration方式/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Spring Security之Java Configuration方式/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Spring Security之Java Configuration方式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Spring Security之Java Configuration方式/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Spring Security之Java Configuration方式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACr0lEQVR42u3a0YrbQAwF0P3/n95CnwpbO/dKnjSU46ewxLbOBGa0kr6+4uv79/Xz859/ufrOz+8nd93H8PCFh4eHNwr96pqFksOS9159vr8XDw8P7zQvOQzarX925Nwz8pjx8PDwPoGXv7IN5T5Nx8PDw/s/ePehtJikSIGHh4f3abx2I26DSJ42K448VmvBw8PDi3mbBti/+vym/h4eHh7eqBHVFnCTI6Q9EobR4uHh4R3gPdVkyosLe2RewsDDw8M7x2vz0rbw2pYhZmn9MPnGw8PDK3n5y654+yfkrbh8ifHw8PBO894zFjBL0FftNDw8PLxjvORf+lnQ+dHSloyjUgUeHh7eAd6m7ZQXUu/vbUu09eGEh4eH9yiv3ZQ3YwTtUMKs3RVNRuDh4eE9ymuDfqDYGuCHiTseHh7eAV7bnk8mEfYjU6tJh+Q1eHh4eA/xnirgtkMDs4WrY8bDw8M7zEtC3/DaYyNv110+Ew8PD+9RXtvOb8sK+SbeLnFULsHDw8N7lNc+ui2zbgq4m8XCw8PDew8vT1vbIm++oecliej7eHh4eG/htQ2qfIHyhWh5xcGAh4eHd4A3azjNNvp2TKEtUuDh4eGd5uVpazIUtWmAtUVkPDw8vHfy2rGnTVpc9+XipPzFkuHh4eE9ymtT5HazzosISburjgEPDw/vMK9IUmPwrGCxKWr8pQGGh4eH9ygveUTeAMsLFrOSbn7h4eHhneN9l9dsxGozBLBJuPHw8PBO8GYnyaZo24ayadHh4eHhneO16XJyVz0gVR4z+VGEh4eHd47XHgb79Ddpbm1Kw3h4eHifwJulv3noLTVZPjw8PLzP4SVJ9uZQyeN58TPg4eHhHePNihH3QScB7e99ERseHh7eAd5sSqt9TTvOlY98zQaz8PDw8Ea8X6fSc6hQAVflAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

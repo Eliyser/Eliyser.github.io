@@ -165,11 +165,11 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-a标签添加onclick事件"
+            <article id="post-Shiro第十九章-动态url权限控制、拦截器自定义"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.589Z"  itemprop="datePublished">2019-04-30</time>
+        <time class="post-time" title="2019-04-30 16:29:23" datetime="2019-04-30T08:29:23.037Z"  itemprop="datePublished">2019-04-30</time>
 
         
 
@@ -181,143 +181,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/30/a标签添加onclick事件/">No title</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-a href=”javascript:void(0);” onclick=”js_method()”
-a href=”javascript:;” onclick=”js_method()”
-a href=”#” onclick=”js_method();return false;”
-参考地址
-
-
-    
-
-        <a href="/2019/04/30/a标签添加onclick事件/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-assert"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.586Z"  itemprop="datePublished">2019-04-30</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/30/assert/">No title</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        assert()宏是用于保证满足某个特定条件，用法是：
-assert(表达式);
-如果表达式的值为假，整个程序将退出，并输出一条错误信息。如果表达式的值为真则继续执行后面的语句。
-使用这个宏前需要包含头文件assert.h
-
-                
-                    
-                    
-                
-        ...
-    
-
-        <a href="/2019/04/30/assert/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-ArrayList.this类名.this何意"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.570Z"  itemprop="datePublished">2019-04-30</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/30/ArrayList.this类名.this何意/">No title</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-ArrayList的源码中，有一个实现了Iterator接口的内部类Itr，其中有两个elementData变量，一个是内部类的属性，一个是外部类的，那么外部类的就必须标识为ArrayList.this.elemtData
-注意，不是this.elementData，因为外部类的对象是不能调用内部类的，所以只能用类名.this来区别内部类和外部类的属性。
-//内部类
-private cla...
-    
-
-        <a href="/2019/04/30/ArrayList.this类名.this何意/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Apache POI"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.556Z"  itemprop="datePublished">2019-04-30</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/30/Apache POI/">No title</a>
+      <a class="post-title-link" href="/2019/04/30/Shiro第十九章-动态url权限控制、拦截器自定义/">No title</a>
     </h3>
   
 
@@ -328,17 +192,15 @@ private cla...
 
     
         简介
-一种用java代码读写文档（Excel、word、PPT）的方式读写Excel方面
-针对不同的Excel版本，要采用不同的工具类。
-HSSFWorkbook：操作Excel2003以前的版本，扩展名为.xls
-XSSFWorkbook：操作2007的版本，扩展名是.xlsx
+即访问url时进行权限匹配，如果没有权限则直接跳到错误页面。
+在Shiro中，更多的是通过AOP进行方法级别的权限控制，而通过url进行权限控制是一种集中的权限控制。
 
-
-如果版本匹配错了，会抛出异常：
-org.apache.poi.openxml4j.exceptions.In...
+示例
+拦截器：如authc、anon等字符串为一个拦截器；拦截器链：url=authc为一条拦截器链；拦截器链集合：url1=authc，url2=anon为拦截器链集合。
+仿chapter16的示例，主要功能是用户、...
     
 
-        <a href="/2019/04/30/Apache POI/" class="post-more waves-effect waves-button">
+        <a href="/2019/04/30/Shiro第十九章-动态url权限控制、拦截器自定义/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -348,11 +210,11 @@ org.apache.poi.openxml4j.exceptions.In...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Ant风格"
+            <article id="post-Shiro第十二章-与Spring集成、配置文件初解"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.553Z"  itemprop="datePublished">2019-04-30</time>
+        <time class="post-time" title="2019-04-30 16:29:23" datetime="2019-04-30T08:29:23.032Z"  itemprop="datePublished">2019-04-30</time>
 
         
 
@@ -364,7 +226,7 @@ org.apache.poi.openxml4j.exceptions.In...
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/30/Ant风格/">No title</a>
+      <a class="post-title-link" href="/2019/04/30/Shiro第十二章-与Spring集成、配置文件初解/">No title</a>
     </h3>
   
 
@@ -374,25 +236,18 @@ org.apache.poi.openxml4j.exceptions.In...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
-Ant风格，为请求路径的一种匹配方式。
-Ant通配符
+        简介
+Shiro的组件都是Javabean/pojo式的组件，所以非常容易使用Spring进行组件管理,可以非常方便得从ini配置转为Spring配置（如xml配置文件）。
 
-
-                
-                    
-                    
-                
-                
-            
-
-                
-                    
-                    
- ...
+JavaSE
+依赖
+&lt;!--单元测试--&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;junit&lt;/groupId&gt;
+  &lt;artifactId&gt;jun...
     
 
-        <a href="/2019/04/30/Ant风格/" class="post-more waves-effect waves-button">
+        <a href="/2019/04/30/Shiro第十二章-与Spring集成、配置文件初解/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -402,11 +257,11 @@ Ant通配符
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-alibabaJava开发手册之异常处理"
+            <article id="post-Shiro第十八章-并发登录人数控制"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.544Z"  itemprop="datePublished">2019-04-30</time>
+        <time class="post-time" title="2019-04-30 16:29:23" datetime="2019-04-30T08:29:23.029Z"  itemprop="datePublished">2019-04-30</time>
 
         
 
@@ -418,7 +273,7 @@ Ant通配符
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/30/alibabaJava开发手册之异常处理/">No title</a>
+      <a class="post-title-link" href="/2019/04/30/Shiro第十八章-并发登录人数控制/">No title</a>
     </h3>
   
 
@@ -428,25 +283,18 @@ Ant通配符
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
-异常不要用来做流程控制、条件控制，因为异常的处理效率比条件分支低。
-//正例
-if(obj!=null){
-    ...
-}
+        简介
+在某些项目中，一个账户可能只允许一人登录或几个人同时登录，当超过人数时，要么进制后者登录，要么踢出前者登录。
+Spring Security直接提供了相应的功能。
+Shiro没有提供默认实现，但自己添加也是很容易的。
 
-//反例
-try{
-    obj.method()
-}catch(NullPointException e){
-    ...
-}
-
-对大段代码进行try/catch,这是不负责任的表现。请分清稳定代码和非稳定代码。
-捕获代码是为了处理它，如果不想处理它，请把...
+示例
+采用第十六章的示例，主要功能是用户、公司、角色和资源之间关系的调整，如修改用户所属公司、所有角色，资源所需权限、角色所有资源等。
+目的：添加登录人数限制功能。
+K...
     
 
-        <a href="/2019/04/30/alibabaJava开发手册之异常处理/" class="post-more waves-effect waves-button">
+        <a href="/2019/04/30/Shiro第十八章-并发登录人数控制/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -456,11 +304,11 @@ try{
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-Ajax"
+            <article id="post-Shiro第三章一-授权流程"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.537Z"  itemprop="datePublished">2019-04-30</time>
+        <time class="post-time" title="2019-04-30 16:29:23" datetime="2019-04-30T08:29:23.026Z"  itemprop="datePublished">2019-04-30</time>
 
         
 
@@ -472,7 +320,7 @@ try{
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/30/Ajax/">No title</a>
+      <a class="post-title-link" href="/2019/04/30/Shiro第三章一-授权流程/">No title</a>
     </h3>
   
 
@@ -482,14 +330,14 @@ try{
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        
-创建一个XMLHttpRequest 对象，用于在后台与服务器交换数据。这意味着可以在不重载的整个网页的 情况下，对网页的某部分进行更新。然后使用该对象的open方法来打开一个Http请求。
-open(method,url,async): 规定请求的类型（get或post）、URL与是否异步（一般为true）
-send(String): 发送请求，String仅用于post请求。
-func...
+        简介
+授权，也叫控制访问。关键对象：主体（Subject）、资源（Resource）、权限（Permission）、角色（Role）。
+角色：权限的集合，一般情况下我们会赋予用户角色而不是权限。
+Shiro支持粗粒度（角色级别访问控制）和细粒度（权限级别）权限。
+隐式角色：直接通过角色来验证用户有没有操作权限，粒度较粗，是以角色为单位进行访问控制的。如果有一天不允许总监这一角色使用打印机了，...
     
 
-        <a href="/2019/04/30/Ajax/" class="post-more waves-effect waves-button">
+        <a href="/2019/04/30/Shiro第三章一-授权流程/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -499,11 +347,11 @@ func...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-@JoinColumn表关联和级联"
+            <article id="post-Shiro第三章二-授权示例"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.432Z"  itemprop="datePublished">2019-04-30</time>
+        <time class="post-time" title="2019-04-30 16:29:23" datetime="2019-04-30T08:29:23.012Z"  itemprop="datePublished">2019-04-30</time>
 
         
 
@@ -515,7 +363,7 @@ func...
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/04/30/@JoinColumn表关联和级联/">No title</a>
+      <a class="post-title-link" href="/2019/04/30/Shiro第三章二-授权示例/">No title</a>
     </h3>
   
 
@@ -525,14 +373,234 @@ func...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        @JoinColumn简介
-注释本表或另一张关联表中指向对方表的外键一对一外键关联
-假设Person中有一个外键addressID关联Address表，是一对一关系。我们一般认为主控方是Person,所以@JoinColumn写在Person中。
-@OneToOne(cascade=CascadeType.ALL,optional=true)
-@JoinColumn(name=&quot;a...
+        示例
+调用链：开始用户验证login()-&gt;AbstractAuthenticaticator.authenticate()-&gt;子类ModularRealmAuthenticator.doAuthenticate()判断有几个Realm，然后一个个执行-&gt;getAuthenticationInfo()-&gt;AuthenticatingRealm.getAuthentic...
     
 
-        <a href="/2019/04/30/@JoinColumn表关联和级联/" class="post-more waves-effect waves-button">
+        <a href="/2019/04/30/Shiro第三章二-授权示例/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Shiro第七章-与web集成、ShiroFilter、基于表单的拦截器"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-04-30 16:29:23" datetime="2019-04-30T08:29:23.009Z"  itemprop="datePublished">2019-04-30</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/04/30/Shiro第七章-与web集成、ShiroFilter、基于表单的拦截器/">No title</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        依赖
+shiro-web
+&lt;!--shiro项目至少的jar--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.shiro&lt;/groupId&gt;
+    &lt;artifactId&gt;shiro-core&lt;/artifactId&gt;
+    &lt;version&gt;1.2.2&lt;/versi...
+    
+
+        <a href="/2019/04/30/Shiro第七章-与web集成、ShiroFilter、基于表单的拦截器/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Shiro第六章-各种对象详解-完整用户登录认证与授权示例"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-04-30 16:29:22" datetime="2019-04-30T08:29:22.998Z"  itemprop="datePublished">2019-04-30</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/04/30/Shiro第六章-各种对象详解-完整用户登录认证与授权示例/">No title</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Realm
+doGetAuthenticationInfo()和getAuthenticationInfo()一样，都是做用户验证和返回身份凭证的。
+从调用链上，getAuthorizationInfo()会调用doGetAuthorizationInfo()，所以大部分时候是重写后者。
+
+AuthenticationToken
+收集用户提交的身份信息（如用户名和凭据（如密码））的接口。
+p...
+    
+
+        <a href="/2019/04/30/Shiro第六章-各种对象详解-完整用户登录认证与授权示例/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Shiro第九章-jsp标签"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-04-30 16:29:22" datetime="2019-04-30T08:29:22.983Z"  itemprop="datePublished">2019-04-30</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/04/30/Shiro第九章-jsp标签/">No title</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        jstl标签库
+Shiro提供了jstl标签用于在jsp页面、gsp页面进行权限控制，如根据登录页面显示相应的菜单。
+导入标签库
+
+&lt;%@taglib prefix=&quot;shiro&quot; uri=&quot;http://shiro.apache.org/tags&quot; %&gt;
+
+guest标签：用户未登录时作为游客处理。
+&lt;shiro:guest&gt;...
+    
+
+        <a href="/2019/04/30/Shiro第九章-jsp标签/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Shiro第二章一-用户认证"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-04-30 16:29:22" datetime="2019-04-30T08:29:22.976Z"  itemprop="datePublished">2019-04-30</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/04/30/Shiro第二章一-用户认证/">No title</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        简介
+Java安全框架
+Apache Shiro是一个强大且易用的Java安全框架，执行身份验证、授权、密码和会话管理。
+三个核心组件：Subject、SecurityManager和Realms。
+Subject:当前操作用户，代表了当前用户的安全操作。所有Subject都绑定到SEcurityManager，与Subject的所有交互都会委托给SecurityManager，可以把Sub...
+    
+
+        <a href="/2019/04/30/Shiro第二章一-用户认证/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-04-30 16:29:22" datetime="2019-04-30T08:29:22.971Z"  itemprop="datePublished">2019-04-30</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/04/30/Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy/">No title</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Authenticator及AuthenticationStrategy
+Authenticator的职责是验证用户，被subject的login()调用。
+public AuthenticationInfo authenticate(AuthenticationToken authenticationToken)
+    throws AuthenticationException {
+
+...
+    
+
+        <a href="/2019/04/30/Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -546,7 +614,7 @@ func...
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
     </div>
 </nav>
 

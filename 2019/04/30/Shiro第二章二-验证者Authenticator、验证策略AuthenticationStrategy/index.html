@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Authenticator及AuthenticationStrategy Authenticator的职责是验证用户，被subject的login()调用。 public AuthenticationInfo authenticate(AuthenticationToken authenticationToken)     throws AuthenticationException {">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="Authenticator及AuthenticationStrategy Authenticator的职责是验证用户，被subject的login()调用。 public AuthenticationInfo authenticate(AuthenticationToken authenticationToken)     throws AuthenticationException {">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7606.PNG">
+<meta property="og:updated_time" content="2019-02-23T08:02:12.658Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="Authenticator及AuthenticationStrategy Authenticator的职责是验证用户，被subject的login()调用。 public AuthenticationInfo authenticate(AuthenticationToken authenticationToken)     throws AuthenticationException {">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7606.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:29:22.971Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Authenticator及AuthenticationStrategy"><span class="post-toc-number">1.</span> <span class="post-toc-text">Authenticator及AuthenticationStrategy</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义AuthenticationStrategy"><span class="post-toc-number">2.</span> <span class="post-toc-text">自定义AuthenticationStrategy</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:29:22" datetime="2019-04-30T08:29:22.971Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="Authenticator及AuthenticationStrategy"><a href="#Authenticator及AuthenticationStrategy" class="headerlink" title="Authenticator及AuthenticationStrategy"></a>Authenticator及AuthenticationStrategy</h3><ul>
+<li><p>Authenticator的职责是验证用户，被subject的login()调用。</p>
+<pre><code>public AuthenticationInfo authenticate(AuthenticationToken authenticationToken)
+    throws AuthenticationException {
+
+    //调用了Realm的getAuthenticationInfo()
+}
+</code></pre></li>
+<li>Authenticator：SecurityManager是其子接口，默认实现类为ModularRealmAuthenticator，其委托给多个Realm进行验证。</li>
+<li>AuthenticatorStrategy：制定多个Realm的验证规则。默认提供的实现：<ul>
+<li>FirstSuccessfulStrategy：只要有一个Realm验证成功即可，值返回第一个验证成功的Realm的认证信息。</li>
+<li>AtLeastSuccessfulStrategy：只要有一个Realm验证成功即可，返回所有验证成功的Realm的认证信息。</li>
+<li>AllSuccessfulstrategy：默认使用；所有Realm都验证成功才行，返回所有认证信息。</li>
+</ul>
+</li>
+<li>假设我们有三个Realm：<ul>
+<li>myRealm1： 用户名/密码为zhang/123时成功，且返回身份/凭据为zhang/123；</li>
+<li>myRealm2： 用户名/密码为wang/123时成功，且返回身份/凭据为wang/123；</li>
+<li>myRealm3： 用户名/密码为zhang/123时成功，且返回身份/凭据为<a href="mailto:zhang@163.com" target="_blank" rel="noopener">zhang@163.com</a>/123。</li>
+</ul>
+</li>
+<li>现在测试一下AllSuccessfulStrategy验证策略</li>
+<li><p>首先是ini配置文件</p>
+<pre><code>;指定securityManager的authentication实现
+authenticator=org.apache.shiro.authc.pam.ModularRealmAuthenticator
+securityManager.authenticator=$authenticator
+;指定securityManager.authenticator的authenticationStragegy
+allSuccessfulStrategy=org.apache.shiro.authc.pam.AllSuccessfulStrategy
+securityManager.authenticator.authenticationStrategy=$allSuccessfulStrategy
+
+myRealm1=com.haien.shiroHelloWorld.realm.MyRealm1
+myRealm2=com.haien.shiroHelloWorld.realm.MyRealm2
+myRealm3=com.haien.shiroHelloWorld.realm.MyRealm3
+securityManager.realms=$myRealm1,$myRealm3
+</code></pre></li>
+<li><p>测试</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 测试AllSuccessfulStrategy成功
+ * @Date 2019/2/16
+ * @Param []
+ * @return void
+ **/
+@Test
+public void testAllSuccessfulStrategyWithSuccess(){
+    //登录成功（因为ini配置文件中没有使用身份必须为wang的myRealm2）
+    login(&quot;classpath:config/shiro-authenticator-all-success.ini&quot;); //登录逻辑代码先通用化了
+    Subject subject=SecurityUtils.getSubject();
+
+    //得到一个身份集合，其包含了Realm验证成功的身份信息
+    PrincipalCollection principalCollection=subject.getPrincipals();
+    //包含了zhang和zhang@163.com的身份凭证
+    Assert.assertEquals(2,principalCollection.asList().size());
+}
+
+/**
+ * @Author haien
+ * @Description 测试AllSuccessfulStrategy失败
+ * @Date 2019/2/17
+ * @Param []
+ * @return void
+ **/
+@Test(expected = UnknownAccountException.class) //括号里表明当方法抛出此异常时测试成功
+public void testAllSuccessfulAccountWithFail(){
+    //但实际登录失败（配置文件改为使用myRealm1和myRealm2）
+    login(&quot;classpath:config/shiro-authenticator-all-fail.ini&quot;);
+    Subject subject=SecurityUtils.getSubject();
+}
+</code></pre></li>
+<li>以上测试失败方法如果捕获异常的话可获得以下调用链</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7606.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="自定义AuthenticationStrategy"><a href="#自定义AuthenticationStrategy" class="headerlink" title="自定义AuthenticationStrategy"></a>自定义AuthenticationStrategy</h3><ul>
+<li><p>AuthenticationStrategy接口类</p>
+<pre><code>//在所有Realm验证之前调用
+AuthenticationInfo beforeAllAttempts(Collection&lt;? extends Realm&gt; realms,
+    AuthenticationToken token) throws AuthenticationException;
+
+//在每个Realm之前调用
+AuthenticationInfo beforeAttempt(Realm realm, AuthenticationToken token, 
+    AuthenticationInfo aggregate) throws AuthenticationException;
+
+//在每个Realm之后调用
+AuthenticationInfo afterAttempt(Realm realm, AuthenticationToken token, 
+    AuthenticationInfo singleRealmInfo, AuthenticationInfo aggregateInfo, Throwable t)
+    throws AuthenticationException;
+
+//在所有Realm之后调用
+AuthenticationInfo afterAllAttempts(AuthenticationToken token, 
+    AuthenticationInfo aggregate)throws AuthenticationException;
+
+//将所有验证成功的身份信息集合起来，便于最后一起返回；FirstSuccessfulStrategy类重写了该方法
+AuthenticationInfo merge(AuthenticationInfo info, AuthenticationInfo aggregate)
+</code></pre></li>
+<li><p>自定义AuthenticationStrategy实现类一般继承AbstractAuthenticationStrategy即可。</p>
+</li>
+<li><p>AtLeastTwoAuthenticatorStrategy：至少两个通过才行，返回所有验证信息</p>
+<pre><code>public class AtLeastTwoAuthenticatorStrategy extends AbstractAuthenticationStrategy {
+    /**
+     * @Author haien
+     * @Description 在所有Realm验证之前调用
+     * @Date 2019/2/17
+     * @Param [realms, token]
+     * @return org.apache.shiro.authc.AuthenticationInfo
+     **/
+    @Override
+    public AuthenticationInfo beforeAllAttempts(Collection&lt;? extends Realm&gt; realms,
+           AuthenticationToken token) throws AuthenticationException {
+        //和父类方法一样，返回一个空的身份凭证
+        return new SimpleAuthenticationInfo();
+    }
+
+    /**
+     * @Author haien
+     * @Description 在每个Realm验证之前调用
+     * @Date 2019/2/17
+     * @Param [realm, token, aggregate]
+     * @return org.apache.shiro.authc.AuthenticationInfo
+     **/
+    @Override
+    public AuthenticationInfo beforeAttempt(Realm realm, AuthenticationToken token,
+           AuthenticationInfo aggregate) throws AuthenticationException {
+        //和父类方法一样，返回之前合并的
+        return aggregate;
+    }
+
+    @Override
+    public AuthenticationInfo afterAttempt(Realm realm, AuthenticationToken token,
+      AuthenticationInfo singleRealmInfo, AuthenticationInfo aggregateInfo, Throwable t)
+      throws AuthenticationException {
+
+        //也是和父类方法一样
+        AuthenticationInfo info;
+        if(singleRealmInfo==null){
+            info=aggregateInfo;
+        }else {
+            if(aggregateInfo==null){
+                info=singleRealmInfo;
+            }else{
+                //调用父类merge()将所有身份凭证集合起来，最后一起返回
+                info=merge(singleRealmInfo,aggregateInfo);
+            }
+        }
+        return info;
+    }
+
+    /**
+     * @Author haien
+     * @Description 真正重写的方法：判断是否至少两个Realm通过
+     * @Date 2019/2/17
+     * @Param [token, aggregate]
+     * @return org.apache.shiro.authc.AuthenticationInfo
+     **/
+    @Override
+    public AuthenticationInfo afterAllAttempts(AuthenticationToken token,
+           AuthenticationInfo aggregate) throws AuthenticationException {
+
+        if(aggregate==null||CollectionUtils.isEmpty(aggregate.getPrincipals())
+                ||aggregate.getPrincipals().getRealmNames().size()&lt;2){ //是否至少两个通过
+            throw new AuthenticationException(&quot;Authentication token of type [&quot;
+                    +token.getClass()+&quot;]&quot;+&quot;could not be authenticated by any 
+                    configured realms.Please ensure that at least two realm 
+                    can authenticate these tokens.&quot;);
+        }
+
+        //这一步即父类方法体
+        return aggregate;
+    }
+}
+</code></pre></li>
+<li><p>OnlyOneAuthenticatorStrategy：至少一个通过，重写的是afterAttempt()</p>
+<pre><code>@Override
+public AuthenticationInfo afterAttempt(Realm realm, AuthenticationToken token,
+       AuthenticationInfo singleRealmInfo, AuthenticationInfo aggregateInfo, Throwable t)
+        throws AuthenticationException {
+
+    AuthenticationInfo info;
+    if(singleRealmInfo == null){ //若当前身份凭证为空，说明未通过认证
+        info=aggregateInfo; //返回之前的身份凭证集合
+    }else{ //否则需要加入集合
+        if(aggregateInfo==null){ //若集合为空，则返回当前的身份凭证
+            info=singleRealmInfo;
+        }else{ //两个都不为空才需要加入集合
+            info=merge(singleRealmInfo,aggregateInfo);
+            if(info.getPrincipals().getRealmNames().size()&gt;1){
+                System.out.println(info.getPrincipals().getRealmNames()); //打印集合
+                throw new AuthenticationException(&quot;Authentication token of type [&quot;
+                  +token.getClass()+&quot;]&quot;+&quot;could not be authenticated by any configured &quot; +
+                        &quot;realms. Please ensure that only one realm can authenticated &quot; +
+                        &quot;these tokens&quot;);
+            }
+        }
+    }
+
+    return info;
+}
+</code></pre></li>
+<li>代码实例：ideaProjects/shiroHelloWord/authenticationstrategy</li>
+<li><a href="https://github.com/zhangkaitao/shiro-example/blob/master/shiro-example-chapter2/src/test/java/com/github/zhangkaitao/shiro/chapter2/authenticator/strategy/OnlyOneAuthenticatorStrategy.java" target="_blank" rel="noopener">张开涛跟我学shiro第二章源码</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-02-23T08:02:12.658Z" itemprop="dateUpdated">2019-02-23 16:02:12</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Shiro第二章一-用户认证/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Shiro第二十章-无状态web应用集成/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD2UlEQVR42u3aO3LjMBAFQN3/0trUgcl6Mw+05dpmpLIoAmgG4/m8XvH1/nLdf/v1nqu/5Kvkn6drVRcOHDhw4IiPmhysUc/Jrta6+sv0mZdnwYEDBw4chziutn6/iftf5QG7/x9hF+Bx4MCBA8cncCQBrD9MvpOEGAcOHDhwfDJHU9prsJJUDQcOHDhwfA5HUhycFumadlFe4Gu+xYEDBw4cT3A0KdZf+fzIfAcOHDhw4AhSo2nQnSZs09Lerij5Xl04cODAgaPneK7w1wS/aQKZJ5PRgAUOHDhw4Cg4+kCbH2BaiNyVDqfFysMpHA4cOHDgGBIkDZv823yju6ZRPsQwCLQ4cODAgWPFMU3MosWmmWX8zGaHUQqHAwcOHDhijl0rqCnSNSXFJKzuWlCRFg4cOHDgGHLcH2a3uZ9J6pIXkIdwHDhw4MDRcEwJ8hCbJG+7pDFPCKeIOHDgwIGj53huZC0Pb3ly1ay1a1DhwIEDB44pRz7iNi207Qp5SSEyWXE5/IcDBw4cOGqO5GoelydpvzV+95peOHDgwIEj4Ng57Q4wHc5L0r88zYtSUxw4cODAUXAkW9k1oqblxWkw3oX5qDiIAwcOHDgKjl3mkh9vOToQp16nno8DBw4cOE6dIk+odm2k3fN3IX/6YgZ1UBw4cODAseLIi2vTYtx0relAw2607ptd4cCBAweOQxzT8JkkS6fKjvkAXHL/MmvEgQMHDhxFzrIr2+Wto90qTRFw8LJx4MCBA0fNkZcLm3Cb8OWhvR/OG0RVHDhw4MAx5DjVCpqmbU0BMXlJuxIhDhw4cOB4juPskZI0bJrsNeG/GmjAgQMHDhxFsSwfKdgd6elxhwoIBw4cOHA8wJGPCDSp4BPBvnnlOHDgwIGj59gtn/D1BcfpCMKU/psVceDAgQNHwTFt/Ew317SOpkxNgRIHDhw4cJzimIaoHVm0fEDZFDHHLxIHDhw4cNQcTfsnD7d56pXsqilBPtgNw4EDB47/mGNa5puGsSY57APt+H4cOHDgwHGIo58WywcLEuLd4EJeTLz8LQ4cOHDgqDmaJs0OqCfbBe9BqMaBAwcOHAXHe3hNBxSmv31iJGJQJcWBAwcOHDVH047K06dpejbFnRYZH+nO4cCBAweOixQub0Hl9/TDEHm760CgxYEDBw4chzimgSpZ7FQStRuh2J0aBw4cOHD8PMc00O5Sr/tf7UbooiEJHDhw4MDxSxx5KXDaiOppmiEMHDhw4MBxiiNv8ORjCvnWc6AmwYvSPxw4cODAUXNMS2nTR7xXV4K7G6pIkk8cOHDgwLHi+AcoCsOmkK7BKgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

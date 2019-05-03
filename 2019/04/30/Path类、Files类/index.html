@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简介 java7中文件IO发生了很大的变化，专门引入了很多新的类 import java.nio.file.DirectoryStream; import java.nio.file.FileSystem; import java.nio.file.FileSystems; import java.nio.file.Files; import java.nio.file.Path; import">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Path类、Files类/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="简介 java7中文件IO发生了很大的变化，专门引入了很多新的类 import java.nio.file.DirectoryStream; import java.nio.file.FileSystem; import java.nio.file.FileSystems; import java.nio.file.Files; import java.nio.file.Path; import">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-24T02:19:56.938Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="简介 java7中文件IO发生了很大的变化，专门引入了很多新的类 import java.nio.file.DirectoryStream; import java.nio.file.FileSystem; import java.nio.file.FileSystems; import java.nio.file.Files; import java.nio.file.Path; import">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.620Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Files类"><span class="post-toc-number">2.</span> <span class="post-toc-text">Files类</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Path类、Files类"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.620Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li><p>java7中文件IO发生了很大的变化，专门引入了很多新的类</p>
+<pre><code>import java.nio.file.DirectoryStream;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.attribute.FileAttribute;
+import java.nio.file.attribute.PosixFilePermission;
+import java.nio.file.attribute.PosixFilePermissions;
+</code></pre></li>
+<li>等等，来取代原来的基于java.io.File的文件IO操作方式</li>
+<li><p>其中Path就是用来取代File的，我们以前用File包装文件路径、构建文件，现在用Path则可以使用java7中的新特性来表示一个文件路径或者一个文件。</p>
+<pre><code>//以当前路径作为Path对象
+Path p = Paths.get(&quot;.&quot;); //使用get来从一个路径字符串构造Path对象
+//使用传入的字符串返回一个Path对象
+Path p2 = Paths.get(&quot;D&quot;,&quot;ReviewIO&quot;,&quot;URL&quot;);
+//等同于
+Path p2 = Paths.get(&quot;D:\\ReviewIO\\URL&quot;);
+//对应的路径
+System.out.println(&quot;p对象的对应路径：&quot; + p.toString());
+System.out.println(&quot;p2对象的对应路径：&quot; + p2.toString());
+//路径数量是以路径名的数量作为标准
+System.out.println(&quot;p路径数量：&quot; + p.getNameCount());
+System.out.println(&quot;p2路径数量：&quot; + p2.getNameCount());        
+//获取绝对路径
+System.out.println(&quot;p绝对路径：&quot; + p.toAbsolutePath());
+System.out.println(&quot;p2绝对路径：&quot; + p2.toAbsolutePath());
+//获取父路径
+System.out.println(&quot;p父路径：&quot;  + p.getParent());
+System.out.println(&quot;p2父路径：&quot; + p2.getParent());
+//获取p2对象的文件名或者文件目录名
+System.out.println(p2.getFileName());
+//通过Path对象返回一个分隔符对象
+Spliterator&lt;Path&gt; split = p2.spliterator();
+</code></pre></li>
+<li><p>与File、URI的转换</p>
+<pre><code>URI u = URI.create(&quot;file://C:/Xmp/dd&quot;);        
+Path p = Paths.get(u);
+
+File file = new File(&quot;C:/my.ini&quot;);
+Path p1 = file.toPath();
+p1.toFile();
+file.toURI();
+</code></pre></li>
+<li><p>检测文件是否存在</p>
+<pre><code>Path target2 = Paths.get(&quot;C://mystuff.txt&quot;);
+try {
+    if(!Files.exists(target2))
+        Files.createFile(target2);
+} catch (IOException e) {
+    e.printStackTrace();
+}
+</code></pre></li>
+<li><p>读取字符文件</p>
+<pre><code>BufferedReader reader=Files.newBufferedReader(Paths.get(&quot;D://test4.txt&quot;),StandardCharsets.UTF_8); //比原来的FileInputStream，然后BufferedReader包装，等操作简单的多了
+char[] buffer=new char[20];
+String info=null;
+int len=0;
+while ((info=reader.readLine())!=null){ //因为reader读的只能是纯文本，纯文本大多都有分行
+    System.out.println(info);
+}
+reader.close();
+</code></pre></li>
+<li><p>写字符到文件</p>
+<pre><code>BufferedWriter writer=Files.newBufferedWriter(Paths.get(&quot;D://test4e.txt&quot;)); //不指定编码也可以
+writer.write(&quot;测试文件写操作&quot;);
+writer.flush();
+writer.close();
+</code></pre><h3 id="Files类"><a href="#Files类" class="headerlink" title="Files类"></a>Files类</h3></li>
+<li>里面的读写、创建文件夹之类的静态方法比File要快</li>
+<li><p>Files.createDirectory(Path path)</p>
+<pre><code>Path path = Paths.get(&quot;data/subdir&quot;);
+try {
+    Path newDir = Files.createDirectory(path);
+} catch(FileAlreadyExistsException e){
+    // the directory already exists.
+} catch (IOException e) {
+    //something else went wrong like the parent doesn`t exsit
+    e.printStackTrace();
+}
+</code></pre></li>
+<li><p>File.copy()</p>
+<pre><code>Path sourcePath      = Paths.get(&quot;data/logging.properties&quot;);
+Path destinationPath = Paths.get(&quot;data/logging-copy.properties&quot;);
+try {
+    Files.copy(sourcePath, destinationPath); //把一个文件拷贝到另一个位置
+} catch(FileAlreadyExistsException e) {
+    //destination file already exists  //如果补上第三个参数：StandardCopyOption.REPLACE_EXISTING则可以强制覆盖已存在的文件
+} catch (IOException e) {
+    //something else went wrong
+    e.printStackTrace();
+}
+</code></pre></li>
+<li><p>Files.move()：移动文件也有重命名的效果</p>
+<pre><code>Path sourcePath      = Paths.get(&quot;data/logging-copy.properties&quot;);
+Path destinationPath = Paths.get(&quot;data/subdir/logging-moved.properties&quot;);
+
+try {
+    Files.move(sourcePath, destinationPath,
+            StandardCopyOption.REPLACE_EXISTING);
+} catch (IOException e) {
+    //moving file failed.
+    e.printStackTrace();
+}
+</code></pre></li>
+<li>指定强制覆盖还是报FileAlreadyExistsException的话可能是destinationPath开了流忘记关了</li>
+<li>Files.delete(path)：删除文件或目录，注意，目录也可以</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-24T02:19:56.938Z" itemprop="dateUpdated">2018-11-24 10:19:56</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Path类、Files类/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Path类、Files类/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Path类、Files类/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Path类、Files类/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Path类、Files类/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Path类、Files类/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Path类、Files类/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/postman测试登录接口/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Optional类/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Path类、Files类/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Path类、Files类/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Path类、Files类/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Path类、Files类/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Path类、Files类/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACO0lEQVR42u3awY6DMAxFUf7/p5nNLCp1SO9z0pHi3KwQAppDJWPHuS487rfxep5cya95umvBkCFDxraMezjer3m69+nJ/Anj3/3wgmTIkHEAg0yiFoJTNnmaDBkyZBBGLREk05UhQ4aMeca47EzDNOfJkCFDBvkBHhDTtG98vLgWlyFDxoYMPon/P/5Kf0OGDBlbMe5wkCX+Wolbm8/vvTJkyGjN4AGOtzBryWKa9smQIeMcRg0wU3ySRiZaXHs9L0OGjNaMtHBdtdBPWgsklMuQIeM0RhouSfgjaV96vvjuZciQsS1jfFEt1eMBt9YkCHaLyJAhoxFjHED5chh5Dk8Eg7gqQ4aM1oxaozENzfNBHAVfGTJkNGXMr8ylqR5ZyItLXxkyZBzASDdJ1FoIaeoZbDKTIUPGMQyeus1ssKi9MpTbypAhoymDP3R+iunSHmkYfPhPZMiQ0Y6RbvxKl8bI1oqZZoMMGTK6Mla1JEnDclWy+MfTZMiQ0ZqRLtOPS0pyLy+e+bEMGTJOY8y3LdO0j4R79EmQIUPGAYxV5StPE9NV/aAWlyFDRlMGCXPBVq1Si7S2sUOGDBm9GXc4ePjjLc9aO/PiXwYZMmRszqilYmk7gfPS5bYYJkOGjG0ZvFhNs86Z6cYBV4YMGQcwFizN43L365stZMiQcTwjzTTJhrC0bF4QcGXIkNGaQTAz5S5vOSz4bsiQIWMrBt9UkW6e4EF5JojLkCGjN2M+70rbBmsbpTJkyGjN+AGu4ZNhUkmsrAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

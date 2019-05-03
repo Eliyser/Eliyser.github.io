@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Predicate 主要功能是验证数据 //源码 public interface Predicate&amp;lt;T&amp;gt; {      /**      * 制定检查模板      */     boolean test(T t);      /**     * 得到相反结果     */     default Predicate&amp;lt;T&amp;gt; negate() {          ret">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Java8已定义的函数式接口/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="Predicate 主要功能是验证数据 //源码 public interface Predicate&amp;lt;T&amp;gt; {      /**      * 制定检查模板      */     boolean test(T t);      /**     * 得到相反结果     */     default Predicate&amp;lt;T&amp;gt; negate() {          ret">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-25T08:26:08.894Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="Predicate 主要功能是验证数据 //源码 public interface Predicate&amp;lt;T&amp;gt; {      /**      * 制定检查模板      */     boolean test(T t);      /**     * 得到相反结果     */     default Predicate&amp;lt;T&amp;gt; negate() {          ret">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.093Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Predicate"><span class="post-toc-number">1.</span> <span class="post-toc-text">Predicate</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Consumer"><span class="post-toc-number">2.</span> <span class="post-toc-text">Consumer</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Predicate和Consumer综合应用"><span class="post-toc-number">3.</span> <span class="post-toc-text">Predicate和Consumer综合应用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Supplier"><span class="post-toc-number">4.</span> <span class="post-toc-text">Supplier</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Function"><span class="post-toc-number">5.</span> <span class="post-toc-text">Function</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#BiFunction"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">BiFunction</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Comparator"><span class="post-toc-number">6.</span> <span class="post-toc-text">Comparator</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Stream"><span class="post-toc-number">7.</span> <span class="post-toc-text">Stream</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#并行Stream"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">并行Stream</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考文章"><span class="post-toc-number">8.</span> <span class="post-toc-text">参考文章</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Java8已定义的函数式接口"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.093Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="Predicate"><a href="#Predicate" class="headerlink" title="Predicate"></a>Predicate</h3><ul>
+<li><p>主要功能是验证数据</p>
+<pre><code>//源码
+public interface Predicate&lt;T&gt; {
+
+    /**
+     * 制定检查模板
+     */
+    boolean test(T t);
+
+    /**
+    * 得到相反结果
+    */
+    default Predicate&lt;T&gt; negate() { 
+        return (t) -&gt; !test(t); //相当于new了一个Predicate对象并重写了其test方法，如此可以进行链式书写
+    }
+
+    ……
+}
+
+//调用
+Predicate&lt;String&gt; predicate = (s) -&gt; s.length() &gt; 0; //重写test
+
+predicate.test(&quot;foo&quot;); // true
+predicate.negate().test(&quot;foo&quot;); // negate返回一个Predicate对象，调用这个对象的test方法；false
+
+Predicate&lt;Boolean&gt; nonNull = Objects::nonNull; //重写test
+Predicate&lt;Boolean&gt; isNull = Objects::isNull;
+
+Predicate&lt;String&gt; isEmpty = String::isEmpty;
+Predicate&lt;String&gt; isNotEmpty = isEmpty.negate();
+</code></pre><h3 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a>Consumer</h3></li>
+<li><p>主要功能是更改输入参数的内部状态</p>
+<pre><code>//源码
+public interface Consumer&lt;T&gt; {
+
+    void accept(T t);
+
+    /**
+     * 检测入参是否为空并返回一个实现了方法的Consumer对象
+     * 用于链式书写：consumer.andThen().accept()
+     */
+    default Consumer&lt;T&gt; andThen(Consumer&lt;? super T&gt; after) {
+        Objects.requireNonNull(after);
+        return (T t) -&gt; { accept(t); after.accept(t); }; //既对调用andThen的对象应用accept方法，也对传入andThen的参数应用accept方法
+    }
+}
+
+//调用
+User user=new User(&quot;zm&quot;);
+//接收一个参数
+Consumer&lt;User&gt; userConsumer=User1 -&gt; User1.setName(&quot;zmChange&quot;);
+userConsumer.accpet(user);
+System.out.println(user.getName());
+</code></pre><h3 id="Predicate和Consumer综合应用"><a href="#Predicate和Consumer综合应用" class="headerlink" title="Predicate和Consumer综合应用"></a>Predicate和Consumer综合应用</h3></li>
+<li>通过一个学生例子：Student类包含姓名、分数和费用，每个学生科根据分数获得不同程度的费用折扣</li>
+<li><p>Student类：</p>
+<pre><code>public class Student {
+
+    String firstName;
+
+    String lastName;
+
+    Double grade;
+
+    Double feeDiscount = 0.0;
+
+    Double baseFee = 2000.0;
+
+    public Student(String firstName, String lastName, Double grade) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.grade = grade;
+    }
+
+    public void printFee(){
+        Double newFee = baseFee - ((baseFee * feeDiscount)/100);
+        System.out.println(&quot;The fee after discount: &quot; + newFee);
+    }
+}
+</code></pre></li>
+<li><p>用一个Predicate接口判断输入的Student对象是否拥有费用打折的资格，然后使用Consumer接口更新Student对象的折扣：</p>
+<pre><code>public class PredicateConsumerDemo{
+    public static Student updateStudentFee(Student student, Predicate&lt;Student&gt; predicate,
+                                           Consumer&lt;Student&gt; consumer){
+        if(predicate.test(student)){
+            consumer.accept(student);
+        }
+        return student;
+    }
+}
+</code></pre></li>
+<li><p>调用updateStudentFee()</p>
+<pre><code>Stream stream=Stream.of(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;); //构造stream
+String[] strArray=new String[]{&quot;a&quot;,&quot;b&quot;,&quot;c&quot;};
+stream=Arrays.stream(strArray); //底层也是构造stream
+List&lt;String&gt; list=Arrays.asList(strArray); //底层是new ArrayList&lt;&gt;(strArray);
+stream=list.stream(); //底层也是stream
+IntStream.of(new int[]{1,2,3}).forEach(System.out::println);
+
+Student student=new Student(&quot;Ashok&quot;,&quot;Kumar&quot;,9.5);
+
+student=PredicateConsumerDemo.updateStudentFee(student,
+                                                stu -&gt; stu.grade &gt; 8.5,
+                                                stu -&gt; stu.feeDiscount = 30.0);
+student.printFee(); //The fee after discount:1400.0
+</code></pre><h3 id="Supplier"><a href="#Supplier" class="headerlink" title="Supplier"></a>Supplier</h3></li>
+<li><p>主要是返回一个实例，相当于工厂</p>
+<pre><code>//实例化一个String对象，值为hello world
+Supplier&lt;String&gt; supplier=() -&gt; &quot;hello world&quot;; 
+System.out.println(supplier.get());
+
+//实例化一个对象
+Supplier&lt;Student&gt; student=() -&gt; new Student();
+student.get(); //获取此对象
+</code></pre><h3 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h3></li>
+<li>主要功能是对输入的参数进行计算并返回结果</li>
+<li><p>源码：</p>
+<pre><code>public interface Function&lt;T, R&gt; { //指定入参、返回值的类型
+
+    /**
+     * 对输入的参数进行某种计算并返回定义接口时指定的类型
+     */
+    R apply(T t);
+
+    /**
+     * 返回一个Function对象，重写其apply方法为：先执行before的apply方法再执行调用者的apply方法
+     */
+    default &lt;V&gt; Function&lt;V, R&gt; compose(Function&lt;? super V, ? extends T&gt; before) {
+        Objects.requireNonNull(before);
+        return (V v) -&gt; apply(before.apply(v));
+    }
+
+    /**
+     * 先执行调用者的apply方法再执行after的apply方法
+     */
+    default &lt;V&gt; Function&lt;T, V&gt; andThen(Function&lt;? super R, ? extends V&gt; after) {
+        Objects.requireNonNull(after);
+        return (T t) -&gt; after.apply(apply(t));
+    }
+
+    /**
+     * static：静态方法；&lt;T&gt;：泛型方法；
+     * Function&lt;T,T&gt;：返回值为一个Function对象，
+     *                此对象被重写的apply方法入参和返回值类型均为T
+     * 功能：返回一个Function对象，其apply方法为传入什么返回什么
+     */
+    static &lt;T&gt; Function&lt;T, T&gt; identity() {
+        return t -&gt; t;
+    }
+}
+</code></pre></li>
+<li><p>调用</p>
+<pre><code>Function&lt;Integer,Integer&gt; name=e -&gt; e*2;
+Function&lt;Integer,Integer&gt; square=e -&gt; e*e;
+
+int value=name.andThen(square).apply(3);
+System.out.println(value); //36
+
+value=name.compose(square).apply(3); //18
+System.out.println(value);
+
+String identity=(String)Function.identity().apply(&quot;hello&quot;);
+System.out.println(identity); //hello
+</code></pre><h4 id="BiFunction"><a href="#BiFunction" class="headerlink" title="BiFunction"></a>BiFunction</h4></li>
+<li>BiFunction与Function的区别就是传入两个参数，依旧返回一个参数（比如传入两个字符串连接成一个返回）</li>
+<li><p>调用</p>
+<pre><code>Function&lt;String,Integer&gt; myFunction=str -&gt; str.length();
+BiFunction&lt;String,String,String&gt; myBiFunction=(str1,str2) -&gt; str1+str2;
+
+int len=myFunction.apply(&quot;hello&quot;);
+System.out.println(len); //5
+
+String str=myBiFunction.apply(&quot;hello&quot;,&quot;world&quot;);
+System.out.println(str); //hello world
+</code></pre><h3 id="Comparator"><a href="#Comparator" class="headerlink" title="Comparator"></a>Comparator</h3></li>
+<li>主要功能是比较任意类型数据，多用于排序、分组</li>
+<li><p>源码：（不是很懂为什么可以有两个抽象方法，但是要实现Comparator接必须实现compare()，equals()随意</p>
+<pre><code>public interface Comparator&lt;T&gt; {
+    /**
+     * 比较两个参数，数字一般相减，字符串一般用compareTo()
+     * 返回1，0，-1，以该接口为入参之一的Collection.sort()分别进行升序、不处理、降序处理
+     */
+    int compare(T o1, T o2);
+
+    /**
+     * 判断调用者是否和入参相等，同Object.equals()
+     */
+    boolean equals(Object obj);
+
+    /**
+    * 还有一些默认函数，不常用
+    */
+}
+</code></pre></li>
+<li><p>排序应用</p>
+<pre><code>public class FormulaImpl{
+
+    //首先定义一个狗狗的类
+    class Dog{
+        public int age;
+        public String name;
+
+        public Dog(int age,String name){
+            super();
+            this.age=age;
+            this.name=name;
+        }
+
+        @Override
+        public String toString() {
+            return &quot;Dog{&quot; + &quot;age=&quot; + age + &quot;, name=&apos;&quot; + name + &apos;\&apos;&apos; + &apos;}&apos;;
+        }
+    }
+
+    //然后用Comparator来排序
+    public static void main(String[] args) {
+
+        //这里注意静态方法里不能有非静态的成员，一定要先实例外部类再实例内部类
+        List&lt;Dog&gt; list=new ArrayList&lt;&gt;();
+        list.add(new FormulaImpl().new Dog(1,&quot;a&quot;));
+        list.add(new FormulaImpl().new Dog(2,&quot;b&quot;));
+        list.add(new FormulaImpl().new Dog(3,&quot;c&quot;));
+
+        //按照年龄降序
+        Comparator&lt;Dog&gt; comparator=(obj1,obj2) -&gt; obj2.age-obj1.age; //升序：obj1.age-obj2.age
+        Collections.sort(list,comparator);
+        System.out.println(&quot;按照年龄降序：&quot;+list); //[Dog{age=3, name=&apos;c&apos;}, Dog{age=2, name=&apos;b&apos;}, Dog{age=1, name=&apos;a&apos;}]
+
+        //按照字母顺序升序
+        comparator=(obj1,obj2) -&gt; obj1.name.compareTo(obj2.name); //[Dog{age=1, name=&apos;a&apos;}, Dog{age=2, name=&apos;b&apos;}, Dog{age=3, name=&apos;c&apos;}]
+        Collections.sort(list,comparator);
+        System.out.println(&quot;按照字母顺序升序：&quot;+list);
+
+    }
+}
+</code></pre></li>
+<li><p>分组应用</p>
+<pre><code>public class FormulaImpl{
+
+    //首先定义一个苹果类
+    class Apple {
+        public String color;
+        public int weight;
+
+        public Apple(String color, int weight) {
+            super();
+            this.color = color;
+            this.weight = weight;
+        }
+
+        @Override
+        public String toString() {
+            return &quot;Apple [color=&quot; + color + &quot;, weight=&quot; + weight + &quot;]&quot;;
+        }
+    }
+
+    /**
+    * 分组：入参为数据源和比较规则，比如吧相同颜色或者同一重量级的分到一组
+    * 返回组别的集合
+    */
+    public static &lt;T&gt; List&lt;List&lt;T&gt;&gt; divider(Collection&lt;T&gt; datas, Comparator&lt;? super T&gt; c) {
+        //result是所有组的集合，每个组又单独是一个集合
+        List&lt;List&lt;T&gt;&gt; result = new ArrayList&lt;List&lt;T&gt;&gt;(); //result.size()=0
+
+        //开始分组：遍历每个苹果
+        for (T t : datas) {
+            //设置flag
+            boolean isSameGroup = false;
+            //同已有组的任一成员比较，相等即进组；第一个苹果肯定是不用进此循环直接到下一步的
+            for (int j = 0; j &lt; result.size(); j++) {
+                if (c.compare(t, result.get(j).get(0)) == 0) {
+                    isSameGroup = true;
+                    result.get(j).add(t);
+                    break;
+                }
+            }
+            //不是前面任何组的，单独开组
+            if (!isSameGroup) {
+                List&lt;T&gt; innerList = new ArrayList&lt;T&gt;();
+                //以下两行看起来好像是开了新组但是却没把苹果放进去，其实到了遍历集合的时候自然就进去了
+                result.add(innerList);
+                innerList.add(t);
+            }
+        }
+        return result;
+    }
+
+    //调用
+    public static void main(String[] args) {
+
+        List&lt;Apple&gt; list=new ArrayList&lt;&gt;();
+        list.add(new FormulaImpl().new Apple(&quot;红&quot;,200));
+        list.add(new FormulaImpl().new Apple(&quot;红&quot;,100));
+        list.add(new FormulaImpl().new Apple(&quot;绿&quot;,201));
+        list.add(new FormulaImpl().new Apple(&quot;绿&quot;,101));
+        list.add(new FormulaImpl().new Apple(&quot;黄&quot;,102));
+        list.add(new FormulaImpl().new Apple(&quot;黄&quot;,202));
+
+        Comparator&lt;Apple&gt; comparator=(obj1,obj2) -&gt; obj1.color.compareTo(obj2.color);
+        List&lt;List&lt;Apple&gt;&gt; byColor=divider(list,comparator);
+        System.out.println(&quot;按照颜色分组：&quot;+byColor);
+
+        comparator=(obj1,obj2) -&gt; (obj1.weight/100 == obj2.weight/100) ? 0 : -1;
+        List&lt;List&lt;Apple&gt;&gt; byWeight=divider(list,comparator);
+        System.out.println(&quot;按照重量分组：&quot;+byWeight);
+    }
+}
+</code></pre></li>
+<li>从这个例子中我们可以看出，当一个数组需要按照不同的规则排序的时候，我们可以定义不同的比较器传入排序方法中。<h3 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h3></li>
+<li>主要功能是对集合转换成的数据流进行过滤、转换、计算等操作</li>
+<li>除了Stream，平行的还有IntStream、LongStream、DoubleStream三种数值型Stream，当然我们也可以用Stream<integer>来代替，但是boxing和unboxing会很耗时。</integer></li>
+<li>Map接口不支持Stream</li>
+<li><p>源码：</p>
+<pre><code>public interface Stream&lt;T&gt; extends BaseStream&lt;T, Stream&lt;T&gt;&gt; {
+
+    /**
+     * 返回符合判断条件的流对象
+     */
+    Stream&lt;T&gt; filter(Predicate&lt;? super T&gt; predicate);
+
+    /**
+     * 返回经过计算的流对象
+     */
+    &lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper);
+
+    /**
+     * 返回经过计算的流对象（该计算的结果为int型）
+     */
+    IntStream mapToInt(ToIntFunction&lt;? super T&gt; mapper);
+
+    /**
+     * 返回经过计算的流对象，这个流对象的每一个元素都是流
+     */
+    &lt;R&gt; Stream&lt;R&gt; flatMap(Function&lt;? super T, ? extends Stream&lt;? extends R&gt;&gt; mapper);
+
+    /**
+     * 返回经过计算的int型流对象，这个流对象的每一个元素都是int型的流
+     */
+    IntStream flatMapToInt(Function&lt;? super T, ? extends IntStream&gt; mapper);
+
+    /**
+     * 去重
+     */
+    Stream&lt;T&gt; distinct();
+
+    /**
+     * 元素有得比较则按默认规则排序，否则抛异常
+     */
+    Stream&lt;T&gt; sorted();
+
+    /**
+     * 按指定规则排序
+     */
+    Stream&lt;T&gt; sorted(Comparator&lt;? super T&gt; comparator);
+
+    /**
+     * 对流的所有元素进行同一个操作
+     */
+    void forEach(Consumer&lt;? super T&gt; action);
+
+    /**
+     * 遍历流的元素，与forEach的区别是它返回的是Stream对象，可以继续进行链式操作
+     */
+    Stream&lt;T&gt; peek(Consumer&lt;? super T&gt; action);
+
+    /**
+     * 提供一个起始值identity，然后依照运算规则BinaryOperator和所有的元素组合
+     * 字符串的拼接、数值的sum、min、max、average都是特殊的reduce
+     * 例如：Stream的sum就相当于
+     * Integer sum=integers.reduce(0,(a,b) -&gt; a+b);
+     * 或Integer sum=integers.reduce(0,Integer::sum);
+     */
+    T reduce(T identity, BinaryOperator&lt;T&gt; accumulator);
+
+    /**
+     * 还有很多方法
+     */
+}
+</code></pre></li>
+<li><p>流的构造：</p>
+<pre><code>//用数组构造
+Stream stream=Stream.of(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;); //构造stream
+String[] strArray=new String[]{&quot;a&quot;,&quot;b&quot;,&quot;c&quot;};
+stream=Arrays.stream(strArray); //底层也是构造stream
+
+//用集合构造
+List&lt;String&gt; list=Arrays.asList(strArray); //底层是new ArrayList&lt;&gt;(strArray);
+stream=list.stream(); //底层也是构造stream
+</code></pre></li>
+<li><p>数值流的构造</p>
+<pre><code>IntStream.of(new int[]{1,2,3});
+</code></pre></li>
+<li><p>流转换为其他数据结构</p>
+<pre><code>//转换成数组
+Stream stream=Stream.of(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;);
+String[] strArray= (String[]) stream.toArray(String[]::new); //a,b,c
+//转换成集合
+stream=Stream.of(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;); //Stream只能使用一次，用完即关闭，需重开
+List&lt;String&gt; list1= (List&lt;String&gt;) stream.collect(Collectors.toList()); //a,b,c
+stream=Stream.of(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;);
+List&lt;String&gt; list2= (List&lt;String&gt;) stream.collect(Collectors.toCollection(ArrayList::new)); //a,b,c
+//转换成String
+stream=Stream.of(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;);
+String str=stream.collect(Collectors.joining()).toString(); //abc
+</code></pre></li>
+<li><p>调用map()</p>
+<pre><code>//转换大写
+List&lt;String&gt; list=new ArrayList&lt;&gt;();
+list.add(&quot;a&quot;);
+list.add(&quot;b&quot;);
+list.add(&quot;c&quot;);
+List&lt;String&gt; output=list.stream()
+        .map(String::toUpperCase)
+        .collect(Collectors.toList());
+System.out.println(output);
+
+//平方数
+List&lt;Integer&gt; nums=Arrays.asList(1,2,3,4);
+List&lt;Integer&gt; squareNums=nums.stream()
+        .map(n -&gt; n*n)
+        .collect(Collectors.toList());
+System.out.println(squareNums);
+</code></pre></li>
+<li><p>flapMap()</p>
+<pre><code>//flatMap把Stream中的层级结构扁平化，直接将最底层元素抽取出来构成Stream
+Stream&lt;List&lt;Integer&gt;&gt; inputStream=Stream.of(Arrays.asList(1),
+                                            Arrays.asList(2,3),
+                                            Arrays.asList(4,5,6));
+Stream&lt;Integer&gt; outputStream=inputStream.flatMap(midList -&gt; midList.stream());
+List&lt;Integer&gt; list2=outputStream.collect(Collectors.toList()); //Stream不能直接打印，打印出来是一串看不懂的类标志
+System.out.println(list2); //[1, 2, 3, 4, 5, 6]
+</code></pre></li>
+<li><p>peek()</p>
+<pre><code>List&lt;String&gt;list=Stream.of(&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,&quot;four&quot;).filter(e -&gt; e.length()&gt;3).peek(e -&gt; System.out.println(&quot;Filter value:&quot;+e))
+        .map(String::toUpperCase).peek(e -&gt; System.out.println(&quot;Mapped value:&quot;+e))
+        .collect(Collectors.toList()); //一定要转换成List才会打印内容出来
+</code></pre></li>
+<li><p>reduce():有起始值的话一定返回确定的类型，否则可能由于元素不够而判断不出类型返回Optional</p>
+<pre><code>//字符串连接
+String concat=Stream.of(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;).reduce(&quot;&quot;,String::concat); //ABCD
+//求最小值
+double min=Stream.of(-1.5,1.0,-3.0,-2.0).reduce(Double.MAX_VALUE,Double::min); //-3.0
+//求和
+int sum=Stream.of(1,2,3,4).reduce(0,Integer::sum); //10
+//过滤+字符串连接
+concat=Stream.of(&quot;a&quot;,&quot;B&quot;,&quot;c&quot;,&quot;D&quot;,&quot;e&quot;,&quot;f&quot;).filter(x -&gt; x.compareTo(&quot;Z&quot;)&gt;0)
+                                         .reduce(&quot;&quot;,String::concat);
+</code></pre></li>
+<li><p>limit()&amp;skip()</p>
+<pre><code>//Person类
+class Person{
+    public int no; //序号
+    private String name;
+
+    public Person(int no, String name) {
+        this.no = no;
+        this.name = name;
+    }
+
+    //注意：getName方法有打印操作
+    public String getName(){
+        System.out.println(name);
+        return name;
+    }
+}
+
+//塞数据
+List&lt;Person&gt; persons=new ArrayList&lt;&gt;();
+for (int i=0;i&lt;11;i++){ //塞11个
+    Person person=new FormulaImpl().new Person(i,&quot;name&quot;+i);
+    persons.add(person);
+}
+//调用方法
+List&lt;String&gt; personList=persons.stream()
+        .map(Person::getName)
+        .limit(10) //map管道被限制到只打印前10个
+        .skip(3) //personList先被限制到前十又被跳过前三
+        .collect(Collectors.toList()); //第一次打印：输出0~10
+//第二次打印
+System.out.println(personList); //输出3~10
+</code></pre><ul>
+<li><p>limit()&amp;skip()对sorted()无作用</p>
+<pre><code>List&lt;Person&gt; persons=new ArrayList&lt;&gt;();
+for (int i=0;i&lt;5;i++){
+    Person person=new FormulaImpl().new Person(i,&quot;name&quot;+i);
+    persons.add(person);
+}
+List&lt;Person&gt; personList=persons.stream()
+        .sorted((p1,p2) -&gt; p1.getName().compareTo(p2.getName())) //不受限制，打印5个
+        .limit(2)
+        .collect(Collectors.toList());
+System.out.println(personList); //输出2个
+</code></pre><ul>
+<li><p>打印结果：</p>
+<pre><code>name1
+name0
+name2
+name1
+name3
+name2
+name4
+name3
+[com.java1234.tool.FormulaImpl$Person@18769467, com.java1234.tool.FormulaImpl$Person@46ee7fe8]
+</code></pre></li>
+<li>上面的打印结果说明sorted的底层是两个两个元素拿出来比较的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>max()&amp;min()</p>
+<pre><code>//找出最长一行的长度
+BufferedReader br = new BufferedReader(new FileReader(&quot;c:\\SUService.log&quot;));
+int longest = br.lines(). //br.lines()得到的是一个Stream对象
+ mapToInt(String::length).
+ max().
+ getAsInt();
+br.close();
+</code></pre></li>
+<li><p>distinct()</p>
+<pre><code>//找出全文的单词，转小写，去重，并排序
+BufferedReader br=new BufferedReader(new FileReader(&quot;d:\\test.txt&quot;));
+List&lt;String&gt; words=br.lines().flatMap(line -&gt; Stream.of(line.split(&quot; &quot;)))
+                            .filter(word -&gt; word.length()&gt;0)
+                            .map(String::toLowerCase)
+                            .distinct()
+                            .sorted()
+                            .collect(Collectors.toList());
+br.close();
+</code></pre></li>
+<li><p>allMatch()&amp;anyMatch()&amp;noneMatch():Stream中全部、任一、无一元素符合传入的Predicate，返回true</p>
+<ul>
+<li><p>在Person类中加个年龄属性和获取年龄的方法，做以下测试</p>
+<pre><code>List&lt;Person&gt; persons = new ArrayList();
+persons.add(new Person(1, &quot;name&quot; + 1, 10));
+persons.add(new Person(2, &quot;name&quot; + 2, 21));
+persons.add(new Person(3, &quot;name&quot; + 3, 34));
+persons.add(new Person(4, &quot;name&quot; + 4, 6));
+persons.add(new Person(5, &quot;name&quot; + 5, 55));
+boolean isAllAdult = persons.stream().
+ allMatch(p -&gt; p.getAge() &gt; 18); //false
+boolean isThereAnyChild = persons.stream().
+ anyMatch(p -&gt; p.getAge() &lt; 12); //true
+</code></pre></li>
+</ul>
+</li>
+<li><p>count()：计数，返回Stream中元素的个数，返回值类型是long；是一个最终操作</p>
+<pre><code>long startsWithB = stringCollection.stream()
+                        .filter((s) -&gt; s.startsWith(&quot;b&quot;))
+                        .count();
+</code></pre><h4 id="并行Stream"><a href="#并行Stream" class="headerlink" title="并行Stream"></a>并行Stream</h4></li>
+<li>Stream有串行和并行两种，串行是在一个线程中依次完成，而并行则是在多个线程上同时执行，可提高效率。</li>
+<li><p>下面我们来创建一个无重复的大容量List</p>
+<pre><code>int max=1000000;
+List&lt;String&gt; list=new ArrayList&lt;&gt;(max);
+for (int i=0;i&lt;max;i++){
+    UUID uuid=UUID.randomUUID();
+    list.add(uuid.toString());
+}
+</code></pre></li>
+<li><p>串行排序</p>
+<pre><code>long t0=System.nanoTime();
+list.stream().sorted();
+long t1=System.nanoTime();
+long millis=TimeUnit.NANOSECONDS.toMillis(t1-t0);
+System.out.println(String.format(&quot;Sequential sort took: %d ms&quot;,millis)); //899mx
+</code></pre></li>
+<li><p>并行排序，效率提高一倍</p>
+<pre><code>t0=System.nanoTime();
+list.parallelStream().sorted();
+t1=System.nanoTime();
+millis=TimeUnit.NANOSECONDS.toMillis(t1-t0);
+System.out.println(String.format(&quot;Parallel sort took: %d ms&quot;,millis)); //472ms
+</code></pre><h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a><a href="https://www.ibm.com/developerworks/cn/java/j-lo-java8streamapi/" target="_blank" rel="noopener">参考文章</a></h3></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-25T08:26:08.894Z" itemprop="dateUpdated">2018-10-25 16:26:08</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Java8已定义的函数式接口/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Java8已定义的函数式接口/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java8已定义的函数式接口/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java8已定义的函数式接口/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java8已定义的函数式接口/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Java8已定义的函数式接口/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java8已定义的函数式接口/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Javabean/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Java8 Map新方法/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java8已定义的函数式接口/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java8已定义的函数式接口/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java8已定义的函数式接口/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Java8已定义的函数式接口/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java8已定义的函数式接口/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrElEQVR42u3a0U7DMAwFUP7/p0HiCQnW3esk3ZBOn6aydTlBij3bHx/x9fl9/Xz9+871O3/eT76l/evShYeHhzda+qPrGjD7+mv2ozvXG/dwE/Hw8PCO8ZJgkGxKwp5t3HCL8fDw8F7KS74+Sa/bpBkPDw/v//LagJEj28CDh4eH9w685HFtqWK2xHyLN9da8PDw8GLerAH22tfH+3t4eHh4o676yrG+t2wxXCceHh7eAV5eYN179uYtsRwfLREPDw9vmbdSgMg3Kz/09zbk8PDw8E7w2vb89bG+ElrW49uTNeDh4eFt4q007JNAMhsOaFtoTzp7eHh4eFt5s8JEDp6VbndtDR4eHt79vLz1lSe77WfzABAh8fDw8Dbxrg/rPDDMihp1vy4eUMDDw8M7wcuT3WK3ZhFpVOp98pMADw8P7xZee6C37Fmxox1owMPDw7uH15JmW9A+J//sH+/Bw8PDO8DLy7JtMJgNGeSDAkXCjYeHh3eMt2sEalhL3tTrx8PDw7uH15YJdhUshiWGMizh4eHh7eV9xld+TLdtrVk4qYMBHh4e3mHeSml1JRHPQ070WTw8PLwDvDa1bcNA27K6Xm47oICHh4d3jte29vNFRIlvGRLq0QE8PDy8w7w2zW1baOsBJk/f8fDw8O7hrTSf8lCRJMd5sTjaJjw8PLytvPy4bwsNLXIltDx8Px4eHt5h3oaf/XGZdX34oJhQwMPDw9sKa0evijw9LnbMSh5PnoCHh4d3gDdbXL7c2UJn7TQ8PDy8O3ntCNRK6bYtVbT368QaDw8Pb4E3G4TKC7vtc1ZKKnh4eHjvzFsZh1p/HW0NHh4e3kt5eflgZeBglpTj4eHh3c+bHfR5y2o2mpD/GzbUWvDw8PBi3t4G2Er6m5czZuVmPDw8vGXeF4WaSt+iQOAwAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

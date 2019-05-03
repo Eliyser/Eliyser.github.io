@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="密码存储应加密或生成摘要存储。  编码、解码 Shiro提供了base64和16进制对字符串进行编码、解码。其内部的一些数据的存储和表示也都使用了base64和16进制的字符串。 base64：网络上最常用的用于传输8bit字节码的编码方式之一，可用于在HTTP环境下传递较长的标识信息，起到简单的加密作用。主要是基于64个可打印字符来表示二进制数据，即编码过程是从二进制到字符的过程。  Stri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Shiro第五章-编码、加密/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="密码存储应加密或生成摘要存储。  编码、解码 Shiro提供了base64和16进制对字符串进行编码、解码。其内部的一些数据的存储和表示也都使用了base64和16进制的字符串。 base64：网络上最常用的用于传输8bit字节码的编码方式之一，可用于在HTTP环境下传递较长的标识信息，起到简单的加密作用。主要是基于64个可打印字符来表示二进制数据，即编码过程是从二进制到字符的过程。  Stri">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7565.PNG">
+<meta property="og:updated_time" content="2019-04-09T01:58:46.480Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="密码存储应加密或生成摘要存储。  编码、解码 Shiro提供了base64和16进制对字符串进行编码、解码。其内部的一些数据的存储和表示也都使用了base64和16进制的字符串。 base64：网络上最常用的用于传输8bit字节码的编码方式之一，可用于在HTTP环境下传递较长的标识信息，起到简单的加密作用。主要是基于64个可打印字符来表示二进制数据，即编码过程是从二进制到字符的过程。  Stri">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7565.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:29:23.108Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#编码、解码"><span class="post-toc-number">1.</span> <span class="post-toc-text">编码、解码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#散列算法"><span class="post-toc-number">2.</span> <span class="post-toc-text">散列算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#对称加密"><span class="post-toc-number">3.</span> <span class="post-toc-text">对称加密</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Shiro的加密接口"><span class="post-toc-number">4.</span> <span class="post-toc-text">Shiro的加密接口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PasswordService、CredentialsMatcher加密和验证密码"><span class="post-toc-number">5.</span> <span class="post-toc-text">PasswordService、CredentialsMatcher加密和验证密码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#示例"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">示例</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用jdbc的示例"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">使用jdbc的示例</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HashedCredentialsMatcher"><span class="post-toc-number">6.</span> <span class="post-toc-text">HashedCredentialsMatcher</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#自定义Realm示例"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">自定义Realm示例</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#JdbcRealm示例"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">JdbcRealm示例</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#密码重试次数限制"><span class="post-toc-number">7.</span> <span class="post-toc-text">密码重试次数限制</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Shiro第五章-编码、加密"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:29:23" datetime="2019-04-30T08:29:23.108Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li>密码存储应加密或生成摘要存储。</li>
+</ul>
+<h3 id="编码、解码"><a href="#编码、解码" class="headerlink" title="编码、解码"></a>编码、解码</h3><ul>
+<li>Shiro提供了base64和16进制对字符串进行编码、解码。其内部的一些数据的存储和表示也都使用了base64和16进制的字符串。</li>
+<li>base64：网络上最常用的用于传输8bit字节码的编码方式之一，可用于在HTTP环境下传递较长的标识信息，起到简单的加密作用。主要是基于64个可打印字符来表示二进制数据，即编码过程是从二进制到字符的过程。</li>
+</ul>
+<pre><code>String str = &quot;hello&quot;;
+String base64Encoded = Base64.encodeToString(str.getBytes()); //编码：二进制-&gt;字符
+String str2 = Base64.decodeToString(base64Encoded); //解码
+Assert.assertEquals(str, str2);
+</code></pre><ul>
+<li>16进制</li>
+</ul>
+<pre><code>String str = &quot;hello&quot;;
+String hexEncoded = Hex.encodeToString(str.getBytes()); //编码
+String str2 = new String(Hex.decode(hexEncoded.getBytes())); //解码
+Assert.assertEquals(str, str2);
+</code></pre><ul>
+<li>CodecSupport类：提供toBytes(str,”utf-8”)、toString(bytes,”utf-8”),进行String和byte数组之间的额转换。</li>
+</ul>
+<h3 id="散列算法"><a href="#散列算法" class="headerlink" title="散列算法"></a>散列算法</h3><ul>
+<li>散列算法一般用于生成数据的摘要信息，不可逆。</li>
+<li>常见的有：MD5、SHA等。</li>
+<li>一般进行散列时最好提供一个salt，比如一些只有系统知道的干扰数据，如，用户名和id，这样生成的散列值更难破解。</li>
+<li>因此用户注册和修改密码时，系统应将密码和盐一起保存到数据库。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7565.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<pre><code>String str = &quot;hello&quot;;
+String salt = &quot;123&quot;;
+String md5 = new Md5Hash(str, salt).toString();//还可以是toBase64()/toHex();
+String sha1 = new Sha256Hash(str, salt).toString();//还有SHA1、SHA512、SHA256、SHA384...
+</code></pre><ul>
+<li>还可以指定散列次数</li>
+</ul>
+<pre><code>//散列两次
+md5(md5(str));
+//相当于
+new MD5Hash(str,salt,2).toString();
+</code></pre><h3 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h3><ul>
+<li>AES算法：下一代加密算法标准，速度快，安全级别高，支持128/192/256/512位秘钥的加密。</li>
+</ul>
+<pre><code>AesCipherService aesCipherService=new AesCipherService();
+aesCipherService.setKeySize(128); //设置key长度；不影响加密后长度
+Key key=aesCipherService.generateNewKey(); //生成key
+String source=&quot;hello&quot;;
+String encryptText=aesCipherService.encrypt(source.getBytes(),key.getEncoded())
+        .toHex(); //加密，参数是两个byte数组
+String source2=new String(aesCipherService.decrypt(Hex.decode(encryptText),
+        key.getEncoded()).getBytes()); //解密,参数是两个byte数组
+</code></pre><ul>
+<li>crypt：C语言加密函数名。</li>
+<li><p>代码实例：shiroHelloWorld/test/AllTest</p>
+</li>
+<li><p>Blowfish算法：布鲁斯·施奈尔发明的区块加密算法。</p>
+</li>
+</ul>
+<pre><code>BlowfishCipherService blowfishCipherService = new BlowfishCipherService();
+blowfishCipherService.setKeySize(128);
+
+//生成key
+Key key = blowfishCipherService.generateNewKey();
+
+String text = &quot;hello&quot;;
+
+//加密
+String encrptText = blowfishCipherService.encrypt(text.getBytes(), key.getEncoded()).toHex();
+//解密
+String text2 = new String(blowfishCipherService.decrypt(Hex.decode(encrptText), key.getEncoded()).getBytes());
+
+Assert.assertEquals(text, text2);
+</code></pre><ul>
+<li>DefaultBlockCipherService：对称加密通用支持器</li>
+</ul>
+<pre><code>//对称加密，使用Java的JCA（javax.crypto.Cipher）加密API，常见的如 &apos;AES&apos;, &apos;Blowfish&apos;
+DefaultBlockCipherService cipherService = new DefaultBlockCipherService(&quot;AES&quot;);
+cipherService.setKeySize(128);
+
+//生成key
+Key key = cipherService.generateNewKey();
+
+String text = &quot;hello&quot;;
+
+//加密
+String encrptText = cipherService.encrypt(text.getBytes(), key.getEncoded()).toHex();
+//解密
+String text2 = new String(cipherService.decrypt(Hex.decode(encrptText), key.getEncoded()).getBytes());
+
+Assert.assertEquals(text, text2);
+</code></pre><h3 id="Shiro的加密接口"><a href="#Shiro的加密接口" class="headerlink" title="Shiro的加密接口"></a>Shiro的加密接口</h3><ul>
+<li>Shiro提供的散列支持</li>
+</ul>
+<pre><code>//内部使用MessageDigest
+String simpleHash = new SimpleHash(&quot;SHA-1&quot;, str, salt).toString();
+</code></pre><ul>
+<li>经过加密后变成byte数组，必须toString()/toHex()变换一下比较好看，而存入数据库一般是toHex()。</li>
+<li>为了实现更加完整的加密方案，Shiro提供了HashService，这个也是密码加密最常用的。</li>
+</ul>
+<pre><code>DefaultHashService hashService = new DefaultHashService(); //默认实现
+//all设置
+hashService.setHashAlgorithmName(&quot;SHA-512&quot;); //设置算法；默认为SHA-512;被request覆盖
+hashService.setPrivateSalt(new SimpleByteSource(&quot;123&quot;)); //私盐，散列时自动与用户传入
+的公盐混合产生一个新盐；默认无
+hashService.setGeneratePublicSalt(true); //在用户没有传入公盐时是否自动产生公盐；
+被request覆盖
+hashService.setRandomNumberGenerator(new SecureRandomNumberGenerator()); //用于生成公盐；
+SecureRandomNumberGenerator用于生成一个随机数；默认就这个
+hashService.setHashIterations(1); //散列迭代次数;被request覆盖
+
+HashRequest request=new HashRequest.Builder() //all有用配置如下
+        .setAlgorithmName(&quot;MD5&quot;).setSource(ByteSource.Util.bytes(&quot;hello&quot;))
+        .setSalt(ByteSource.Util.bytes(&quot;123&quot;)).setIterations(2).build();
+
+String hex=hashService.computeHash((request)).toHex();
+</code></pre><ul>
+<li>代码实例：shiroHelloWorld/test/AllTest</li>
+</ul>
+<h3 id="PasswordService、CredentialsMatcher加密和验证密码"><a href="#PasswordService、CredentialsMatcher加密和验证密码" class="headerlink" title="PasswordService、CredentialsMatcher加密和验证密码"></a>PasswordService、CredentialsMatcher加密和验证密码</h3><ul>
+<li>Shiro提供了PasswordService和CredentialsMatcher接口用于加密和验证密码。</li>
+<li>PasswordService默认实现：DefaultPasswordService。</li>
+<li>CredentialsMatcher默认实现：PasswordMatcher、HashedcredentialsMatcher(更强大)。</li>
+</ul>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><ul>
+<li>自定义Realm</li>
+</ul>
+<pre><code>public class MyRealm4 extends AuthorizingRealm {
+    public PasswordService passwordService; //等待外部注入
+
+    public void setPasswordService(PasswordService passwordService){
+        this.passwordService=passwordService;
+    }
+
+    /**
+     * @Author haien
+     * @Description 被间接父类AuthenticatingRealm调用，获取到AuthenticationInfo后
+                    调用assertCredentialsMatch(token,info),其中token代表表单信息，
+                    info代表数据库用户，它使用了credentialsMatcher
+                    （未指定则使用默认实现类）来验证密码是否匹配，
+                    否则抛出IncorrectCredentialsException；
+                    但不验证用户名是否正确
+     * @Date 2019/2/22
+     * @Param [token]
+     * @return org.apache.shiro.authc.AuthenticationInfo
+     **/
+    @Override
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token)
+            throws AuthenticationException {
+        return new SimpleAuthenticationInfo(&quot;wu&quot;,
+                passwordService.encryptPassword(&quot;123&quot;),getName());
+    }
+
+    /**
+     * @Author haien
+     * @Description 不需要授权就直接返回null就好了
+     * @Date 2019/2/22
+     * @Param [principalCollection]
+     * @return org.apache.shiro.authz.AuthorizationInfo
+     **/
+    @Override
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+        return null;
+    }
+}
+</code></pre><ul>
+<li>如果自定义Realm实现的是Realm接口，而不是继承了AuthenticatingRealm及其以下的类，则用户名和密码验证逻辑都必须在此Realm中实现，否则视返回Info类为验证通过，不再进行验证。</li>
+<li>shiro-passwordservice.ini</li>
+</ul>
+<pre><code>[main]
+passwordService=org.apache.shiro.authc.credential.DefaultPasswordService //有必要可自定义
+hashService=org.apache.shiro.crypto.hash.DefaultHashService //定义散列密码使用的HashService
+passwordService.hashService=$hashService
+hashFormat=org.apache.shiro.crypto.hash.format.Shiro1CryptFormat //对散列出的值格式化，默认使用Shiro1CryptFormat，还有Base64Formath和HexFormat；
+对于有salt的密码应自定义ParsableHashFormat实现类，然后把salt格式化到散列值中。
+passwordService.hashFormat=$hashFormat
+hashFormatFactory=org.apache.shiro.crypto.hash.format.DefaultHashFormatFactory //根据散列值得到散列的密码和salt
+passwordService.hashFormatFactory=$hashFormatFactory
+
+passwordMatcher=org.apache.shiro.authc.credential.PasswordMatcher //定义AuthenticatingRealm
+用到的CredentialsMatcher
+passwordMatcher.passwordService=$passwordService
+
+myRealm=com.haien.shiroHelloWorld.chapter5.realm.MyRealm
+myRealm.passwordService=$passwordService
+myRealm.credentialsMatcher=$passwordMatcher
+securityManager.realms=$myRealm;
+</code></pre><ul>
+<li>PasswordTest：测试类</li>
+</ul>
+<pre><code>public class PasswordTest extends BaseTest {
+    @Test
+    public void testPasswordServiceWithMyRealm(){
+        login(&quot;classpath:config/shiro-passwordservice.ini&quot;,
+                &quot;wu&quot;,&quot;123&quot;);
+    }
+}
+</code></pre><h4 id="使用jdbc的示例"><a href="#使用jdbc的示例" class="headerlink" title="使用jdbc的示例"></a>使用jdbc的示例</h4><ul>
+<li>shiro-jdbc-passwordservice.ini：如果JdbcRealm不指定CredentialsMatcher，则会使用默认实现类SimpleCredentialsMatcher，它不进行加密，只进行明文匹配。</li>
+</ul>
+<pre><code>[main]
+passwordService=org.apache.shiro.authc.credential.DefaultPasswordService
+hashService=org.apache.shiro.crypto.hash.DefaultHashService
+passwordService.hashService=$hashService
+hashFormat=org.apache.shiro.crypto.hash.format.Shiro1CryptFormat
+passwordService.hashFormat=$hashFormat
+hashFormatFactory=org.apache.shiro.crypto.hash.format.DefaultHashFormatFactory
+passwordService.hashFormatFactory=$hashFormatFactory
+
+passwordMatcher=org.apache.shiro.authc.credential.PasswordMatcher
+passwordMatcher.passwordService=$passwordService
+
+dataSource=com.alibaba.druid.pool.DruidDataSource
+dataSource.driverClassName=com.mysql.jdbc.Driver
+dataSource.url=jdbc:mysql://127.0.0.1:3306/shiro
+dataSource.username=root
+dataSource.password=123456
+
+jdbcRealm=org.apache.shiro.realm.jdbc.JdbcRealm
+jdbcRealm.dataSource=$dataSource
+jdbcRealm.permissionsLookupEnabled=true
+
+jdbcRealm.credentialsMatcher=$passwordMatcher
+//不用配置PasswordService
+securityManager.realms=$jdbcRealm
+</code></pre><ul>
+<li>PasswordTest:测试类</li>
+</ul>
+<pre><code>public class PasswordTest extends BaseTest {
+    @Test
+    public void testPasswordserviceWithJdbcRealm(){
+        login(&quot;classpath:config/shiro-jdbc-passwordservice.ini&quot;,
+                &quot;wu&quot;,&quot;123&quot;);
+    }
+}
+</code></pre><h3 id="HashedCredentialsMatcher"><a href="#HashedCredentialsMatcher" class="headerlink" title="HashedCredentialsMatcher"></a>HashedCredentialsMatcher</h3><ul>
+<li>和之前的PasswordMatcher不同，它只用于密码验证，且可以提供自己的盐，而不是随机生成盐，且加密算法可以指定。</li>
+<li>比如使用MD5，“密码+盐（用户名—+随机数”的方式生成散列值。</li>
+</ul>
+<h4 id="自定义Realm示例"><a href="#自定义Realm示例" class="headerlink" title="自定义Realm示例"></a>自定义Realm示例</h4><ul>
+<li>MyRealm2：准备用户</li>
+</ul>
+<pre><code>/**
+ * @Author haien
+ * @Description 用户名+加密后的密码作为盐
+ * @Date 2019/2/23
+ **/
+public class MyRealm2 extends AuthenticatingRealm { //不需要授权，继承AuthenticatingRealm即可
+    @Override
+    protected AuthenticationInfo doGetAuthenticationInfo(
+            AuthenticationToken authenticationToken) throws AuthenticationException {
+        //用户库
+        String username=&quot;liu&quot;;
+        String password=&quot;123&quot;;
+
+        //返回后，AuthenticatingRealm只会进行密码比对，不对用户名进行验证，因此用户验证需要在这里实现
+        if(!username.equals(authenticationToken.getPrincipal())){
+            throw new UnknownAccountException();
+        }
+
+        //密码加密；则ini配置文件应制定相同的加密方式来对登录用户进行加密后再与realm比对
+        String algorithmName=&quot;md5&quot;;
+        String salt2=new SecureRandomNumberGenerator().nextBytes().toHex(); //随机数
+        int hashIterations=2;
+        SimpleHash hash=new SimpleHash(algorithmName,password,
+                username+salt2,hashIterations);
+        String encodedPassword=hash.toHex(); //加密后的密码
+
+        //封装
+        SimpleAuthenticationInfo ai=
+                new SimpleAuthenticationInfo(username,encodedPassword,getName());
+        //HashedCredentialsMatcher会自动识别这个盐，并拿去给登录用户加密
+        ai.setCredentialsSalt(ByteSource.Util.bytes(username+salt2)); //盐=用户名+随机数
+        //返回给AuthenticatingRealm后，它调用HashedCredentialsMatcher的方法，
+        //将login密码加密，并与此身份凭证中的密码比对
+        return ai;
+    }
+}
+</code></pre><ul>
+<li>shiro-hashedCredentialsMatcher.ini：指定CredentialsMatcher实现类、Realm</li>
+</ul>
+<pre><code>[main]
+;告诉AuthorizingRealm，它获取到的身份凭证是这么来的
+credentialsMatcher=org.apache.shiro.authc.credential.HashedCredentialsMatcher
+credentialsMatcher.hashAlgorithmName=md5
+credentialsMatcher.hashIterations=2
+;加密后的密码是否转为了十六进制，默认是base64
+credentialsMatcher.storedCredentialsHexEncoded=true
+
+myRealm=com.haien.shiroHelloWorld.chapter5.realm.MyRealm2
+myRealm.credentialsMatcher=$credentialsMatcher
+securityManager.realms=$myRealm
+</code></pre><ul>
+<li>测试</li>
+</ul>
+<pre><code>public class PasswordTest extends BaseTest {
+    @Test
+    public void testHashedCredentialsMatcherWithMyRealm2() {
+        login(&quot;classpath:config/shiro-hashedCredentialsMatcher.ini&quot;,
+                &quot;liu&quot;, &quot;123&quot;); 
+                //HashedCredentialsMatcher会将密码加密后与Realm提供的用户库进行比对
+    }
+}
+</code></pre><h4 id="JdbcRealm示例"><a href="#JdbcRealm示例" class="headerlink" title="JdbcRealm示例"></a>JdbcRealm示例</h4><ul>
+<li>shiro-jdbc-hashedCredentialsMatcher.ini：Shiro默认不进行Enum类型转换，但saltStyle是枚举类型，因此需要我们自己注册一个Enum转换器对值先进行类型转换再赋给saltStyle。而密码+盐查询语句authenticationQuery原本为：select password, password_salt from users where username = ?，现在我们的盐=username+password_salt，因此要重写sql.</li>
+</ul>
+<pre><code>[main]
+;指定密码加密方式，需要和用户注册、修改密码时使用的加密方式一致
+credentialsMatcher=org.apache.shiro.authc.credential.HashedCredentialsMatcher
+credentialsMatcher.hashAlgorithmName=md5
+credentialsMatcher.hashIterations=2
+credentialsMatcher.storedCredentialsHexEncoded=true
+
+dataSource=com.alibaba.druid.pool.DruidDataSource
+dataSource.driverClassName=com.mysql.jdbc.Driver
+dataSource.url=jdbc:mysql://127.0.0.1:3306/shiro
+dataSource.username=root
+dataSource.password=123456
+
+jdbcRealm=org.apache.shiro.realm.jdbc.JdbcRealm
+jdbcRealm.dataSource=$dataSource
+jdbcRealm.permissionsLookupEnabled=true
+;需要被转换为Enum才能赋给saltStyle属性，因此在测试方法中注册了自定义的Enum转换器
+jdbcRealm.saltStyle=COLUMN
+;重写sql语句；同时对用户名和密码进行验证
+jdbcRealm.authenticationQuery=select password, concat(username,password_salt) from users where username = ?
+jdbcRealm.credentialsMatcher=$credentialsMatcher
+securityManager.realms=$jdbcRealm
+</code></pre><ul>
+<li>测试方法</li>
+</ul>
+<pre><code>public class PasswordTest extends BaseTest {
+    /**
+     * @Author haien
+     * @Description 自定义Enum转换器
+     * @Date 2019/2/23
+     **/
+    private class EnumConverter extends AbstractConverter{
+        @Override
+        protected String convertToString(final Object value) throws Throwable {
+            return ((Enum)value).name();
+        }
+
+        @Override
+        protected Class getDefaultType() {
+            return null;
+        }
+
+        @Override
+        protected Object convertToType(final Class type, final Object value)
+                throws Throwable {
+            return Enum.valueOf(type,value.toString());
+        }
+    }
+
+    @Test
+    public void testHashedCredentialsMatcherWithJdbcRealm(){
+        //注册自定义的Enum转换器，否则ini文件默认不进行Enum类型转换
+        BeanUtilsBean.getInstance().getConvertUtils().register(new EnumConverter(),
+                JdbcRealm.SaltStyle.class);
+
+        login(&quot;classpath:config/shiro-jdbc-hashedCredentialsMatcher.ini&quot;,
+                &quot;liu&quot;, &quot;123&quot;);
+    }
+}
+</code></pre><h3 id="密码重试次数限制"><a href="#密码重试次数限制" class="headerlink" title="密码重试次数限制"></a>密码重试次数限制</h3><ul>
+<li>目的：防止密码被暴力破解。</li>
+<li>方法：继承HashedCredentialsMatcher,且使用Ehcache记录重试次数和超时时间。</li>
+<li>RetryLimitHashedCredentialsMatcher：限制输入次数不超出5次</li>
+</ul>
+<pre><code>/**
+ * @Author haien
+ * @Description 自定义CredentialsMatcher实现类，限制密码重试次数
+ *              输入正确清除cache中的记录，否则cache中的重试次数+1，如果超出5次那么抛出异常
+ * @Date 2019/2/24
+ **/
+public class RetryLimitHashedCredentialsMatcher extends HashedCredentialsMatcher {
+    //密码重试次数缓存对象集合
+    private Ehcache passwordRetryCache;
+
+    public RetryLimitHashedCredentialsMatcher() {
+        CacheManager cacheManager=CacheManager.newInstance(
+                CacheManager.class.getClassLoader().getResource(&quot;ehcache.xml&quot;));
+        passwordRetryCache=cacheManager.getCache(&quot;passwordRetryCache&quot;);
+    }
+
+    @Override
+    public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) {
+        //获取表单参数
+        String username=(String)token.getPrincipal();
+        //获取该用户的缓存对象
+        Element element=passwordRetryCache.get(username);
+        //缓存对象不存在说明上一次登录成功或从未登录过
+        if(element==null){
+            element=new Element(username,new AtomicInteger(0)); //new一个并置零
+            passwordRetryCache.put(element);
+        }
+
+        //从缓存对象中获取重试次数
+        AtomicInteger retryCount=(AtomicInteger)element.getObjectValue();
+        //第6次起无论输入对错都禁止
+        if(retryCount.incrementAndGet()&gt;5) //+1
+            throw new ExcessiveAttemptsException();
+
+        boolean matches=super.doCredentialsMatch(token,info);
+        if(matches)
+            passwordRetryCache.remove(username);
+        return matches;
+    }
+}
+</code></pre><ul>
+<li><a href="https://jinnianshilongnian.iteye.com/blog/2021439" target="_blank" rel="noopener">《跟我学Shiro》第五章</a></li>
+<li>代码实例：ideaProjects/shiroHelloWorld/chapter5</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-09T01:58:46.480Z" itemprop="dateUpdated">2019-04-09 09:58:46</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Shiro第五章-编码、加密/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Shiro第五章-编码、加密/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第五章-编码、加密/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第五章-编码、加密/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第五章-编码、加密/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第五章-编码、加密/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第五章-编码、加密/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/05/02/数组/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Shiro第四章-ini配置解析/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第五章-编码、加密/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第五章-编码、加密/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第五章-编码、加密/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第五章-编码、加密/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第五章-编码、加密/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrUlEQVR42u3aQW7DQAgF0Nz/0qnUdT36gHGi6nkVtc6Y58VAYF6v+Hr/Xslfzldy//me18aFh4eH1wr9/LAkiMkTk9XO8Vy+Ajw8PLw1Xr5cL5FcrXP1l+Rb0XPx8PDwPsqrBnpeJ1kfDw8P77/y8uI7STO95IGHh4f3PC9pRvSaF/kKyZ2LvRY8PDy8mFdtLnzD58X5Hh4eHt5gqp5v+pMWcJISmtHi4eHhLfCSsrWXNu4qi/NCufCLAQ8PD2+B12tD5K2B3rGtapx4eHh4G7zJkCnf+idthWry+OMXAx4eHt4yr/eAatk9b1tErw8PDw9vmZcftKqW1+fQe78DoheNh4eH9yHe/DxC/srywjq6Bw8PD2+BN28N5C+l11bIU8ilBQ8PD2+Bd96yq4V1vmb1wEEvQjw8PLwnefm23nt8nlrmTWQ8PDy8e3nV0VdviNV7yqQ1jIeHh7fBy4dPvUSSJIO8KK+O3/Dw8PA2eOdtuhpWr8jOt/vJmA0PDw/vLt552622D+76nLSJoyIbDw8Pb4GXtxUKQ/q4SZEX5dVXXw4IDw8PL+blG+6kIM5JZ0D1iBgeHh7eNq83gpoUvknWqqYTPDw8vGd4edmaHAJIQswPGYzaxHh4eHgLvGoQk9F+b7uvJiQ8PDy8bV5+3KrKy0vqvNCvfhcPDw/vU7z8nl7BPT9YcLkaHh4e3gKvd1WbCNUkMRmYjWB4eHh4wf3v4tUrnXvhTgr0y7yHh4eHN+ZVk0H18dXjWXdN/5u5Dg8PDy/mTY5elUf4x4Cq7d1oZTw8PLw1XnVTrr6Caoi9ZkTh33h4eHiP8Cbt10nySBrHlxY8PDy8L+NNDhnkbY5ecsLDw8Pb5k1K4erwrHfsIE8weHh4eNu83gCs2pY9f6vXpMjvx8PDw7uJ9wOnUbGG8qrIMwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

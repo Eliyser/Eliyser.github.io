@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Servlet server + let，运行在服务器端的小程序。 Servlet实际就是一个接口，广义上我们认为凡是实现Servlet接口的类，我们都称他是一个Servlet。 要继承HttpServlet类，必须检查项目-&amp;gt;构建路径-&amp;gt;库里里面有没有tomcat的jar包。 作用：接收用户发送的请求；调用其他的java程序来处理请求；返回一个页面给用户。 实现步骤：   创建一个类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/servlet、request和response/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="Servlet server + let，运行在服务器端的小程序。 Servlet实际就是一个接口，广义上我们认为凡是实现Servlet接口的类，我们都称他是一个Servlet。 要继承HttpServlet类，必须检查项目-&amp;gt;构建路径-&amp;gt;库里里面有没有tomcat的jar包。 作用：接收用户发送的请求；调用其他的java程序来处理请求；返回一个页面给用户。 实现步骤：   创建一个类">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7779.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7794.PNG">
+<meta property="og:updated_time" content="2019-04-12T07:00:04.616Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="Servlet server + let，运行在服务器端的小程序。 Servlet实际就是一个接口，广义上我们认为凡是实现Servlet接口的类，我们都称他是一个Servlet。 要继承HttpServlet类，必须检查项目-&amp;gt;构建路径-&amp;gt;库里里面有没有tomcat的jar包。 作用：接收用户发送的请求；调用其他的java程序来处理请求；返回一个页面给用户。 实现步骤：   创建一个类">
+<meta name="twitter:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7779.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.752Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Servlet"><span class="post-toc-number">1.</span> <span class="post-toc-text">Servlet</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Servlet的生命周期"><span class="post-toc-number">2.</span> <span class="post-toc-text">Servlet的生命周期</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ServletConfig"><span class="post-toc-number">3.</span> <span class="post-toc-text">ServletConfig</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ServletContext"><span class="post-toc-number">4.</span> <span class="post-toc-text">ServletContext</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GenericServlet"><span class="post-toc-number">5.</span> <span class="post-toc-text">GenericServlet</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HttpServlet"><span class="post-toc-number">6.</span> <span class="post-toc-text">HttpServlet</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HttpServletRequest和ServletRequest的区别"><span class="post-toc-number">7.</span> <span class="post-toc-text">HttpServletRequest和ServletRequest的区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#request与response简介"><span class="post-toc-number">8.</span> <span class="post-toc-text">request与response简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#request获取当前请求"><span class="post-toc-number">9.</span> <span class="post-toc-text">request获取当前请求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#response-getwriter-和response-getOutputStream"><span class="post-toc-number">10.</span> <span class="post-toc-text">response.getwriter()和response.getOutputStream()</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-servlet、request和response"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.752Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h3><ul>
+<li>server + let，运行在服务器端的小程序。</li>
+<li>Servlet实际就是一个接口，广义上我们认为凡是实现Servlet接口的类，我们都称他是一个Servlet。</li>
+<li>要继承HttpServlet类，必须检查项目-&gt;构建路径-&gt;库里里面有没有tomcat的jar包。</li>
+<li>作用：接收用户发送的请求；调用其他的java程序来处理请求；返回一个页面给用户。</li>
+<li>实现步骤：</li>
+</ul>
+<ol>
+<li>创建一个类并实现Servlet接口。</li>
+<li>重写doGet()和doPost()，doGet交给doPost处理，第一句：改编码(utf-8不行就gbk)。</li>
+<li><p>在web.xml中配置servlet，否则请求和处理无法关联：</p>
+<pre><code>&lt;servlet&gt;
+    &lt;!--Servlet的别名，以后通过别名查询该Servlet--&gt;
+    &lt;servlet-name&gt;唯一别名&lt;/servlet-name&gt;
+    &lt;!--服务器通过全类名创建Servlet的实例--&gt;
+    &lt;servlet-class&gt;全类名&lt;/servlet-class&gt;
+&lt;/servlet&gt;
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;别名&lt;/servlet-name&gt;
+    &lt;!--Servlet映射的请求地址，用户通过该地址访问Servlet--&gt;
+    &lt;url-pattern&gt;需要servlet处理的请求地址&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+</code></pre></li>
+</ol>
+<ul>
+<li>入门项目：HeadFirstServletChap05</li>
+</ul>
+<h3 id="Servlet的生命周期"><a href="#Servlet的生命周期" class="headerlink" title="Servlet的生命周期"></a>Servlet的生命周期</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7779.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ol>
+<li>构造器</li>
+</ol>
+<ul>
+<li>启动的时候就会加载Servlet类，第一次处理请求的时候就会实例化，即调用构造器；且只会调用一次，因为Servlet是单例模式，以多线程的方式调用service()，但Servlet不是线程安全的，所以尽量不要在service()中操作全局变量。</li>
+</ul>
+<ol start="2">
+<li>init()</li>
+</ol>
+<ul>
+<li>构造器调用后马上调用init(),init只执行一次，里面可以写一些初始化的东西，然后你请求的话它就会有doGet、doPost的服务。</li>
+</ul>
+<ol start="3">
+<li>service()</li>
+</ol>
+<ul>
+<li>Servlet每次处理请求时都会调用service()，用于处理请求，会调用多次。</li>
+</ul>
+<ol start="4">
+<li>destroy()</li>
+</ol>
+<ul>
+<li>Servlet对象销毁前（web项目卸载时）调用，用来做一些收尾工作，释放资源等。</li>
+<li><p>销毁情况有好几种：长时间不用（等半天）servlet，自动销毁；关闭的时候也销毁（即释放内存，销毁掉之后再访问则重新调用init）</p>
+</li>
+<li><p>servlet是单实例多线程，使用时要注意安全性。</p>
+</li>
+<li>代码实例：HeadFirstServletChap05-&gt;com.java1234.web包-&gt;LifeServlet.java</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7794.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="ServletConfig"><a href="#ServletConfig" class="headerlink" title="ServletConfig"></a>ServletConfig</h3><ul>
+<li>每一个servlet都有一个唯一的ServletConfig对象，表示当前servlet的配置信息。</li>
+<li>由tomcat服务器创建，最终作为参数传递到init()中，可以在init()中直接使用。</li>
+<li>当我们通过继承HttpServlet创建servlet实现类时，父类已经实现ServletConfig接口，所以我们可以直接在类中调用ServletConfig的方法。</li>
+<li><p>作用：获取Servlet的别名；获取servlet的初始化参数；获取当前web应用的ServletContext对象。</p>
+<pre><code>&lt;servlet&gt;
+    &lt;servlet-name&gt;AServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;com.atguigu.servlet.AServlet&lt;/servlet-class&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;user&lt;/param-name&gt;
+        &lt;param-value&gt;root&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;password&lt;/param-name&gt;
+        &lt;param-value&gt;123123&lt;/param-value&gt;
+    &lt;/init-param&gt;
+&lt;/servlet&gt;
+</code></pre></li>
+</ul>
+<h3 id="ServletContext"><a href="#ServletContext" class="headerlink" title="ServletContext"></a>ServletContext</h3><ul>
+<li>一个web应用对应唯一的ServletContext对象，表示当前的web应用。</li>
+<li>项目启动时创建，卸载时销毁。</li>
+<li>ServletConfig.getServletContext()：获取ServletContext对象。</li>
+<li><p>作用：获取整个web应用的初始化参数，如</p>
+<pre><code>&lt;context-param&gt;
+    &lt;param-name&gt;phone&lt;/param-name&gt;
+    &lt;param-value&gt;1388888888&lt;/param-value&gt;
+&lt;/context-param&gt;
+</code></pre><p>获取资源的真实路径（主要用于文件上传、下载）；可以作为一个域对象再不同的web资源之间共享数据。</p>
+</li>
+</ul>
+<h3 id="GenericServlet"><a href="#GenericServlet" class="headerlink" title="GenericServlet"></a>GenericServlet</h3><ul>
+<li>实现了Servlet接口，是通用的servlet父类。</li>
+</ul>
+<h3 id="HttpServlet"><a href="#HttpServlet" class="headerlink" title="HttpServlet"></a>HttpServlet</h3><ul>
+<li>继承自GenericServlet。</li>
+<li>重写了service()：</li>
+</ul>
+<ol>
+<li>将入参ServletRequest和ServletResponse强转为Http</li>
+</ol>
+<ul>
+<li><p>一般继承HttpServlet来实现自定义Servlet。</p>
+</li>
+<li><p>客户端跳转的话request里存放的数据不会被传过去，但是session、application可以。</p>
+</li>
+<li><p>代码实例：HeadFirstServletChap05-&gt;com.java1234.web包-&gt;RedirectServlet.java</p>
+</li>
+<li><p>服务器跳转是内部转发的，跟客户端的唯一不同是：不是调用重定向，而是调用getRequestDispatcher(“target.jsp”).forward(request, response);其他存值什么的操作都一样</p>
+</li>
+<li>服务器跳转能获取request值</li>
+<li>代码实例：HeadFirstServletChap05-&gt;com.java1234.web包-&gt;ForwardServlet.java</li>
+</ul>
+<h3 id="HttpServletRequest和ServletRequest的区别"><a href="#HttpServletRequest和ServletRequest的区别" class="headerlink" title="HttpServletRequest和ServletRequest的区别"></a>HttpServletRequest和ServletRequest的区别</h3><ul>
+<li>servlet可以处理多种形式的请求响应，而http只是其中一种，所以HttpServletRequest是ServletRequest的子接口，它多了一些针对HTTP协议的方法：</li>
+</ul>
+<pre><code>getHeader(String name)
+getMethod()
+getSession() 
+...
+</code></pre><h3 id="request与response简介"><a href="#request与response简介" class="headerlink" title="request与response简介"></a>request与response简介</h3><ul>
+<li>当web服务器收到客户端的一次HTTP请求时，会创建一个代表请求的request对象和代表响应的response对象。所以我们要获取客户机提交过来的数据，找request，要向客户端输出数据，找response。</li>
+</ul>
+<h3 id="request获取当前请求"><a href="#request获取当前请求" class="headerlink" title="request获取当前请求"></a>request获取当前请求</h3><pre><code>/*当前页面请求:http://localhost:8080/thz-manager-web/forgetPwd_check(无参数)*/
+
+String path = request.getContextPath(); // 一般是项目名：/thz-manager-web
+
+//根路径
+String basePath = request.getScheme()+&quot;://&quot; //协议：http
+        +request.getServerName()+&quot;:&quot; //服务主机:localhost
+        +request.getServerPort() //端口号:8080
+        +path+&quot;/&quot;;
+
+String remoteAddress=request.getRemoteAddr(); //发起请求的客户端ip--0:0:0:0:0:0:0:1
+
+String servletPath=request.getServletPath(); //请求路径：/forgetPwd_check
+
+/**虚拟目录映射为实际目录*/
+//String realPath=request.getRealPath(&quot;/&quot;); //不推荐使用
+//推荐使用：request.getSession().getServletContext().getRealPath(&quot;url&quot;)
+//得到工程文件在服务器中的实际路径，即绝对路径
+String realPath=request.getSession().getServletContext().getRealPath(&quot;/&quot;); //映射/为实际目录
+//D:\ideaProjects\thz\thz-parent\thz-manager-web\src\main\webapp\
+String pagePath=request.getSession().getServletContext().getRealPath(&quot;./&quot;); 
+//网页所在目录：D:\ideaProjects\thz\thz-parent\thz-manager-web\src\main\webapp\.
+//（放在后台不是很合适，应该是写在前端脚本）
+
+String remoteUser=request.getRemoteUser(); //一般得到null
+
+//得到相对路径的url：/thz-manager-web/forgetPwd_check
+String requestURI=request.getRequestURI(); 
+//完整路径:http://localhost:8080/thz-manager-web/forgetPwd_check
+StringBuffer requestURL=request.getRequestURL(); 
+
+String queryString=request.getQueryString(); //获取请求参数串，无则为null
+
+//完整请求:http://localhost:8080/thz-manager-web/forgetPwd_checknull
+String fullPath=requestURL+queryString; 
+
+String method=request.getMethod(); //获取请求方法，POST/GET等
+</code></pre><h3 id="response-getwriter-和response-getOutputStream"><a href="#response-getwriter-和response-getOutputStream" class="headerlink" title="response.getwriter()和response.getOutputStream()"></a>response.getwriter()和response.getOutputStream()</h3><ul>
+<li>getWriter()：向客户端输出字符型数据，是字符流。</li>
+<li>getOutputStream(): 向客户端输出二进制数据，是字节流，返回ServletOutputStream对象，提供一个二进制输出流给客户端。</li>
+</ul>
+<ol>
+<li>使用OutputStream输出中文数据：在服务端，输出数据的编码要和客户端使用的编码一致，如，客户端浏览器使用utf-8，则</li>
+</ol>
+<pre><code>outputStream.write(&quot;中文&quot;.getBytes(&quot;UTF-8&quot;)); //getBytes()返回byte[]
+</code></pre><ul>
+<li>那么在服务端如何控制客户端以utf-8解码数据呢？可以设置响应头控制浏览器的行为，如：</li>
+</ul>
+<pre><code>response.setHeader(&quot;content-type&quot;, &quot;text/html;charset=UTF-8&quot;);
+</code></pre><ul>
+<li>完整示例：</li>
+</ul>
+<pre><code>String str=&quot;我心自在&quot;;
+response.setHeader(&quot;content-type&quot;, &quot;text/html;charset=UTF-8&quot;);
+OutputStream os=response.getOutputStream();
+//字符转字节；编码默认根据系统环境获取
+byte[]b=str.getBytes(&quot;utf-8&quot;);
+os.write(b);
+</code></pre><ol start="2">
+<li>使用getWriter()输出中文数据：推荐，比前者节省了字符转字节这一步骤。</li>
+</ol>
+<pre><code>String str=&quot;我心自在&quot;;
+//1. 设置字符以何种编码输出到浏览器
+response.setCharacterEncoding(&quot;utf-8&quot;);
+//2. 获取PrintWriter输出流
+PrintWriter pw=response.getWriter();
+pw.write(str);
+pw.close();
+</code></pre><ul>
+<li>上述两个步骤不能颠倒，一定要在获取输出流前设置编码，否则设置将无效，浏览器乱码。</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-12T07:00:04.616Z" itemprop="dateUpdated">2019-04-12 15:00:04</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/servlet、request和response/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/servlet、request和response/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/servlet、request和response/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/servlet、request和response/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/servlet、request和response/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/servlet、request和response/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/servlet、request和response/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/SpEL表达式/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Serializable/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/servlet、request和response/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/servlet、request和response/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/servlet、request和response/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/servlet、request和response/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/servlet、request和response/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3awW6EMAxF0fn/n6bbSqPAfTa0Ir6sRi2EHBaWY/vzwdfxdZ3/d3Xn7/u/f6/+ctslQ4aM1zLIJsgWOY9/puADyZAhYwCDh8Xz15B1CIbvTYYMGTLS5VI8f0qGDBkyakfN82QuTRP/IeDKkCHjVQxyiD2vdJFqWC3g3nwWlyFDxgsZvOr+978f6W/IkCHjVYwjvHi5LV2htSsZMmRszUgTO9K85ElkJ+2TIUPGHAY5WJKl0+Jamvxd3C9DhoyRDFKyr72+1ki4aJfKkCFjDKP24udaksGHkyFDxtaMWjIXlMAwqTVmIUOGjAGMtDTfSekIlZf5ZMiQMY3Bt8ifIkW6tM25XF+GDBmbMmobvWuMrNOQWLYwZciQsTWDHyD5azrDFkGaKEOGjAEM/kB6iH1u2EKGDBlzGMVUrDE20V9/+S4ZMmRsyuAlLX7U5MMZPGW84RArQ4aMLRhkiTSJ5Ji0kCdDhow5jDTU1spwtaSQN1NlyJAxh1ELtc8Ne5EQfHEWlyFDxhhGLUGsNUdJOC4GXBkyZGzBSA+QtWJZWlYLArEMGTI2ZRzh1Wkb8OJa/JQMGTK2ZqSDWbyRmYZsXv7j68iQIWMnRj/I8oYB33occGXIkDGAwQNf/0Ok68fDFjJkyBjPSIcheMBN26itgCtDhowxDH7ETddJA7oMGTImMEhiV0v+amkiD9AyZMiYwKiNONQairxRmrYNZMiQsSnjB1ar0T9oICjhAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="新建一个entity，添加表单验证注解 @Entity @Table(name=&amp;quot;t_student&amp;quot;) public class Student {     @Id     @GeneratedValue     private Integer id;      @NotEmpty(message=&amp;quot;姓名不能为空！&amp;quot;) //限制不为null且不为空，否则">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/SpringBoot学习之表单验证@Valid/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="新建一个entity，添加表单验证注解 @Entity @Table(name=&amp;quot;t_student&amp;quot;) public class Student {     @Id     @GeneratedValue     private Integer id;      @NotEmpty(message=&amp;quot;姓名不能为空！&amp;quot;) //限制不为null且不为空，否则">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-10T14:00:50.781Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="新建一个entity，添加表单验证注解 @Entity @Table(name=&amp;quot;t_student&amp;quot;) public class Student {     @Id     @GeneratedValue     private Integer id;      @NotEmpty(message=&amp;quot;姓名不能为空！&amp;quot;) //限制不为null且不为空，否则">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.835Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-SpringBoot学习之表单验证@Valid"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.835Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li><p>新建一个entity，添加表单验证注解</p>
+<pre><code>@Entity
+@Table(name=&quot;t_student&quot;)
+public class Student {
+    @Id
+    @GeneratedValue
+    private Integer id;
+
+    @NotEmpty(message=&quot;姓名不能为空！&quot;) //限制不为null且不为空，否则返回提示信息到页面
+    @Column(length=50)
+    private String name;
+
+    @NotNull(message=&quot;年龄不能为空！&quot;)
+    @Min(value = 18,message = &quot;年龄必须大于18岁！&quot;)
+    private Integer age;
+
+    setter、getter
+}
+</code></pre></li>
+<li><p>controller层添加进行表单验证的注解，并处理验证不通过信息</p>
+<pre><code>@RequestMapping(&quot;/add&quot;)
+public String add(@Valid Student student, BindingResult bingdingResult){ //@Valid：进行验证；BindingResult：验证返回的结果，不加的话会在验证不通过时抛出异常
+    if(bingdingResult.hasErrors()){ //一开始拦截器拦截请求时就进行了验证，假如不通过的话
+    return bingdingResult.getFieldError().getDefaultMessage(); //返回错误信息，比如姓名没填则返回“姓名不能为空！”
+    }else {
+        studentService.add(student);
+        return &quot;添加成功&quot;;
+    }
+}
+</code></pre></li>
+<li>限制条件清单<ul>
+<li>@Null    限制只能为null</li>
+<li>@NotNull    限制必须不为null</li>
+<li>@AssertFalse    限制必须为false</li>
+<li>@AssertTrue    限制必须为true</li>
+<li>@DecimalMax(value)    限制必须为一个不大于指定值的数字</li>
+<li>@DecimalMin(value)    限制必须为一个不小于指定值的数字</li>
+<li>@Digits(integer,fraction)    限制必须为一个小数，且整数部分的位数不能超过integer，小数部分的位数不能超过fraction</li>
+<li>@Future    限制必须是一个将来的日期</li>
+<li>@Max(value)    限制必须为一个不大于指定值的数字</li>
+<li>@Min(value)    限制必须为一个不小于指定值的数字</li>
+<li>@Past    限制必须是一个过去的日期</li>
+<li>@Pattern(value)    限制必须符合指定的正则表达式</li>
+<li>@Size(max,min)    限制字符长度必须在min到max之间</li>
+<li>@Past    验证注解的元素值（日期类型）比当前时间早</li>
+<li>@NotEmpty    验证注解的元素值不为null且不为空（字符串长度不为0、集合大小不为0）</li>
+<li>@NotBlank    验证注解的元素值不为空（不为null、去除首位空格后长度为0），不同于@NotEmpty，@NotBlank只应用于字符串且在比较时会去除字符串的空格</li>
+<li>@Email    验证注解的元素值是Email，也可以通过正则表达式和flag指定自定义的email格式</li>
+</ul>
+</li>
+<li>代码实例：D:/SpringBootJpa/entity/Student、StudentController</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-09-10T14:00:50.781Z" itemprop="dateUpdated">2018-09-10 22:00:50</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/SpringBoot学习之表单验证@Valid/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/SpringBoot学习之表单验证@Valid/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/SpringBoot学习之表单验证@Valid/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/SpringBoot学习之表单验证@Valid/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/SpringBoot学习之表单验证@Valid/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/SpringBoot学习之表单验证@Valid/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/SpringBoot学习之表单验证@Valid/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/SpringBoot整合jpa操作数据库/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/SpringBoot学习之HelloWorld/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/SpringBoot学习之表单验证@Valid/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/SpringBoot学习之表单验证@Valid/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/SpringBoot学习之表单验证@Valid/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/SpringBoot学习之表单验证@Valid/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/SpringBoot学习之表单验证@Valid/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuElEQVR42u3aQW7jQAwEQP//07vAnhZwZHSTM0kOpZMhy5JqAgwZkq9XfPz5d/z/+f3M+/XvV37+9v3Kp3c4fODh4eGNXv3peCJ9hrXL9Hk5Vr/Fw8PDu8Zrg0GycSdbeb6ISQjBw8PD+228zw/bbPT7JB4PDw/vN/M+b9nJNbPr8fDw8H4bLylGtNv6qRS5DUV4eHh4t3mzBtjPfr7e38PDw8MbddXbILFf3c/hp35bPDw8vAu8JG1td908FW4DTx4FiqwcDw8Pr+QlLa68rJA3zPJicfL0x3vi4eHhXeDVMaRMbWetsln4KZJ7PDw8vAu8YpMtm/2zsYC2IYeHh4d3j7d5zKkVzdv/yWJFP8DDw8Nb8PIyRFtiyNP0/Eyb6OPh4eHd4OUlg1MjBZuSbj2sgIeHh3eN144I5C2ofFGS8/Xy4eHh4X0Lr8XkA1WbjX5VhsDDw8O7xssLEJu7zcof7bt9ERjw8PDwjvJe8dGWdGdpdHuHooyLh4eHd4i3ebm2QTVLl9ueHh4eHt493qypnye1+3Lt5jweHh7ebd7ZV8wT8by4PBuixcPDwzvLa5PmfGzrxrhqWy7Bw8PDu83bDEvNBgXy9D1vwj3WWvDw8PAO8drWVxse2iR7tsSv/YGHh4dX8vJkOnmtzdafhJO6IIKHh4d3lJfctN1p8+ZZzph9i4eHh/c9vLww0W7ceWo+u380E4GHh4e35iWbfnvl7POVCgoeHh7e5eLsrPWVp9Rt+2rTEnscusLDw8Nb8/YFiKSYm4eEnNEWKfDw8PDO8s6OWM1KGKf+Pl+cx8PDw7vGmxUmkoWYLVmbgj+ewcPDw/tR3qwZNmuV1YMC+8CAh4eHd413qiDb3nkYbPDw8PCu8TYjTcMywaL4W/wDgIeHh3eB1zbA2umme0Fi2M3Dw8PDm/P+AnAmAydORBFtAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="sql格式 String sql=”select * from t_shop where user_id=”+user.getUserId()+” and id=”+goods.getShopId()+””; String sql=”select * from t_goods where name like ‘%”+search+”%’and status!=’已下架’ order by sale">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/MySQL之一/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="sql格式 String sql=”select * from t_shop where user_id=”+user.getUserId()+” and id=”+goods.getShopId()+””; String sql=”select * from t_goods where name like ‘%”+search+”%’and status!=’已下架’ order by sale">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdn.net/20160528134419586?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7597.PNG">
+<meta property="og:updated_time" content="2019-03-13T03:41:00.625Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="sql格式 String sql=”select * from t_shop where user_id=”+user.getUserId()+” and id=”+goods.getShopId()+””; String sql=”select * from t_goods where name like ‘%”+search+”%’and status!=’已下架’ order by sale">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20160528134419586?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.576Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sql格式"><span class="post-toc-number">1.</span> <span class="post-toc-text">sql格式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MySQL代码操作"><span class="post-toc-number">2.</span> <span class="post-toc-text">MySQL代码操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sql语句注意点"><span class="post-toc-number">3.</span> <span class="post-toc-text">sql语句注意点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MySQL将查找结果按时间降序排序"><span class="post-toc-number">4.</span> <span class="post-toc-text">MySQL将查找结果按时间降序排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sql的一些功能"><span class="post-toc-number">5.</span> <span class="post-toc-text">sql的一些功能</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用占位符"><span class="post-toc-number">6.</span> <span class="post-toc-text">使用占位符?</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#检索某个数据是否已存在"><span class="post-toc-number">7.</span> <span class="post-toc-text">检索某个数据是否已存在</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查询结果按中文姓名顺序排序"><span class="post-toc-number">8.</span> <span class="post-toc-text">查询结果按中文姓名顺序排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MySQL快捷键"><span class="post-toc-number">9.</span> <span class="post-toc-text">MySQL快捷键</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MySQL数据类型"><span class="post-toc-number">10.</span> <span class="post-toc-text">MySQL数据类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#函数"><span class="post-toc-number">11.</span> <span class="post-toc-text">函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新建用户并设置权限"><span class="post-toc-number">12.</span> <span class="post-toc-text">新建用户并设置权限</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计算时间差"><span class="post-toc-number">13.</span> <span class="post-toc-text">计算时间差</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jdbc-url连接数据库"><span class="post-toc-number">14.</span> <span class="post-toc-text">jdbc.url连接数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#连接阿里云服务器上的远程数据库"><span class="post-toc-number">15.</span> <span class="post-toc-text">连接阿里云服务器上的远程数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#enum"><span class="post-toc-number">16.</span> <span class="post-toc-text">enum</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MySQL建表语句"><span class="post-toc-number">17.</span> <span class="post-toc-text">MySQL建表语句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#约束"><span class="post-toc-number">18.</span> <span class="post-toc-text">约束</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#起别名"><span class="post-toc-number">19.</span> <span class="post-toc-text">起别名</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-MySQL之一"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.576Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="sql格式"><a href="#sql格式" class="headerlink" title="sql格式"></a>sql格式</h3><ul>
+<li>String sql=”select * from t_shop where user_id=”+user.getUserId()+” and id=”+goods.getShopId()+””;</li>
+<li>String sql=”select * from t_goods where name like ‘%”+search+”%’and status!=’已下架’ order by sale DESC,id DESC”;</li>
+<li>String sql = “update t_user set userName=’”+user.getUserName()+”‘,email=’”+user.getEmail()+”‘,number=’”+user.getNumber()+”‘ where id=”+user.getUserId()+””; </li>
+<li>String sql = “insert into t_order (status,user_id,totalPrice) values(“+order.getStatus()+”,”+user.getUserId()+”,”+order.getTotalPrice()+”)”;        </li>
+<li>String sql=”delete from t_cart where user_id=”+userId+””;</li>
+<li>String sql2 = “update t_user set password=SUBSTRING(md5(‘“+user.getPassword()+”‘),1,16) where userName=’”+user.getUserName()+”‘“; <pre><code>//截取第一位到第16位共16位密文存入数据库，否则长度32位太长无法插入
+</code></pre></li>
+<li>String status=”已下架”;<pre><code>String sql = &quot;update t_goods set status=&apos;&quot;+status+&quot;&apos; where id=&quot;+goodsId+&quot;&quot;;
+</code></pre></li>
+<li><p>获取刚插入记录的id</p>
+<pre><code>sql = &quot;insert into t_role (name) values(&apos;&quot;+role+&quot;&apos;)&quot;; 
+pstmt = con.prepareStatement(sql);  
+//获取插入后生成的角色ID，但只能是mysql自增长的
+pstmt.executeUpdate(sql,Statement.RETURN_GENERATED_KEYS);
+rs = pstmt.getGeneratedKeys();
+if(rs.next()) {
+    roleId=rs.getInt(1); //第一个就是刚生成的id
+}
+//代码实例：market2/AdminDao/417行
+
+/**
+ * @Author haien
+ * @Description 获取刚添加用户的id（根据上下文，不会因并发而出错） 
+ * @Date 2019/1/17
+ * @Param []
+ * @return int
+ **/
+@Query(&quot;select last_insert_id from users&quot;)
+int getLastInsertId();
+</code></pre><h3 id="MySQL代码操作"><a href="#MySQL代码操作" class="headerlink" title="MySQL代码操作"></a>MySQL代码操作</h3></li>
+<li>直接插入格式：</li>
+</ul>
+<p>String sql=”insert into t_book value(null,’java牛逼’,888,’B哥’,1)”;</p>
+<ul>
+<li>String sql = “insert into t_book value(null,’”+bookName+”‘,”+price+”,’”+author+”‘,”+bookTypeId+”)”;<h3 id="sql语句注意点"><a href="#sql语句注意点" class="headerlink" title="sql语句注意点"></a>sql语句注意点</h3></li>
+<li>where前面不要加“,”</li>
+<li>表名和字段名不要用关键字，通常在表名之前加t_是为了防止用到关键字。<a href="https://blog.csdn.net/hello__word__/article/details/76287062" target="_blank" rel="noopener">MySQL关键字</a></li>
+<li>where column=’直接写值而不是变量’：注意要加个单引号<h3 id="MySQL将查找结果按时间降序排序"><a href="#MySQL将查找结果按时间降序排序" class="headerlink" title="MySQL将查找结果按时间降序排序"></a>MySQL将查找结果按时间降序排序</h3>sql=”select * from t_order where user_id=”+userId+” and status=1 order by orderTime DESC,id DESC”;<h3 id="sql的一些功能"><a href="#sql的一些功能" class="headerlink" title="sql的一些功能"></a>sql的一些功能</h3></li>
+<li>用IN指定范围(NOT IN 不在该范围内的)</li>
+<li>以上可用BETWEEN 21 AND 23代替（NOT BETWEEN AND）则表示不在范围内的</li>
+<li>查询字段为空或不为空的</li>
+<li>去重复，相同字段不显示，比如，都是一年级就只显示一次一年级</li>
+<li>concat  聚合</li>
+<li>查询每个年级人数</li>
+<li>查询年级人数大于3的年级</li>
+<li>with rollup 加一个总计，数字的话直接累加，字符的话全部显示</li>
+<li>从第一条开始查询5条数据<h3 id="使用占位符"><a href="#使用占位符" class="headerlink" title="使用占位符?"></a>使用占位符?</h3></li>
+<li><p>String sql2 = “insert into t_user values(null,?,?)”; //id值要设好，写(?,?)第一坑变成id </p>
+</li>
+<li><p>pstmt = con.prepareStatement(sql2);  </p>
+</li>
+<li><p>pstmt.setString(1, user.getUserName());//给第一个问号设值</p>
+</li>
+<li><p>pstmt.setString(2, user.getPassword());</p>
+</li>
+<li><p>pstmt.executeUpdate(); //括号里不能有sql</p>
+</li>
+</ul>
+<h3 id="检索某个数据是否已存在"><a href="#检索某个数据是否已存在" class="headerlink" title="检索某个数据是否已存在"></a>检索某个数据是否已存在</h3><pre><code>//验证用户是否已存在
+String sql=&quot;select * from t_user where userName=?&quot;;
+PreparedStatement pstmt =null;
+pstmt=con.prepareStatement(sql);
+//检索用户名
+pstmt.setString(1, user.getUserName());
+User resultUser=null;
+ResultSet rs=pstmt.executeQuery();
+if(rs.next()){
+    resultUser=new User();
+    resultUser.setUserName(rs.getString(&quot;userName&quot;));
+    resultUser.setPassword(rs.getString(&quot;password&quot;));
+}
+//若用户已存在
+if(resultUser!=null) {
+    return false;
+}
+</code></pre><ul>
+<li><a href="http://www.w3school.com.cn/sql/sql_insert.asp" target="_blank" rel="noopener">完整sql语句请点击</a></li>
+<li>执行mysql语句返回的int值，是指当前执行的sql语句所影响的行数n。如果执行的是update语句，那么就说明有n行被update了；若是删除操作，那么就说明有n条记录被删除了。</li>
+<li>MySQL语句where=后面这个东西如果是个字符串一定要写好格式啊，写好了字符串会变成黑色，格式是’”+字符串+”‘’<h3 id="查询结果按中文姓名顺序排序"><a href="#查询结果按中文姓名顺序排序" class="headerlink" title="查询结果按中文姓名顺序排序"></a>查询结果按中文姓名顺序排序</h3></li>
+<li><p>要把数据库查询到的记录按照人名排序，通常是按姓氏的拼音排序，可以采用MySQL的排序方式</p>
+<pre><code>@Query(value = &quot;select * from user order by convert(name using gbk) asc&quot;,nativeQuery = true)
+public List&lt;T&gt; find();
+</code></pre></li>
+<li>注意：nativeQuery = true一定要写，否则sql的一些符号Spring认不出</li>
+<li>name是排序的依据，using gbk是因为数据库已经被认为指定采用utf-8编码，但是只有gbk编码本身采用的是按拼音排序的方式（只有一级汉字是这样，二级汉字不是，但二级是生僻字也没事）</li>
+<li>代码实例：JpaDemo/entity/Identity、Task、Project,repository/GenericDao/ProjectRepository,test/ProjectRepositoryTest<h3 id="MySQL快捷键"><a href="#MySQL快捷键" class="headerlink" title="MySQL快捷键"></a>MySQL快捷键</h3></li>
+<li>命令行：上下键切换命令</li>
+<li>图形工具：f5刷新<h3 id="MySQL数据类型"><a href="#MySQL数据类型" class="headerlink" title="MySQL数据类型"></a>MySQL数据类型</h3></li>
+<li>char(10)，存放2位，但实际分配10位空间</li>
+<li>varchar(10),存多少分配多少空间</li>
+</ul>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
+<li>concat(str1,str2)：拼接字符串</li>
+</ul>
+<pre><code>select concat(str1,str2) from t_user; //str1、2为表字段
+</code></pre><ul>
+<li><p>有一个str为null则函数返回null</p>
+</li>
+<li><p>ifnull：判断是否为null并赋予一个默认值</p>
+</li>
+</ul>
+<pre><code>select concat(ifnull(str1,&quot;defaultValue&quot;),str2) from t_user; //str1为null则用defaultValue代替str1   
+</code></pre><ul>
+<li><p>由于concat只能传入二个参数，且返回的依旧是str，所以当需要拼接多个字符串时可以嵌套使用</p>
+</li>
+<li><p>substring(str,startIndex,len)：字符串截取，len可省略，首位为1，从第startIndex位开始取，为负数则从倒数开始往右取。</p>
+</li>
+<li><p>substring_index(str,delim,count)：从第count个字符串delim开始截取之前所有字符。</p>
+</li>
+</ul>
+<pre><code>//从第2个.开始截取之前all字符：www.example
+substring_index(&apos;www.example.com&apos;, &apos;.&apos;, 2);
+//从倒数第2个.开始截取之后all字符:example.com
+substring_index(&apos;www.example.com&apos;, &apos;.&apos;, -2);
+//找不到delim则返回all字符串: www.example.com
+substring_index(&apos;www.example.com&apos;, &apos;.coc&apos;, 1);
+</code></pre><ul>
+<li>left(str, length): 从左边开始截取length位字符串。</li>
+</ul>
+<pre><code>//exa
+left(&apos;example.com&apos;, 3);
+</code></pre><ul>
+<li>right(str, length): 从右边开始。</li>
+</ul>
+<pre><code>//com
+right(&apos;example.com&apos;, 3);
+</code></pre><ul>
+<li><a href="https://www.cnblogs.com/zdz8207/p/3765073.html" target="_blank" rel="noopener">mysql字符串截取</a></li>
+</ul>
+<h3 id="新建用户并设置权限"><a href="#新建用户并设置权限" class="headerlink" title="新建用户并设置权限"></a>新建用户并设置权限</h3><ul>
+<li>cmd直接在根目录运行mysql -uroot -p密码,登录mysql.</li>
+<li><p>新建thz用户，密码111111，指定它只能访问thz数据库的所有表，但拥有所有访问权限</p>
+<pre><code>grant all privileges on thz.* to thz@&quot;%&quot; identified by &quot;111111&quot;; 
+// %表示允许远程登录，只许本机登录的话这里换成localhost或127的那个
+</code></pre></li>
+<li>不想给所有权限的话all privileges可以替换成select,insert,update,delete这样用逗号连接，表示只能对表数据进行增删查改，不能改变表结构（删表、建表等）</li>
+<li>对表结构进行更改的话是用create,drop等权限，还有几个权限自查吧！</li>
+<li><p>程序配置了该账户则拥有了这些权限：</p>
+<pre><code>&lt;bean id=&quot;dataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot;&gt;
+    &lt;property name=&quot;driverClassName&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;
+    &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://127.0.0.1:3306/shiro&quot;/&gt;
+    &lt;property name=&quot;username&quot; value=&quot;root&quot;/&gt;
+    &lt;property name=&quot;password&quot; value=&quot;123456&quot;/&gt;
+&lt;/bean&gt;
+</code></pre></li>
+</ul>
+<h3 id="计算时间差"><a href="#计算时间差" class="headerlink" title="计算时间差"></a>计算时间差</h3><ul>
+<li><p>看个例子，将查询结果按给定时间从近到远排序</p>
+<pre><code>&lt;select id=&quot;findAllOrderByTime&quot; resultMap=&quot;GoodsResult&quot;&gt;
+    select *,ABS(TIMESTAMPDIFF(second,#{_parameter},Report_Date_Time)) as diffTime from goods order by diffTime ASC
+&lt;/select&gt;
+</code></pre></li>
+<li>ABS()：计算绝对值</li>
+<li>TIMESTAMPDIFF(day/our/minute/… , str , str)：计算按时间格式输入的字符串的时间差</li>
+<li>datediff(now(), ‘2015-04-20 00:00:00’): 计算时间差，返回结果以天为单位，不超过一天返回0</li>
+<li><a href="https://www.cnblogs.com/jhy-ocean/p/5560857.html" target="_blank" rel="noopener">字符串与时间互转</a><h3 id="jdbc-url连接数据库"><a href="#jdbc-url连接数据库" class="headerlink" title="jdbc.url连接数据库"></a>jdbc.url连接数据库</h3></li>
+<li>用localhost:3306固然可以，但实际数据库需要解析localhost，会比较耗时，最好用127.0.0.1，这是本地ip，会比较快。</li>
+<li><p>远程连接</p>
+<pre><code>spring.datasource.url=jdbc:mysql://120.77.144.151/llcweb
+</code></pre></li>
+<li>这是师兄的服务器的数据库地址，省略了3306<h3 id="连接阿里云服务器上的远程数据库"><a href="#连接阿里云服务器上的远程数据库" class="headerlink" title="连接阿里云服务器上的远程数据库"></a>连接阿里云服务器上的远程数据库</h3></li>
+<li>默认情况下，CentOS的MySQL数据库是不允许被远程访问的，所以我们需要开启权限</li>
+<li><p>登录数据库，使用MySQL系统自带的mysql数据库，它带有用户表</p>
+<pre><code>use mysql;
+</code></pre></li>
+<li><p>更新用户，允许所有ip访问，当然也可以设置特定的ip(一般是本地计算机的公网ip，不过不是127.0.0.1那个)，然后host就要改成特定的ip</p>
+<pre><code>update user set host=&apos;%&apos; where user=&apos;root&apos;;
+ERRER 1062(23000): Duplicate entry &apos;%-root&apos; for key 1 //报错不要紧的
+</code></pre></li>
+<li><p>查询我们是否创建访问的host成功了</p>
+<pre><code>select host,user,password fron user;
+</code></pre></li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdn.net/20160528134419586?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="enum"><a href="#enum" class="headerlink" title="enum"></a>enum</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7597.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="MySQL建表语句"><a href="#MySQL建表语句" class="headerlink" title="MySQL建表语句"></a>MySQL建表语句</h3><pre><code>//选择一个数据库
+drop database if exists shiro;
+create database shiro;
+use shiro;
+
+//开始建表
+CREATE TABLE `award` (
+   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT &apos;用户id&apos;,
+   `aty_id` varchar(100) NOT NULL DEFAULT &apos;&apos; COMMENT &apos;活动场景id&apos;,
+   `is_awarded` tinyint(1) NOT NULL DEFAULT 0 COMMENT &apos;用户是否领奖&apos;,
+   `award_time` int(11) NOT NULL DEFAULT 0 COMMENT &apos;领奖时间&apos;,
+   `password` char(32) NOT NULL DEFAULT &apos;&apos; COMMENT &apos;密码&apos;,
+   `created_time` int(11) NOT NULL DEFAULT 0 COMMENT &apos;创建时间&apos;,
+   available bool default false,
+   PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT=&apos;获奖信息表&apos;;
+</code></pre><h3 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h3><ul>
+<li><p>constraint：约束，主要是给约束取一个别名，否则系统会默认随机一个约束名</p>
+<pre><code>CREATE TABLE `users` (
+    `id` BIGINT(20) NOT NULL primary key AUTO_INCREMENT, //在这里声明主键
+    PRIMARY KEY (`id`), //或在这里
+    constraint pk_users primary key(id) //或这里，用constraint起别名，便于删除或修改此约束
+)
+
+//声明外键时也可以用constraint
+CONSTRAINT FK_post_author FOREIGN KEY (author_id)
+  REFERENCES tbl_user (id) ON DELETE CASCADE ON UPDATE RESTRICT
+//简单形式
+FOREIGN KEY (author_id)REFERENCES tbl_user (id) ON DELETE CASCADE ON UPDATE RESTRICT
+</code></pre></li>
+<li>代码实例：ideaProjects/shiroHelloWorld/shiro.sql</li>
+</ul>
+<h3 id="起别名"><a href="#起别名" class="headerlink" title="起别名"></a>起别名</h3><pre><code>select 字段1 as 字段1别名，字段2 as 字段2别名 from 表名 as 表别名
+</code></pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-13T03:41:00.625Z" itemprop="dateUpdated">2019-03-13 11:41:00</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/MySQL之一/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/MySQL之一/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/MySQL之一/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/MySQL之一/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/MySQL之一/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/MySQL之一/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/MySQL之一/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/nexus/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/MySQL之二/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/MySQL之一/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/MySQL之一/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/MySQL之一/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/MySQL之一/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/MySQL之一/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aS5KDMAwFwNz/0pkDMCRPEkwNdrNKBSp2s1D08esVX++T6/Pd45Nnzx/vvu64MDAwHstIlq8CjnePW5z8/i9UDAyMDRhnEezzkvnvfNlEwP6yFgYGBsbHTecBN3kpGBgYGPcx8hqzisTAwMDIi9ikWZaH0V5xe0EtjoGB8UBG3nX/+8+3zDcwMDAexXgXrwm1GpoLu8LAwFiaMSlBr32y98owMDB2YFSPSnzexKSIzUM5BgbGboyk6V9u0MdjzmTwkA8nMDAwVmX0GmH50HF+RCMKyhgYGNsw8nDZOxiRJJrVXWFgYOzGSIrYybGM/JtykoqBgbElo9oIm4w5JyH4tIjFwMBYmlFN5u4IuOUDshgYGEszrmrx54PJGwEYGBgbMJKQ2itfk2Fk77AFBgbGbozqYpOxZfKyesNUDAyM9Ri9JCxPE5ONJryoFsfAwFiUMQmjeUHbG4uOZpQYGBjLMXqHvfKGXW/MmRfPGBgY+zDmY8t8yclapy8OAwNjA0a1KV9tjeVBthrKMTAwdmP0Wm/VZlkvZSxkphgYGAsx3sUraYElA9FJAoqBgbEboxfT5slfngj2XgQGBsZ6jCTI5sGxerCsOv5sJogYGBhLMKrFbV6+5gVtr2LFwMDAyA9kVA+B5eE+SkYxMDAwWq3/6miz2tq78X8DAwPjXzKScjQJlNXyuDfOxMDA2I1RPZCRDzKvbc9NSl8MDIzHMn4AYz8i4BAPAX4AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="参考文章主键生成策略简介 Hibernate是一个开放源代码的对象关系映射框架，它对jdbc进行了非常轻量级的对象封装，它将pojo与数据库表建立映关系，是一个全自动的orm（对象关系记录）框架。 也就是说，我们可以用Hibernate来完成原来我们使用jdbc完成的操作。hibernate方言 hibernate方言是为了实现HQL（面向对象查询，是hibernate的数据库查询语言，对应于面向">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/hibernate/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="参考文章主键生成策略简介 Hibernate是一个开放源代码的对象关系映射框架，它对jdbc进行了非常轻量级的对象封装，它将pojo与数据库表建立映关系，是一个全自动的orm（对象关系记录）框架。 也就是说，我们可以用Hibernate来完成原来我们使用jdbc完成的操作。hibernate方言 hibernate方言是为了实现HQL（面向对象查询，是hibernate的数据库查询语言，对应于面向">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/1537499208%281%29.png">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7540.PNG">
+<meta property="og:updated_time" content="2018-09-21T03:17:41.499Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="参考文章主键生成策略简介 Hibernate是一个开放源代码的对象关系映射框架，它对jdbc进行了非常轻量级的对象封装，它将pojo与数据库表建立映关系，是一个全自动的orm（对象关系记录）框架。 也就是说，我们可以用Hibernate来完成原来我们使用jdbc完成的操作。hibernate方言 hibernate方言是为了实现HQL（面向对象查询，是hibernate的数据库查询语言，对应于面向">
+<meta name="twitter:image" content="http://p9vzt8d00.bkt.clouddn.com/1537499208%281%29.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:44.890Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考文章"><span class="post-toc-number">1.</span> <span class="post-toc-text">参考文章</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主键生成策略"><span class="post-toc-number">2.</span> <span class="post-toc-text">主键生成策略</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">3.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#hibernate方言"><span class="post-toc-number">4.</span> <span class="post-toc-text">hibernate方言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Entity和-Table注解"><span class="post-toc-number">5.</span> <span class="post-toc-text">@Entity和@Table注解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更多属性、被注解类的要求、一个类映射多张表"><span class="post-toc-number">6.</span> <span class="post-toc-text">更多属性、被注解类的要求、一个类映射多张表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GeneratedValue"><span class="post-toc-number">7.</span> <span class="post-toc-text">@GeneratedValue</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Embedded"><span class="post-toc-number">8.</span> <span class="post-toc-text">@Embedded</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-hibernate"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.890Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a><a href="https://blog.csdn.net/yerenyuan_pku/article/details/64209343" target="_blank" rel="noopener">参考文章</a></h3><h3 id="主键生成策略"><a href="#主键生成策略" class="headerlink" title="主键生成策略"></a><a href="https://blog.csdn.net/kato_op/article/details/80296619" target="_blank" rel="noopener">主键生成策略</a></h3><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>Hibernate是一个开放源代码的对象关系映射框架，它对jdbc进行了非常轻量级的对象封装，它将pojo与数据库表建立映关系，是一个全自动的orm（对象关系记录）框架。</li>
+<li>也就是说，我们可以用Hibernate来完成原来我们使用jdbc完成的操作。<h3 id="hibernate方言"><a href="#hibernate方言" class="headerlink" title="hibernate方言"></a>hibernate方言</h3></li>
+<li>hibernate方言是为了实现HQL（面向对象查询，是hibernate的数据库查询语言，对应于面向数据库查询的sql）语句向不同数据库的sql语句转换时，解决不同数据库之间的差异而制定的一套规范。<h3 id="Entity和-Table注解"><a href="#Entity和-Table注解" class="headerlink" title="@Entity和@Table注解"></a>@Entity和@Table注解</h3></li>
+<li>将pojo映射到数据库，使得创建该pojo对象数据库即即新建一条记录，删除则数据库跟着删除一条记录，修改则数据库会根据此pojo对象的状态同步。</li>
+<li>@Entity：被标注的类，其类名即为数据库中的表名，它的属性即为表中的字段。</li>
+<li>@Table：标注在类前。属性：<ul>
+<li>name：表示映射的表名，不指定的话默认和类同名，但一般我们不希望表名以大写字母开头</li>
+</ul>
+</li>
+<li>@Column：标注在属性或其getter方法前。属性：<ul>
+<li>name：表示属性映射的字段名</li>
+<li>nullable：true或false决定字段支不支持null值。</li>
+<li>columnDefinition：指定类型；很多java类型都有默认的sql类型，但是Date类对应的sql类型有Datetime（精确到秒）和Date（精确到日），columnDefinition=”DATE”可以指定类型为Date</li>
+</ul>
+</li>
+<li>@Basic：即使不写也是属性的默认注解，作用是将没有加@Column注解的属性也映射到数据库。一般不需要加上用到，默认就好。<ul>
+<li>fetch：值为FetchType.LAZY或FetchType.EAGER，延迟加载或者及时加载，前者获取数据时不获取该字段，用时再获取；后者直接获取，默认值</li>
+<li>optional：boolean，定义字段值是否允许为null，默认true</li>
+</ul>
+</li>
+<li>@Transient：该字段不映射</li>
+<li>@ManyToOne：表示一个多对一的映射，被标注的属性通常是数据库表的外键<ul>
+<li>optional：是否允许为null，默认为true</li>
+<li>fetch：表示抓取策略，默认为FetchType.EAGER</li>
+<li>cascade：级联策略。<ul>
+<li>CascadeType.PRESIST:级联持久化，持久保存实体时，也会持久保存该实体的所有关联数据；</li>
+<li>CascadeType.REMOVE：级联删除，删除一个实体时也会删除该实体的关联数据；</li>
+<li>CascadeType.MERGE：级联更新，Merge对实体进行操作时,会区分这个实体的状态,假如这个实体处于托管状态,就应该使用merge,否则会报异常..同样,做级联的时候执行merge操作,CasCadeType.Merge也会对关联实体生效。额不是很懂；</li>
+<li>CascadeType.REFRESH：级联刷新，假如A、B两对象同时引用同一条数据，B修改某属性后提交，之后A修改另一属性后要提交时，entityManager中的持久化实体没有更新为B修改后的样子，此时执行一次Refresh操作，就会将该实体更新为数据库中的最新记录，最后再进行提交。那么加了CascadeType.REFRESH就会在执行Refresh时也对关联的实体类进行刷新操作。</li>
+<li>CascadeType.ALL：包含以上所有级联操作。</li>
+<li>具体使用方法参见笔记：@JoinColumn建立外键</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>@MappedSuperclass：要映射的类继承自不需映射的超类，需要在超类加上此注解，在要映射的类加上@Entity注解。</p>
+<pre><code>@MappedSuperclass //指定映射超类（映射超类不会生成单独的表，它的映射信息作用于继承它的实体类）
+public class Resource {
+
+    @Id
+    @GeneratedValue
+    private int id;
+    //会议名称
+    private String title;
+    //搜索日期
+    @Column(columnDefinition = &quot;DATE&quot;)
+    private Date createDate;
+    //会议类型
+    private String type;
+    //组别
+    private String model;
+    //上传者
+    private String author;
+    //上传者id
+    private int authorId;
+}
+
+@Entity
+@Table(name=&quot;image&quot;)
+public class Image extends Resource{
+
+    //继承映射超类的属性
+}
+</code></pre><ul>
+<li><p>数据库</p>
+<p><img src="http://p9vzt8d00.bkt.clouddn.com/1537499208%281%29.png" alt=""></p>
+</li>
+<li><p>子类可以通过@AttributeOverride和@AssociationOverride注解来覆盖映射超类的属性。</p>
+</li>
+<li>代码实例：SpringMvc02/Resource、Image<h3 id="更多属性、被注解类的要求、一个类映射多张表"><a href="#更多属性、被注解类的要求、一个类映射多张表" class="headerlink" title="更多属性、被注解类的要求、一个类映射多张表"></a><a href="https://www.cnblogs.com/softidea/p/6216722.html" target="_blank" rel="noopener">更多属性、被注解类的要求、一个类映射多张表</a></h3></li>
+</ul>
+</li>
+<li>实体类必须拥有一个public或protected的无参构造函数。</li>
+<li>实体类必须是一个顶级类，枚举或者接口不能被注解为一个实体。</li>
+<li>实体类不能是final类型的，也不能有final类型的方法<h3 id="GeneratedValue"><a href="#GeneratedValue" class="headerlink" title="@GeneratedValue"></a>@GeneratedValue</h3></li>
+<li><p>用于标注主键的生成策略，通过strategy属性指定。默认情况下，jpa自动选择一个最适合数据库库的主键生成策略：sql对应identity（像MySQL的identity是auto increment）。</p>
+<pre><code>@GenericGenerator(name=&quot;_native&quot;,strategy=&quot;native&quot;) //定义生成策略，native对应自增长
+@GeneriateValue(generator=&quot;_native&quot;) //使用生成策略
+</code></pre></li>
+<li>一般都是直接加个@GeneratedValue这样就好了，默认native</li>
+<li>主键生成策略：<ul>
+<li>increment：由hibernate自动以递增的方式生成主键（插入数据前查询最大主键并自动加一）</li>
+<li>identity：由底层数据库自动生成标识符（MySQL是自增）</li>
+<li>native：根据底层数据库自动选择以上方式（sql是identity）<h3 id="Embedded"><a href="#Embedded" class="headerlink" title="@Embedded"></a>@Embedded</h3></li>
+</ul>
+</li>
+<li><p>当一个类存在属性为另一个类时，可以用这个注解来标注该属性</p>
+<pre><code>@Entity
+@Table(name=&quot;paople&quot;) //命名，否则为大写
+public class People {
+    @Id
+    @GeneratedValue
+    private int id;
+
+    private String name;
+
+    @Embedded
+    private Address address;
+}
+</code></pre></li>
+<li><p>被引用的类用@Embeddable注释</p>
+<pre><code>@Embeddable
+public class Address {
+    private String city;
+    private String street;
+    private String zip;
+}
+</code></pre></li>
+<li>如此，数据库建立的people表address字段会被替换成Address类的三个属性</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7540.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-09-21T03:17:41.499Z" itemprop="dateUpdated">2018-09-21 11:17:41</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/hibernate/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/hibernate/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/hibernate/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/hibernate/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/hibernate/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/hibernate/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/hibernate/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/hibernate学习之Crud/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/hexo博客搭后感/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/hibernate/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/hibernate/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/hibernate/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/hibernate/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/hibernate/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aQW7CQAwFUO5/6VTqqhIkfNtpVWberFCAZF4Wlsf24xGv43v9/Py8zv71/N+zb59/c/PCwMD4WMZxufINXd8zf2Lyyl5QMTAwNmDkQTYPu9eA3gs6vY6BgYHRovbuhoGBgTFnJJu4Dr55KomBgYFRPcRONnEdjqulPQwMjN0YvcbA33z+9f4GBgbGv2ccxTVpJNwVZF88EQMDY2lG7wA5T/smobaQ4WJgYCzHSHKt3qjEhJo3GzAwMNZmJF9XhyqqaV91OAMDAwMj2fr8FVSHxpotAQwMjCUYvfGv6jE1uTJpl2JgYKzN6G2imgJWA/po5AIDA2NRRq/EloTLuxoPUejHwMDYhpEfQavhuBpeyw0DDAyMzRjzQ+YkmCY8DAyMfRjVgYbegMUkNBdmRjAwMJZjJGlfXpLLC3CTsbAX1zEwMDZmzJO/fJyi2gzAwMDYhzGZIMtLb9UCXH4AbmaUGBgYH8uoDkzMy2TV1DMqt2FgYCzHyAtt1YDYa1I2B9QwMDC2YUzWvA1QTUCj3BYDA2MJRn67PLDm7c9Jw+DNzAgGBsZCjElgrSaRkxbmm7thYGAszaiG12qSl6ePvQYqBgbGPozqAfXewYs84DY7sRgYGAsx5kE2ofYGLDAwMDCqW8yHM6pjYZORDgwMDIw8ZcwLZJPge3qIxcDAWJpRHaToFeh7QxhRKMfAwFia0WsM5NTmoTR+LgYGxtKML6V8FBnSvOO5AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

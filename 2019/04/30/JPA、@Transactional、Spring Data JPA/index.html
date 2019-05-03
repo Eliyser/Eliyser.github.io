@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="一种标准，本质上是一种ORM规范，注意不是ORM框架，因为它只是提供了一些接口，至于如何实现则由服务厂商来提供。它是是JDK5.0注解或XML描述对象-关系表的映射关系，并将运行期的实体对象持久化到数据库中。 持久化：持久化是将程序数据再持久状态和瞬间状态转换的机制。通俗的讲，就是瞬时数据（比如内存中的数据，是不能永久保存的）持久化为持久数据（比如持久化至数据库中），能够持久保存。 持久化是一种">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/JPA、@Transactional、Spring Data JPA/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="一种标准，本质上是一种ORM规范，注意不是ORM框架，因为它只是提供了一些接口，至于如何实现则由服务厂商来提供。它是是JDK5.0注解或XML描述对象-关系表的映射关系，并将运行期的实体对象持久化到数据库中。 持久化：持久化是将程序数据再持久状态和瞬间状态转换的机制。通俗的讲，就是瞬时数据（比如内存中的数据，是不能永久保存的）持久化为持久数据（比如持久化至数据库中），能够持久保存。 持久化是一种">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg02.sogoucdn.com%2Fapp%2Fa%2F100520146%2F70A90BEEAA841AE7FBEE17510D7E7E27">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/link10.png">
+<meta property="og:updated_time" content="2019-04-02T08:56:42.604Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="一种标准，本质上是一种ORM规范，注意不是ORM框架，因为它只是提供了一些接口，至于如何实现则由服务厂商来提供。它是是JDK5.0注解或XML描述对象-关系表的映射关系，并将运行期的实体对象持久化到数据库中。 持久化：持久化是将程序数据再持久状态和瞬间状态转换的机制。通俗的讲，就是瞬时数据（比如内存中的数据，是不能永久保存的）持久化为持久数据（比如持久化至数据库中），能够持久保存。 持久化是一种">
+<meta name="twitter:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg02.sogoucdn.com%2Fapp%2Fa%2F100520146%2F70A90BEEAA841AE7FBEE17510D7E7E27">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.311Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Query自定义查询语句"><span class="post-toc-number">1.</span> <span class="post-toc-text">@Query自定义查询语句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Modifying标识自定义更新语句"><span class="post-toc-number">2.</span> <span class="post-toc-text">@Modifying标识自定义更新语句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义数据库操作语句汇总"><span class="post-toc-number">3.</span> <span class="post-toc-text">自定义数据库操作语句汇总</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Transactional事务"><span class="post-toc-number">4.</span> <span class="post-toc-text">@Transactional事务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#value参数"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">value参数</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#另一种自定义查询、构建通用dao的方法"><span class="post-toc-number">5.</span> <span class="post-toc-text">另一种自定义查询、构建通用dao的方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#还有一种自定义查询、构建通用dao的方法"><span class="post-toc-number">6.</span> <span class="post-toc-text">还有一种自定义查询、构建通用dao的方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Spring-Data-JPA"><span class="post-toc-number">7.</span> <span class="post-toc-text">Spring Data JPA</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JPA、@Transactional、Spring Data JPA"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.311Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li>一种标准，本质上是一种ORM规范，注意不是ORM框架，因为它只是提供了一些接口，至于如何实现则由服务厂商来提供。它是是JDK5.0注解或XML描述对象-关系表的映射关系，并将运行期的实体对象持久化到数据库中。</li>
+<li>持久化：持久化是将程序数据再持久状态和瞬间状态转换的机制。通俗的讲，就是瞬时数据（比如内存中的数据，是不能永久保存的）持久化为持久数据（比如持久化至数据库中），能够持久保存。</li>
+<li>持久化是一种对象服务，就是把内存中的对象保存到外存中，让它以后能够取回。</li>
+<li>为什么需要持久化服务呢？那是由于内存本身的缺陷引起的：<ul>
+<li>内存掉电后数据会丢失</li>
+<li>内存过于昂贵，与硬盘、磁带、光盘等外存相比，内存的价格要搞2~3个数量级，而且维持成本也高，至少需要一直供电；而且容量有限制。</li>
+</ul>
+</li>
+<li>实现jpa标准的框架有Hibernate等。</li>
+<li><a href="https://blog.csdn.net/fly910905/article/details/78557110" target="_blank" rel="noopener">JpaRepository的一些接口</a></li>
+<li>里面有一张表</li>
+<li>其中save方法：记录不存在则插入，存在则更新。</li>
+</ul>
+<h3 id="Query自定义查询语句"><a href="#Query自定义查询语句" class="headerlink" title="@Query自定义查询语句"></a>@Query自定义查询语句</h3><ul>
+<li>用@Query直接在方法上定义查询语句</li>
+</ul>
+<pre><code>public interface TaskDao extends JpaRepository&lt;Task,Long&gt;{
+    @Query(&quot;select t from Task t where t.taskName=?1&quot;)//1表示这是第一个参数
+    Task findByTaskName(String taskName);
+}
+</code></pre><ul>
+<li>除了写hql，我们还可以写sql语句</li>
+</ul>
+<pre><code>public interface TaskDao extends JpaRepository&lt;Task, Long&gt; {
+    @Query(&quot;select * from tb_task t where t.task_name = ?1&quot;, nativeQuery = true)
+    Task findByTaskName(String taskName);
+}
+</code></pre><ul>
+<li>传参也可以这样传：</li>
+</ul>
+<pre><code>public interface TaskDao extends JpaRepository&lt;Task, Long&gt; {
+    @Query(&quot;select t from Task t where t.taskName = ? and t.createTime = ?&quot;)
+    Task findByTaskName(String taskName, Date createTime);
+}
+</code></pre><ul>
+<li>还可以这样传：</li>
+</ul>
+<pre><code>public interface TaskDao extends JpaRepository&lt;Task, Long&gt; {
+    @Query(&quot;select t from Task t where t.taskName = :taskName and t.createTime = :createTime&quot;)
+    Task findByTaskName(@Param(&quot;taskName&quot;)String taskName,@Param(&quot;createTime&quot;) Date createTime);
+}
+</code></pre><ul>
+<li>自定义查询语句+分页效果</li>
+</ul>
+<pre><code>/**
+ * 模糊查询
+ **/
+@Query(&quot;from Document d where d.author like %?1% or content like %?1% or title like %?1%&quot;)
+Page&lt;Document&gt; findByOneKey(String key,Pageable pageable);
+
+//测试方法
+Page&lt;Document&gt; documents=documentRepository.findByOneKey(&quot;haien&quot;,new PageRequest(0,10, Sort.Direction.DESC,&quot;createDate&quot;));
+</code></pre><ul>
+<li>我们可以利用SqEL表达式，把实体类写成动态的：</li>
+</ul>
+<pre><code>    public interface TaskDao extends JpaRepository&lt;Task, Long&gt; {
+         @Query(&quot;select t from #{#entityName} t where t.taskName = ? and t.createTime = ?&quot;)
+        Task findByTaskName(String taskName, Date createTime);
+    }
+- 其中#{#entityName}表示获取entityName的值，即实体类的名称。
+- 实体类Task在使用@Entity注释后，Spring会将它纳入管理，若未指定表名，则entityName的值为Task，指定了则为指定值。
+- Spring管理着多个实体类，谁调用了这个方法entityName就等于哪个实体类。
+</code></pre><ul>
+<li>它的作用是，当两个实体类都有共同的父类时，可以抽取出一个通用repository</li>
+<li>首先定义一个父类</li>
+</ul>
+<pre><code>// JPA 基类的标识
+@MappedSuperclass //被注释的实体类不映射到数据库，但其子类会
+@SuppressWarnings(&quot;serial&quot;) //抑制编译器的警告（比如不要飘波浪线、小灯泡），括号里的值表示警告类型；可以设为unchecked来逃避异常处理
+public abstract class IdEntity implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Long id;
+
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+}
+</code></pre><ul>
+<li>两个子类</li>
+</ul>
+<pre><code>@Entity
+public class Task extends IdEntity{
+
+}
+
+@Entity
+public class Project extends IdEntity{
+
+}
+</code></pre><ul>
+<li>然后有一个通用的接口：</li>
+</ul>
+<pre><code>@NoRepositoryBean //此接口无对应的数据库，不能暴露为repository
+public interface GenericDao&lt;T&gt; extends JpaRepository&lt;T, ID&gt; { 
+    @Query(&quot;select t from #{#entityName} t where t.id= ?1&quot;) //entityName是个特有名词，传进来什么实体就用什么代替
+    public T findById(Long id);   
+}
+</code></pre><ul>
+<li>然后由taskDao和projectDao来继承这个接口。这样，把公用的方法放在通用接口上，就不用重写方法了。</li>
+</ul>
+<pre><code>public interface TaskRepository extends GenericDao&lt;Task&gt; {
+
+}
+
+public interface ProjectRepository extends GenericDao&lt;Project&gt;{
+
+}
+</code></pre><ul>
+<li>测试</li>
+</ul>
+<pre><code>@Test
+public void findByIdTest(){
+    Project project=new Project();
+    project.setId(1);
+    projectRepository.save(project);
+    project=projectRepository.findById(1);
+    Assert.assertThat(project.getId(),is(1));
+}
+</code></pre><ul>
+<li>携带分页信息</li>
+</ul>
+<pre><code>//dao层
+@Query(&quot;select u from User u where u.name=?1&quot;)
+public List&lt;User&gt; findByName(String name, Pageable pageable);
+
+//service层调用
+@RequestMapping(value = &quot;/params&quot;, method= RequestMethod.GET)
+@ResponseBody
+public String getEntryByParams(@RequestParam(value = &quot;name&quot;, defaultValue = &quot;林志强&quot;) String name, @RequestParam(value = &quot;page&quot;, defaultValue = &quot;0&quot;) Integer page, @RequestParam(value = &quot;size&quot;, defaultValue = &quot;15&quot;) Integer size) {
+    Sort sort = new Sort(Sort.Direction.DESC, &quot;id&quot;);
+    Pageable pageable = new PageRequest(page, size, sort);
+    Page&lt;User&gt; pages=userDao.findByName(name,pageable);
+    Iterator&lt;User&gt; it=pages.iterator();
+    while(it.hasNext()){
+        System.out.println(&quot;value:&quot;+((User)it.next()).getId());
+    }
+    return &quot;success...login....&quot;;
+}
+</code></pre><h3 id="Modifying标识自定义更新语句"><a href="#Modifying标识自定义更新语句" class="headerlink" title="@Modifying标识自定义更新语句"></a>@Modifying标识自定义更新语句</h3><pre><code>@Modifying //表明是更新语句
+@Transactional //一定要有事务，不是在这里就是在service层，反正那个会被直接调用那个就必须带事务
+@Query(&quot;update Task t set t.taskName = ?1 where t.id = ?2&quot;)
+int updateTask(String taskName, Long id);
+
+@Modifying
+@Transactional
+@Query(&quot;delete from Score where model = ?1 and year = ?2&quot;)
+void deleteByModelAndYear(String model,int year);
+
+@Modifying
+@Transactional
+@Query(value = &quot;insert into users(username,password,update_time,people_id) value(?1,SUBSTRING(md5(?2),1,16),?3,?4)&quot;,nativeQuery = true)
+int saveUsers(String username, String password, Date update_time, int peopleId);
+</code></pre><ul>
+<li>返回值只能是int或void</li>
+<li>jpa要求更新、删除和插入操作必须有事务支持</li>
+</ul>
+<h3 id="自定义数据库操作语句汇总"><a href="#自定义数据库操作语句汇总" class="headerlink" title="自定义数据库操作语句汇总"></a>自定义数据库操作语句汇总</h3><ul>
+<li>反正宗旨就是利用原生sql命令来实现那些复杂的关联查询</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg02.sogoucdn.com%2Fapp%2Fa%2F100520146%2F70A90BEEAA841AE7FBEE17510D7E7E27" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="Transactional事务"><a href="#Transactional事务" class="headerlink" title="@Transactional事务"></a>@Transactional事务</h3><ul>
+<li>操作数据库过程中可能发生异常，导致后续操作无法完成。此时需要进行回滚。</li>
+<li>Spring默认会对没有被捕获（unchecked）的RunTimeException进行事务回滚，如果异常已经被catch也即是遇到的事checked异常的话则不回滚。</li>
+<li>改变默认规则的话：<ul>
+<li>让原本不能回滚的checked回滚：在方法前加@Transaction(rollbackFor=Exception.class/rollbackForClassName=Exception)</li>
+<li>让原本会回滚的unchecked不回滚：@Transaction(notRollbackFor=RunTimeException.class/notRollbackForClassName=Exception)</li>
+<li>PS：如果原本能回滚的异常被try/catch了还想让它回滚，那就必须再抛出一个异常。</li>
+</ul>
+</li>
+<li>但实践证明，在测试中使用事务，无论是否出现异常，都会自动回滚，数据库会保持和测试前一致。</li>
+<li>jpa那些默认的接口都没有默认开启事务的，只是支持事务。</li>
+<li>要开启事务的话，可以在service类前加@Transactional，声明这个service的所有方法都需要事务管理。</li>
+<li>或者是在测试类的测试方法前加@Transactional，声明这个方法里调用到的操作数据库的方法需要事务管理。加了的话测试类无论抛异常与否都会自动回滚，防止数据库污染。</li>
+<li>如果加了该注解后，测试类没有自动回滚，可查看数据库引擎是否为Innodb，因为其他数据库引擎不支持事务。</li>
+<li>也可以在dao层的Repository接口里创建操作数据库的方法前加上@Transactional，声明此方法开启事务管理（不过这种情况应该是很少的，因为查询方法一般都是单操作，没什么意义，可以参考HPScore/ScoreRepository）。</li>
+<li>该注解只能加在public方法上，加在其他方法上无效。</li>
+<li>代码实例：HPScore/test/controller/ResolveExcelControllerTest</li>
+</ul>
+<h4 id="value参数"><a href="#value参数" class="headerlink" title="value参数"></a>value参数</h4><ul>
+<li>以上使用的是默认的事务配置，可以满足一些基本的事务需求，但是当我们项目较大较复杂时（比如，有多个数据源等），这时候需要在声明事务时，指定不同的事务管理器。在声明事务时，只需要通过value属性指定配置的事务管理器名即可，例如： @Transactional(value=”transactionManagerPrimary”) 。</li>
+</ul>
+<h3 id="另一种自定义查询、构建通用dao的方法"><a href="#另一种自定义查询、构建通用dao的方法" class="headerlink" title="另一种自定义查询、构建通用dao的方法"></a>另一种自定义查询、构建通用dao的方法</h3><ul>
+<li>这种自定义查询方法是自己写一个类似JpaRepository的仓库来被实体类的仓库继承</li>
+<li>我们先创建一个将被继承的BaseRepository</li>
+</ul>
+<pre><code>//repository 基类，封装自定义查询方法
+@NoRepositoryBean //该注解表示 spring 容器不会创建该对象
+public interface BaseRepository&lt;T, ID extends Serializable&gt; extends PagingAndSortingRepository&lt;T, ID&gt;,JpaRepository&lt;T,ID&gt; {
+
+    Page&lt;Map&gt; findPageByParams(String sql, Pageable pageable, Object... args);
+
+}
+</code></pre><ul>
+<li>创建BaseRepositoryImpl类，实现BaseRepository接口</li>
+</ul>
+<pre><code>public class BaseRepositoryImpl&lt;T, ID extends Serializable&gt; 
+    extends SimpleJpaRepository&lt;T, ID&gt; implements BaseRepository&lt;T, ID&gt; {
+
+    //实体管理类，对持久化实体做增删改查，自动义sq操作模板所需要的核心类
+    public final EntityManager entityManager;
+
+    public BaseRepositoryImpl(JpaEntityInformation&lt;T, ID&gt; entityInformation,
+            EntityManager entityManager) {
+        super(entityInformation, entityManager);
+        this.entityManager = entityManager;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Page&lt;Map&gt; findPageByParams(String sql, Pageable pageable, Object... args) {
+        Session session = (Session) entityManager.getDelegate();
+        org.hibernate.Query q = session.createSQLQuery(sql);
+        q.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+        int i = 0;
+        for (Object arg : args
+                ) {
+            q.setParameter(i++, arg);
+        }
+
+        List&lt;Map&gt; totalCount = q.list(); //如果不需要分页的话这样就可以返回去了
+        //每页第一个
+        q.setFirstResult(pageable.getPageSize() * (pageable.getPageNumber() - 1)); 
+        q.setMaxResults(pageable.getPageSize()); //每页容量
+        List&lt;Map&gt; pageCount = q.list();
+        Page&lt;Map&gt; pages = new PageImpl&lt;&gt;(pageCount, pageable, totalCount.size());
+        return pages;
+    }
+
+}
+</code></pre><ul>
+<li>创建一个PersonRepositroy 继承BaseRepository，就可以直接使用定义的查询方法了</li>
+</ul>
+<pre><code>public interface PersonRepository extends BaseRepository&lt;Person, Integer&gt; {
+
+}
+</code></pre><ul>
+<li>TestController</li>
+</ul>
+<pre><code>@RestController 
+public class TestController  {
+
+    @Resource
+    private PersonRepository personRepository;
+
+    @GetMapping(value = &quot;/test&quot;)
+    public String test( ){
+
+        //订单表与用户表关联，通过用户ID查询该用户的所有订单，只获取订单编号和订单详情。
+        String sql=&quot;select o.no,o.detail from person as p inner join order as o 
+            on o.personid=p.id and p.id= ? &quot;
+        Integer userId=11;
+        Page&lt;Map&gt;  orderLists = personRepository.findPageByParams(sql,
+            new PageRequest(1,10),userId);
+
+        return   orderLists;
+    }
+}
+</code></pre><ul>
+<li>最后，在项目启动类上加一个注解，告诉springboot，我要使用JPA，请到repository包下去扫描我创建的repository 类，我的repository基类是BaseRepositoryImpl</li>
+</ul>
+<pre><code>@EnableJpaRepositories(basePackages = {&quot;com.repository&quot;}, 
+    repositoryBaseClass = BaseRepositoryImpl.class)
+public class MybootApplication {
+
+    public static void main(String[] args) {
+            SpringApplication.run(MybootApplication.class, args);
+        }
+
+}
+</code></pre><h3 id="还有一种自定义查询、构建通用dao的方法"><a href="#还有一种自定义查询、构建通用dao的方法" class="headerlink" title="还有一种自定义查询、构建通用dao的方法"></a>还有一种自定义查询、构建通用dao的方法</h3><ul>
+<li>先构建一个通用dao接口</li>
+</ul>
+<pre><code>public interface BaseAppDAO&lt;T,ID extends Serializable&gt; {
+    /**
+     * 保存数据对象
+     * @param entity
+     * @return
+     */
+    boolean save(T entity);
+    /**
+     * 根据id查询
+     * @param id
+     * @param t
+     * @return
+     */
+    T findByid(T t,Long id);
+    /**
+     * 根据表名，字段，参数查询，拼接sql语句
+     * @param  tablename 表名
+     * @param filed 字段名
+     * @param o 字段参数
+     * @return
+     */
+    List&lt;T&gt; findBysql(String tablename,String filed,Object o);
+    Object findObjiectBysql(String tablename,String filed,Object o);
+
+    /**
+     * 多个字段的查询
+     * @param tablename 表名
+     * @param map 将你的字段传入map中
+     * @return
+     */
+    List&lt;T&gt; findByMoreFiled(String tablename,LinkedHashMap&lt;String,Object&gt; map);
+
+    /**
+     * 多字段查询分页
+     * @param tablename 表名
+     * @param map 以map存储key,value
+     * @param start 第几页
+     * @param pageNumer 一个页面的条数
+     * @return
+     */
+    List&lt;T&gt; findByMoreFiledpages(String tablename, LinkedHashMap&lt;String,Object&gt; map, 
+        int start, int pageNumer);
+    /**
+     * 一个字段的分页
+     * @param  tablename 表名
+     * @param filed 字段名
+     * @param o 字段参数
+     * @param start 第几页
+     * @param pageNumer 一个页面多少条数据
+     * @return
+     */
+    List&lt;T&gt; findpages(String tablename,String filed,Object o,int start,int pageNumer);
+    /**
+     * 根据表的id删除数据
+     * @param  entity
+     */
+    boolean delete(T entity);
+    /**
+     * 更新对象
+     * @param e
+     * @return
+     */
+    boolean update(T e);
+    /**
+     * 根据传入的map遍历key,value拼接字符串，以id为条件更新
+     * @param tablename 表名
+     * @param map 传入参数放入map中
+     * @return
+     */
+    Integer updateMoreFiled(String tablename,LinkedHashMap&lt;String,Object&gt; map);
+
+
+    /**
+     * 根据条件查询总条数返回object类型
+     * @param tablename  表名
+     * @param map 传入参数放入map中
+     * @return
+     */
+    Object findCount(String tablename, LinkedHashMap&lt;String,Object&gt; map);
+}
+</code></pre><ul>
+<li>实现dao接口</li>
+</ul>
+<pre><code>@Repository
+public class BaseAppDAOimpl&lt;T,ID extends Serializable&gt; implements BaseAppDAO&lt;T,ID&gt; {
+
+    @PersistenceContext //由EJB容器动态注入EntityManager对象
+    private EntityManager entityManager;
+
+    @Transactional
+    @Override
+    public boolean save(T entity){
+        boolean flag=false;
+        try {
+            entityManager.persist(entity); //persist()：保存实体bean
+            flag=true;
+        }catch (Exception e){
+            System.out.println(&quot;---------------保存出错---------------&quot;);
+            throw e;
+        }
+        return flag;
+    }
+
+    @Transactional
+    @Override
+    public Object findByid(Object o,Long id) {
+        return entityManager.find(o.getClass(),id); //查找方法，传入实体类型和主键
+    }
+
+    @Transactional
+    @Override
+    public List&lt;T&gt; findBysql(String tablename, String filed, Object object ) {
+        String sql=&quot;from &quot;+tablename+&quot; u WHERE u.&quot;+filed+&quot;=?&quot;; //动态指定表
+        System.out.println(sql+&quot;--------sql语句-------------&quot;);
+        Query query=entityManager.createQuery(sql); //执行sql语句，返回Query对象
+        query.setParameter(1,object); //按坑位设置参数
+        List&lt;T&gt; list= query.getResultList();
+        entityManager.close();
+        return list;
+    }
+
+    @Override
+    public Object findObjiectBysql(String tablename, String filed, Object o) {
+        String sql=&quot;from &quot;+tablename+&quot; u WHERE u.&quot;+filed+&quot;=?&quot;;
+        System.out.println(sql+&quot;--------sql语句-------------&quot;);
+        Query query=entityManager.createQuery(sql);
+        query.setParameter(1,o);
+
+        entityManager.close();
+        return query.getSingleResult(); //获取单个结果，需确保结果一定唯一
+    }
+
+    @Transactional
+    @Override
+    public List&lt;T&gt; findByMoreFiled(String tablename,LinkedHashMap&lt;String,Object&gt; map) {
+        String sql=&quot;from &quot;+tablename+&quot; u WHERE &quot;;
+        Set&lt;String&gt; set=null;
+        set=map.keySet(); //获取所有key,即字段名
+        List&lt;String&gt; list=new ArrayList&lt;&gt;(set); //将字段名转换为有序链表
+        List&lt;Object&gt; filedlist=new ArrayList&lt;&gt;(); //准备将字段名转移到该数组
+        for (String filed:list){
+            sql+=&quot;u.&quot;+filed+&quot;=? and &quot;; //拼接sql语句
+            filedlist.add(filed); //转移字段名（原因不清）
+        }
+        sql=sql.substring(0,sql.length()-4); //去掉多出的字符
+        System.out.println(sql+&quot;--------sql语句-------------&quot;);
+        Query query=entityManager.createQuery(sql); 
+        for (int i=0;i&lt;filedlist.size();i++){
+            //设置参数，根据字段名获取值
+            query.setParameter(i+1,map.get(filedlist.get(i))); 
+        }
+        List&lt;T&gt; listRe= query.getResultList();
+        entityManager.close();
+        return listRe;
+    }
+
+    @Transactional
+    @Override
+    public List&lt;T&gt; findByMoreFiledpages(String tablename,
+            LinkedHashMap&lt;String,Object&gt; map,int pageNum,int size) { 
+            //分页，每请求一页执行一次
+
+        String sql=&quot;from &quot;+tablename+&quot; u WHERE &quot;;
+        Set&lt;String&gt; set=null;
+        set=map.keySet();
+        List&lt;String&gt; list=new ArrayList&lt;&gt;(set);
+        List&lt;Object&gt; filedlist=new ArrayList&lt;&gt;();
+        for (String filed:list){
+            sql+=&quot;u.&quot;+filed+&quot;=? and &quot;;
+            filedlist.add(filed);
+        }
+        sql=sql.substring(0,sql.length()-4);
+        System.out.println(sql+&quot;--------sql语句-------------&quot;);
+        Query query=entityManager.createQuery(sql);
+        for (int i=0;i&lt;filedlist.size();i++){
+            query.setParameter(i+1,map.get(filedlist.get(i)));
+        }
+        query.setFirstResult((pageNum-1)*size); //设置第一条数据
+        query.setMaxResults(size); //设置每页容量
+        List&lt;T&gt; listRe= query.getResultList();
+        entityManager.close();
+        return listRe;
+    }
+
+    @Transactional
+    @Override
+    public List&lt;T&gt; findpages(String tablename, String filed, Object o, int start, 
+            int pageNumer) {
+        String sql=&quot;from &quot;+tablename+&quot; u WHERE u.&quot;+filed+&quot;=?&quot;;
+        System.out.println(sql+&quot;--------page--sql语句-------------&quot;);
+        List&lt;T&gt; list=new ArrayList&lt;&gt;();
+        try {
+            Query query=entityManager.createQuery(sql);
+            query.setParameter(1,o);
+            query.setFirstResult((start-1)*pageNumer);
+            query.setMaxResults(pageNumer);
+            list= query.getResultList();
+            entityManager.close();
+        }catch (Exception e){
+            System.out.println(&quot;------------分页错误---------------&quot;);
+        }
+
+        return list;
+    }
+    @Transactional
+    @Override
+    public boolean update(T entity) {
+        boolean flag = false;
+        try {
+            entityManager.merge(entity);
+            flag = true;
+        } catch (Exception e) {
+            System.out.println(&quot;---------------更新出错---------------&quot;);
+        }
+        return flag;
+    }
+
+    @Transactional
+    @Override
+    public Integer updateMoreFiled(String tablename, LinkedHashMap&lt;String, Object&gt; map) 
+    {
+        String sql=&quot;UPDATE &quot;+tablename+&quot; AS u SET &quot;;
+        Set&lt;String&gt; set=null;
+        set=map.keySet();
+        List&lt;String&gt; list=new ArrayList&lt;&gt;(set);
+        for (int i=0;i&lt;list.size()-1;i++){
+            if (map.get(list.get(i)).getClass().getTypeName()==&quot;java.lang.String&quot;){
+                System.out.println(&quot;-*****&quot;+map.get(list.get(i))+
+                    &quot;------------&quot;+list.get(i));
+                sql+=&quot;u.&quot;+list.get(i)+&quot;=&apos;&quot;+map.get(list.get(i))+&quot;&apos; , &quot;;
+            }else {
+                sql+=&quot;u.&quot;+list.get(i)+&quot;=&quot;+map.get(list.get(i))+&quot; , &quot;;
+            }
+        }
+        sql=sql.substring(0,sql.length()-2);
+        sql+=&quot;where u.id=? &quot;;
+        System.out.println(sql+&quot;--------sql语句-------------&quot;);
+        int resurlt=0;
+        try {
+            Query query=entityManager.createQuery(sql);
+            query.setParameter(1,map.get(&quot;id&quot;));
+            resurlt= query.executeUpdate();
+        }catch (Exception e){
+            System.out.println(&quot;更新出错-----------------------&quot;);
+            e.printStackTrace();
+
+        }
+        return resurlt;
+    }
+
+    @Transactional
+    @Override
+    public boolean delete(T entity) {
+        boolean flag=false;
+        try {
+            entityManager.remove(entityManager.merge(entity));
+            flag=true;
+        }catch (Exception e){
+            System.out.println(&quot;---------------删除出错---------------&quot;);
+        }
+        return flag;
+    }
+
+    @Override
+    public Object findCount(String tablename, LinkedHashMap&lt;String, Object&gt; map) {
+        String sql=&quot;select count(u) from &quot;+tablename+&quot; u WHERE &quot;;
+        Set&lt;String&gt; set=null;
+        set=map.keySet();
+        List&lt;String&gt; list=new ArrayList&lt;&gt;(set);
+        List&lt;Object&gt; filedlist=new ArrayList&lt;&gt;();
+        for (String filed:list){
+            sql+=&quot;u.&quot;+filed+&quot;=? and &quot;;
+            filedlist.add(filed);
+        }
+        sql=sql.substring(0,sql.length()-4);
+        System.out.println(sql+&quot;--------sql语句-------------&quot;);
+        Query query=entityManager.createQuery(sql);
+        for (int i=0;i&lt;filedlist.size();i++){
+            query.setParameter(i+1,map.get(filedlist.get(i)));
+        }
+        return query.getSingleResult();
+    }
+}
+</code></pre><h3 id="Spring-Data-JPA"><a href="#Spring-Data-JPA" class="headerlink" title="Spring Data JPA"></a>Spring Data JPA</h3><ul>
+<li>是在JPA规范的基础下提供Repository层的实现，但是具体使用哪一款ORM框架需要你自己决定。也就是说，虽然ORM框架都实现了JPA规范，但是在不同的ORM框架之间切换，编写的代码是有一定差异的，而通过使用Spring Data JPA能够方便大家在不同的ORM框架中间进行切换而不需要更改代码</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/link10.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-02T08:56:42.604Z" itemprop="dateUpdated">2019-04-02 16:56:42</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/JPA、@Transactional、Spring Data JPA/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/JPA、@Transactional、Spring Data JPA/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/JPA、@Transactional、Spring Data JPA/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/JPA、@Transactional、Spring Data JPA/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/JPA、@Transactional、Spring Data JPA/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/JPA、@Transactional、Spring Data JPA/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/JPA、@Transactional、Spring Data JPA/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/JPEG与jpg的区别/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/JDBC再学习/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/JPA、@Transactional、Spring Data JPA/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/JPA、@Transactional、Spring Data JPA/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/JPA、@Transactional、Spring Data JPA/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/JPA、@Transactional、Spring Data JPA/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/JPA、@Transactional、Spring Data JPA/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACwUlEQVR42u3a0W7jMAwEwP7/T6evVzR2lqRY+IDxU5A6rkYBJGXJr6/4ev1z3d9zdf/r1/X7U1fPubrz2IWHh4c3GPr9IK6Gcj/E+/cTdjJZl18AHh4e3hovWeiT+6sDTZ6fbCeX7+Ph4eE9hpcPtHpVj9p4eHh4/wuvGhAkcUY+lXh4eHhP4OXLdBJMVGOLfINZzFrw8PDwYl6+rD/n9Up9Dw8PD29cVc8X+skyXV30C/8XDw8Pb4GXL7h5i0CvfFUNKQrjxMPDwzvK64Wq8xChuiXkT/vxGg8PD2+BlzdO9Vqs8iaAatDQDCnw8PDwxrzqMp0npb12gepm8GGceHh4eAu8PD44NQW9ZoVRfQ8PDw/vKC8/7FabsUZL+aAM9iFrwcPDwxvz5rHC2baA5FP5URsPDw9vg9db4qtxw+To3Hvym30PDw8Pb4GXt0nlA8p3p6QRIZ8CPDw8vL/kVX/w39/TuzMPlz+8xsPDw1vj5aFqXjbLY99ek0GyqeDh4eFt83JwDsuLXnnkUXgyHh4e3gIvX6AnYUFvKifbxpvvEA8PD+8QL1+g80JUr4900nxw+T4eHh7eAm9y8szv7z2zOjUfPouHh4d3lFeNHqqLeF74r7Zn4eHh4f09b/K46gRVN4BqyPtmzHh4eHgLvHy4vcElUzYJGnrRCR4eHt6c12sOqB6jJ40C1bJcVIvDw8PDG/PmYUQSNOSbUP4FRKUvPDw8vDXeJALIC2Mb8fHlf8TDw8M7ynsVr15UUR36JE3Bw8PD2+ZVD8q9hyYxbr459Q76eHh4eGd5+WZQOKcXa2692CL6Kx4eHt4ar3e0zXlVdm9nu4xx8fDw8B7G651pq9tSM6TAw8PDexgvWfTz4/KkUeByuvHw8PDWeL2l+VThv3dkL2wMeHh4eEd5zR/5rQP0JDheqezh4eHh1UbyDbT5u2AbRzdAAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="术语 简单图：没有平行边和自环的图。 平行边：连接同一对顶点的两条边。 多重图：含有平行边（连接同一对结点的两条边称为平行边）的图。 二分图：顶点可分为两堆，两堆之间有边相连，但两堆之中没有。 度数：顶点所连接的边数。 子图：只含原图的一部分顶点或边。 无向完全图：把图中所有顶点都用边相连形成的图，共包含n(n-1)/2条边。 带权图和网：带权的图称为带权图或网。 路径：由边顺序连接的一系列顶点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Java数据结构之无向图/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="术语 简单图：没有平行边和自环的图。 平行边：连接同一对顶点的两条边。 多重图：含有平行边（连接同一对结点的两条边称为平行边）的图。 二分图：顶点可分为两堆，两堆之间有边相连，但两堆之中没有。 度数：顶点所连接的边数。 子图：只含原图的一部分顶点或边。 无向完全图：把图中所有顶点都用边相连形成的图，共包含n(n-1)/2条边。 带权图和网：带权的图称为带权图或网。 路径：由边顺序连接的一系列顶点。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-06T03:28:51.514Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="术语 简单图：没有平行边和自环的图。 平行边：连接同一对顶点的两条边。 多重图：含有平行边（连接同一对结点的两条边称为平行边）的图。 二分图：顶点可分为两堆，两堆之间有边相连，但两堆之中没有。 度数：顶点所连接的边数。 子图：只含原图的一部分顶点或边。 无向完全图：把图中所有顶点都用边相连形成的图，共包含n(n-1)/2条边。 带权图和网：带权的图称为带权图或网。 路径：由边顺序连接的一系列顶点。">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.238Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#术语"><span class="post-toc-number">1.</span> <span class="post-toc-text">术语</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#无向图"><span class="post-toc-number">2.</span> <span class="post-toc-text">无向图</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#深度优先搜索"><span class="post-toc-number">3.</span> <span class="post-toc-text">深度优先搜索</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码实例"><span class="post-toc-number">4.</span> <span class="post-toc-text">代码实例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#广度优先搜索"><span class="post-toc-number">5.</span> <span class="post-toc-text">广度优先搜索</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#符号图"><span class="post-toc-number">6.</span> <span class="post-toc-text">符号图</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Java数据结构之无向图"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.238Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h3><ul>
+<li>简单图：没有平行边和自环的图。</li>
+<li>平行边：连接同一对顶点的两条边。</li>
+<li>多重图：含有平行边（连接同一对结点的两条边称为平行边）的图。</li>
+<li>二分图：顶点可分为两堆，两堆之间有边相连，但两堆之中没有。</li>
+<li>度数：顶点所连接的边数。</li>
+<li>子图：只含原图的一部分顶点或边。</li>
+<li>无向完全图：把图中所有顶点都用边相连形成的图，共包含n(n-1)/2条边。</li>
+<li>带权图和网：带权的图称为带权图或网。</li>
+<li>路径：由边顺序连接的一系列顶点。</li>
+<li>简单路径：不含重复顶点。</li>
+<li>环和回路：至少含有一条边且起终点相同的路径。</li>
+<li>简单环：除了起终点不含重复顶点或边的环。</li>
+<li>大多数情况下提到路径和环都是指简单路径和简单环。</li>
+<li>当允许重复的顶点时，我们指的是一般的路径和环。</li>
+<li>连通图：没有割裂的顶点，任何顶点之间可以互达。</li>
+<li>非连通图：由若干连通子图构成，每个都是原图的极大连通子图（极大连通分量）。要处理一张非连通图就要一个个地处理其连通子图。</li>
+<li>连通图的生成树：首先，无环就叫树，而除去图中那些会构成环的边之后剩下的边和所有顶点就构成了生成树。</li>
+<li>非连通图的生成树森林：互不相连的树构成森林。非连通图的每个连通子图都有一棵生成树，它们组成一片森林。<h3 id="无向图"><a href="#无向图" class="headerlink" title="无向图"></a>无向图</h3></li>
+<li>顶点与边的表示方法<ul>
+<li>邻接矩阵：用一个v*v的布尔矩阵，当顶点v和w有边时，把第v行w列设为true。缺点：浪费空间；同一条边表示两次；不能表示平行边。</li>
+<li>边的数组：使用一个Edge类，它含有两个int型变量，即为相连的两个顶点。缺点：要找某个顶点的所有邻接点需要遍历所有边。</li>
+<li>邻接点背包数组：也就是下面算法要选择的方式。</li>
+</ul>
+</li>
+<li><p>我们用0~v-1的连续整数表示v个顶点，并为这v个结点分别创建一个背包，存储它们各自的邻接点，以此来表示两个顶点之间有边相连。</p>
+<pre><code>public class Graph {
+    //顶点数目：一旦指定，不允许新增顶点
+    private final int V;
+    //边数目
+    private int E;
+    //邻接点背包数组：索引是顶点，背包里的元素时它的所有邻接点
+    private Bag&lt;Integer&gt;[] adj;
+
+    /**
+     * @Author haien
+     * @Description 构造指定顶点数目、没有边的图
+     * @Date 2018/11/27
+     * @Param [V]
+     * @return
+     **/
+    public Graph(int V) {
+        this.V=V;
+        this.E=0;
+        //初始化邻接点背包数组
+        adj=(Bag&lt;Integer&gt;[])new Bag[V]; //不能创建泛型指定类型的泛型数组，只能先创建泛型数组再强转
+        //这一步省略试试？？？
+        /*for(int v=0;v&lt;V;v++){
+            adj[v]=new Bag&lt;Integer&gt;();
+        }*/
+    }
+
+    /**
+     * @Author haien
+     * @Description 从文件读取顶点数目、边数和若干整数对（表示相连两顶点） 
+     * @Date 2018/11/27
+     * @Param [in]
+     * @return 
+     **/
+    public Graph(In in) {
+        //读取顶点数目
+        this(in.readInt());
+        //读取边数
+        this.E=in.readInt();
+        //连线
+        for(int e=0;e&lt;E;e++){
+            //读取顶点对
+            int v=in.readInt();
+            int w=in.readInt();
+            //互相加到彼此的邻接点背包里面
+            addEdge(v,w);
+        }
+    }
+
+    //获取顶点数
+    public int V(){
+        return V;
+    }
+    //获取边数
+    public int E(){
+        return E;
+    }
+
+    /**
+     * @Author haien
+     * @Description 添加一条边 
+     * @Date 2018/11/27
+     * @Param [v, w]
+     * @return void
+     **/
+    public void addEdge(int v,int w){
+        adj[v].add(w);
+        adj[w].add(v);
+        E++;
+    }
+
+    /**
+     * @Author haien
+     * @Description 返回指定顶点的邻接点背包，Bag实现了Iterable接口，所以可以用forEach来遍历背包中的整数
+     * @Date 2018/11/27
+     * @Param [v]
+     * @return java.lang.Iterable&lt;java.lang.Integer&gt;
+     **/
+    public Iterable&lt;Integer&gt; adj(int v){ 
+        //返回v的背包
+        return adj[v]; //Bag类实现了Iterable接口，所以可以用Bag类实现了Iterable接口作为返回类型
+    }
+}
+</code></pre><h3 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h3></li>
+<li>情景之迷宫找出口：在每一个路口都把分岔路走一遍，走到死胡同就返回上一个路口，走另一条岔路。</li>
+<li><p>下面算法实现的是找出以某一顶点为起点的所有路径</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 深度优先搜索：遍历每一个顶点，将它标记为已访问，递归地访问它的所有没有被标记的邻接点
+ * @Date 2018/11/27
+ **/
+public class DepthFirstSearch {
+    //是否已访问
+    private boolean[] marked;
+    //已访问顶点个数
+    private int count;
+
+    /**
+     * @Author haien
+     * @Description 传入图及其起始点
+     * @Date 2018/11/27
+     * @Param [G, s]
+     * @return
+     **/
+    public DepthFirstSearch(Graph G,int s) {
+        marked=new boolean[G.V()];
+        dfs(G,s);
+    }
+
+    /**
+     * @Author haien
+     * @Description 实质：以随机路径访问all点，不一定能走到所有的边
+     * @Date 2018/11/27
+     * @Param [G, v]
+     * @return void
+     **/
+    public void dfs(Graph G,int v){
+        marked[v]=true;
+        count++;
+        for(int w : G.adj(v)){
+            if(!marked[w]) { //每个顶点只访问一遍
+                dfs(G, w);
+            }
+        }
+    }
+
+    /**
+     * @Author haien
+     * @Description 如果仅仅只是迷宫找出口而不需要遍历all点的话，改造一下
+     * @Date 2018/11/27
+     * @Param [G, v]
+     * @return void
+     **/
+    public void dfs(Graph G,int v){
+        if(找到出口){
+            flag=1; //新增一个全局属性flag
+        }
+        if(flag==1){
+            return;
+        }
+        marked[v]=true;
+        count++;
+        for(int w : G.adj(v)){
+            if(flag==1) break; //其实有上面的if(flag==1)应该就不用这句了
+            if(!marked[w]) { //每条路径只走一遍，两个顶点之间不会来回走
+                dfs(G, w);
+            }
+        }
+    }
+}
+</code></pre></li>
+<li><p>应用一：连通性。判断给定的两个顶点是否连通（两点即为迷宫出入口）；计算图中有多少个连通子图（每调用一次dfs，访问到的all点构成一幅连通子图，下一次则对剩下的点调用dfs）</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 用深度优先搜索统计图中的连通分量
+ * @Date 2018/12/3
+ **/
+public class ConnectedComponents {
+    private boolean[] marked;
+    //索引：顶点；值：分量标识符（第1个分量为0，第n个分量为n-1）
+    private int[] id;
+    //分量数
+    private int count;
+
+    public ConnectedComponents(Graph G) {
+        marked=new boolean[G.V()];
+        id=new int[G.V()];
+        //对每个未标记的顶点都进行广搜，把与之连通的点都mark上
+        for(int v=0;v&lt;G.V();v++){
+            if(!marked[v]){
+                dfs(G,v);
+                count++;
+            }
+        }
+    }
+
+    /**
+     * @Author haien
+     * @Description 深度优先搜索：把跟v连通的顶点都标记上
+     * @Date 2018/12/3
+     * @Param [G, v]
+     * @return void
+     **/
+    private void dfs(Graph G,int v){
+        marked[v]=true;
+        id[v]=count;
+        for(int w:G.adj(v)){
+            if(!marked[w]){
+                dfs(G,w);
+            }
+        }
+    }
+
+    /**
+     * @Author haien
+     * @Description 判断v、w是否连通
+     * @Date 2018/12/3
+     * @Param [v, w]
+     * @return boolean
+     **/
+    public boolean connected(int v,int w){
+        return id[v]==id[w]; //在同一分量即连通
+    }
+
+    /**
+     * @Author haien
+     * @Description 查找v所在连通分量
+     * @Date 2018/12/3
+     * @Param [v]
+     * @return int
+     **/
+    public int id(int v){
+        return id[v];
+    }
+
+    /**
+     * @Author haien
+     * @Description 返回连通分量数
+     * @Date 2018/12/3
+     * @Param []
+     * @return int
+     **/
+    public int count(){
+        return count;
+    }
+}
+</code></pre></li>
+<li><p>应用二：找路径。找到从s到v的一条路径。</p>
+<pre><code>public class DepthFirstPaths {
+    //顶点是否已被访问
+    private boolean[] marked;
+    //索引：当前路径的最后一个顶点；值：上一个顶点
+    private int[] lastVertex;
+    //起点
+    private final int s;
+
+    public DepthFirstPaths(Graph G,int s) {
+        marked=new boolean[G.V()];
+        lastVertex=new int[G.V()];
+        this.s = s;
+        dfs(G,s);
+    }
+
+    /**
+     * @Author haien
+     * @Description 查找出一条包含所有顶点的路径:只需要调用此函数一次，就可以找到s到其他所有顶点的一条路径
+     * @Date 2018/11/27
+     * @Param [G, v]
+     * @return void
+     **/
+    public void dfs(Graph G,int v){
+        marked[v]=true;
+        for(int w : G.adj(v)){
+            if(!marked[w]) {
+                lastVertex[w]=v;
+                dfs(G, w);
+            }
+        }
+    }
+
+    /**
+     * @Author haien
+     * @Description 是否存在从s到v的路径
+     * @Date 2018/11/27
+     * @Param [v]
+     * @return boolean
+     **/
+    public boolean hasPathto(int v){
+        return marked[v]; //初始化图时会调用dfs，它会把所有和s连通的顶点打上标记
+    }
+
+    /**
+     * @Author haien
+     * @Description 找到s到v的一条路径
+     * @Date 2018/11/27
+     * @Param [v]
+     * @return java.lang.Iterable&lt;java.lang.Integer&gt;
+     **/
+    public Iterable&lt;Integer&gt; pathTo(int v){
+        if(!hasPathto(v)) return null;
+        Stack&lt;Integer&gt; path=new Stack&lt;&gt;();
+        //从终点反追踪回起点
+        for(int x=v;x!=s;x=lastVertex[x]){
+            path.push(x);
+        }
+        path.push(s);
+        return path;
+    }
+}
+</code></pre></li>
+<li><p>应用三：确定图是为否无环图</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 深搜判断图是否为无环图 
+ * @Date 2018/12/3
+ * @Param 
+ * @return 
+ **/
+public class Cycle {
+    private boolean[] marked;
+    private boolean hasCycle;
+
+    public Cycle(Graph G) {
+        marked=new boolean[G.V()];
+        for(int v=0;v&lt;G.V();v++){
+            if(!marked[v])
+                dfs(G,s,s);
+        }
+    }
+
+    private void dfs(Graph G,int v,int u){
+        marked[v]=true;
+        for(int w:G.adj(v)){
+            if(!marked[w])
+                dfs(G,w,v); //w是下一个要搜其邻接点的点，v是它的上一个点
+            //如果遇到一个已被访问的点，而且它还不是自己的上一个点，那就形成一个环了
+            else if(w!=u)
+                hasCycle=true;
+        }
+    }
+
+    public boolean hasCycle() {
+        return hasCycle;
+    }
+}
+</code></pre></li>
+<li><p>应用四：判断图是否为二分图</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 深搜判断图是否为二分图
+ * @Date 2018/12/3
+ **/
+public class BipartiteGraph {
+    private boolean[] marked;
+    //如果是的话应该可以用两种不同的颜色标记顶点，使得同色顶点之间没有边相连
+    private boolean[] color;
+    private boolean isBipartite=true;
+
+    public BipartiteGraph(Graph G) {
+        marked=new boolean[G.V()];
+        color=new boolean[G.V()];
+        for(int v=0;v&lt;G.V();v++){
+            if(!marked[v])
+                dfs(G,v);
+        }
+    }
+
+    private void dfs(Graph G,int v){
+        marked[v]=true;
+        for(int w:G.adj(v)){
+            if(!marked[w]){
+                color[w]=!color[v];
+                dfs(G,w);
+            }
+            //只要出现相连两点同色，则非二分图
+            else if(color[w]==color[v])
+                isBipartite=false;
+        }
+    }
+
+    public boolean isBipartite() {
+        return isBipartite;
+    }
+}
+</code></pre><h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3></li>
+<li>DataStructure/graph<h3 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h3></li>
+<li>应用-最短路径：找出点s到点v的最短路径</li>
+<li><p>实现：从s开始，在所有由一条边就可以到达的点中寻找v，如果找不到就继续在距离s两条边的点中寻找。</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 使用广度优先搜索查找图中起点到任一顶点的最短路径
+ * @Date 2018/12/3
+ **/
+public class BreadthFirstPaths {
+    private boolean[] marked;
+    //索引的上一个顶点
+    private int[] lastVertex;
+    //起点
+    private final int s;
+
+    public BreadthFirstPaths(Graph G,int s) {
+        marked=new boolean[G.V()];
+        lastVertex=new int[G.V()];
+        this.s = s;
+        bfs(G,s);
+    }
+
+    /**
+     * @Author haien
+     * @Description 广度优先搜索：查找当前顶点的邻接点，存入队列中，一个个拿出来接着找邻接点，同样存入队列中
+     *                           保证上一层的邻接点全部遍历完后才轮到下一层
+     * @Date 2018/12/3
+     * @Param [G, s]
+     * @return void
+     **/
+    private void bfs(Graph G,int s){
+        Queue&lt;Integer&gt; queue=new Queue&lt;&gt;();
+        marked[s]=true;
+        queue.enQueue(s);
+        while (!queue.isEmpty()){
+            //取出队头
+            int v=queue.deQueue();
+            //遍历队头顶点邻接点
+            for(int w:G.adj(v)){
+                if(!marked[w]){
+                    lastVertex[w]=v; //想找到s到任一顶点的最短路径，则找到该顶点对应的值即可一路找下去
+                    marked[w]=true;
+                    //加到队尾
+                    queue.enQueue(w);
+                }
+            }
+        }
+    }
+
+    /**
+     * @Author haien
+     * @Description s到v是否存在一条最短路径
+     * @Date 2018/12/3
+     * @Param [v]
+     * @return boolean
+     **/
+    public boolean hasPathTo(int v) {
+        return marked[v];
+    }
+
+    /*
+    public Iterable&lt;Integer&gt; pathTo(int v){
+        //和深度优先搜索的实现相同
+    }
+    */
+}
+</code></pre></li>
+<li>在同个项目下dataStructure/UF中实现了union-find算法，我们在完成只需要判断连通性或是需要完成大量连通性查询和插入操作混合等类似的任务时，更倾向使用union-find算法；而深度优先搜索则更适合实现图的抽象数据类型，因为它能更有效地利用已有的数据结构。<h3 id="符号图"><a href="#符号图" class="headerlink" title="符号图"></a>符号图</h3></li>
+<li>在典型应用中，图都是通过文件或者网页定义的，使用的是字符串而非整数来指代顶点</li>
+<li>比如有一个测试文件，每一行列出一个电影名及其演员名单。那么电影和演员都是顶点，而邻接表中的每一条边都将电影它的表演者联系起来，这是一幅二分图。</li>
+<li>测试文件也可以是机场的代码和能从该机场直达的城市。</li>
+<li><p>我们只要建立一个符号图，把字符串转为int型来操作，要显示的时候也能通过此int想找回原来的字符串即可</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 建立字符串和int型的一一对应 
+ * @Date 2018/12/3
+ **/
+public class SymbolGraph {
+    //键：字符串；值：int型
+    private ST&lt;String,Integer&gt; st;
+    //索引：int型；值：字符串
+    private String[] keys;
+    private Graph G;
+
+    public SymbolGraph(String stream,String sp) { //stream: 测试文件名；sp: 顶点间的分隔符
+        //把测试文件搞成输入流，是一行一行、每行几个的演员名
+        In in=new In(stream);
+        st=new ST&lt;&gt;();
+        //第一遍读取:顶点转型与存储
+        while(in.hasNextLine()){
+            String[] a=in.readLine().split(sp);
+            //为每个不同的字符串关联一个int型索引
+            for(int i=0;i&lt;a.length;i++){
+                if(!st.contains(a[i]))
+                    st.put(a[i],st.size());
+            }
+        }
+        //为每个int型索引反向关联一个字符串
+        keys=new String[st.size()];
+        for(String name:st.keys()){
+            keys[st.get(name)]=name;
+        }
+        G=new Graph(st.size());
+
+        //第二遍读取：顶点间建立联系
+        in=new In(stream);
+        while (in.hasNextLine()){
+            String[] a=in.readLine().split(sp);
+            //将每一行的第一个顶点和其他顶点相连
+            int v=st.get(a[0]);
+            for(int i=1;1&lt;a.length;i++){
+                G.addEdge(v,st.get(a[i]));
+            }
+        }
+    }
+
+    /**
+     * @Author haien
+     * @Description 返回字符串的索引 
+     * @Date 2018/12/3
+     * @Param [s]
+     * @return boolean
+     **/
+    public int index(String s) {
+        return st.get(s);
+    }
+
+    /**
+     * @Author haien
+     * @Description 返回索引的字符串 
+     * @Date 2018/12/3
+     * @Param [v]
+     * @return java.lang.String
+     **/
+    public String name(int v){
+        return keys[v];
+    }
+
+    /**
+     * @Author haien
+     * @Description 返回根据输入初始化好长度的图 
+     * @Date 2018/12/3
+     * @Param []
+     * @return com.haien.graph.Graph
+     **/
+    public Graph G(){
+        return G;
+    }
+
+    public static void main(String[] args) {
+        //文件输入
+        String filename=args[0];
+        //文件名分隔符
+        String delim=args[1];
+        SymbolGraph sg=new SymbolGraph(filename,delim);
+        //获得初始化的图
+        Graph G=sg.G();
+
+        //标准输入
+        while (StdIn.hasNextLine()){
+            //一行一个电影名
+            String source = StdIn.readLine();
+            //找出每部电影的演员表
+            for(int w:G.adj(sg.index(source))){ //字符串转int
+                StdOut.println(&quot; &quot;+sg.name(w)); //int转字符串
+            }
+        }
+    }
+}
+</code></pre></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-12-06T03:28:51.514Z" itemprop="dateUpdated">2018-12-06 11:28:51</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Java数据结构之无向图/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Java数据结构之无向图/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java数据结构之无向图/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java数据结构之无向图/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java数据结构之无向图/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Java数据结构之无向图/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java数据结构之无向图/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Java数据结构之有向图/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Java数据结构之排序/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java数据结构之无向图/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java数据结构之无向图/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java数据结构之无向图/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Java数据结构之无向图/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java数据结构之无向图/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aQW7DMAwF0dz/0i7QbSxhPmm3kDRaFU6q6HlBkCI/H7yu30U+vQbr+/vzTz9vLBkyZCzLuKZrvvXom/N95juT3W7OI0OGjAMYPIyOnsyDKfmbfDp8LkOGDBnT4853q4VUGTJkyOgEXPIzNaoMGTJkzBm8+Hwq1P5bLS5DhowFGWlj4C//frG/IUOGjEUYV7j4DmniyIPszX/JkCFjawZP12oXcKSRQIIvejUyZMjYmsHDHEkc+4E43V+GDBknMGpXYGQIozYElpJkyJCxN4Nc8T82tlXK5VCKKUOGjK0ZaTLHv1O7YnuxiJUhQ8ayjNpoBR+8SJNIVG1/h3UZMmQcwOikfZ3Q2bnVv+nEypAh4xgGTxbjsBi2OYPflSFDxtaM9NBp5VgbwuBBX4YMGacxeHJWK2jT8jgdWZMhQ8aujE7jkByalLUPNDJlyJBxDINsTeL3vODk4ZgnozJkyNibwY9OgmBtICwtiYe/JUOGjK0ZPLHrlKacylNJ9IZkyJCxOIMH1tpIBH8dtSaEDBkyzmH0Ay5/NbwJGjcGZMiQsSmDl521pmPnco0nrzJkyNibcYWLU9+4ehu+JhkyZGzN6IS5p9qf6XCGDBkyzmSkI1n8sowct9MuDRJEGTJkbMHg6VqtKCUhO00fZciQIYMH3NpFfz8cy5AhQ0btKOSqrvN8uLMMGTIOYJAilj9JByzSlmfcyJQhQ8bijE4B+cYQRitBlCFDxm6MH6RDqHYRCBa1AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

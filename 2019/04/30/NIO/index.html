@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="设计目的 NIO的设计目的是为了让Java程序员可以少些很多代码而实现高速的IO。NIO自动实现填充和提取缓冲区的转移工作。我们只要写一个循环将数据写入一个指定容量的缓冲区，需要写入到外部文件则一次性写入即可。 缓冲区通常是一个字节数组，但也可以指定任何类型的数组。 在不加字节数组循环读取文件的时候，IO实际是一个字节一个字节地读取的，输出也是一个字节一个字节地输出，这很耗费时间。而一个数组一个数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/NIO/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="设计目的 NIO的设计目的是为了让Java程序员可以少些很多代码而实现高速的IO。NIO自动实现填充和提取缓冲区的转移工作。我们只要写一个循环将数据写入一个指定容量的缓冲区，需要写入到外部文件则一次性写入即可。 缓冲区通常是一个字节数组，但也可以指定任何类型的数组。 在不加字节数组循环读取文件的时候，IO实际是一个字节一个字节地读取的，输出也是一个字节一个字节地输出，这很耗费时间。而一个数组一个数">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-25T07:31:51.791Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="设计目的 NIO的设计目的是为了让Java程序员可以少些很多代码而实现高速的IO。NIO自动实现填充和提取缓冲区的转移工作。我们只要写一个循环将数据写入一个指定容量的缓冲区，需要写入到外部文件则一次性写入即可。 缓冲区通常是一个字节数组，但也可以指定任何类型的数组。 在不加字节数组循环读取文件的时候，IO实际是一个字节一个字节地读取的，输出也是一个字节一个字节地输出，这很耗费时间。而一个数组一个数">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.592Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设计目的"><span class="post-toc-number">1.</span> <span class="post-toc-text">设计目的</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据流动过程"><span class="post-toc-number">2.</span> <span class="post-toc-text">数据流动过程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实践"><span class="post-toc-number">3.</span> <span class="post-toc-text">实践</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#阻塞和非阻塞"><span class="post-toc-number">4.</span> <span class="post-toc-text">阻塞和非阻塞</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Selector"><span class="post-toc-number">5.</span> <span class="post-toc-text">Selector</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#NIO写大文件"><span class="post-toc-number">6.</span> <span class="post-toc-text">NIO写大文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#直接用channel-ByteBuffer分块写入"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">直接用channel+ByteBuffer分块写入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#channel-map-MappedByteBuffer"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">channel.map()+MappedByteBuffer</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ByteArrayINputstream-channel"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">ByteArrayINputstream+channel</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#参考文章"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">参考文章</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-NIO"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.592Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="设计目的"><a href="#设计目的" class="headerlink" title="设计目的"></a>设计目的</h3><ul>
+<li>NIO的设计目的是为了让Java程序员可以少些很多代码而实现高速的IO。NIO自动实现填充和提取缓冲区的转移工作。我们只要写一个循环将数据写入一个指定容量的缓冲区，需要写入到外部文件则一次性写入即可。</li>
+<li>缓冲区通常是一个字节数组，但也可以指定任何类型的数组。</li>
+<li>在不加字节数组循环读取文件的时候，IO实际是一个字节一个字节地读取的，输出也是一个字节一个字节地输出，这很耗费时间。而一个数组一个数组地读取无疑要快得多。<h3 id="数据流动过程"><a href="#数据流动过程" class="headerlink" title="数据流动过程"></a>数据流动过程</h3></li>
+<li>任何来源地的数据都要先通过一个channel对象，然后读取到Buffer（缓冲区）中；</li>
+<li>去到任何目的地的数据都要先读取到缓冲区中，然后写入通道。</li>
+<li>也就是说，你永远不会讲字节直接写入通道中，而是将它们写入一个缓冲区。同样，你不会直接从通道中读取字节，而是将数据从通道读入缓冲区，再从缓冲区获取这些字节。</li>
+<li>若果一个Channel类实现了ReadableByteChannel接口，说明它是可读的，WritableByteChannel则可写，都实现了则可读可写。</li>
+<li>两种获取channel对象的方法<ul>
+<li>使用Channels抽象类：ReadableByteChannel newChannel(InputStream in)</li>
+<li>通过经典的io类来获取<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3></li>
+</ul>
+</li>
+<li>读文件：</li>
+</ul>
+<ol>
+<li>FileInputStream关联文件</li>
+<li>从FileInputStream获取channel对象</li>
+<li>创建Buffer缓冲区</li>
+<li>从channel循环读取数据到缓冲区</li>
+<li></li>
+<li><p>关闭通道</p>
+<pre><code>FileInputStream fin=new FileInputStream(&quot;d://test4.txt&quot;);
+//从FileInputStream获取通道
+FileChannel fc=fin.getChannel();
+//创建缓冲区
+ByteBuffer buffer=ByteBuffer.allocate(1024); //allocate：分配
+//将数据从通道读到缓冲区中
+int len=0;
+while ((len = fc.read(buffer))!=-1){
+    //初始化游标
+    buffer.flip();
+    byte[] bytes=buffer.array();
+    String info=new String(bytes);
+    System.out.println(info); //sout:每执行一次会把光标置于下一行首位，下一次执行会在这个位置打印，否则就会在文本后面多出一个空行
+    //清空数组
+    buffer.clear();
+}
+fc.close();
+</code></pre></li>
+</ol>
+<ul>
+<li>写文件</li>
+</ul>
+<ol>
+<li>关联目标文件</li>
+<li>获取通道</li>
+<li>创建Buffer</li>
+<li>循环读取数据到缓冲区</li>
+<li>写入通道</li>
+<li><p>关闭通道</p>
+<pre><code>FileOutputStream fout=new FileOutputStream(&quot;d://test4b.txt&quot;);
+//从FileOutputStream中获取一个通道
+FileChannel foutc=fout.getChannel();
+//创建一个缓冲区
+ByteBuffer buffer1=ByteBuffer.allocate(1024); //单位是B，1024B=1KB
+//数据源
+String message=&quot;Pigpig is my sister!&quot;;
+//将数据读取到缓冲区
+buffer1.put(message.getBytes()); //缓冲区自动为message分配空间
+//或者这样准备数据源
+/*
+ByteBuffer buffer3=Charset.forName(&quot;utf-8&quot;).encode(&quot;你好 你好 你好 你好 你好！&quot;);
+*/
+//初始化游标
+buffer1.flip();
+//从缓冲区写入通道
+foutc.write(buffer1);
+foutc.close();
+</code></pre></li>
+</ol>
+<ul>
+<li>flip()：把position游标（指向下一个要读取获取存入的位置）置于数组首位，读取的时候会从游标位置开始读取，否则游标还在末位，所以必须刷出</li>
+<li><p>拷贝文件：循环读取数据源到缓冲区，一次性写入目标文件</p>
+<pre><code>FileInputStream fin2=new FileInputStream(&quot;d://test4.txt&quot;);
+FileOutputStream fout2=new FileOutputStream(&quot;d://test4c.txt&quot;);
+FileChannel finc2=fin2.getChannel();
+FileChannel foutc2=fout2.getChannel();
+ByteBuffer buffer2=ByteBuffer.allocate(1024);
+int len=0;
+while ((len = finc2.read(buffer2))!=-1){
+    //初始化游标
+    buffer2.flip();
+    foutc2.write(buffer2);
+    //清空数组
+    buffer2.clear();
+}
+fout2.close();
+finc2.close();
+</code></pre></li>
+<li>clear()：将游标置为0，limit（还能存多少）置为容量，但数组内容并没有真正清空；否则上个循环的数据还在里面，导致数组不可用；不过上面还是需要flip()，因为read之后游标会跑到最后去</li>
+<li>ByteBuffer：最常用的缓冲区类型；不只是一个数组，还提供了对数据的结构化访问，可以跟踪系统的读写进程。</li>
+<li>Java提供的缓冲区类型，它们实现了Buffer接口：<ul>
+<li>ByteBuffer</li>
+<li>CharBuffer</li>
+<li>ShortBuffer</li>
+<li>IntBuffer</li>
+<li>LongBuffer</li>
+<li>FloatBuffer</li>
+<li>DoubleBuffer<h3 id="阻塞和非阻塞"><a href="#阻塞和非阻塞" class="headerlink" title="阻塞和非阻塞"></a>阻塞和非阻塞</h3></li>
+</ul>
+</li>
+<li><p>阻塞：</p>
+<pre><code>Scanner sc=new Scanner(System.in);
+int i=sc.nextInt();
+</code></pre><ul>
+<li>在返回之前，当前线程会被挂起，一直处于等待状态</li>
+<li>阻塞IO：一旦输入、输出工作没有完成，则程序阻塞，知道输入、输出完成为止。</li>
+</ul>
+</li>
+<li>非阻塞：非阻塞IO并非完全非阻塞，只是设置了超时来读取数据，未超时之前程序阻塞，超时之后，程序结束</li>
+<li>传统的IO都是阻塞的，当一个线程被read()或write()时，该线程被阻塞，知道有数据被请求到，否则该线程不能执行其他任务。所以，万一请求资源被占用，整个程序就相当于卡死了。比如当缓冲区里没有数据的时候，线程会一直等待。属于同步阻塞IO。</li>
+<li>NIO是非阻塞模式的，请求不到资源的时候线程可以执行其他任务。但是线程需要是不是去询问是否能请求到资源，从而引起不必要的CPU资源浪费当缓冲区没有数据的时候，线程一直返回0，直到有了再返回读到的数据。NIO属于同步非阻塞IO。</li>
+<li>不过启用非阻塞模式是需要额外的代码的，好像不是默认的。</li>
+<li>异步阻塞IO：程序发起一个IO操作后，就去做其他事情了，不等待IO操作完成，等内核完成IO操作后会通知程序。那为什么说是阻塞的呢？因为它是通过select系统调用来实现的，而select函数本身的实现方式是阻塞的。而采用select函数的好处就是它可以同时监听多个文件句柄，从而提高系统的并发性。</li>
+<li>异步非阻塞：好像和异步阻塞也差不多，看不出有什么区别<h3 id="Selector"><a href="#Selector" class="headerlink" title="Selector"></a>Selector</h3></li>
+<li><p>实现监听的效果，通过一个线程管理多个channel，从而实现管理多个网络连接的目的。它是NIO核心组件中的一个，用于检查一个或者多个channel的状态是否处于非阻塞（可读|可写），我们可以将channel注册到selector中，以实现selector对其管理的目的。</p>
+<h3 id="NIO写大文件"><a href="#NIO写大文件" class="headerlink" title="NIO写大文件"></a>NIO写大文件</h3><h4 id="直接用channel-ByteBuffer分块写入"><a href="#直接用channel-ByteBuffer分块写入" class="headerlink" title="直接用channel+ByteBuffer分块写入"></a>直接用channel+ByteBuffer分块写入</h4><pre><code>/**
+ * @Author haien
+ * @Description nio分块写大文件,耗时近30秒
+ * @Date 2018/11/24
+ **/
+public class WriteBigFile {
+    //待写入内容总大小
+    private static final long LEN=2L*1024*1024*1024; //2G
+    //每次写多少进去
+    private static final int DATA_CHUNK=128*1024*1024; //128M;chunk：块
+
+    public static void writeWithFileChannel() throws IOException {
+        File file=new File(&quot;e:/fc.dat&quot;);
+        if(file.exists()){
+            file.delete();
+        }
+
+        //用任意访问的方式打开文件，指定要来读写它
+        RandomAccessFile raf=new RandomAccessFile(file,&quot;rw&quot;);
+        FileChannel fileChannel=raf.getChannel();
+
+        //存储待写入内容
+        byte[] data=null;
+        //缓冲数组
+        ByteBuffer buf=ByteBuffer.allocate(DATA_CHUNK);
+        //单位转换，128*1024*1024B-&gt;128M
+        int dataChunk=DATA_CHUNK/1024/1024;
+        //未写入的内容大小
+        long len;
+        for(len=LEN;len&gt;DATA_CHUNK;len-=DATA_CHUNK){
+            System.out.println(&quot;Write a data chunk: &quot;+dataChunk+&quot;MB&quot;);
+            buf.clear();
+            data=new byte[DATA_CHUNK];
+            //省略数据准备
+            for(int i=0;i&lt;DATA_CHUNK;i++){
+                //把数据放到缓冲区里来
+                buf.put(data[i]);
+            }
+            //清空数据存储区
+            data=null;
+            buf.flip();
+            //从缓冲区写入通道
+            fileChannel.write(buf);
+            //把通道里的内容强制刷出
+            fileChannel.force(true);
+        }
+        //最后一次可能不足DATA_CHUNK
+        if(len&gt;0){
+            System.out.println(&quot;Write rest data chunk: &quot;+len/1024/1024+&quot;MB&quot;);
+            //剩下的比较少，可以从本地内存中分配
+            buf=ByteBuffer.allocateDirect((int)len);
+            data=new byte[(int)len];
+            for(int i=0;i&lt;len;i++){
+                buf.put(data[i]);
+            }
+            buf.flip();
+            fileChannel.write(buf);
+            fileChannel.force(true);
+            data=null;
+        }
+
+        fileChannel.close();
+        raf.close();
+    }
+}
+</code></pre></li>
+<li>channel.force(true)：将通道里的数据强制刷出</li>
+<li>ByteBuffer.allocateDirect(): 在本地内存中分配缓冲区</li>
+<li>ByteBuffer.allocate()：在jvm堆中分配</li>
+<li>本地缓冲区又叫直接缓冲区，相对堆缓冲区性能较高，但是本地的内存不能被jvm垃圾回收机制回收，而是自动调用JNI方法回收。</li>
+<li>由于垃圾回收成本较高，堆内存未耗尽时，jvm不会回收垃圾。如果为堆分配过大的内存（也即是使用allocateDirect），本地内存就会相应减少。堆缓冲区的性能已经相当高，只有确实需要再提高性能时才考虑使用本地缓冲区。</li>
+<li>本例即是最后只剩一点没写才使用本地缓冲区。<h4 id="channel-map-MappedByteBuffer"><a href="#channel-map-MappedByteBuffer" class="headerlink" title="channel.map()+MappedByteBuffer"></a>channel.map()+MappedByteBuffer</h4></li>
+<li>一般操作系统的内存分为两部分：物理内存和虚拟内存。虚拟内存一把指使用的是页面映像文件，即硬盘中的某些特殊的文件。操作系统负责页面文件内容的读写，这个过程叫页面中断/借还。</li>
+<li>MapppedByteBuffer也是类似的，，它直接将文件映射到内存（虚拟内存）。通常可以映射整个文件，如果文件比较大的话可以进行分段映射。</li>
+<li>channel.map(int mod,long start,long size): 把文件从start开始的size大小的部分映射为内存映射文件,返回MappedByteBuffer，mode指定该内存映像文件的访问方式：<ul>
+<li>READ_ONLY</li>
+<li>READ_WRITE: 对返回的缓冲区的更改将传播到文件</li>
+<li>PRIVATE：对返回的缓冲区的更改不会传播到文件</li>
+</ul>
+</li>
+<li>相比ByteBuffer，它读写更快，而且可以随时随地写入。</li>
+<li>内含的缓冲区是直接缓冲区，所以被它打开的文件只有在垃圾收集时才会被关闭，而这个点是不确定的，在此之前MapppedByteBuffer的对象一直持有文件的句柄。</li>
+<li><p>channel把MapppedByteBuffer map出来但却不提供unmap方法，所以我们自己实现一个来释放文件的句柄。</p>
+<pre><code>//48s
+public static void wirteWithMappedByteBuffer() throws IOException {
+    File file=new File(&quot;e:/mb.dat&quot;);
+    if(file.exists()){
+        file.delete();
+    }else{
+        file.createNewFile();
+    }
+
+    RandomAccessFile raf=new RandomAccessFile(file,&quot;rw&quot;);
+    FileChannel fileChannel=raf.getChannel();
+    byte[] data=null;
+    int start;
+    MappedByteBuffer mbb=null;
+    long len;
+    int dataChunk=DATA_CHUNK/1024/1024;
+    for(start=0,len=LEN;len&gt;=DATA_CHUNK;len-=DATA_CHUNK,start+=DATA_CHUNK){
+        System.out.println(&quot;Write a data chunk: &quot;+dataChunk+&quot;MB&quot;);
+        mbb=fileChannel.map(FileChannel.MapMode.READ_WRITE,start,DATA_CHUNK);
+        data=new byte[DATA_CHUNK];
+        mbb.put(data);
+        data=null;
+    }
+    if(len&gt;0){
+        mbb=fileChannel.map(FileChannel.MapMode.READ_WRITE,start,DATA_CHUNK);
+        data=new byte[DATA_CHUNK];
+        mbb.put(data);
+        data=null;
+    }
+    //release MappedByteBuffer
+    unmap(mbb);
+    fileChannel.close();
+}
+
+/**
+ * @Author haien
+ * @Description 一般用了MappedByteBuffer之后都是这样释放资源的，淡单单channel.close()是不够的
+ * @Date 2018/11/24
+ * @Param [mappedByteBuffer]
+ * @return void
+ **/
+public static void unmap(final MappedByteBuffer mappedByteBuffer){
+    try {
+        if (mappedByteBuffer == null) {
+            return;
+        }
+
+        //把残留的内容强制刷出
+        mappedByteBuffer.force();
+        AccessController.doPrivileged(new PrivilegedAction&lt;Object&gt;() {
+            @Override
+            @SuppressWarnings(&quot;restriction&quot;)
+            public Object run() {
+                try {
+                    Method getCleanerMethod = mappedByteBuffer.getClass()
+                            .getMethod(&quot;cleaner&quot;, new Class[0]);
+                    getCleanerMethod.setAccessible(true);
+                    sun.misc.Cleaner cleaner = (sun.misc.Cleaner) getCleanerMethod
+                            .invoke(mappedByteBuffer, new Object[0]);
+                    cleaner.clean();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        });
+    }catch (Exception e){
+        e.printStackTrace();
+    }
+}
+</code></pre><h4 id="ByteArrayINputstream-channel"><a href="#ByteArrayINputstream-channel" class="headerlink" title="ByteArrayINputstream+channel"></a>ByteArrayINputstream+channel</h4><pre><code>/**
+ * @Author haien
+ * @Description 中间转换成字节数组再写入文件
+                19s
+ * @Date 2018/11/25
+ * @Param []
+ * @return void
+ **/
+public static void writeWithByteArray() throws IOException {
+    File file=new File(&quot;e:/ba.dat&quot;);
+    if(file.exists()){
+        file.delete();
+    }else{
+        file.createNewFile();
+    }
+
+    RandomAccessFile raf=new RandomAccessFile(file,&quot;rw&quot;);
+    FileChannel fileChannel=raf.getChannel();
+
+    //数据准备
+    byte[] data=null;
+    //把数据包装为字节数组
+    ByteArrayInputStream bis=null;
+    //把字节数组转化为流
+    ReadableByteChannel byteChannel=null;
+    long len=0;
+    long start=0;
+    //单位转换
+    int dataChunk=DATA_CHUNK/1024/1024;
+    for(len=LEN;len&gt;=DATA_CHUNK;len-=DATA_CHUNK,start+=DATA_CHUNK){
+        System.out.println(&quot;Write a data chunk: &quot;+dataChunk+&quot;MB&quot;);
+
+        //数据准备
+        data=new byte[DATA_CHUNK];
+        //包装成字节数组输入流
+        bis=new ByteArrayInputStream(data);
+        //获取通道
+        byteChannel =Channels.newChannel(bis);
+        //写到目标文件的channel中
+        fileChannel.transferFrom(byteChannel,start,DATA_CHUNK); //transferFrom:将其他通道从start字节开始写指定字节数到文件通道中
+        data=null;
+    }
+
+    if(len&gt;0){
+        System.out.println(&quot;Write rest data chunk: &quot;+len/1024/1024+&quot;MB&quot;);
+
+        data=new byte[(int)len];
+        bis=new ByteArrayInputStream(data);
+        byteChannel=Channels.newChannel(bis);
+        fileChannel.transferFrom(fileChannel,start,len);
+        data=null;
+    }
+    fileChannel.close();
+    byteChannel.close();
+}
+</code></pre><h4 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a><a href="https://my.oschina.net/feichexia/blog/212318" target="_blank" rel="noopener">参考文章</a></h4></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-25T07:31:51.791Z" itemprop="dateUpdated">2018-11-25 15:31:51</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/NIO/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/NIO/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/NIO/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/NIO/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/NIO/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/NIO/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/NIO/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Nosql/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Nginx负载均衡服务器/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/NIO/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/NIO/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/NIO/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/NIO/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/NIO/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAB0UlEQVR42u3awY7CMAxFUf7/p4s0q1nQcJ/jWEW6WaGKksPGsl/yeuF1/a275//X3ffJd9qWXLlyt7nXcq03W/8NziUGuXLlznPXW95tz0tbWvhun8uVK/dh3NoT/mty5cr9de66fUmJcuXKfSaXDD+8DK0Hm6FZTa5cuRvcNDA98flgvitXrtyQe22sE7/5ZUe5cuWOcHk7wmPTWisTxCVy5cod4da23zkmIe+iBkiuXLnHuLXyRILU2mWvON+VK1fuAS4pWDz0TK9x8JFJrly5M1w+6qSFrKvF+RCIyJUr9zCXn1zw4IO0L6RoFk975MqV28Ql5aPrWkZtR7ly5U5yyZFGOkXxVindUa5cufPcWoTB25eGAxu5cuWOc3m5IS1LelmzOPbIlSv3ALe20utTnLIVmMqVK7eJe5UWuSpB3opDE7ly5Y5w0ziDD0i1khdc2pArV+4xbq2EpaWNHL2gYidXrtwRbjrwpEHqTnFsuDkiV67cDW6teNU2Tg9c4+orV67cVi6POWpNTC2QRVOaXLlyH8BNW5z0aPbLu3Llyn0Yl29DilpxGpMrV+4glw8qJPIgJYk8jy9hyJUrt4lbK3a1oIS0OM35rly5cjPuG9Dp/DOe8sfUAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

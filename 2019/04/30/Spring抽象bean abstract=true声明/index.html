@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="由于Java中的抽象类不能被实例化，所以我们不能注册bean，但如果在注册该bean时指定属性abstract为true，则该bean被声明为抽象bean，它不会被实例化，但是其属性可以注入到其他bean了。 抽象bean甚至不必映射到任何类。 抽象bean的一个好处是可以做模板，比如，有两个类含有相同的几个属性，那么在xml配置文件中，我们可能要通过两次重复的操作来为它们注入这些属性，定义抽象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Spring抽象bean abstract=true声明/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="由于Java中的抽象类不能被实例化，所以我们不能注册bean，但如果在注册该bean时指定属性abstract为true，则该bean被声明为抽象bean，它不会被实例化，但是其属性可以注入到其他bean了。 抽象bean甚至不必映射到任何类。 抽象bean的一个好处是可以做模板，比如，有两个类含有相同的几个属性，那么在xml配置文件中，我们可能要通过两次重复的操作来为它们注入这些属性，定义抽象">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-04T09:58:33.739Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="由于Java中的抽象类不能被实例化，所以我们不能注册bean，但如果在注册该bean时指定属性abstract为true，则该bean被声明为抽象bean，它不会被实例化，但是其属性可以注入到其他bean了。 抽象bean甚至不必映射到任何类。 抽象bean的一个好处是可以做模板，比如，有两个类含有相同的几个属性，那么在xml配置文件中，我们可能要通过两次重复的操作来为它们注入这些属性，定义抽象">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.857Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-Spring抽象bean abstract=true声明"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.857Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li>由于Java中的抽象类不能被实例化，所以我们不能注册bean，但如果在注册该bean时指定属性abstract为true，则该bean被声明为抽象bean，它不会被实例化，但是其属性可以注入到其他bean了。</li>
+<li>抽象bean甚至不必映射到任何类。</li>
+<li>抽象bean的一个好处是可以做模板，比如，有两个类含有相同的几个属性，那么在xml配置文件中，我们可能要通过两次重复的操作来为它们注入这些属性，定义抽象bean则很好地解决了这个问题。</li>
+</ul>
+<pre><code>//两个有相同属性的类（不用声明父类）
+public class FooDao {
+    private DataSource dataSource;
+    private SomeHelper someHelper;
+    private FooHelper fooHelper;
+
+    //setters
+}
+public class BarDao {
+    private DataSource dataSource;
+    private SomeHelper someHelper;
+    private BarHelper barHelper;
+
+    //setters
+}
+
+//xml定义抽象bean（并不会实例化这个bean）
+&lt;bean id=&quot;dao&quot; abstract=&quot;true&quot;&gt; &lt;!--实际根本没有这个类--&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+    &lt;property name=&quot;someHelper&quot; ref=&quot;someHelper&quot;/&gt;
+&lt;/bean&gt;
+
+ &lt;!--指定parent为dao,则只需要再注入自己特别的属性即可--&gt;
+&lt;bean id=&quot;fooDao&quot; class=&quot;FooDao&quot; parent=&quot;dao&quot;&gt;
+    &lt;property name=&quot;fooHelper&quot; ref=&quot;fooHelper&quot; /&gt;
+&lt;/bean&gt;
+&lt;bean id=&quot;barDao&quot; class=&quot;BarDao&quot; parent=&quot;dao&quot;&gt;
+    &lt;property name=&quot;barHelper&quot; ref=&quot;barHelper&quot; /&gt;
+&lt;/bean&gt;
+</code></pre><ul>
+<li>不过，引入这两个类都能继承的抽象Dao类还可以节省类定义时的属性声明代码</li>
+</ul>
+<pre><code>//抽象Dao类
+public abstract Dao {
+    protected DataSource dataSource;
+    protected SomeHelper someHelper;
+
+    //setters
+}
+
+//这两个类都来继承它
+public class FooDao extends Dao {
+    private FooHelper fooHelper;
+
+    //setters
+}
+public class BarDao extends Dao {
+    private BarHelper barHelper;
+
+    //setters
+}
+</code></pre><ul>
+<li><p>xml配置文件不变</p>
+</li>
+<li><p>因为抽象bean不需要实例化，所以一般不指明class属性。</p>
+</li>
+<li>但其实抽象bean Dao也可以指定class属性，映射到某个类上面，当子bean FooDao未指明class属性时，Spring就会找到父bean Dao的class，并把子bean都实例化为Dao类实例，因此这里的Dao不能是抽象类。</li>
+<li>也即是说，抽象bean的映射类不一定是抽象类，因为抽象bean的“抽象”本不是抽象类的意思，是我们望文生义了。</li>
+<li><a href="https://blog.csdn.net/z69183787/article/details/76637846" target="_blank" rel="noopener">参考文章</a></li>
+<li>代码实例：ideaProjects/shirochapter12/resources/spring-beans.xml</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-04T09:58:33.739Z" itemprop="dateUpdated">2019-03-04 17:58:33</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Spring抽象bean abstract=true声明/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Spring抽象bean abstract=true声明/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Spring抽象bean abstract=true声明/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Spring抽象bean abstract=true声明/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Spring抽象bean abstract=true声明/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Spring抽象bean abstract=true声明/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Spring抽象bean abstract=true声明/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Spring基础概念/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/SpringMVC执行步骤、Model的使用/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Spring抽象bean abstract=true声明/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Spring抽象bean abstract=true声明/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Spring抽象bean abstract=true声明/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Spring抽象bean abstract=true声明/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Spring抽象bean abstract=true声明/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACxElEQVR42u3a0U7DQAwEwP7/TxeJNwRJ1/YZKjR5QimNboJ0Nut7POLr+Xld3f/+6fPiunpm8unVGg5ceHh4eK2l3y8ouZ+8jvun3cPu71++Ajw8PLw13n0xePGIYHO/eh1Xd5JvRQUMDw8P7095pwpJXjzw8PDw/gcv3+gnMDw8PLz35yUbfXX7zhv0ahC8krXg4eHhxbzqAOwdfl6c7+Hh4eENpup5czw/OpC0zuXV4uHh4S3w8vigd9Dq7P28CjzyZeHh4eEVeXlgmheGaknIG+jkdXz5Lh4eHt4ybzKySg5d5UtPUoXoj4GHh4e3xuvFCr0lTg5X5W03Hh4e3h6vGqfmLXKO7xWnQmCBh4eHt8bLN/Q83u2NwfKWOvodPDw8vKO8+0fnw6dJAUiKSpUaAfDw8PDGvGpIWi0AE3yvFOHh4eHt8ar/5FdDijy8SCKJQruPh4eHt8A7FaRWu9lqiFwoBvd/Qzw8PLwxL2ltk0VUt/5qrNBs9/Hw8PAWePmDJqOvXpAxCXPx8PDwtnmToX7STFePT02KSuFkBB4eHt6YlxeGSWubv7K8OEVZCx4eHt4hXrV1zsf8G0FwuVzh4eHhLfCSAXx+TKp3FOBUPPEijMDDw8M7xKsWg729Nz8lVTh2gIeHh7fAqzbQSStcPTiVLz0fwuHh4eHt8UadeLzF51Fs9dW8+C4eHh7er/CSkVUvlj11+ODYCTI8PDy8Fq+3NVcHY3ns2xt34eHh4f0m71m8kvA0LyS9iX+zpcbDw8M7xOu1ub3SksfB+YGtPDjGw8PDO8vLi0EeB+RDso2x2Q/zPTw8PLwFXjVOzSPX/DXlv5MHzXh4eHh/y8sPWvWKRy/mePE68PDw8N6Ad6qQ5Mhe4cHDw8Pb5lXDiOo2nTfK+Siu0FLj4eHhHeVVB2B5q51v9/mL6wUWeHh4eId4H5iRac6lGDVcAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

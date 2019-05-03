@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="为什么当传入对象不明确时，我们一般用多态实现根据传入对象来调用重写方法（以Animal为例，我们需要对需要操作的对象声明为它们的父类，如Animal的voice中定义形参为Animal类，这样可以传入Cat、Dog等子类，甚至要定义成共同父类Object）如： //定义一个类，其属性为Object类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/泛型/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="为什么当传入对象不明确时，我们一般用多态实现根据传入对象来调用重写方法（以Animal为例，我们需要对需要操作的对象声明为它们的父类，如Animal的voice中定义形参为Animal类，这样可以传入Cat、Dog等子类，甚至要定义成共同父类Object）如： //定义一个类，其属性为Object类">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B734.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B736.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B733.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B741.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7300.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B739.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B738.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B740.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B742.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B744.PNG">
+<meta property="og:updated_time" content="2019-03-16T05:39:09.600Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="为什么当传入对象不明确时，我们一般用多态实现根据传入对象来调用重写方法（以Animal为例，我们需要对需要操作的对象声明为它们的父类，如Animal的voice中定义形参为Animal类，这样可以传入Cat、Dog等子类，甚至要定义成共同父类Object）如： //定义一个类，其属性为Object类">
+<meta name="twitter:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B734.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:46.116Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#为什么"><span class="post-toc-number">1.</span> <span class="post-toc-text">为什么</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#是什么"><span class="post-toc-number">2.</span> <span class="post-toc-text">是什么</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#有啥用"><span class="post-toc-number">3.</span> <span class="post-toc-text">有啥用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分类"><span class="post-toc-number">4.</span> <span class="post-toc-text">分类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#泛型类"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">泛型类</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#泛型接口"><span class="post-toc-number">5.</span> <span class="post-toc-text">泛型接口</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#泛型通配符"><span class="post-toc-number">6.</span> <span class="post-toc-text">泛型通配符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#泛型方法与Class泛型类class对象"><span class="post-toc-number">7.</span> <span class="post-toc-text">泛型方法与Class泛型类class对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#泛型方法与可变参数"><span class="post-toc-number">8.</span> <span class="post-toc-text">泛型方法与可变参数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#静态方法与泛型"><span class="post-toc-number">9.</span> <span class="post-toc-text">静态方法与泛型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#泛型方法总结"><span class="post-toc-number">10.</span> <span class="post-toc-text">泛型方法总结</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#泛型上下边界"><span class="post-toc-number">11.</span> <span class="post-toc-text">泛型上下边界</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#泛型数组"><span class="post-toc-number">12.</span> <span class="post-toc-text">泛型数组</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#泛型的嵌套"><span class="post-toc-number"></span> <span class="post-toc-text">泛型的嵌套</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取泛型参数的实际类型"><span class="post-toc-number"></span> <span class="post-toc-text">获取泛型参数的实际类型</span></a>
+        </nav>
+    </aside>
+
+
+<article id="post-泛型"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:46" datetime="2019-04-30T08:25:46.116Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h4><p>当传入对象不明确时，我们一般用多态实现根据传入对象来调用重写方法（以Animal为例，我们需要对需要操作的对象声明为它们的父类，如Animal的voice中定义形参为Animal类，这样可以传入Cat、Dog等子类，甚至要定义成共同父类Object）如：</p>
+<p>//定义一个类，其属性为Object类</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B734.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>//实例化对象</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B736.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这可能会导致：</p>
+<ol>
+<li>装入数据的类型都被当作Object对待（往往不只是Animal类而是更宽容的Object类），从而“丢失”自己的实际类型</li>
+<li>获取数据时需要强制类型转换，可能出错，因此还要手动类型检查（instanceof），效率低</li>
+</ol>
+<h4 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h4><p>泛型就是参数化类型，使用广泛的类型</p>
+<h4 id="有啥用"><a href="#有啥用" class="headerlink" title="有啥用"></a>有啥用</h4><ol>
+<li>在编译的时候自动检查类型安全，比如存入的类型与实例化时指定的类型不同。</li>
+<li>所有的强转都是自动和隐式的，提高代码的重用率。</li>
+</ol>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><p>泛型有三种使用方式，分别为：泛型类、泛型接口、泛型方法</p>
+<h5 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h5><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B733.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>不能使用基本类型，如：</p>
+<p>Student&lt;String,Integer&gt;  //Integer不能写成int</p>
+<p>声明类时使用泛型，实例化时指定类型（若不指定则可传入任意类型，但这样它就不会自动转换和检查类型，失去了泛型的意义）。</p>
+<ul>
+<li><p>一个最普通的泛型类：常用的占位符：T，任意类型Type，E，集合中任意元素Element，K、V，键值对中的key和value，N,Number数字。</p>
+<p>  //此处T可以随便写为任意标识，常见的如T、E、K、V等形式的参数常用于表示泛型；标识可以写多个<br>  //在实例化泛型类时，必须指定T的具体类型</p>
+<p>  /*<em>
+  </em>但是父类Genrator可以不指定类型，即其后面的<t>可以不写，叫做泛型的擦除，这时统一用Object代替父类中出现的所有T类型<br>  <em>也可以子类、父类同时擦除
+  </em><br>  <em>反正错误情况只有一种：子类擦除，父类不擦除
+  </em>要么同时擦除，要么子类&gt;=父类（只擦除子类实际上等同于子类的成员类型都被定死，是&lt;=）<br>  public class Generic<t>{ </t></t></p>
+<pre><code>//key这个成员变量的类型为T,T的类型由外部指定  
+private T key;
+
+public Generic(T key) { //泛型构造方法形参key的类型也为T，T的类型由外部指定
+    this.key = key;
+}
+
+public T getKey(){ //泛型方法getKey的返回值类型为T，T的类型由外 部指定
+    return key;
+}
+</code></pre><p>  }<br>不能对确切的泛型类型使用instanceof操作。如下面的操作是非法的，编译时会出错。</p>
+</li>
+</ul>
+<p>if(ex_num instanceof Generic<number>) //可能是因为编译（甚至连运行）的时候JVM都无法识别泛型的具体类型，就像泛型数组一样</number></p>
+<p>最典型的泛型类就是各种容器类，如：List、Set、Map。</p>
+<h4 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h4><ul>
+<li><p>泛型接口与泛型类的定义及使用基本相同。泛型接口常被用在各种类的生产器中，可以看一个例子：</p>
+<p>  //定义一个泛型接口<br>  public interface Generator<t> { </t></p>
+<pre><code>public T next();
+</code></pre><p>  }</p>
+</li>
+<li>就直接把class换成interface就行了</li>
+<li>T就只是个占位符，要叫什么都可以，有人习惯写Item</li>
+</ul>
+<p>实现泛型接口的类可选择传入或不传入实参（指定或不指定类型）</p>
+<p>不传入泛型实参</p>
+<pre><code>/**
+* 未传入泛型实参时，与泛型类的定义相同，在声明类的时候，需将泛型的声明也一起加到类中，必须跟它一样是T
+* 即：class FruitGenerator&lt;T&gt; implements Generator&lt;T&gt;{
+* 如果不声明泛型，如：class FruitGenerator implements Generator&lt;T&gt;，编译器会报错：&quot;Unknown class&quot;
+* 
+*/
+class FruitGenerator&lt;T&gt; implements Generator&lt;T&gt;{
+    public T next() {
+        return null;
+    }
+}
+传入泛型实参
+/**
+* 传入泛型实参时：
+*所有使用泛型的地方都要替换成传入的实参类型
+* 即：Generator&lt;T&gt;，public T next();中的的T都要替换成下面传入的String类型。
+*/
+public class FruitGenerator implements Generator&lt;String&gt; {
+
+    private String[] fruits = new String[]{&quot;Apple&quot;, &quot;Banana&quot;, &quot;Pear&quot;};
+
+    public String next() {
+
+    }
+}
+</code></pre><p>父类的原属性类型随父类而定，子类的新属性随子类而定</p>
+<p>方法重写随父类而定</p>
+<h4 id="泛型通配符"><a href="#泛型通配符" class="headerlink" title="泛型通配符"></a>泛型通配符</h4><p>同一种泛型可以对应多个版本（因为参数类型是不确定的），但是不同版本的泛型类实例是不兼容的。也即是传入泛型类的泛型实参为父类时，子类并不能传入。如：</p>
+<pre><code>public void showKeyValue1(Generic&lt;Number&gt; obj){
+
+}
+
+Generic&lt;Integer&gt; gInteger = new Generic&lt;Integer&gt;(123);
+showKeyValue(gInteger);//编译器会为我们报错：Generic&lt;java.lang.Integer&gt; cannot be applied to Generic&lt;java.lang.Number&gt;
+</code></pre><p>因此我们需要一个在逻辑上可以表示同时是Generic<integer>和Generic<number>父类的引用类型。由此类型通配符应运而生。</number></integer></p>
+<p>将上面的方法改一下：</p>
+<pre><code>public void showKeyValue1(Generic&lt;?&gt; obj){
+    Log.d(&quot;泛型测试&quot;,&quot;key value is &quot; + obj.getKey());
+}
+</code></pre><p>类型通配符一般是使用？代替具体的类型实参，注意了，此处’？’是类型实参，而不是类型形参。</p>
+<p>此处的？和Number、String、Integer一样都是一种实际的类型，可以把？看成所有类型的父类。是一种真实的类型。</p>
+<p>可以解决当具体类型不确定的时候，这个通配符就是 ?  ；当操作类型时，不需要使用类型的具体功能时，只使用Object类中的功能。那么可以用 ? 通配符来表未知类型。</p>
+<p>不能在类上使用？只能在声明时使用？，不能在使用时使用。因为？表示声明时不定，使用时确定。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B741.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>test(stu)编译报错：使用时不能用？型，使用时要确定</p>
+<p>不能写Student&lt;?&gt; stu = new Student&lt;?&gt; ();//因为new就是使用时</p>
+<h4 id="泛型方法与Class泛型类class对象"><a href="#泛型方法与Class泛型类class对象" class="headerlink" title="泛型方法与Class泛型类class对象"></a>泛型方法与Class<t>泛型类class对象</t></h4><p>泛型方法，是在调用方法的时候指明泛型的具体类型 。</p>
+<pre><code>public &lt;T&gt; T genericMethod(Class&lt;T&gt; tClass){  //public与返回值中间&lt;T&gt;非常重要，
+    可以理解为声明此方法为泛型方法。T表明返回值为泛型T
+        T instance = tClass.newInstance();
+        return instance;
+}
+</code></pre><ul>
+<li>其中Class<t>表示泛型类的class对象，如User.class。</t></li>
+</ul>
+<pre><code>public final class Class&lt;T&gt; implements Serializable {  
+    …………  
+}  
+</code></pre><p>当泛型方法出现在泛型类中时:</p>
+<pre><code>class GenerateTest&lt;T&gt;{
+
+    //在泛型类中声明了一个泛型方法，使用泛型E，这种泛型E可以为任意类型。可以类型与T相同，也可以不同。
+    //由于泛型方法在声明的时候会声明泛型&lt;E&gt;，因此即使在泛型类中并未声明泛型，编译器也能够正确识别泛型方法中识别的泛型。
+    public &lt;E&gt; void show_3(E t){
+        System.out.println(t.toString());
+    }
+
+    //在泛型类中声明了一个泛型方法，使用泛型T，注意这个T是一种全新的类型，可以与泛型类中声明的T不是同一种类型。
+    public &lt;T&gt; void show_2(T t){
+        System.out.println(t.toString());
+    }
+}
+</code></pre><p>再看一个例子：</p>
+<pre><code>public class GenericFruit {
+    class Fruit{
+
+    }
+
+    class Apple extends Fruit{
+
+    }
+
+    class Person{
+
+    }
+
+    class GenerateTest&lt;T&gt;{
+        //注意，没有声明为泛型方法，T还是上面从类传进来的T
+        public void show_1(T t){
+
+        }
+
+    //在泛型类中声明了一个泛型方法，使用泛型E，这种泛型E可以为任意类型。可以类型与T相同，也可以不同。
+    //由于泛型方法在声明的时候会声明泛型&lt;E&gt;，因此即使在泛型类中并未声明泛型，编译器也能够正确识别泛型方法中识别的泛型。
+        public &lt;E&gt; void show_3(E t){
+
+        }
+
+    //在泛型类中声明了一个泛型方法，使用泛型T，注意这个T是一种全新的类型，可以与泛型类中声明的T不是同一种类型。
+        public &lt;T&gt; void show_2(T t){
+
+        }
+    }
+
+    public static void main(String[] args) {
+        Apple apple = new Apple();
+        Person person = new Person();
+
+        GenerateTest&lt;Fruit&gt; generateTest = new GenerateTest&lt;Fruit&gt;();//JDK1.7之后可以省略后一个&lt;Fruit&gt;而达到同样的效果
+        generateTest.show_1(apple);//apple是Fruit的子类，所以这里可以 
+                                   //PS：这里apple是传给方法，而前面Integer是传给类，传给类是一种特例。
+                                   //上面将GenerateTest指定为Fruit类，那么show_1中应该传入Fruit类，而apple也属于Fruit类
+
+        generateTest.show_1(person);//编译器会报错，因为泛型类型实参指定的是Fruit，而传入的实参类是Person
+
+        //使用以下两个方法都可以成功
+        generateTest.show_2(apple);
+        generateTest.show_2(person);
+
+        //使用以下两个方法也都可以成功
+        generateTest.show_3(apple);
+        generateTest.show_3(person);
+}
+</code></pre><h4 id="泛型方法与可变参数"><a href="#泛型方法与可变参数" class="headerlink" title="泛型方法与可变参数"></a>泛型方法与可变参数</h4><pre><code>public &lt;T&gt; void printMsg( T... args){//T可以是某个类，...表示可以传入该类型的无数个参数；只能放在最后
+    for(T t : args){
+    Log.d(&quot;泛型测试&quot;,&quot;t is &quot; + t);
+    }
+}
+
+printMsg(&quot;111&quot;,222,&quot;aaaa&quot;,&quot;2323.4&quot;,55.55);
+</code></pre><p>  可变参数处理方法</p>
+<p><img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B7300.PNG" alt=""></p>
+<h4 id="静态方法与泛型"><a href="#静态方法与泛型" class="headerlink" title="静态方法与泛型"></a>静态方法与泛型</h4><p>静态方法有一种情况需要注意一下，那就是在类中的静态方法使用泛型：静态方法无法访问类上定义的泛型；如果静态方法操作的引用数据类型不确定的时候，必须要将泛型定义在方法上。</p>
+<p>即：如果静态方法要使用泛型的话，必须将静态方法也定义成泛型方法 。</p>
+<pre><code>public class StaticGenerator&lt;T&gt; {
+....
+....
+/**
+ * 如果在类中定义使用泛型的静态方法，需要添加额外的泛型声明（将这个方法定义成泛型方法）
+ * 即使静态方法要使用泛型类中已经声明过的泛型也不可以。
+ * 如：public static void show(T t){..},此时编译器会提示错误信息：
+      &quot;StaticGenerator cannot be refrenced from static context&quot;
+ */
+    public static &lt;T&gt; void show(T t){
+
+    }
+}
+</code></pre><h4 id="泛型方法总结"><a href="#泛型方法总结" class="headerlink" title="泛型方法总结"></a>泛型方法总结</h4><ul>
+<li>泛型方法能使方法独立于类而产生变化，以下是一个基本的指导原则：</li>
+</ul>
+<p>无论何时，如果你能做到，你就该尽量使用泛型方法。</p>
+<ul>
+<li>擦除后编译时不会类型检查</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B739.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>}</p>
+<p><img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B738.PNG" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B740.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>test(stu1)编译通过，因为擦除，不会类型检查<br>test(stu)编译报错</p>
+<h4 id="泛型上下边界"><a href="#泛型上下边界" class="headerlink" title="泛型上下边界"></a>泛型上下边界</h4><ul>
+<li>为泛型添加上边界，即传入的类型实参必须是指定类型的子类型</li>
+</ul>
+<pre><code>//改一下非泛型方法
+public void showKeyValue1(Generic&lt;? extends Number&gt; obj){
+    Log.d(&quot;泛型测试&quot;,&quot;key value is &quot; + obj.getKey());
+}
+
+//改一下泛型类
+public class Generic&lt;T extends Number&gt;{
+
+}
+
+//改一下泛型方法
+//必须在权限声明与返回值之间的&lt;T&gt;上添加上下边界，即在泛型声明的时候添加
+public &lt;T&gt; T showKeyName(Generic&lt;T extends Number&gt; container)//编译器会报错：&quot;Unexpected bound&quot;
+public &lt;T extends Number&gt; T showKeyName(Generic&lt;T&gt; container){
+
+}
+</code></pre><p>由此可见，泛型的上下边界添加，必须与泛型的声明在一起 。</p>
+<p>以上extends改为super则必须传入父类</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B742.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>报错，因为都是Student类，方法签名相同</p>
+<h4 id="泛型数组"><a href="#泛型数组" class="headerlink" title="泛型数组"></a>泛型数组</h4><ul>
+<li><p>不能创建一个确切的泛型类型的数组</p>
+<p>也就是说下面的这两个例子是不可以的：</p>
+<p>List<string>[] ls = new ArrayList<string>[10];</string></string></p>
+<p><img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B744.PNG" alt=""></p>
+</li>
+</ul>
+<p>  而使用通配符或者不指定是可以的：</p>
+<p>  List&lt;?&gt;[] ls = new ArrayList[10];</p>
+<p>  List<string>[] ls = new ArrayList[10];</string></p>
+<p>  下面使用Sun的一篇文档的一个例子来说明这个问题：</p>
+<pre><code>List&lt;String&gt;[] lsa = new List&lt;String&gt;[10]; // Not really allowed. 
+    此行编译后擦除类型信息，JVM陷入迷航  
+Object o = lsa;    
+Object[] oa = (Object[]) o;    
+List&lt;Integer&gt; li = new ArrayList&lt;Integer&gt;();    
+li.add(new Integer(3));  
+oa[1] = li; // 傻傻的让int型也放进来，编译时不报错.Unsound, but passes run time store check    
+String s = lsa[1].get(0); // Run-time error: ClassCastException.悲剧了，运行的时候报错！
+//而上面两种声明方式在取出时手动强转的时候，转错的话会在编译报错，总比运行才报错的好
+</code></pre><ul>
+<li>那么对于元素为泛型类的数组，我们要怎么创建指定类型的数组呢？</li>
+</ul>
+<pre><code>List&lt;Integer&gt;[] listArray=(List&lt;Integer&gt;[])new List[5]; //先创建容量为5的泛型list数组，再强转为integer型的list数组，最后用integer型的list数组变量接收
+</code></pre><h3 id="泛型的嵌套"><a href="#泛型的嵌套" class="headerlink" title="泛型的嵌套"></a>泛型的嵌套</h3><ul>
+<li>外部类与内部类的关系</li>
+</ul>
+<pre><code>public class Queue&lt;T&gt; implements Iterable&lt;T&gt;{
+
+    private T item;
+
+    /**
+     * 普通内部类：不声明泛型的话会自动继承外部类的泛型，声明泛型则即使同为T也与外部类的不同
+     */
+    private class Node&lt;T&gt;{
+        private T item1=item; //飘红：Incompatible types:required:T,found:T
+    }
+
+    /**
+     * 静态内部类：不声明不会自动继承外部类的泛型，
+     * 因为不需要有外部类对象就可以直接用外部类创建内部类对象，
+     * 此时具体类型还未指定，继承了也没用，所以不会自动继承；
+     * 声明泛型则即使同为T也与外部类的不同
+     */
+}
+</code></pre><h3 id="获取泛型参数的实际类型"><a href="#获取泛型参数的实际类型" class="headerlink" title="获取泛型参数的实际类型"></a>获取泛型参数的实际类型</h3><ul>
+<li><a href="https://blog.csdn.net/junranhuigu/article/details/72676371" target="_blank" rel="noopener">参考文章</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-16T05:39:09.600Z" itemprop="dateUpdated">2019-03-16 13:39:09</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/泛型/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/泛型/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/泛型/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/泛型/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/泛型/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/泛型/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/泛型/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/访问项目图片并显示到页面/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/多态polymorphism/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/泛型/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/泛型/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/泛型/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/泛型/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/泛型/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxElEQVR42u3ay47CMAwFUP7/p5ktI6C9tptMRzpZIajSExZW/Hg84vV8Wa/fvP/67cnjby5euLi4Y+7zcH17Jj/M+5P5gT/sg4uLu5Fb3fo4JJ288nDPExsuLu4/4ebESeDDxcW9PzdJXarpEC4u7t24SfKTv2weBC/I1XBxcQfcvEq57vOS+i4uLm6L+yyu/DB54bXwdlxc3C3cPKD0rj55cMwLKLi4uHu4OSh5ZbVl2yy84uLiLuNOWqdV7mTU49eNDBcXdzF3UnnIj5Ffj6qNFlxc3BXcJIhc1Syp7vOBjouLu4WblDN6IanHitotuLi4G7m9xupVTdnkD8LFxd3D7Y1M9YhJ+hQlP7i4uFu4CeiCsYn4cnMSyHBxcRdzk6Jn9bJSPXx+3cHFxd3JrRY1VpRU8iYNLi7ufu48YPUSp0IjBxcX90+5eYDLQck62QcXF3cxt1fgSND5PoWj4uLibuFWg0vyymriNEmucHFx13F7watX7KgWSr4mP7i4uFu4vXGKyYjGxbkRLi7ubbjVcY1mkRQXF/f23KTYOh/suOyKg4uLO+BWi5vN1GUwooGLi7uTW8045sXT3kAGLi7uFu4P/Cmvjo+qQycAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

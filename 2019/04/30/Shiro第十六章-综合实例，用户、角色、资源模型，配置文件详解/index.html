@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="系统功能 根据用户权限获取菜单集合，返回前端显示。当前只有admin/123456。 本系统实体包括用户、公司、资源和角色，在界面上可以对它们进行增删查改等。 比如，用户可以修改用户所属公司、拥有角色和资源、修改密码；公司可以移动子公司到其他公司旗下；资源可以修改资源所需权限、在父菜单下增删子菜单，角色可以修改用户可访问的资源。 下图为资源管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Shiro第十六章-综合实例，用户、角色、资源模型，配置文件详解/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="系统功能 根据用户权限获取菜单集合，返回前端显示。当前只有admin/123456。 本系统实体包括用户、公司、资源和角色，在界面上可以对它们进行增删查改等。 比如，用户可以修改用户所属公司、拥有角色和资源、修改密码；公司可以移动子公司到其他公司旗下；资源可以修改资源所需权限、在父菜单下增删子菜单，角色可以修改用户可访问的资源。 下图为资源管理">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7674.PNG">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7675.PNG">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7676.PNG">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7657.PNG">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7677.PNG">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7678.PNG">
+<meta property="og:updated_time" content="2019-03-28T09:38:20.633Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="系统功能 根据用户权限获取菜单集合，返回前端显示。当前只有admin/123456。 本系统实体包括用户、公司、资源和角色，在界面上可以对它们进行增删查改等。 比如，用户可以修改用户所属公司、拥有角色和资源、修改密码；公司可以移动子公司到其他公司旗下；资源可以修改资源所需权限、在父菜单下增删子菜单，角色可以修改用户可访问的资源。 下图为资源管理">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7674.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:29:23.042Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#系统功能"><span class="post-toc-number">1.</span> <span class="post-toc-text">系统功能</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据库设计"><span class="post-toc-number">2.</span> <span class="post-toc-text">数据库设计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置文件"><span class="post-toc-number">3.</span> <span class="post-toc-text">配置文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用户验证链"><span class="post-toc-number">4.</span> <span class="post-toc-text">用户验证链</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义注解-注解解析器-使用实例"><span class="post-toc-number">5.</span> <span class="post-toc-text">自定义注解+注解解析器+使用实例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用Spring的Cache代替Shiro的Cache"><span class="post-toc-number">6.</span> <span class="post-toc-text">使用Spring的Cache代替Shiro的Cache</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Shiro第十六章-综合实例，用户、角色、资源模型，配置文件详解"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:29:23" datetime="2019-04-30T08:29:23.042Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="系统功能"><a href="#系统功能" class="headerlink" title="系统功能"></a>系统功能</h3><ul>
+<li>根据用户权限获取菜单集合，返回前端显示。当前只有admin/123456。</li>
+<li>本系统实体包括用户、公司、资源和角色，在界面上可以对它们进行增删查改等。</li>
+<li>比如，用户可以修改用户所属公司、拥有角色和资源、修改密码；公司可以移动子公司到其他公司旗下；资源可以修改资源所需权限、在父菜单下增删子菜单，角色可以修改用户可访问的资源。</li>
+<li>下图为资源管理</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7674.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>在组织机构管理栏点击“添加子节点”</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7675.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h3><ul>
+<li>数据库：shiro2。所在会话：mysql。</li>
+<li>用户表：organization_id：所属公司id，roles_ids:拥有角色id，用逗号连接成字符串。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7676.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>角色表：role：英文名称，用于后台交互；description：中文名称，用于前端显示；resource_ids：能访问的资源id，用逗号连接成字符串。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7657.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>资源表：type:资源类型，菜单和按钮，按钮实际为菜单的子菜单，为最低一级，当然菜单与菜单之间也有父子关系；parent_id:父菜单的id号；parent_ids：祖宗菜单链，从最顶级菜单的id开始排到父菜单，中间用/分隔，最后也用/结束；url:该资源对应的url；permission:访问该资源需要的权限；avaiable：是否可用。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7677.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>公司：parent_id：父公司id；parent_ids:祖宗公司id，从顶级公司排到父公司，中间用/分隔，最后也用/结束；avaliable：是否经营中。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7678.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><ul>
+<li>注意：配置文件的class属性不能断开，否则视为类路径出错</li>
+<li>resources.properties: 常量配置，包括DataSource的jdbc属性、数据连接池属性和shiro的密码加密算法，以备spring-config.xml引入。</li>
+</ul>
+<pre><code>#这里只列出加密算法属性
+#shiro
+password.algorithmName=md5
+password.hashIterations=2
+</code></pre><ul>
+<li><p>spring-config-cache.xml：定义cache底层为ehcache，以备spring-config.xml注入。</p>
+<pre><code>&lt;bean id=&quot;springCacheManager&quot;     
+  class=&quot;org.springframework.cache.ehcache.EhCacheCacheManager&quot;&gt;
+    &lt;property name=&quot;cacheManager&quot; ref=&quot;ehcacheManager&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!--ehcache--&gt;
+&lt;bean id=&quot;ehcacheManager&quot;
+      class=&quot;org.springframework.cache.ehcache.EhCacheManagerFactoryBean&quot;&gt;
+    &lt;property name=&quot;configLocation&quot; value=&quot;classpath:ehcache.xml&quot;/&gt;
+&lt;/bean&gt;
+</code></pre></li>
+<li><p>ehcache.xml：与以前配置相同，不再赘述。</p>
+</li>
+<li><p>spring-mvc-shiro.xml: 定义aop切面，开启@RequriresPermissions注解进行权限控制。</p>
+<pre><code>&lt;aop:config proxy-target-class=&quot;true&quot;&gt;&lt;/aop:config&gt;
+&lt;bean 
+    class=&quot;org.apache.shiro.spring.security.interceptor
+            .AuthorizationAttributeSourceAdvisor&quot;&gt;
+    &lt;property name=&quot;securityManager&quot; ref=&quot;securityManager&quot;/&gt;
+&lt;/bean&gt;
+</code></pre></li>
+<li><p>spring-config-shiro.xml: shiro配置，包括缓存、会话、realm、ShiroFilter、SecurityManager，以下只列出重要的。</p>
+</li>
+</ul>
+<pre><code>&lt;!-- Realm实现 --&gt;
+&lt;bean id=&quot;userRealm&quot; class=&quot;com.haien.chapter16.realm.UserRealm&quot;&gt;
+    &lt;property name=&quot;credentialsMatcher&quot; ref=&quot;credentialsMatcher&quot;/&gt;
+    &lt;property name=&quot;cachingEnabled&quot; value=&quot;false&quot;/&gt;
+    &lt;!--&lt;property name=&quot;authenticationCachingEnabled&quot; value=&quot;true&quot;/&gt;--&gt;
+    &lt;!--&lt;property name=&quot;authenticationCacheName&quot; value=&quot;authenticationCache&quot;/&gt;--&gt;
+    &lt;!--&lt;property name=&quot;authorizationCachingEnabled&quot; value=&quot;true&quot;/&gt;--&gt;
+    &lt;!--&lt;property name=&quot;authorizationCacheName&quot; value=&quot;authorizationCache&quot;/&gt;--&gt;
+&lt;/bean&gt;
+
+&lt;bean id=&quot;sysUserFilter&quot;
+  class=&quot;com.github.zhangkaitao.shiro.chapter16.web.shiro.filter.SysUserFilter&quot;/&gt;
+
+&lt;!-- Shiro的Web过滤器 --&gt;
+&lt;bean id=&quot;shiroFilter&quot; class=&quot;org.apache.shiro.spring.web.ShiroFilterFactoryBean&quot;&gt;
+    &lt;property name=&quot;securityManager&quot; ref=&quot;securityManager&quot;/&gt;
+    &lt;property name=&quot;loginUrl&quot; value=&quot;/login&quot;/&gt;
+    &lt;property name=&quot;filters&quot;&gt;
+        &lt;util:map&gt;
+            &lt;entry key=&quot;authc&quot; value-ref=&quot;formAuthenticationFilter&quot;/&gt;
+            &lt;entry key=&quot;sysUser&quot; value-ref=&quot;sysUserFilter&quot;/&gt;
+        &lt;/util:map&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;filterChainDefinitions&quot;&gt;
+        &lt;value&gt;
+            /login = authc
+            /logout = logout
+            /authenticated = authc
+            /** = user,sysUser
+        &lt;/value&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><ul>
+<li>UserRealm禁用了shiro自己的缓存，而启用自己的缓存，否则需要在修改用户信息时频繁清理缓存。</li>
+<li><p>SysUserFilter：根据当前用户身份获取User信息放入request，便于后续获取。</p>
+</li>
+<li><p>spring-config.xml: 扫描要注册的bean、注入数据源、配置事务管理器、引入其他配置文件，方便在web.xml只定位这一个配置文件即可发现其他配置文件。</p>
+<pre><code>&lt;context:property-placeholder location=&quot;classpath:resources.properties&quot;/&gt;
+
+&lt;!-- 扫描注解Bean --&gt;
+&lt;context:component-scan base-package=&quot;com.haien.chapter16&quot;&gt;
+    &lt;!--controller包的扫描交给MVC层的xml--&gt;
+    &lt;context:exclude-filter type=&quot;annotation&quot;
+        expression=&quot;org.springframework.stereotype.Controller&quot;/&gt;
+&lt;/context:component-scan&gt;
+
+&lt;!-- 开启AOP监听 只对当前配置文件有效  expose-proxy=&quot;true&quot;--&gt;
+&lt;aop:aspectj-autoproxy/&gt;
+
+&lt;!-- 数据源 --&gt;
+&lt;bean id=&quot;dataSource&quot; class=&quot;com.alibaba.druid.pool.DruidDataSource&quot;
+      init-method=&quot;init&quot; destroy-method=&quot;close&quot;&gt;
+    &lt;property name=&quot;url&quot; value=&quot;${connection.url}&quot;/&gt;
+    &lt;property name=&quot;username&quot; value=&quot;${connection.username}&quot;/&gt;
+    &lt;property name=&quot;password&quot; value=&quot;${connection.password}&quot;/&gt;
+
+    &lt;!-- 配置初始化大小、最小、最大 --&gt;
+    &lt;property name=&quot;initialSize&quot; value=&quot;${druid.initialSize}&quot;/&gt;
+    &lt;property name=&quot;minIdle&quot; value=&quot;${druid.minIdle}&quot;/&gt;
+    &lt;property name=&quot;maxActive&quot; value=&quot;${druid.maxActive}&quot;/&gt;
+
+    &lt;!-- 配置获取连接等待超时的时间 --&gt;
+    &lt;property name=&quot;maxWait&quot; value=&quot;${druid.maxWait}&quot;/&gt;
+    &lt;!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，
+    单位是毫秒 --&gt;
+    &lt;property name=&quot;timeBetweenEvictionRunsMillis&quot;
+              value=&quot;${druid.timeBetweenEvictionRunsMillis}&quot; /&gt;
+
+    &lt;!-- 配置一个连接在池中最小生存的时间，单位是毫秒 --&gt;
+    &lt;property name=&quot;minEvictableIdleTimeMillis&quot; 
+        value=&quot;${druid.minEvictableIdleTimeMillis}&quot; /&gt;
+
+    &lt;property name=&quot;validationQuery&quot; 
+        value=&quot;${druid.validationQuery}&quot; /&gt;
+    &lt;property name=&quot;testWhileIdle&quot; value=&quot;${druid.testWhileIdle}&quot; /&gt;
+    &lt;property name=&quot;testOnBorrow&quot; value=&quot;${druid.testOnBorrow}&quot; /&gt;
+    &lt;property name=&quot;testOnReturn&quot; value=&quot;${druid.testOnReturn}&quot; /&gt;
+
+    &lt;!-- 打开PSCache，并且指定每个连接上PSCache的大小
+    如果用Oracle，则把poolPreparedStatements配置为true，
+    mysql可以配置为false。--&gt;
+    &lt;property name=&quot;poolPreparedStatements&quot; 
+        value=&quot;${druid.poolPreparedStatements}&quot; /&gt;
+    &lt;property name=&quot;maxPoolPreparedStatementPerConnectionSize&quot;
+      value=&quot;${druid.maxPoolPreparedStatementPerConnectionSize}&quot; /&gt;
+
+    &lt;!-- 配置监控统计拦截的filters --&gt;
+    &lt;property name=&quot;filters&quot; value=&quot;${druid.filters}&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;bean id=&quot;dataSourceProxy&quot;
+      class=&quot;org.springframework.jdbc.datasource
+        .TransactionAwareDataSourceProxy&quot;&gt;
+    &lt;property name=&quot;targetDataSource&quot; ref=&quot;dataSource&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;bean id=&quot;jdbcTemplate&quot; 
+      class=&quot;org.springframework.jdbc.core.JdbcTemplate&quot;&gt;
+    &lt;constructor-arg ref=&quot;dataSourceProxy&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!--事务管理器配置--&gt;
+&lt;bean id=&quot;transactionManager&quot;
+      class=&quot;org.springframework.jdbc.datasource.
+        DataSourceTransactionManager&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSourceProxy&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;transactionManager&quot;&gt;
+    &lt;tx:attributes&gt;
+        &lt;tx:method name=&quot;*&quot; propagation=&quot;REQUIRED&quot;/&gt;
+    &lt;/tx:attributes&gt;
+&lt;/tx:advice&gt;
+
+&lt;!--expose-proxy=&quot;true&quot;--&gt;
+&lt;aop:config proxy-target-class=&quot;true&quot;&gt;
+    &lt;!-- 只对业务逻辑层实施事务 --&gt;
+    &lt;!--匹配规则详见笔记：Spring基础概念--&gt;
+    &lt;aop:pointcut id=&quot;txPointcut&quot;
+        expression=&quot;execution(* com.haien
+            .chapter16..service..*+.*(..))&quot;/&gt;
+    &lt;aop:advisor id=&quot;txAdvisor&quot; advice-ref=&quot;txAdvice&quot; 
+        pointcut-ref=&quot;txPointcut&quot;/&gt;
+&lt;/aop:config&gt;
+
+&lt;bean class=&quot;com.haien.chapter16.spring.SpringUtils&quot;/&gt;
+
+&lt;import resource=&quot;classpath:spring-config-cache.xml&quot;/&gt;
+&lt;import resource=&quot;classpath:spring-config-shiro.xml&quot;/&gt;
+</code></pre></li>
+<li><p>controller层无权限会抛出UnauthorizationException，被全局异常处理器截获并返回unauthorized.jsp。</p>
+</li>
+<li><p>spring-mvc.xml：扫描controller类、引入spring-mvc-shiro.xml。</p>
+<pre><code>&lt;!--引入常量配置文件--&gt;
+&lt;context:property-placeholder 
+    location=&quot;classpath:resources.properties&quot;/&gt;
+
+&lt;!-- 开启controller注解支持 --&gt;
+&lt;context:component-scan
+        base-package=&quot;com.haien.chapter16.web.controller&quot;
+        use-default-filters=&quot;false&quot;&gt;
+    &lt;context:include-filter type=&quot;annotation&quot;
+        expression=&quot;org.springframework.stereotype.Controller&quot;/&gt;
+    &lt;!--扫描全局异常处理类，否则改类不起作用--&gt;
+    &lt;context:include-filter type=&quot;annotation&quot;
+        expression=&quot;org.springframework.web.bind.annotation.
+            ControllerAdvice&quot;/&gt;
+&lt;/context:component-scan&gt;
+
+&lt;!--注册@CurrentUser参数解析器，用在IndexController中，从request中
+获取shiro sysUser拦截器放入的当前登录User对象--&gt;
+&lt;mvc:annotation-driven&gt;
+    &lt;mvc:argument-resolvers&gt;
+        &lt;bean
+          class=&quot;com.haien.chapter16.web.bind
+                    .method.CurrentUserMethodArgumentResolver&quot;/&gt;
+    &lt;/mvc:argument-resolvers&gt;
+&lt;/mvc:annotation-driven&gt;
+
+&lt;!-- 当在web.xml中DispatcherServlet使用 &lt;url-pattern&gt;/&lt;/url-pattern&gt; 
+映射时，能映射静态资源 --&gt;
+&lt;mvc:default-servlet-handler/&gt;
+
+&lt;!-- 静态资源映射 --&gt;
+&lt;mvc:resources mapping=&quot;/static/**&quot; location=&quot;/WEB-INF/static/&quot;/&gt;
+
+&lt;!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- --&gt;
+&lt;bean id=&quot;defaultViewResolver&quot;
+      class=&quot;org.springframework.web.servlet.view.
+        InternalResourceViewResolver&quot;
+      p:order=&quot;1&quot;&gt;
+    &lt;property name=&quot;viewClass&quot; 
+        value=&quot;org.springframework.web.servlet.view.JstlView&quot;/&gt;
+    &lt;property name=&quot;contentType&quot; value=&quot;text/html&quot;/&gt;
+    &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/jsp/&quot;/&gt;
+    &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- 控制器异常处理 --&gt;
+&lt;bean id=&quot;exceptionHandlerExceptionResolver&quot;
+      class=&quot;org.springframework.web.servlet.mvc.method.annotation
+                .ExceptionHandlerExceptionResolver&quot;&gt;
+&lt;/bean&gt;
+
+&lt;bean 
+    class=&quot;com.haien.chapter16.web.exception.DefaultExceptionHandler&quot;/&gt;
+
+&lt;import resource=&quot;spring-mvc-shiro.xml&quot;/&gt;
+</code></pre></li>
+<li><a href="mvc:default-servlet-handler/" target="_blank" rel="noopener">mvc:default-servlet-handler/</a>：由于web.xml中DispatcherServlet使用<url-pattern>/</url-pattern>拦截all请求，会将静态资源的请求也拦截，导致找不到对应的controller处理，加上此标签会在SpringMvc上下文中定义一个org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler，检查进入DispatcherServlet的url，发现是对静态资源的请求则将该请求转由web服务器默认的Servlet处理，不是则由DispatcherServlet继续处理。</li>
+<li><p>一般web应用服务器默认的Servlet名为“default”，DefaultServletHttpRequestHandler可以找到它。但如果你所有的web服务器的默认Servlet名不是“default”，则需要通过default-servlet-name属性显式指定：</p>
+<pre><code>&lt;mvc:default-servlet-handler 
+    default-servlet-name=&quot;所使用的Web服务器默认使用的Servlet名称&quot; /&gt;
+</code></pre></li>
+<li><p>&lt;mvc:resources /&gt;：除此之外，还可以利用此标签明确匹配url和静态资源。</p>
+<pre><code>&lt;mvc:resources location=&quot;/,classpath:/META-INF/publicResources/&quot; 
+    mapping=&quot;/resources/**&quot;/&gt;
+</code></pre></li>
+<li><p>以上，将Web根路径（webapp）”/“及类路径下/META-INF/publicResources/ 的目录映射为/resources路径。假设Web根路径下拥有images、js这两个资源目录,在images下面有bg.gif图片，在js下面有test.js文件，则可以通过 /resources/images/bg.gif 和 /resources/js/test.js 访问这二个静态资源。</p>
+</li>
+<li><p><a href="https://www.cnblogs.com/dflmg/p/6393416.html" target="_blank" rel="noopener">参考文章</a></p>
+</li>
+<li><p>web.xml：配置Spring监听器、shiro安全过滤器、Servlet编码过滤器、Dispatcherservlet分发器，以下只列出重要的。</p>
+</li>
+</ul>
+<pre><code>&lt;!--加上这个可以在注册bean时切换bean作用域scope--&gt;
+&lt;listener&gt;
+    &lt;listener-class&gt;
+        org.springframework.web.context.request.RequestContextListener
+    &lt;/listener-class&gt;
+&lt;/listener&gt;
+
+&lt;!-- shiro 安全过滤器 --&gt;
+&lt;filter&gt;
+    &lt;filter-name&gt;shiroFilter&lt;/filter-name&gt;
+    &lt;filter-class&gt;
+        org.springframework.web.filter.DelegatingFilterProxy
+    &lt;/filter-class&gt;
+    &lt;async-supported&gt;true&lt;/async-supported&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;targetFilterLifecycle&lt;/param-name&gt;
+        &lt;param-value&gt;true&lt;/param-value&gt;
+    &lt;/init-param&gt;
+&lt;/filter&gt;
+
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;shiroFilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+    &lt;dispatcher&gt;REQUEST&lt;/dispatcher&gt;
+&lt;/filter-mapping&gt;
+</code></pre><ul>
+<li><dispatcher>REQUEST</dispatcher>：指定被分发的请求种类，默认request，如果此次请求非request则不会走该过滤器，也就是不会被分发给controller处理。它必须写在filter-mapping的最后。取值：<ul>
+<li>REQUEST：只要发起的请求是一次http请求，如某个url发起了一次get、post请求，或者发起相当于两次请求的重定向，那么就会走该过滤器。</li>
+<li>FORWARD：请求是转发才走过滤器。</li>
+<li>INCLUDE：只要是通过&lt;jsp:include page=”xxx.jsp” /&gt;嵌入进来的页面，每嵌入一个页面，都会走一次该过滤器。</li>
+<li>ERROR：当触发了一次error时，就会走一次该过滤器。什么是触发error？比如我在web.xml中配置了<error-page></error-page>，当后台返回400/404/500时，容器就会将请求转发到一下错误页面，这就触发了一次error。，走进了过滤器。虽然这是转发的过程，但是配置成FORWARD并不会走过滤器。</li>
+</ul>
+</li>
+<li><a href="https://www.cnblogs.com/xrq730/p/4929029.html" target="_blank" rel="noopener">参考文章</a></li>
+</ul>
+<pre><code>&lt;error-page&gt;
+    &lt;error-code&gt;400&lt;/error-code&gt;
+    &lt;location&gt;/filter/error.jsp&lt;/location&gt;
+&lt;/error-page&gt;
+
+&lt;error-page&gt;
+    &lt;error-code&gt;404&lt;/error-code&gt;
+    &lt;location&gt;/filter/error.jsp&lt;/location&gt;
+&lt;/error-page&gt;
+
+&lt;error-page&gt;
+    &lt;error-code&gt;500&lt;/error-code&gt;
+    &lt;location&gt;/filter/error.jsp&lt;/location&gt;
+&lt;/error-page&gt;
+</code></pre><h3 id="用户验证链"><a href="#用户验证链" class="headerlink" title="用户验证链"></a>用户验证链</h3><ul>
+<li>使用基于表单的拦截器实现用户验证，自定义了UserRealm，重写其中doGetAuthenticationInfo()验证用户提交的表单信息是否与数据库匹配。</li>
+<li>调用链从高级到低级：</li>
+</ul>
+<ol>
+<li>PathMatchingFilter.preHandle()</li>
+<li>AccessControlFilter.onPreHandle()</li>
+<li>FormAuthenticationFilter.onAccessDenied()</li>
+<li>DelegatingSubject.login()</li>
+<li>ModularRealmAuthenticator.doAuthenticate()</li>
+<li>UserRealm.doGetAuthenticationInfo()</li>
+</ol>
+<ul>
+<li>也就是说FormAuthenticationFilter是会调用login()的，而login()又会调用Realm，所以FormAuthenticationFilter的登录验证是通过Realm实现的。</li>
+</ul>
+<h3 id="自定义注解-注解解析器-使用实例"><a href="#自定义注解-注解解析器-使用实例" class="headerlink" title="自定义注解+注解解析器+使用实例"></a>自定义注解+注解解析器+使用实例</h3><ul>
+<li>@CurrentUser：自定义注解</li>
+</ul>
+<pre><code>/**
+ * @Author haien
+ * @Description 绑定当前登录的用户
+ * @Date 2019/3/14
+ **/
+//测试此注解作用
+@Target({ElementType.PARAMETER})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface CurrentUser {
+    //Constants类CURRENT_USER常量=&quot;user&quot;，
+    //因为当前登录用户在request中存为user属性，
+    //所以将此注解用于方法参数，再定义一个解析器解析此注解：
+    //获取此注解值并从request中查找属性赋给方法参数，
+    //即实现了绑定当前用户到方法属性的功能。
+    String value() default Constants.CURRENT_USER; 
+}
+</code></pre><ul>
+<li>CurrentUserMethodArgumentResolver：自定义注解解析器</li>
+</ul>
+<pre><code>public class CurrentUserMethodArgumentResolver 
+        implements HandlerMethodArgumentResolver {
+
+    public CurrentUserMethodArgumentResolver() {
+    }
+
+    /**
+     * @Author haien
+     * @Description 判断参数是否受支持，依据是它是否拥有CurrentUser注解
+     * @Date 2019/3/14
+     * @Param [parameter]
+     * @return boolean
+     **/
+    @Override
+    public boolean supportsParameter(MethodParameter parameter) {
+        //判断参数是否被注解了
+        if(parameter.hasParameterAnnotation(CurrentUser.class)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @Author haien
+     * @Description 对被注解参数的解析是：
+                    获取当前登录对象并返回给此参数
+     * @Date 2019/3/14
+     * @Param [parameter, mavContainer, webRequest, binderFactory]
+     * @return java.lang.Object
+     **/
+    @Override
+    public Object resolveArgument(MethodParameter parameter,
+            ModelAndViewContainer mavContainer,
+            NativeWebRequest webRequest,
+            WebDataBinderFactory binderFactory) throws Exception {
+        CurrentUser currentUserAnnotation=
+            parameter.getParameterAnnotation(CurrentUser.class);
+        //currentUserAnnotation.value()返回“user”，
+        //从request获取“user”属性
+        return webRequest.getAttribute(currentUserAnnotation.value(),
+                NativeWebRequest.SCOPE_REQUEST);
+    }
+}
+</code></pre><ul>
+<li>IndexController：使用注解</li>
+</ul>
+<pre><code>@RequestMapping(&quot;/&quot;)
+public String index(@CurrentUser User loginUser, Model model) { 
+//@CurrentUser获取当前登录对象并赋给loginUser
+
+    //根据用户名查询权限字符串
+    Set&lt;String&gt; permissions = 
+        userService.findPermissions(loginUser.getUsername());
+    //查询跟这些权限有关的菜单
+    List&lt;Resource&gt; menus = resourceService.findMenus(permissions);
+    model.addAttribute(&quot;menus&quot;, menus);
+    return &quot;index&quot;;
+}
+</code></pre><h3 id="使用Spring的Cache代替Shiro的Cache"><a href="#使用Spring的Cache代替Shiro的Cache" class="headerlink" title="使用Spring的Cache代替Shiro的Cache"></a>使用Spring的Cache代替Shiro的Cache</h3><ul>
+<li>因为shiro自己的cache每次都要手动清除缓存，才能防止修改后有获取到未更新的缓存，所以使用spring提供的cache，并连同shiro cache中一些较好的方法封装起来。</li>
+<li><p>以前的shiro cache：</p>
+<pre><code>&lt;!-- 缓存管理器 使用Ehcache实现 --&gt;
+&lt;bean id=&quot;cacheManager&quot; 
+      class=&quot;org.apache.shiro.cache.ehcache.EhCacheManager&quot;&gt;
+    &lt;property name=&quot;cacheManagerConfigFile&quot; 
+        value=&quot;classpath:ehcache.xml&quot;/&gt;
+&lt;/bean&gt;
+</code></pre></li>
+<li><p>现在：</p>
+<pre><code>//spring-config-cache.xml
+&lt;!--底层使用ehcache--&gt;
+&lt;bean id=&quot;ehcacheManager&quot;
+      class=&quot;org.springframework.cache.ehcache.
+        EhCacheManagerFactoryBean&quot;&gt;
+    &lt;property name=&quot;configLocation&quot; value=&quot;classpath:ehcache.xml&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!--将=引入以上CacheManager--&gt;
+&lt;bean id=&quot;springCacheManager&quot; 
+        class=&quot;org.springframework.cache.ehcache.EhCacheCacheManager&quot;&gt;
+    &lt;property name=&quot;cacheManager&quot; ref=&quot;ehcacheManager&quot;/&gt;
+&lt;/bean&gt;
+
+//spring-config-shiro.xml
+&lt;!-- 缓存管理器 --&gt;
+&lt;bean id=&quot;cacheManager&quot; 
+    class=&quot;com.haien.spring.SpringCacheManagerWrapper&quot;&gt;
+    &lt;!--定义在spring-config-cache.xml中--&gt;
+    &lt;property name=&quot;cacheManager&quot; ref=&quot;springCacheManager&quot;/&gt;
+&lt;/bean&gt;
+
+/**
+ * @Author haien
+ * @Description 包装Spring Cache，因为spring的cache没有shiro的cache那些功能，
+ *              但又有其优点，所以给它封装一些shiro中比较好的方法进去。
+ * @Date 2019/3/16
+ **/
+public class SpringCacheManagerWrapper implements CacheManager {
+    private org.springframework.cache.CacheManager cacheManager;
+
+    //由xml文件注入一个Spring框架的cache对象
+    public void setCacheManager(org.springframework.cache.CacheManager cacheManager){
+        this.cacheManager=cacheManager;
+    }
+
+    /**
+     * @Author haien
+     * @Description 获取注入进来的cache对象并封装成SpringCacheWrapper对象，
+     *              其中就提供了shiro中较好的方法。
+     * @Date 2019/3/16
+     * @Param [name]
+     * @return org.apache.shiro.cache.Cache&lt;K,V&gt;
+     **/
+    @Override
+    public &lt;K, V&gt; Cache&lt;K, V&gt; getCache(String name) throws CacheException {
+        //获取上面setCacheManager()
+        org.springframework.cache.Cache springCache=cacheManager.getCache(name);
+        return new SpringCacheWrapper(springCache);
+    }
+
+    /**
+     * @Author haien
+     * @Description 内部类：继承shiro的Cache，重写了它的方法，
+                    封装给当前类的springcache对象
+     * @Date 2019/3/16
+     **/
+    static class SpringCacheWrapper implements Cache{ //继承shiro的cache
+        private org.springframework.cache.Cache springCache;
+
+        SpringCacheWrapper(org.springframework.cache.Cache springCache) {
+            this.springCache = springCache;
+        }
+
+        @Override
+        public Object get(Object key) throws CacheException {
+            Object value=springCache.get(key);
+            if(value instanceof SimpleValueWrapper) 
+                return ((SimpleValueWrapper)value).get();
+            return value;
+        }
+
+        @Override
+        public Object put(Object key, Object value) throws CacheException {
+            springCache.put(key,value);
+            return value;
+        }
+
+        @Override
+        public Object remove(Object key) throws CacheException {
+            springCache.evict(key);
+            return null;
+        }
+
+        @Override
+        public void clear() throws CacheException {
+            springCache.clear();
+        }
+
+        @Override
+        public int size() {
+            if(springCache.getNativeCache() instanceof Ehcache){
+                Ehcache ehcache=(Ehcache)springCache.getNativeCache();
+                return ehcache.getSize();
+            }
+            throw new UnsupportedOperationException(
+                    &quot;invoke spring cache abstract size method not supported&quot;);
+        }
+
+        @Override
+        public Set keys() {
+            if(springCache.getNativeCache() instanceof Ehcache){
+                Ehcache ehcache=(Ehcache)springCache.getNativeCache();
+                return new HashSet(ehcache.getKeys());
+            }
+            throw new UnsupportedOperationException(
+                    &quot;invoke spring caceh abstract keys method not supported&quot;);
+        }
+
+        @Override
+        public Collection values() {
+            if(springCache.getNativeCache() instanceof Ehcache){
+                Ehcache ehcache=(Ehcache)springCache.getNativeCache();
+                List keys=ehcache.getKeys();
+                if(!CollectionUtils.isEmpty(keys)){
+                    List values=new ArrayList(keys.size());
+                    for(Object key:keys){
+                        Object value=get(key);
+                        if(value!=null)
+                            values.add(value);
+                    }
+                    return Collections.unmodifiableList(values);
+                }else{
+                    return Collections.emptyList();
+                }
+            }
+            throw new UnsupportedOperationException(
+                    &quot;invoke spring cache abstract values method not supported&quot;);
+        }
+    }
+}
+</code></pre></li>
+<li><p><a href="https://jinnianshilongnian.iteye.com/blog/2037222" target="_blank" rel="noopener">参考文章</a></p>
+</li>
+<li>代码示例：ideaProjects/shiro-chapter16</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-28T09:38:20.633Z" itemprop="dateUpdated">2019-03-28 17:38:20</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Shiro第十六章-综合实例，用户、角色、资源模型，配置文件详解/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Shiro第十六章-综合实例，用户、角色、资源模型，配置文件详解/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第十六章-综合实例，用户、角色、资源模型，配置文件详解/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第十六章-综合实例，用户、角色、资源模型，配置文件详解/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第十六章-综合实例，用户、角色、资源模型，配置文件详解/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第十六章-综合实例，用户、角色、资源模型，配置文件详解/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第十六章-综合实例，用户、角色、资源模型，配置文件详解/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Shiro第十七章-OAuth2集成/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Shiro第十九章-动态url权限控制、拦截器自定义/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第十六章-综合实例，用户、角色、资源模型，配置文件详解/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第十六章-综合实例，用户、角色、资源模型，配置文件详解/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第十六章-综合实例，用户、角色、资源模型，配置文件详解/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第十六章-综合实例，用户、角色、资源模型，配置文件详解/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第十六章-综合实例，用户、角色、资源模型，配置文件详解/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD4UlEQVR42u3a227jSAwFwPz/T2deB0isnEPS2Vmg9GTISktdCkDz8vERH59/HV/PPH/7dZ3nNZ+f4dWV7WqrAwcOHDhwxFttt/dqhWQbz/faQyQv75sd4cCBAweOI448sD3TJBvYX5+AJmviwIEDB45/jeOHoPV4l81m2jM4cODAgeNf5shTqSTBm8FdBW8cOHDgwPE+jqQ4mLejZo2rGXTbBjurleLAgQMHjjRCFUHr//L5LfMdOHDgwIEjaNvcFv7yImA7ppCP5RW7w4EDBw4ca4524GA/prC516w91t4LBw4cOHDccuQlwllR7/Po2IxZ/MCEAwcOHDgWHG2TqU3eZlW4zfX5at+cwYEDBw4ca45Zma/9PEvGbsfg8ifEgQMHDhxXHHlKthl6aDfTUraJZZTO4cCBAweOEUdeHGwHHdoC36b1lSDiwIEDB47f5NiMJuRbnY3BbVLBWRETBw4cOHBseitJqpND5IG5Jdg3xn5YDQcOHDhwLDja9GlG0Jb2NullXo78Zh0cOHDgwLHmSEJUu+FNkN4X8tq2GQ4cOHDguOV4fsSrJC0vMibrJCvk77/IZXHgwIEDR8yRhMZ8UGBfHJy1wdq//ea+OHDgwIHjlON26WEBbjFscXAXHDhw4MBxxJEX+PIQOyN7DqJX1+PAgQMHjndz5DR5spcE73YMblZ8zPeCAwcOHDiuODaDC23o3QTONm1b/e7AgQMHDhxvyFlmKdm+LVSExtuSIg4cOHDg+BWOdritDYGbwD97tpfPgAMHDhw41hx5Spa3rJJkb9brmaVwdTkSBw4cOHAccbTFwVlgmwXdq7JmQoYDBw4cODYcs4RnE942oT1PNaP/gq/f4sCBAweOI45ZsNykefk1Vylf9Pw4cODAgeOUIw+fbarWNqvaEDt7GThw4MCB4x0cyQbyQYe2MJfTtOMR7UhE0YXDgQMHDhyP92oLavnjti2f2eY3bafo/wIHDhw4cCw42sGCTfOp3UA+VNEWJZvaIQ4cOHDgSDnyJtNm1CAPzG2gbdtLP+SyOHDgwIFjzTFr82wC5ywYz0qBRRKIAwcOHDjWHPlyM5p2ZKEN6psfBC/P4MCBAweOBcdneXyUR058G4xnoxU4cODAgWPP0W5sBjcLz+34wn59HDhw4MBxxZFsbFYK3DeQ2mbSQaDFgQMHDhxHHLOSX0t8mzFtfju8vB4HDhw4cPw6R1K8ywfU2gDZhu0aDgcOHDhw/Eccz4+7P98WJdvk7eXucODAgQPHEUeeJs1GCm6vbwuaxUvFgQMHDhxrjnf0Yq6GIWbFyjaRw4EDBw4cRxx/AKSwC20g1ScwAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

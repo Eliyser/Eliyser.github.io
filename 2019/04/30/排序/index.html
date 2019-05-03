@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简单排序                                                                                                            统一接口 默认从小到大排序 内部排序：内存足够存储所有数据，在内存中对数据进行排序操作 稳定性：如果排序前两个相等的数据是挨在一起的，必须对两个都叫小明的人排序，起初小明1在小">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/排序/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="简单排序                                                                                                            统一接口 默认从小到大排序 内部排序：内存足够存储所有数据，在内存中对数据进行排序操作 稳定性：如果排序前两个相等的数据是挨在一起的，必须对两个都叫小明的人排序，起初小明1在小">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B792.PNG">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B793.PNG">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B794.PNG">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B795.PNG">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B796.PNG">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B797.PNG">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B798.PNG">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B799.PNG">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7100.PNG">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7101.PNG">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7102.PNG">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7103.PNG">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7104.PNG">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7105.PNG">
+<meta property="og:updated_time" content="2018-06-08T10:06:14.763Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="简单排序                                                                                                            统一接口 默认从小到大排序 内部排序：内存足够存储所有数据，在内存中对数据进行排序操作 稳定性：如果排序前两个相等的数据是挨在一起的，必须对两个都叫小明的人排序，起初小明1在小">
+<meta name="twitter:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B792.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:46.281Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简单排序"><span class="post-toc-number">1.</span> <span class="post-toc-text">简单排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#冒泡排序"><span class="post-toc-number">2.</span> <span class="post-toc-text">冒泡排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#插入排序"><span class="post-toc-number">3.</span> <span class="post-toc-text">插入排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#快速排序"><span class="post-toc-number">4.</span> <span class="post-toc-text">快速排序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分而治之"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">分而治之</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#选主元"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">选主元</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#小规模数据的处理"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">小规模数据的处理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#算法实现"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">算法实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#表排序"><span class="post-toc-number">5.</span> <span class="post-toc-text">表排序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#物理排序"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">物理排序</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#复杂度分析"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">复杂度分析</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#桶排序"><span class="post-toc-number">6.</span> <span class="post-toc-text">桶排序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基数排序"><span class="post-toc-number">7.</span> <span class="post-toc-text">基数排序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在多关键字排序上的应用"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">在多关键字排序上的应用</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-排序"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:46" datetime="2019-04-30T08:25:46.281Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="简单排序"><a href="#简单排序" class="headerlink" title="简单排序"></a>简单排序</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B792.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>统一接口</li>
+<li>默认从小到大排序</li>
+<li>内部排序：内存足够存储所有数据，在内存中对数据进行排序操作</li>
+<li>稳定性：如果排序前两个相等的数据是挨在一起的，必须对两个都叫小明的人排序，起初小明1在小明2左边，那么排完后还是得在他左边，不能变成右边。<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B793.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>加了一个flag来标记数据是否已有序，如果一趟排序中全程没有进行交换，那么flag为0，说明数据已有序，可以结束了。</li>
+<li>缺点：耗时</li>
+<li>优点：简单，适用于单向链表的排序</li>
+<li>算法实例：第九讲-&gt;9.1第2节<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B794.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>稳定性：元素不比当前元素大的时候不用往后移，所以是稳定的。</li>
+<li>比冒泡法好，因为冒泡需要交换，交换需要3步，而这里往后移只需比它大的元素往后移，都移完了再把当前元素插入就行了。</li>
+<li>算法实例：第九讲-&gt;9.1第3节</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B795.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>用冒泡和插入分别对这串数据排序的话，交换次数都是9次，而这里面逆序对的个数也是9次。因为美交换一次消去一个逆序对，因此有几个逆序对就需交换几次。</li>
+<li>I是原始序列中逆序对的个数。插入排序不仅跟数据个数有关，还跟逆序对个数有关。<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><h4 id="分而治之"><a href="#分而治之" class="headerlink" title="分而治之"></a>分而治之</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B796.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>算法实例：第十讲-&gt;10.1第1小节<h4 id="选主元"><a href="#选主元" class="headerlink" title="选主元"></a>选主元</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B797.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>如果数据已经排好序，但是主元都是选第一个的话，那就相当于没有排序。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B798.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>随机取的话，随机函数是很费时的。</li>
+<li>我们可以取第一个元素、中间一个元素和最后一个元素中第二大的。</li>
+<li>利用算法把这三个元素从小到大排序，然后等一下就返回那个第二大的。不过等一下是要等什么呢？我们先把中间这个第二大的元素换到最后一个元素的前一个元素（等一下就返回倒数第二个元素），因为我们知道第一个元素一定比等下作为枢纽的元素小，最后一个元素一定比它大，如果规定相等就放在后面的话，那么第二大元素本身就是枢纽，我们知道肯定是要放在后面的，所以我们提前把它放在后面，那等一下只比较第二个到倒数第三个元素与枢纽的大小关系就好了，而中间那个元素就换成了原来倒数第二的元素。否则中间那个元素本身就是枢纽，是已经知道大小关系的，却还要再比一次，就有点浪费时间了。<h4 id="小规模数据的处理"><a href="#小规模数据的处理" class="headerlink" title="小规模数据的处理"></a>小规模数据的处理</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B799.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>分而治之将数据分得很小的时候调用简单排序，不要一直递归下去。<h4 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7100.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>要在外面套一个壳，否则不符合接口规范。</li>
+<li>算法实例：第十讲-&gt;10.1所有小节<h3 id="表排序"><a href="#表排序" class="headerlink" title="表排序"></a>表排序</h3></li>
+<li>一种间接排序<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7101.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>不需要动元素本身，只是动元素的指针。也就是用它们的下标代替元素本身来排序，下标排在哪个位置，元素就在哪个位置。<h4 id="物理排序"><a href="#物理排序" class="headerlink" title="物理排序"></a>物理排序</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7102.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>就是排完下标后怎么排元素</li>
+<li>我们有结论：N个数字的排列由若干个独立的环组成；比如，表的第一个元素是3，第三个元素是1，…，这样下去一定会回到3的，也就是形成了一个环。</li>
+<li>那这样我们可能会陷入环的死循环里，所以我们要判断什么时候环结束了。可以把访问过的table的元素设置为和A下标一样，这样在访问前判断一下元素和下标是否一样就知道环是否结束了。<h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7103.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>算法实例：第十讲-&gt;10.2第1、3小节<h3 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7104.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>给每个程序都设置个桶</li>
+<li>但是如果桶很多但是人很少怎么办呢？</li>
+<li>算法实例：第十讲-&gt;10.3第1小节<h3 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7105.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>分桶跟进制有关系，这里是10进制就分10个桶</li>
+<li>如果桶的个数非常小的话，那么复杂度接近线性复杂度。</li>
+<li>算法实例：第十讲-&gt;10.3第2小节<h4 id="在多关键字排序上的应用"><a href="#在多关键字排序上的应用" class="headerlink" title="在多关键字排序上的应用"></a>在多关键字排序上的应用</h4></li>
+<li>算法实例：第十讲-&gt;10.3第3小节</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-06-08T10:06:14.763Z" itemprop="dateUpdated">2018-06-08 18:06:14</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/排序/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/排序/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/排序/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/排序/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/排序/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/排序/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/排序/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/判断字符相等千万不要用==/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/内部类/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/排序/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/排序/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/排序/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/排序/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/排序/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABtElEQVR42u3aS46DMBAFQO5/aeYAEfC6/QkZlVdRZHCxeXLbfRzxOC/G/ZzP/6/+mTxwcXGHueftyBdI5n/OyQ24uLj7ucnyV/PzUEve/2DDxcV9Mfc+8vJdCi4u7v/g9lhJOYSLi/s2bh5PyWf03jO5VsPFxR3g5qeU634vOd/FxcVtcc/iSA5Pk/DqDVxc3D3c8TKmehE7Uj7h4uLu4d6HVNJsUS1pemF3JH0cuLi4k7jrCpUEWp2Di4v7Hm5+idKLs2RdXFzcndyRQmXW1Wx+MYOLi7uT27vmHIm/XimFi4u7hztS5OTBVy2oHj4eFxd3Mbd6FTqr+EmC7LL4wcXFXcwtpF3QYFFl5VBcXNzvcqvFT0KvNm9FGylcXNzF3OThXotVtRXj4cAUFxf3q9yRz6iGWh6OuLi4+7kJIhnH8Hh4Dy4u7mLuWRy9p0bKJFxc3P3carj04qzXwpUc3eLi4q7j5qGTlyjjc6JaDRcXdzG3FzTVjJywlcHFxX0xtxpSvctaXFzc3+JWwyvfxCzc4uDi4i4ofqpLVls3ynfCuLi4y7jj97RRQ9VwQwYuLu4W7h9ESHGwiGAJ2wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

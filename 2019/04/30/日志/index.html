@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简介 平时控制台输出的那些信息流就叫日志，它记录了程序调试、运行时发生的变化。 slf4j不是具体的日志框架，而是一系列的日志接口，也即是日志框架的抽象log4j和logback才是实现了的日志框架。 logback和log4j非常相似，但是logback在一些关键执行路径上性能提升10倍以上，而且初始化内存也更小。 它们可以单独使用，也可以绑定slf4j一起使用。单独使用，分别调用自己的方法来输">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/日志/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="简介 平时控制台输出的那些信息流就叫日志，它记录了程序调试、运行时发生的变化。 slf4j不是具体的日志框架，而是一系列的日志接口，也即是日志框架的抽象log4j和logback才是实现了的日志框架。 logback和log4j非常相似，但是logback在一些关键执行路径上性能提升10倍以上，而且初始化内存也更小。 它们可以单独使用，也可以绑定slf4j一起使用。单独使用，分别调用自己的方法来输">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg03.sogoucdn.com%2Fapp%2Fa%2F100520146%2F272FFB4B5E9230D28E5167F5D162FEE2">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B71000.PNG">
+<meta property="og:updated_time" content="2019-03-09T03:36:39.724Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="简介 平时控制台输出的那些信息流就叫日志，它记录了程序调试、运行时发生的变化。 slf4j不是具体的日志框架，而是一系列的日志接口，也即是日志框架的抽象log4j和logback才是实现了的日志框架。 logback和log4j非常相似，但是logback在一些关键执行路径上性能提升10倍以上，而且初始化内存也更小。 它们可以单独使用，也可以绑定slf4j一起使用。单独使用，分别调用自己的方法来输">
+<meta name="twitter:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg03.sogoucdn.com%2Fapp%2Fa%2F100520146%2F272FFB4B5E9230D28E5167F5D162FEE2">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:46.314Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#log4j2"><span class="post-toc-number">2.</span> <span class="post-toc-text">log4j2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#日志级别"><span class="post-toc-number">3.</span> <span class="post-toc-text">日志级别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么要打印日志"><span class="post-toc-number">4.</span> <span class="post-toc-text">为什么要打印日志</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SpringBoot默认日志框架"><span class="post-toc-number">5.</span> <span class="post-toc-text">SpringBoot默认日志框架</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#日志配置"><span class="post-toc-number">6.</span> <span class="post-toc-text">日志配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#slf4j的应用"><span class="post-toc-number">7.</span> <span class="post-toc-text">slf4j的应用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码实例"><span class="post-toc-number">8.</span> <span class="post-toc-text">代码实例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考文章"><span class="post-toc-number">9.</span> <span class="post-toc-text">参考文章</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-日志"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:46" datetime="2019-04-30T08:25:46.314Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>平时控制台输出的那些信息流就叫日志，它记录了程序调试、运行时发生的变化。</li>
+<li>slf4j不是具体的日志框架，而是一系列的日志接口，也即是日志框架的抽象log4j和logback才是实现了的日志框架。</li>
+<li>logback和log4j非常相似，但是logback在一些关键执行路径上性能提升10倍以上，而且初始化内存也更小。</li>
+<li>它们可以单独使用，也可以绑定slf4j一起使用。单独使用，分别调用自己的方法来输出日志信息。绑定使用，调用slf4j的api，具体使用与底层日志框架无关，日志框架提供的只是一些配置。</li>
+<li><p>推荐绑定，假设项目中已经使用了logback，而我们此时加载了一个使用log4j的类库进来，那我们这时候就需要维护两个日志框架，很麻烦。而使用绑定的话，由于调用的是抽象层的API，与底层日志框架是无关的，因此可以任意更换日志框架。</p>
+<pre><code>import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Controller
+@RequestMapping(&quot;/&quot;)
+public class LoginController {
+    private static final Logger logger=LoggerFactory.getLogger(LoginController.class);
+}
+</code></pre></li>
+<li><p>要进行绑定的话就要引入依赖</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+    &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
+    &lt;version&gt;1.7.21&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li><p>包含以下必要jar包</p>
+<pre><code>log4j-1.2.xx.jar
+slf4j-api-x.x.x.jar
+slf4j-log4j12-x.x.x.jar
+</code></pre></li>
+<li><p>或</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;
+    &lt;artifactId&gt;logback-classic&lt;/artifactId&gt;
+    &lt;version&gt;1.1.7&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li><p>包含以下必要jar包</p>
+<pre><code>logback-classic-0.9.21.jar(目前已经有1.0.0)
+logback-core-0.9.21.jar(目前已经有1.0.0)
+slf4j-api-1.6.x.jar
+</code></pre><h3 id="log4j2"><a href="#log4j2" class="headerlink" title="log4j2"></a>log4j2</h3></li>
+<li>spring 4.2.1开始推荐使用log4j2，即log4j 2.x。</li>
+<li>2.3以后的版本要求jdk1.7，2.11.1或更早就已经要求为1.8了</li>
+<li><p>依赖：</p>
+<pre><code>&lt;!--依赖管理--&gt;
+&lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+            &lt;artifactId&gt;log4j-bom&lt;/artifactId&gt; &lt;!--引入官方依赖管理文件--&gt;
+            &lt;version&gt;2.9.1&lt;/version&gt; &lt;!--版本统一定义为2.9.1--&gt;
+            &lt;scope&gt;import&lt;/scope&gt;
+            &lt;type&gt;pom&lt;/type&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+
+&lt;dependency&gt; &lt;!--log4j2核心包--&gt;
+    &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+    &lt;artifactId&gt;log4j-api&lt;/artifactId&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt; &lt;!--log4j2核心包--&gt;
+    &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+    &lt;artifactId&gt;log4j-core&lt;/artifactId&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt; &lt;!--web项目需要--&gt;
+    &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+    &lt;artifactId&gt;log4j-web&lt;/artifactId&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt; &lt;!--异步输出配置前置环境支持；
+                没有的话报错：Unable to invoke factory method in class
+                org.apache.logging.log4j.core.async.AsyncLoggerConfig--&gt;
+    &lt;groupId&gt;com.lmax&lt;/groupId&gt;
+    &lt;artifactId&gt;disruptor&lt;/artifactId&gt;
+    &lt;version&gt;3.4.2&lt;/version&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt; &lt;!--用于与slf4j桥接--&gt;
+    &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+    &lt;artifactId&gt;log4j-slf4j-impl&lt;/artifactId&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;!-- slf4j核心包,已包含在com.github.miemiedev:mybatis-paginator中--&gt;
+&lt;!--&lt;dependency&gt;
+    &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+    &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
+    一般都是匹配这个版本&lt;version&gt;1.7.25&lt;/version&gt;
+&lt;/dependency&gt;--&gt;
+</code></pre></li>
+<li>使用前需要在classpath（WEB-INFO和resources）下新建一个配置文件，但不支持.properties文件，只能为”.xml”,”.json”或者”.jsn”。</li>
+<li>系统选择配置文件的优先级（从先到后）：<ul>
+<li>classpath下的名为log4j2-test.json 或者log4j2-test.jsn的文件</li>
+<li>classpath下的名为log4j2-test.xml的文件</li>
+<li>classpath下名为log4j2.json 或者log4j2.jsn的文件</li>
+<li>classpath下名为log4j2.xml的文件</li>
+</ul>
+</li>
+<li><p>如果写在别的地方，则需要在web.xml中配置路径</p>
+<pre><code>&lt;!-- log4j2配置文件路径 --&gt;
+&lt;context-param&gt;
+    &lt;param-name&gt;log4jConfiguration&lt;/param-name&gt;
+    &lt;param-value&gt;classpath:config/log4j2.xml&lt;/param-value&gt;
+&lt;/context-param&gt;
+</code></pre></li>
+<li><p>我们一般默认使用log4j2.xml。默认配置文件：只向控制台打印error级别以上的日志</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;Configuration status=&quot;WARN&quot;&gt;
+    &lt;Appenders&gt;             
+        &lt;Console name=&quot;Console&quot; target=&quot;SYSTEM_OUT&quot;&gt;
+            &lt;PatternLayout pattern=&quot;%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n&quot;/&gt;
+        &lt;/Console&gt;
+    &lt;/Appenders&gt;
+    &lt;Loggers&gt;
+        &lt;Root level=&quot;error&quot;&gt;
+            &lt;AppenderRef ref=&quot;Console&quot;/&gt;
+        &lt;/Root&gt;
+    &lt;/Loggersration&gt;
+</code></pre></li>
+<li><p>配置文件实例</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!--
+status:指定log4j本身打印日志的级别，只对log4j本身的事件有效，
+off表示不记录，其余的记录有trace，debug，info，warn，error，fatal；
+monitorinterval:指定自动重新配置的监测间隔时间即更改日志配置文件不用重启程），
+单位s最小5s，0或负数表示不检测
+--&gt;
+&lt;configuration status=&quot;error&quot;&gt; 
+
+    &lt;!-- 常量定义 --&gt;
+    &lt;properties&gt;
+        &lt;property name=&quot;LOG_HOME&quot;&gt;
+        /home/work/log/${service_name} &lt;!--service_name是maven打包传进来的--&gt;
+        &lt;/property&gt;
+        &lt;property name=&quot;FORMAT&quot;&gt;
+            %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
+        &lt;/property&gt;
+    &lt;/properties&gt;
+
+    &lt;!--定义所有的appender--&gt;
+    &lt;appenders&gt;
+        &lt;!--控制台--&gt;
+        &lt;Console name=&quot;Console&quot; target=&quot;SYSTEM_OUT&quot;&gt; &lt;!--target默认即为SYSTEM_OUT--&gt;
+            &lt;!--添加过滤器ThresholdFilter，控制台只输出level及以上信息
+            onMatch=&quot;ACCEPT&quot; onMismatch=&quot;DENY&quot;意思是匹配就接受,否则直接拒绝--&gt;
+            &lt;ThresholdFilter level=&quot;warn&quot; onMatch=&quot;ACCEPT&quot; onMismatch=&quot;DENY&quot;/&gt;
+            &lt;!--输出日志的格式；可以直接pattern=&quot;S{FORMAT}&quot; --&gt;
+            &lt;PatternLayout pattern=&quot;[%d{HH:mm:ss.SSS}] [%-5p] %l - %m%n&quot;/&gt;
+        &lt;/Console&gt;
+
+        &lt;!--File:日志文件，打印出所有信息，名为log，下面引用这个appender时直接用log;
+        fileName:指定输出日志的目的文件的全路径，log/为项目下log目录，./log/也一样；
+        由于append为false，故每次运行日志都被更新，这个也挺有用的，适合临时测试用 --&gt;
+        &lt;File name=&quot;log&quot; fileName=&quot;log/test.log&quot; append=&quot;false&quot;&gt;
+            &lt;PatternLayout pattern=&quot;[%d{HH:mm:ss.SSS}] [%-5p] %l - %m%n&quot;/&gt;
+        &lt;/File&gt;
+
+        &lt;File name=&quot;ERROR&quot; fileName=&quot;logs/error.log&quot;&gt;
+            &lt;ThresholdFilter level=&quot;error&quot; onMatch=&quot;ACCEPT&quot; onMismatch=&quot;DENY&quot;/&gt;
+            &lt;PatternLayout pattern=&quot;[%d{yyyy.MM.dd &apos;at&apos; HH:mm:ss z}] [%-5p] %l - %m%n&quot;/&gt;
+        &lt;/File&gt;
+
+        &lt;!--RollingFile:定义超过指定大小自动删除旧的创建新的日志文件;
+        RollingRandomAccessFile:功能相同，属性也完全一样，只是效率较高--&gt;
+        &lt;RollingRandomAccessFile name=&quot;RollingFile&quot; fileName=&quot;logs/web.log&quot;
+                     filePattern=&quot;logs/$${date:yyyy-MM}/web-%d{MM-dd-yyyy}-%i.log.zip&quot;&gt;
+        &lt;!--不要以.gz/.zip结尾文件就不会被压缩，建议为.zip--&gt;
+            &lt;PatternLayout pattern=&quot;[%d{yyyy-MM-dd &apos;at&apos; HH:mm:ss z}] [%-5p] %l - %m%n&quot;/&gt;
+            &lt;Policies&gt;
+                &lt;!--设置每天打包日志一次--&gt;
+                &lt;!-- TimeBasedTriggeringPolicy:基于时间的滚动策略;
+                interval:integer型，指定多久滚动一次，默认是1hour。
+                指定两次封存动作之间的时间间隔,
+                单位:以日志的命名精度来确定单位，比如yyyy-MM-dd-HH 单位为小时，
+                yyyy-MM-dd-HH-mm 单位为分钟。 --&gt;
+                &lt;!-- modulate:boolean型，说明是否对封存时间进行调制,
+                若modulate=true，则封存时间将以0点为边界进行偏移计算。
+                比如现在是早上3am，interval是4，那么第一次滚动是在4am，
+                接着是8am，12am…而不是7am。 --&gt;
+                &lt;TimeBasedTriggeringPolicy interval=&quot;1&quot; modulate=&quot;true&quot;/&gt;
+                &lt;!--SizeBasedTriggeringPolicy:基于指定文件大小的滚动策略;
+                size:定义每个日志文件的大小每次大小超过size，
+                则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，
+                作为存档。单位推荐MB,数字和单位间推荐写个空格--&gt;
+                &lt;SizeBasedTriggeringPolicy size=&quot;2 MB&quot;/&gt;
+            &lt;/Policies&gt;
+
+            &lt;!--DefaultRolloverStrategy:指定同一个文件夹下最多有几个日志文件时
+                开始删除最旧的，创建新的(通过max属性,默认7个，超出7个的文件夹将被删除)。
+                compressionLevel：压缩等级，值为0-9，只在filePattern为zip时作用，
+                0表示不压缩，值打包为zip格式，9表示最高压缩比（个人测试1MB能压缩到4KB）--&gt;
+            &lt;DefaultRolloverStrategy max=&quot;60&quot; compressionLevel=&quot;9&quot;/&gt;
+        &lt;/RollingFile&gt;
+    &lt;/appenders&gt;
+
+    &lt;!--然后定义logger，只有定义了logger并引入的appender，appender才会生效；
+    root：根logger；logger：logger--&gt;
+    &lt;loggers&gt;
+        &lt;!-- 建立一个默认的root的logger，没有定义level的appender则以此为level --&gt;
+        &lt;root level=&quot;trace&quot;&gt;
+            &lt;!--指定该日志输出到哪个appender--&gt;
+            &lt;appender-ref ref=&quot;RollingFile&quot;/&gt;
+            &lt;appender-ref ref=&quot;Console&quot;/&gt;
+            &lt;appender-ref ref=&quot;ERROR&quot; /&gt;
+            &lt;appender-ref ref=&quot;log&quot;/&gt;
+        &lt;/root&gt;
+
+        &lt;!-- 异步根logger，跟上面root只能存在一个，不能两个都配置;
+        不过log4j2依赖应该要到2.11.1才能使用这个--&gt;
+        &lt;!-- 如果日志代码是正常代码逻辑的一部分货程序运行在单核单线程CPU上（这种情况
+        使用多线程的就是傻），推荐使用普通logger，如果单纯只是为了记个日志，
+        推荐使用异步logger，效能可能会有几十倍的提高。
+        &lt;AsyncRoot level=&quot;info&quot;&gt;
+            &lt;AppenderRef ref=&quot;consoleAppender&quot; /&gt;
+        &lt;/AsyncRoot&gt;
+        --&gt;
+
+        &lt;!--logger:单独指定日志的形式，比如要为指定包下的class指定不同的日志级别等。
+        以下是过滤掉spring和mybatis的一些无用的DEBUG信息；
+        name:指定适用的类或者类所在包的全路径；
+        appender-ref：指定日志输出的appender，默认继承root结点下定义的appender，
+        如果指定了，那么会在指定的这appender和root的appender都输出，此时我们可以设置additivity=&quot;false&quot;，只在指定的appender中输出；但在代码实例定义了false居然没打印任何日志
+        ，只有true才有打印，且只打印一次中--&gt;
+        &lt;logger name=&quot;org.springframework&quot; level=&quot;INFO&quot;&gt;&lt;/logger&gt;
+        &lt;logger name=&quot;org.mybatis&quot; level=&quot;INFO&quot;&gt;&lt;/logger&gt;
+
+        &lt;!-- 定义一个异步logger，可以和普通logger共存 --&gt;
+        &lt;AsyncLogger name=&quot;com.foo.Bar&quot; level=&quot;info&quot; additivity=&quot;false&quot;&gt; 
+            &lt;AppenderRef ref=&quot;AppenderName&quot; /&gt;
+            &lt;AppenderRef ref=&quot;AppenderName1&quot; /&gt;
+        &lt;/AsyncLogger&gt;
+    &lt;/loggers&gt;
+&lt;/configuration&gt;
+</code></pre></li>
+<li><a href="https://www.cnblogs.com/ly-radiata/articles/6026564.html" target="_blank" rel="noopener">参考文章</a></li>
+<li><a href="https://blog.csdn.net/u014532217/article/details/78238003" target="_blank" rel="noopener">参考文章</a></li>
+<li><a href="https://blog.csdn.net/wangpeng322/article/details/80346075" target="_blank" rel="noopener">参考文章</a></li>
+<li><a href="https://blog.csdn.net/qq_39691226/article/details/80428623" target="_blank" rel="noopener">参考文章</a></li>
+<li><a href="https://blog.csdn.net/lianjunzongsiling/article/details/78848844" target="_blank" rel="noopener">涉及异步日志</a></li>
+<li>代码实例：D:/ideaprojects/thz/thz-parent/thz-manager-web/reourrces/config/log4j2.xml<h3 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h3></li>
+<li>以下是log4j日志级别：</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg03.sogoucdn.com%2Fapp%2Fa%2F100520146%2F272FFB4B5E9230D28E5167F5D162FEE2" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>log4j定义了8个级别的log，优先级从高到低依次为：<ul>
+<li>OFF、FATAL、ERROR、WARN、INFO、DEBUG、TRACE、ALL</li>
+<li>log4j只建议用4个级别，ERROR、WARN、INFO、DEBUG<h3 id="为什么要打印日志"><a href="#为什么要打印日志" class="headerlink" title="为什么要打印日志"></a>为什么要打印日志</h3></li>
+</ul>
+</li>
+<li>开发时可以只输出到控制台，但是程序投入生产时就应该打印日志，供维护人员改bug。<h3 id="SpringBoot默认日志框架"><a href="#SpringBoot默认日志框架" class="headerlink" title="SpringBoot默认日志框架"></a>SpringBoot默认日志框架</h3></li>
+<li>SpringBoot默认使用Logback作为日志框架，默认配置error、warn和info级别的日志。</li>
+<li>日志输出内容元素：<ul>
+<li>时间日期：精确到毫秒</li>
+<li>日志级别：ERROR, WARN, INFO, DEBUG or TRACE</li>
+<li>进程ID</li>
+<li>分隔符：— 标识实际日志的开始</li>
+<li>线程名：方括号括起来（可能会截断控制台输出）</li>
+<li>Logger名：通常使用源代码的类名</li>
+<li>日志内容</li>
+</ul>
+</li>
+<li><p>启用Logback原本需要引入下面依赖：</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li>不过由于该依赖包含于spring-boot-starter，而spring-boot-starter包含于spring-boot-thymeleaf，所以只要引入后面其中一个即可。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B71000.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="日志配置"><a href="#日志配置" class="headerlink" title="日志配置"></a>日志配置</h3><ul>
+<li>一般都是写在日志配置文件中，很少在application.properties。命名优先推荐为logback-spring.xml（节点）、log4j-spring.xml、log4j2-spring.xml或ldgging.properties（键值对），这样被正确加载。默认放在resources下。</li>
+<li>没有配置文件的话会使用系统默认的配置文件。</li>
+<li>具体配置细节参见代码实例中的配置文件。</li>
+<li>其中logger结点：写了logger节点就要同时在代码里定义logger。</li>
+<li>不写logger节点是没有具体到类的日志的，写了之后才会有指定类的日志，一般要求每个controller中都会有一个logger属性。</li>
+<li><p>log4j配置</p>
+<pre><code>#输出级别最低为debug级别，后面为输出器名称
+log4j.rootLogger=DEBUG, Console, Tofile, Exception #看网上命名好像都喜欢大写开头
+
+#Console
+log4j.appender.Console=org.apache.log4j.ConsoleAppender
+log4j.appender.Console.layout=org.apache.log4j.PatternLayout # 可以灵活地指定布局模式
+log4j.appender.Console.layout.ConversionPattern=%d [%t] %-5p [%c] - %m%n # 灵活指定布局模式
+
+#不是很懂，应该是打印sql语句吧
+log4j.logger.java.sql.ResultSet=INFO
+log4j.logger.org.apache=INFO
+log4j.logger.java.sql.Connection=DEBUG
+log4j.logger.java.sql.Statement=DEBUG
+log4j.logger.java.sql.PreparedStatement=DEBUG
+
+#File
+log4j.appender.Tofile=org.apache.log4j.DailyRollingFileAppender #每天产生一个日志文件
+log4j.appender.Tofile.layout=org.apache.log4j.PatternLayout
+log4j.appender.Tofile.layout.ConversionPattern=%d [%t] %-5p [%c] - %m%n #日志格式
+log4j.appender.Tofile.File=logFile.%d{yyyy-MM-dd}.txt #路径，不能在前面加/，识别不了的；这么写就表示项目
+log4j.appender.Tofile.File=${webApp.root}/log_path/logFile.log //webapp根目录
+log4j.appender.Tofile.Append=true #将消息追加到指定文件中，默认为true，false，覆盖
+log4j.appender.Tofile.Encoding=UTF-8 #定义日志编码
+
+#还可以单独打印个异常日志出来
+log4j.appender.Exception = org.apache.log4j.DailyRollingFileAppender
+#当前目录的上一级目录，如果此配置文件在resources下，则当前目录为项目
+log4j.appender.Exception.File = ../logs/springmvc-mybatis-demo_error.log 
+log4j.appender.Exception.Append = true
+log4j.appender.Exception.Threshold = ERROR 
+log4j.appender.Exception.layout = org.apache.log4j.PatternLayout
+log4j.appender.Exception.layout.ConversionPattern = [sspringmvc_mybatis_demo][%p] [%-d{yyyy-MM-dd HH:mm:ss}] %C.%M(%L) | %m%n
+</code></pre><ul>
+<li>语法：</li>
+</ul>
+</li>
+</ul>
+<pre><code>log4j.appender.appenderName = fully.qualified.name.of.appender.class 
+　　log4j.appender.appenderName.option1 = value1 
+　　… 
+　　log4j.appender.appenderName.option = valueN 
+　　
+　　其中，Log4j提供的appender有以下几种： 
+　　org.apache.log4j.ConsoleAppender（控制台）， 
+　　org.apache.log4j.FileAppender（文件）， 
+　　org.apache.log4j.DailyRollingFileAppender（每天产生一个日志文件），
+　　
+　　org.apache.log4j.RollingFileAppender（文件大小到达指定尺寸的时候产生一个新的文件
+　　一般会配合log4j.appender.输出器name.MaxFileSize=500KB定义最大容量，
+　　超出则会再生成一个原先日志文件name+.1的文件来存放日志，还可以配合
+　　log4j.appender.OutFile.MaxHistory=30定义最大保留天数）， 
+　　
+　　org.apache.log4j.WriterAppender（将日志信息以流格式发送到任意指定的地方） 
+　　
+　  配置日志信息的格式（布局），其语法为：
+　　log4j.appender.appenderName.layout = fully.qualified.name.of.layout.class 
+　　log4j.appender.appenderName.layout.option1 = value1 
+　　… 
+　　log4j.appender.appenderName.layout.option = valueN 
+　　
+　　其中，Log4j提供的layout有以下几种： 
+　　org.apache.log4j.HTMLLayout（以HTML表格形式布局）， 
+　　org.apache.log4j.PatternLayout（可以灵活地指定布局模式）， 
+　　org.apache.log4j.SimpleLayout（包含日志信息的级别和信息字符串）， 
+　　org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等等信息） 
+　　
+　　Log4J采用类似C语言中的printf函数的打印格式格式化日志信息，打印参数如下： %m 输出代码中指定的消息
+　　%p 输出优先级，即DEBUG，INFO，WARN，ERROR，FATAL 
+　　%r 输出自应用启动到输出该log信息耗费的毫秒数 
+　　%c 输出所属的类目，通常就是所在类的全名 
+　　%t 输出产生该日志事件的线程名 
+　　%n 输出一个回车换行符，Windows平台为“ ”，Unix平台为“ ” 
+　　%d 输出日志时间点的日期或时间，默认格式为ISO8601，也可以在其后指定格式，比如：%d{yyy MMM dd HH:mm:ss.SSS}，输出类似：2002年10月18日 22：10：28，921 
+　　%l 输出日志事件的发生位置，包括类目名、发生的线程，以及在代码中的行数。举例：Testlog4.main(TestLog4.java:10)
+　　
+　　log4j.appender.appenderName.DatePattern=yyyy-MM-dd&apos;.log&apos;
+　　# DatePattern配合DailyRollingFileAppender使用
+　　# 每天滚动一次文件;若前面配置日志文件名为logFile.log，则当天生成的日志名为logFile.log
+　　# 到明天若有新日志生成则昨天的将更名为logFile.log昨日期.log，并生成新的logFile.log存今天日志
+　　# 注意，没有新日志的话过了一天也不会更名
+　　# yyyy-MM:每月，
+　　# yyyy-ww:每周，
+　　# yyyy-MM-dd:每天，
+　　# yyyy-MM-dd-a:每天两次，
+　　# yyyy-MM-dd-HH:每小时，
+　　# yyyy-MM-dd-HH-mm:每分钟 。
+</code></pre><ul>
+<li><p>示例</p>
+<pre><code>log4j.rootLogger=DEBUG, Console, OutFile
+
+#Console
+log4j.appender.Console=org.apache.log4j.ConsoleAppender
+log4j.appender.Console.layout=org.apache.log4j.PatternLayout
+log4j.appender.Console.layout.ConversionPattern=%d [%t] %-5p [%c] - %m%n
+
+log4j.logger.java.sql.ResultSet=INFO
+log4j.logger.org.apache=INFO
+log4j.logger.java.sql.Connection=DEBUG
+log4j.logger.java.sql.Statement=DEBUG
+log4j.logger.java.sql.PreparedStatement=DEBUG
+
+#File
+# 每天产生一个日志文件
+log4j.appender.OutFile=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.OutFile.layout=org.apache.log4j.PatternLayout
+log4j.appender.OutFile.layout.ConversionPattern=%d [%t] %-5p [%c] - %m%n
+#日志路径
+log4j.appender.OutFile.File=log_path/logFile.log
+#一分钟更名一次
+log4j.appender.OutFile.DatePattern=yyyy-MM-dd-HH-mm&apos;.log&apos;
+log4j.appender.OutFile.Append=true
+#日志最大容量，超出自然将原内容移到别的文件里
+log4j.appender.OutFile.MaxFileSize=500KB
+#最大保留天数
+log4j.appender.OutFile.MaxHistory=30
+</code></pre></li>
+<li><a href="https://blog.csdn.net/cn12306com/article/details/80588333" target="_blank" rel="noopener">参考文章</a></li>
+<li><a href="https://www.cnblogs.com/coder-wdq/p/8097889.html" target="_blank" rel="noopener">参考文章</a></li>
+<li><a href="https://blog.csdn.net/zhanglu0223/article/details/78094076" target="_blank" rel="noopener">DatePattern参考文章</a><h3 id="slf4j的应用"><a href="#slf4j的应用" class="headerlink" title="slf4j的应用"></a>slf4j的应用</h3></li>
+<li><p>Logger必须作为类的静态变量使用（最好加final关键字），如此不论这个类实例化多少个，大家用的都是同一个logger，它记录的只是当前类的日志，不是每个实例的日志。</p>
+<pre><code>private static final Logger logger=LoggerFactory.getLogger(类名.class);
+//创建Logger对象，后面添加日志信息时要用到；这条语句并不会向控制台打印任何信息
+</code></pre></li>
+<li><p>用占位符记录日志，降低代码中字符串连接次数，节省了新建String对象。这意味着只有需要的String对象才会被创建，可以在运行时延迟字符串的创建。</p>
+<pre><code>//需要“{}”时用\\转义
+logger.debug(&quot;Set \\{} differs from {}&quot;,&quot;3&quot;); //3被当做字符
+//多个占位符
+logger.error(&quot;{},{},{}&quot;,1,2,3);
+//结果
+2018-08-18 10:58:38 [cn.xm.exam.test.Slf4jTest]-[DEBUG] Set {} differs from 3
+2018-08-18 10:58:38 [cn.xm.exam.test.Slf4jTest]-[ERROR] error:1,2,3
+</code></pre></li>
+<li><p>项目中一般是将捕捉到的异常作为日志记录的最后一个参数，而且要放在{}可以格式化的参数之外，而且只能放在最后一个，防止被{}转为e.toString()，放在中间也不会被打印错误信息。</p>
+<pre><code>public class Slf4jTest {
+    private static final Logger log=LoggerFactory.getLogger(Slf4jTest.class);
+
+    public static void main(String[] args) {
+        openFile(&quot;e://test.txt&quot;);
+    }
+
+    public static void openFile(String filePath){
+        File file=new File(filePath);
+        try {
+            InputStream in=new FileInputStream(file);
+        } catch (FileNotFoundException e) {
+            log.error(&quot;cann&apos;t found file [{}]&quot;,filePath,e); //打印一行提示信息cannt...，再打印一段异常信息
+        }
+    }
+}
+</code></pre></li>
+<li><p>结果</p>
+<pre><code>21:16:28.364 [main] ERROR com.java1234.test.Slf4jTest - cann&apos;t found file [e://test.txt]
+java.io.FileNotFoundException: e:\test.txt (系统找不到指定的文件。)
+    at java.io.FileInputStream.open0(Native Method)
+    at java.io.FileInputStream.open(FileInputStream.java:195)
+    at java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:138)
+    at com.java1234.test.Slf4jTest.openFile(Slf4jTest.java:21)
+    at com.java1234.test.Slf4jTest.main(Slf4jTest.java:15)
+</code></pre></li>
+<li>尽量不要使用e.getMessage()，有的异常不一定有message<h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3></li>
+<li>D:/ideawork<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a><a href="http://tengj.top/2017/04/05/springboot7/" target="_blank" rel="noopener">参考文章</a></h3></li>
+<li>日志配置文件中各个属性意义详见笔记：Mybatis与Spring、SpringMvc整合</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-09T03:36:39.724Z" itemprop="dateUpdated">2019-03-09 11:36:39</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/日志/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/日志/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/日志/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/日志/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/日志/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/日志/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/日志/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/容器(1)/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/全局异常/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/日志/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/日志/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/日志/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/日志/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/日志/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABw0lEQVR42u3aS3LDQAgFQN//0so2KVvWYzATJdWzcvnDtDcUIB6P+BzfzvM7Zyf57WPi4OLitrnVK5+vOfv+2V1nr98bcHFx93OroauZJ49/8VtcXNzbc8+SWhIZFxf3P3GTdLbWDuHi4t6Nm1yQ06tJcKRXw8XFbXCrDczE65H5Li4u7hL3KJ7+yONoHFxc3D3cPKEkD1GqRcnivbi4uBu5a49XkxaoOhZZ7NVwcXE/xM3XKfoJrrPq8aIiw8XF3cLNy5f+MDT//o9PcXFxN3LzUiZJeZ966PIiPi4u7kZuQuykoc4618VABBcXd4DbH45UcQkliY+LizvHXZywFoub5HHLYvODi4s7xs0Ho+/DVVnVyLi4uHu4/SWqiSR4saKBi4u7ndtJXnmEPM5FIsPFxR3m9hcp1pJadTiLi4u7k5skterYdO1cxMHFxR3mHsWTly95y1T4q7i4uFu41eRSXdGoNlfVe3Fxcee4nZHo2hCkutKBi4v7W9w80VRXKwp9WKc3wsXFvQ23upCxOCTFxcX9U9y89MmLmPESBxcX96PNz9pCRl70LD4TxsXFHeBWO45kJFpd5lgb1OLi4g5wvwBznSAezx2qzAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

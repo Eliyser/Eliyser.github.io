@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="部署到github或者部署到服务器上才能让别人也看到你的博客，而部署到github上的缺点是访问速度比较慢，而且.io不被百度认证。 原先的部署https://eliyser.github.io/，现在把博客部署到云服务器上，但也没有撤销在github上的托管，所以访问之前或者部署之后的地址都可以。 首先理解一下部署和托管都是怎么个流程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/hexo博客部署到服务器/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="部署到github或者部署到服务器上才能让别人也看到你的博客，而部署到github上的缺点是访问速度比较慢，而且.io不被百度认证。 原先的部署https://eliyser.github.io/，现在把博客部署到云服务器上，但也没有撤销在github上的托管，所以访问之前或者部署之后的地址都可以。 首先理解一下部署和托管都是怎么个流程">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/701869-197dfe72f7db5163..png">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg03.sogoucdn.com%2Fapp%2Fa%2F100520146%2Ffeaa727bd1a62e9845d5173c2494591c">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg04.sogoucdn.com%2Fapp%2Fa%2F100520146%2Ffda5491b6d743432e9a44045cc5bcb9c">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20180624213213584.png">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg02.sogoucdn.com%2Fapp%2Fa%2F100520146%2FF614D6C328464119E1DE42EF543F41BA">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg04.sogoucdn.com%2Fapp%2Fa%2F100520146%2F4ADF8D5FD9928908B3C47102D0D84A8B">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20180624213740805.png">
+<meta property="og:updated_time" content="2019-04-30T07:52:33.120Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="部署到github或者部署到服务器上才能让别人也看到你的博客，而部署到github上的缺点是访问速度比较慢，而且.io不被百度认证。 原先的部署https://eliyser.github.io/，现在把博客部署到云服务器上，但也没有撤销在github上的托管，所以访问之前或者部署之后的地址都可以。 首先理解一下部署和托管都是怎么个流程">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/701869-197dfe72f7db5163..png">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:44.872Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务器端"><span class="post-toc-number">1.</span> <span class="post-toc-text">服务器端</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装git"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">安装git</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装Nginx"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">安装Nginx</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PS：下载nano"><span class="post-toc-number">2.</span> <span class="post-toc-text">PS：下载nano</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#本地"><span class="post-toc-number">3.</span> <span class="post-toc-text">本地</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-hexo博客部署到服务器"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.872Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li>部署到github或者部署到服务器上才能让别人也看到你的博客，而部署到github上的缺点是访问速度比较慢，而且.io不被百度认证。</li>
+<li>原先的部署<a href="https://eliyser.github.io/，现在把博客部署到云服务器上，但也没有撤销在github上的托管，所以访问之前或者部署之后的地址都可以。" target="_blank" rel="noopener">https://eliyser.github.io/，现在把博客部署到云服务器上，但也没有撤销在github上的托管，所以访问之前或者部署之后的地址都可以。</a></li>
+<li>首先理解一下部署和托管都是怎么个流程</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/701869-197dfe72f7db5163..png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>右边那个既可以是服务器也可以是github</li>
+<li>左边我之前就已经在本地弄好了，包括安装node.js，hexo(e盘下的hexo2就是了)，以及博客的初始美化和文章撰写。</li>
+<li>接下来是服务器的环境搭建</li>
+</ul>
+<h3 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h3><h4 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h4><ul>
+<li><p>思路：在阿里云服务器上搭建git仓库，本地博客目录下运行hexo g -d生成静态文件,并提交到git仓库</p>
+<pre><code>yum install git
+</code></pre></li>
+<li><p>检查安装信息</p>
+<pre><code>git --version
+</code></pre></li>
+<li><p>创建git用户</p>
+<pre><code>adduser git
+chmod 740 /etc/sudoers //好像是开写权限
+vim /etc/sudoers
+</code></pre></li>
+<li><p>找到以下内容</p>
+<pre><code>## Allow root to run any commands anywhere
+root    ALL=(ALL)     ALL
+</code></pre></li>
+<li><p>在下面添加一行</p>
+<pre><code>git    ALL=(ALL)     ALL
+</code></pre></li>
+<li><p>保存后退出改回权限</p>
+<pre><code>chmod 400 /etc/sudoers
+</code></pre></li>
+<li><p>设置git的密码</p>
+<pre><code>sudo passwd git
+</code></pre></li>
+<li><p>生成一对ssh认证密钥(这个应该是为了git push之类的时候免密吧)</p>
+<pre><code>su git
+cd /home/git
+mkdir /blog/.ssh
+cd blog/.ssh
+ssh-keygen -t rsa
+</code></pre></li>
+<li>下面是本地端的操作，主要是为了ssh连接远程服务器的时候可以免密</li>
+<li><p>在本地生成公钥和密钥</p>
+<pre><code>ssh-keygen -t rsa //因为本地已经有了所以应该会提示已存在，那其实也可以直接跳过这一步
+</code></pre></li>
+<li><p>将本机生成的公钥发送到服务器上建立信任关系，目的是ssh连接的时候可以不输入密码</p>
+<pre><code>ssh-copy-id -i C:/Users/14103/.ssh/id_rsa.pub git@47.107.237.149
+</code></pre></li>
+<li><p>测试ssh远程登录是否成功，必须免密才算成功</p>
+<pre><code>ssh git@47.107.237.149
+</code></pre></li>
+<li>把上一步、上上一步的git换成root就可以实现ssh连接root用户免密了</li>
+<li>然后回到服务端</li>
+<li><p>新建git仓库</p>
+<pre><code>mkdir -p /home/git/blog/hexo.git #准备成为Git仓库
+mkdir /home/git/blog/hexo #存储网站文件（文章啦渲染之类的）
+git init --bare /home/git/blog/hexo.git #设为git仓库，--bare代表这是裸库，裸库没有工作区，我们不会在裸库上进行操作，它只为共享而存在
+cd /home/git/blog/hexo.git/hooks //进入该仓库
+vim /home/git/blog/hexo.git/hooks/post-update.sample //配置post-update.sample
+</code></pre></li>
+<li><p>追加一行</p>
+<pre><code>git --work-tree=/home/git/blog/hexo --git-dir=/home/git/blog/hexo.git checkout -f
+</code></pre></li>
+<li>保存之后更改文件名为post-update</li>
+<li><p>赋予可执行权限（这一步好像需要root用户，前面也是，有的需要root用户，那就切换用户再切换回来就是了，或者直接在命令前面加个sudo更好）</p>
+<pre><code>chmod +x post-update
+</code></pre><h4 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h4></li>
+<li>nginx就是我们的web服务器了</li>
+<li><p>首先进行服务端的系统更新，时间可能有点久</p>
+<pre><code>yum update -y
+</code></pre></li>
+<li><p>切换git用户，直接使用root用户是不符合安全规范的</p>
+<pre><code>su git
+</code></pre></li>
+<li><p>安装nginx</p>
+<pre><code>yum install nginx
+</code></pre></li>
+<li><p>修改配置文件</p>
+<pre><code>vim /etc/nginx/nginx.conf
+</code></pre></li>
+<li>有两个user，都要改成root</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg03.sogoucdn.com%2Fapp%2Fa%2F100520146%2Ffeaa727bd1a62e9845d5173c2494591c" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>server_name改成服务器ip地址</li>
+<li>root改成hexo网站文件存储路径</li>
+<li>location里面要不要加都随便</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg04.sogoucdn.com%2Fapp%2Fa%2F100520146%2Ffda5491b6d743432e9a44045cc5bcb9c" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>看到上面的默认端口是80了吧，我们来看看服务器上有没有这个端口，没有的话选择新建。PS:之前是直接把配置文件的默认端口改成服务器已有的22，但不知道为什么访问直接响应网页走丢</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20180624213213584.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="PS：下载nano"><a href="#PS：下载nano" class="headerlink" title="PS：下载nano"></a>PS：下载nano</h3><ul>
+<li><p>一种文本编辑器,其实用vim也一样</p>
+<pre><code>yum install nano
+//下载好之后直接
+nano 文件名 //即可创建文件，然后Ctrl+O保存，Ctrl+X退出
+</code></pre></li>
+<li><p>修改了Nginx的配置文件nginx.conf后要重启Nginx：nginx -s reload出现错误：</p>
+<pre><code>nginx: [error] open() &quot;/run/nginx.pid&quot; failed (2: No such file or directory)
+</code></pre></li>
+<li>执行其他命令：nginx或nginx -s stop也报错：</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg02.sogoucdn.com%2Fapp%2Fa%2F100520146%2FF614D6C328464119E1DE42EF543F41BA" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>这是因为重启nginx后丢失nginx.pid，我们要先停止nginx，首先查询nginx的进程号</p>
+<pre><code>ps -ef | grep nginx
+</code></pre></li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg04.sogoucdn.com%2Fapp%2Fa%2F100520146%2F4ADF8D5FD9928908B3C47102D0D84A8B" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>其中9011就是进程号了</li>
+<li><p>从容停止nginx</p>
+<pre><code>kill -QUIT 9011
+</code></pre></li>
+<li><p>在重启之前，我们先检查一下刚才的修改是否正确</p>
+<pre><code>nginx -t -c /etc/nginx/nginx.conf
+</code></pre></li>
+<li><p>正确的话再执行</p>
+<pre><code>nginx -c /etc/nginx/nginx.conf
+</code></pre></li>
+<li><p>最后重启</p>
+<pre><code>nginx -s reload
+</code></pre></li>
+<li>浏览器输入ip地址：47.107.237.149</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20180624213740805.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>出现这个页面就算成功，不过我们刚才在location下配置类index.html,那个实际是我们自己写在/home/git/blog/hexo下面的一个代替此页面的网页，所以看到那个网页也算对</li>
+</ul>
+<h3 id="本地"><a href="#本地" class="headerlink" title="本地"></a>本地</h3><ul>
+<li><p>C://用户/14103/.ssh下Git Bash</p>
+<p>  vim config</p>
+</li>
+<li><p>新建config文件并编辑</p>
+<pre><code>Host hexo #SSH主机配置的识别名，配置好后直接&quot;ssh 识别名&quot;即可快速连接
+HostName 47.107.237.149 #SSH主机的地址
+Port 22 #SSH主机端口
+User git #用户，本例是Git
+IdentityFile ~/.ssh/id_rsa #私钥文件的存放地址，建议复制到~/.ssh下统一管理
+</code></pre></li>
+<li><p>然后修改E://hexo2/_config.yml</p>
+<pre><code>deploy:
+type: git #用户名
+repo: git@hexo:/home/git/blog/hexo.git #Git仓库地址，:符号后为Git仓库服务器路径；hexo可以换成服务器ip地址
+branch: master #分支，由于我们只用Git进行发布，master即可
+</code></pre></li>
+<li><p>进入E://hexe2，执行</p>
+<pre><code>hexo clean &amp; hexo deploy -g //清除工作区加部署到git
+</code></pre></li>
+<li><p>浏览器访问</p>
+<pre><code>47.107.237.149:80
+</code></pre></li>
+<li>即可出现我的博客啦~</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-30T07:52:33.120Z" itemprop="dateUpdated">2019-04-30 15:52:33</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/hexo博客部署到服务器/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/hexo博客部署到服务器/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/hexo博客部署到服务器/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/hexo博客部署到服务器/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/hexo博客部署到服务器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/hexo博客部署到服务器/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/hexo博客部署到服务器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/hexo博客搭后感/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Hadoop（一）：Hadoop概述/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/hexo博客部署到服务器/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/hexo博客部署到服务器/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/hexo博客部署到服务器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/hexo博客部署到服务器/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/hexo博客部署到服务器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aQW7DMAwEwP7/0y7QaxJnSTptLY1OQdLaGh0Woqivr3gcP+Px86tfH0fvaRcPDAyM2zKO03H+4vO/P/9+sihPqBgYGBswkpDNJ1FdiDyOX36PgYGBcTrdBJ9EPAYGBsYnAjd5Qh6pSaBjYGDszEhCMA/KPKb/oBbHwMC4IWPSGPj051/qb2BgYPxjxlEcvSfkJe7RGhgYGGszqtcd8klMYrRX1mJgYKzNqEbnvFitFqKFq2MYGBhLM3qTyC+EVcO00BLAwMBYmpGXpnl7sheR1esXb8pXDAyMhRiT9mTy+qsaA4VaHAMDYzlGfqxWDdO89K0G95NfMTAwNmPkhWs1HHsN0SjcMTAwNmPkZerkSlk1iN8EOgYGxtKM3kFbHqy9BkC1eMbAwFibkYddebs2aABUS2gMDIx9GL0rFElzsfq/efPgSeBiYGAsx5gcseWFZdRHbR23lfeqGBgYN2RcdTEin2i1nRk1ODEwMJZmJC+7qnmZNxvy47ZCXwIDA+O2jM8Vq71GQrOlioGBsQFjfliWL0216I0iGAMDY2lGtez8xEWK6rUzDAyM3RhHcfSitjq5pD3w5NQQAwNjUcYk5iYXxXoTnSwTBgbG3Rm9kE2OySaNhPLaY2BgbMCobtfmBe18+4iBgYFRnUSvtdDbYmJgYGAkW7fqyXy1AC63RTEwMDZgzLd91bIzb51GZTMGBsbSjEkBOTniv7ZgxsDAWJTxDTEniYceAp9LAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

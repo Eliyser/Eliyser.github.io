@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="二分查找 前提是数组必须有序，比如升序，不断与中点值比较，相等则返回中点值索引，中点值较大则往左边查找，较小则往右边查找；找不到返回-1 时间复杂度：对数级别 private static int binary(int K,int[] array,int left,int right){ //left=0；right=a.length-1     int mid=(right+left)/2;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Java数据结构之查找/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="二分查找 前提是数组必须有序，比如升序，不断与中点值比较，相等则返回中点值索引，中点值较大则往左边查找，较小则往右边查找；找不到返回-1 时间复杂度：对数级别 private static int binary(int K,int[] array,int left,int right){ //left=0；right=a.length-1     int mid=(right+left)/2;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-13T08:56:37.926Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="二分查找 前提是数组必须有序，比如升序，不断与中点值比较，相等则返回中点值索引，中点值较大则往左边查找，较小则往右边查找；找不到返回-1 时间复杂度：对数级别 private static int binary(int K,int[] array,int left,int right){ //left=0；right=a.length-1     int mid=(right+left)/2;">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.225Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二分查找"><span class="post-toc-number">1.</span> <span class="post-toc-text">二分查找</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二叉查找树"><span class="post-toc-number">2.</span> <span class="post-toc-text">二叉查找树</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#红黑树"><span class="post-toc-number">3.</span> <span class="post-toc-text">红黑树</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Java数据结构之查找"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.225Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><ul>
+<li>前提是数组必须有序，比如升序，不断与中点值比较，相等则返回中点值索引，中点值较大则往左边查找，较小则往右边查找；找不到返回-1</li>
+<li><p>时间复杂度：对数级别</p>
+<pre><code>private static int binary(int K,int[] array,int left,int right){ //left=0；right=a.length-1
+    int mid=(right+left)/2;
+    //找到首元素和末尾元素都不是K的情况
+    if(left&gt;right){
+        return -1;
+    }
+    if(array[mid]==K){
+        return mid;
+    }
+    //找左半边
+    else if(array[mid]&gt;K){
+        return binary(K,array,0,mid-1); //用return的方式调用函数也就是说函数到这一步结束，出栈后不会执行后面代码
+    }
+    //找右半边
+    else{
+        return binary(K,array,mid+1,right);
+    }
+}
+</code></pre></li>
+<li>代码实例：DataStructure/binarySearch/FindK<h3 id="二叉查找树"><a href="#二叉查找树" class="headerlink" title="二叉查找树"></a>二叉查找树</h3></li>
+<li>二分查找基于数组实现，因此要找任意子数组的中点元素都十分简单，但是如果找到后下一步就是要插入一个元素的话，那么需要线性级别的时间。便于插入的数据结构应该是链表，而为了方便查找，我们应该让每个结点都指向下一个结点</li>
+<li>二叉查找树很好的结合了插入的灵活性和查找的高效性。</li>
+<li>在二叉查找树中，每个结点都指向它的左右结点，左结点比父结点小，右结点比父结点大。</li>
+<li>构建二叉查找树用的即是插入方法，新元素进来时发现树为空，它即成为根结点，如果比根结点小，它就去到左子树跟那些结点比较，否则去到右子树。根结点的左儿子的右儿子不会比根结点大，因为如果比它大的话插入的时候就会被分到右子树去了，不会来左子树这边，所以左子树全部比父结点小，右子树全部比父结点大。</li>
+<li>所以如果第一个进来的元素太大或者太小，构成的树都会失去平衡。</li>
+<li>最小的元素永远在最最左边，最大的则在最最右边。</li>
+<li><p>将树的所有结点投影到一条直线上，可以得到一条升序的排列。</p>
+<pre><code>public class BST&lt;Key extends Comparable,Value&gt; {
+    //根结点
+    private Node root;
+
+    private class Node{
+        //键
+        private Key key;
+        //值
+        private Value value;
+        //左右儿子
+        private Node left,right;
+        //子树的结点数
+        private int size;
+
+        //构造器：生成一个新的结点
+        public Node(Key key,Value value,int size){
+            this.key=key;
+            this.value=value;
+            //此结点所在子树的结点数目
+            this.size=size;
+        }
+    }
+
+    public BST() {
+    }
+
+    public boolean isEmpty(){
+        return size()==0;
+    }
+
+    public int size(){
+        return size(root);
+    }
+
+    /**
+     * @Author haien
+     * @Description 以x为根结点的子树所含结点数目
+     * @Date 2018/11/6
+     * @Param [x]
+     * @return int
+     **/
+    public int size(Node x){
+        if(x==null) return 0;
+        return x.size;
+    }
+
+    public boolean contains(Key key){
+        if(key==null) throw new IllegalArgumentException(&quot;Argument to contains() is null!&quot;);
+        return get(key)!=null;
+    }
+
+    public Value get(Key key){
+        return get(root,key);
+    }
+
+    /**
+     * @Author haien
+     * @Description 以某个结点为根结点开始查找某个元素
+     * @Date 2018/11/6
+     * @Param [node, key]
+     * @return Value
+     **/
+    private Value get(Node x,Key key){
+        if(key==null) throw new IllegalArgumentException(&quot;Calls get() with a null key!&quot;);
+        if(x==null) return null;
+        int cmp=key.compareTo(x.key);
+        if(cmp==0) return x.value;
+        else if(cmp&lt;0) return get(x.left,key);
+        else return get(x.right,key);
+    }
+
+    public void put(Key key,Value value){
+        if(key==null) throw new IllegalArgumentException(&quot;Calls put() with a null key!&quot;);
+        //若值为空则删去此结点
+        if(value==null){
+            delete(key);
+            return;
+        }
+        root=put(root,key,value);
+    }
+
+    private Node put(Node x, Key key,Value value){
+        //树为空，将结点设置为根结点
+        if(x==null) return new Node(key,value,1);
+        int cmp=key.compareTo(x.key);
+        if(cmp&lt;0) x.left=put(x.left,key,value);
+        else if(cmp&gt;0) x.right=put(x.right,key,value);
+        //若key已存在则更新其值
+        else x.value=value;
+        x.size=size(x.right)+size(x.left)+1;
+        return x;
+    }
+
+    public void deleteMin(){
+        if(isEmpty()) throw new NoSuchElementException(&quot;Symbol table underflow!&quot;);
+        deleteMin(root);
+    }
+
+    /**
+     * @Author haien
+     * @Description 以最小结点的右结点覆盖之（没有右结点的话就是null了）
+     * @Date 2018/11/6
+     * @Param [x]
+     * @return com.haien.search.BST&lt;Key,Value&gt;.Node
+     **/
+    private Node deleteMin(Node x){
+        //最小结点一定在最左边；若左边没有元素，说明已经找到了最小结点
+        if(x.left==null) return x.right;
+        //当前结点的左结点的左结点为空，则当前结点的左结点为最小结点，返回当前结点的左结点的右结点，覆盖当前结点的左结点
+        x.left=deleteMin(x.left);
+        x.size=size(x.left)+size(x.right)+1;
+        //最终返回一开始传进来的赋给根结点，因为如果根结点就是最小结点，那么根结点就要改成原根结点的右结点
+        return x;
+    }
+
+    public void deleteMax(){
+        if(isEmpty()) throw new NoSuchElementException(&quot;Symbol table underflow!&quot;);
+        root=deleteMax(root);
+    }
+
+    private Node deleteMax(Node x){
+        if(x.right==null) return x.left;
+        x.right=deleteMax(x.right);
+        x.size=size(x.left)+size(x.right)+1;
+        return x;
+    }
+
+    public void delete(Key key){
+        if(key==null) throw new IllegalArgumentException(&quot;Calls delete() with a null key!&quot;);
+        root=delete(root,key);
+    }
+
+    private Node delete(Node x,Key key){
+        if(x==null) return null;
+        int cmp=key.compareTo(x.key);
+        if(cmp&lt;0) x.left=delete(x.left,key);
+        else if(cmp&gt;0) x.right=delete(x.right,key);
+        /**
+         * 找到目标结点，如果它只有一边的子树则直接把子树的根结点赋给要目标结点
+         * 如果它两边都有，由于覆盖上来的结点必须大于左子树，小于右子树，
+         * 直接把左子树的根结点提上来是符合，但是它的左右子树也已接好了，那目标结点原来的右子树该接到它哪里 ？
+         * 所以我们要选一个叶结点放上来，那当然就是右子树中最小的一个啦（左子树的最大结点应该也可以）
+         **/
+        else{
+            if(x.right==null) return x.left;
+            if(x.left==null) return x.right;
+            Node t=x;
+            //把右子树中最小的结点放到x处
+            x=min(t.right);
+            //删除右子树中最小结点，并把右子树接到x上
+            x.right=deleteMin(t.right);
+            //左子树还是原来的左子树
+            x.left=t.left;
+        }
+        x.size=size(x.left)+size(x.right)+1;
+        return x;
+    }
+
+    public Key min(){
+        if (isEmpty()) throw new NoSuchElementException(&quot;Call min() with empty symbol table!&quot;);
+        return min(root).key;
+    }
+
+    private Node min(Node x){
+        if(x.left==null) return x;
+        else return min(x.left);
+    }
+
+    /**
+     * @Author haien
+     * @Description 小于等于key的最大结点
+     * @Date 2018/11/6
+     * @Param [key]
+     * @return Key
+     **/
+    public Key floor(Key key){
+        if(key==null) throw new IllegalArgumentException(&quot;Argument to floor() is null!&quot;);
+        if(isEmpty()) throw new NoSuchElementException(&quot;Calls floor() with empty symbol table!&quot;);
+        Node x=floor(root,key);
+        if(x==null) return null;
+        return x.key;
+    }
+
+    private Node floor(Node x,Key key){
+        if(x==null) return null;
+        int cmp=key.compareTo(key);
+        if(cmp&lt;0) return floor(x.left, key); //父结点比key大，往左边找
+        Node t = floor(x.right,key);
+        if(t!=null) return t;
+        else return x;
+    }
+
+    /**
+     * @Author haien
+     * @Description 查找排名为第k位的结点（排名从0开始）
+     * @Date 2018/11/6
+     * @Param [k]
+     * @return Key
+     **/
+    public Key select(int k){
+        if(k&lt;0||k&gt;=size()){
+            throw new IllegalArgumentException(&quot;Argument to select() is invalid: &quot;+k);
+        }
+        Node x=select(root,k);
+        return x.key;
+    }
+
+    private Node select(Node x,int k){
+        if(x==null) return null;
+        int t=size(x.left);
+        if(k&lt;t) return select(x.left,k);
+        else if(t&lt;k) return select(x.right,k-t-1);
+        else return x;
+    }
+
+    /**
+     * @Author haien
+     * @Description 计算元素的排名（从0开始）
+     * @Date 2018/11/6
+     * @Param [key]
+     * @return int
+     **/
+    public int rank(Key key){
+        if(key==null) throw new IllegalArgumentException(&quot;Argument to rank() is null!&quot;);
+        return rank(key,root);
+    }
+
+    private int rank(Key key,Node x){
+        if(x==null) return 0;
+        int cmp=key.compareTo(x.key);
+        if(cmp&lt;0) return rank(key,x.left);
+        else if(cmp&gt;0) return 1+size(x.left)+rank(key,x.right);
+        else return size(x.left);
+    }
+
+    /**
+     * @Author haien
+     * @Description 把左右键集合按顺序收集到一个队列中
+     * @Date 2018/11/6
+     * @Param [lo, hi] 最小、最大结点
+     * @return java.lang.Iterable&lt;Key&gt;
+     **/
+    public Iterable&lt;Key&gt; keys(Key lo,Key hi){
+        if(lo==null) throw new IllegalArgumentException(&quot;First argument to keys() is null!&quot;);
+        if(hi==null) throw new IllegalArgumentException(&quot;Second argument to keys() is null!&quot;);
+
+        Queue&lt;Key&gt; queue=new Queue&lt;&gt;();
+        keys(root,queue,lo,hi);
+        return queue;
+    }
+
+    //其实就是中序遍历
+    private void keys(Node x, Queue&lt;Key&gt; queue,Key lo,Key hi){
+        //查到了最后一个结点的下一个结点null了，出栈
+        if(x==null) return;
+        keys(x.left,queue,lo,hi); //往左边找，找到最左边的元素才可以出栈
+        queue.enQueue(x.key); //发现左结点是null，出栈，打印这个结点
+        keys(x.right,queue,lo,hi); //往右边找
+    }
+
+    /**
+     * @Author haien
+     * @Description 计算树的高度
+     * @Date 2018/11/7
+     * @Param []
+     * @return int
+     **/
+    public int height(){
+        return height(root);
+    }
+
+    private int height(Node x){
+        if(x==null) return 0; //结点为空，高度为0
+        return 1+Math.max(height(x.left),height(x.right)); //最终树的高度=当前结点高度1+左子树高度+右子树高度
+    }
+
+    /**
+     * @Author haien
+     * @Description 按层级顺序把结点收集到队列keys中
+     * @Date 2018/11/7
+     * @Param []
+     * @return java.lang.Iterable&lt;Key&gt;
+     **/
+    public Iterable&lt;Key&gt; levelOrder(){
+        Queue&lt;Key&gt; keys=new Queue&lt;&gt;();
+        Queue&lt;Node&gt; queue=new Queue&lt;&gt;();
+        queue.enQueue(root);
+        while(!queue.isEmpty()){
+            Node x=queue.deQueue();
+            if(x!=null){
+                keys.enQueue(x.key);
+                queue.enQueue(x.left);
+                queue.enQueue(x.right);
+            }
+        }
+        return keys;
+    }
+
+}
+</code></pre></li>
+<li>代码实例：DataStructure/search/BST<h3 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h3></li>
+<li>如果能保持树的平衡性，那么即使在最坏情况下也能保证在对数时间内找到元素。</li>
+<li>为了平衡，我们需要一些灵活性，因此我们允许一个结点可以保存多个键。因为这样我们在新插入键的时候就可以把它插到最后的叶结点里，而不是生成一个新的结点增加树的高度。</li>
+<li>3-结点：含有2个键和3个链接。左链接指向比它小的结点，中链接指向大小位于本身的俩键的结点，右链接指向比它大的结点。</li>
+<li>我们将3-结点定义为由一条红色链接相连的两个2-接结点，且统一为左链接，右链接只能是黑色的，这样它就还是一棵二叉树。</li>
+<li>红黑树：包含2-结点和3-结点，红是指3-结点中的俩键实际是通过红色链接相连的2结点，黑是指其他普通的链接。</li>
+<li><p>插入的时候我们把新结点插到最后一层的结点x上，并用红色的链接与它相连，如果x原本是个2-结点，也就是它还没有过红色链接，那么检查这个链接是否左链接，不是的话就把两个结点层次调换一下；如果x原本是个3-结点，那么现在就变成了4-结点，我们可以把中键提上去，拆成3个2-结点。</p>
+<pre><code>public class RedBlackBST&lt;Key extends Comparable&lt;Key&gt;,Value&gt; { //表示Key可以是任何继承自Comparable的类型，并且这个Comparable必须是指定类型为Key的；写Key extends Comparable没什么问题，就相当于Key extends Comparable&lt;Object&gt;，但是 指定一下Key会更明确
+    private static final boolean RED=true;
+    private static final boolean BLACK=false;
+
+    private Node root;
+
+    private class Node{
+        private Key key;
+        private Value val;
+        private Node left,right;
+        private boolean color; //由其父结点指向它的链接的颜色
+        private int size; //子树中的结点总数
+
+        public Node(Key key, Value val, boolean color, int size) {
+            this.key = key;
+            this.val = val;
+            this.color = color;
+            this.size = size;
+        }
+    }
+
+    private boolean isRed(Node x){
+        if(x==null) return false;
+        return x.color;
+    }
+
+    public int size(){
+        return size(root);
+    }
+
+    private int size(Node x){
+        if(x==null) return 0;
+        return x.size;
+    }
+
+    /**
+     * @Author haien
+     * @Description 出现红色右连接，把它旋转到左边
+     *              h原本揽着x的肩膀，x两手提着东西，现在h松手去提x左手的东西，x腾出手去揽h，变成了x在上
+     * @Date 2018/11/13
+     * @Param [h]
+     * @return com.haien.search.RedBlackBST&lt;Key,Value&gt;.Node
+     **/
+    private Node rotateLeft(Node h){
+        Node x=h.right;
+        h.right=x.left;
+        x.left=h;
+        x.color=h.color;
+        h.color=RED;
+        x.size=h.size;
+        h.size=1+size(h.left)+size(h.right);
+        return x;
+    }
+    /**
+     * @Author haien
+     * @Description 出现错误的红色左链接，错误的情况就是这个结点及其左结点的左链接都是红色的，形成了4-结点，
+     *              需要把这个结点和它的左结点互换，这样新的父结点左右链接就都是红色的，再通过flipColors来调整好
+     * @Date 2018/11/13
+     * @Param [h]
+     * @return com.haien.search.RedBlackBST&lt;Key,Value&gt;.Node
+     **/
+    private Node rotateRight(Node h){
+        Node x=h.left;
+        h.left=x.right;
+        x.right=h;
+        x.color=h.color;
+        h.color=RED;
+        x.size=h.size;
+        h.size=1+size(h.left)+size(h.right);
+        return x;
+    }
+
+    /**
+     * @Author haien
+     * @Description 把一个左右链接都是红色的结点变成左右链接都是黑色的，但由父结点指向它的链接是红色的
+     *              即，把一个4-结点的中建挤到父结点的键区；由于父结点也可能已经是3-结点，所以调用者需要递归调用此法
+     * @Date 2018/11/13
+     * @Param [x]
+     * @return void
+     **/
+    private void flipColors(Node x){
+        x.color=RED;
+        x.left.color=BLACK;
+        x.right.color=BLACK;
+    }
+
+    public void put(Key key,Value val){
+        //查找key，找到则更新其值，否则创建新结点；返回root，当原树为空时就有用
+        root=put(root,key,val);
+        root.color=BLACK; //当原树为空时，root就是刚创建的结点了，它的颜色是red，应该改成black
+    }
+
+    private Node put(Node x,Key key,Value val){
+        if(x==null) return new Node(key,val,RED,1);
+
+        int cmp=key.compareTo(x.key);
+        if(cmp&lt;0) x.left=put(x.left,key,val);
+        else if(cmp&gt;0) x.right=put(x.right,key,val);
+        else x.val=val;
+
+        if(isRed(x.right)&amp;&amp;!isRed(x.left)) x=rotateLeft(x); //新插入的键比父结点大，出现了红色的右链接
+        if(isRed(x.left)&amp;&amp;isRed(x.left.left)) x=rotateRight(x); //未命中查找终止于一个3-结点，并且新结点比它小，出现了连续两个左链接，形成了4-结点
+        if(isRed(x.left)&amp;&amp;isRed(x.right)) flipColors(x);//出现两链接都是红色的结点
+
+        x.size=1+size(x.left)+size(x.right);
+        return x;
+    }
+}
+</code></pre></li>
+<li>Key extends Comparable<key>: 表示Key可以是任何继承自Comparable的类型，并且这个Comparable必须是指定类型为Key的；写Key extends Comparable没什么问题，就相当于Key extends Comparable<object>，但是 指定一下Key会更明确</object></key></li>
+<li>《算法》269页</li>
+<li>代码实例：DataStructure/search/RedBlackBST</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-13T08:56:37.926Z" itemprop="dateUpdated">2018-11-13 16:56:37</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Java数据结构之查找/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Java数据结构之查找/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java数据结构之查找/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java数据结构之查找/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java数据结构之查找/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Java数据结构之查找/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java数据结构之查找/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Java数据结构之带权图/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Java数据结构之背包、队列和栈/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java数据结构之查找/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java数据结构之查找/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java数据结构之查找/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Java数据结构之查找/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java数据结构之查找/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNElEQVR42u3azW6DQAxF4bz/S6ebLiq1kHPtodJ4DqsqIcDHwvXf64WP94+DfPL7uLra1bevJw4ZMmRsyyC3T8/5/UD9a97jZciQcQLjKoJdnYMuDaIiCev3zyZDhgwZhME/uQ/EMmTIkLGWUasxV91XhgwZZzLSwHefDvIr8CC+rBaXIUPGhow0XP7n34/MN2TIkLEV4x0ePNVLBwa15/n+rQwZMkYzeIBblTKmKSlf/pAhQ8ZpjHT1IS1i0+QPvSwZMmQcxkgXLHiLP009g4adDBkyDmCkoTMdQKYhOB4AyJAhYyiD3+aJIWXagEPbIjJkyBjKIC1+Xsry36bFLdoWkSFDxjhGLUHkRW8/JU1DvAwZMuYx+Kk8BayF4LSd98fOiAwZMoYyOg9aC8r8lfECWIYMGbMZJMB12nB8may2bCFDhowTGCQ564wz02FAp5EnQ4aMqQyehHVWLtK1MN7akyFDxgkMFI9LgwHO5kUvKmVlyJAxmtFJ1GopJilZg7UMGTJkHMDgBWdtRaNf1n5IQGXIkHEAo9MU4wPRzuuIc0YZMmQMZSwYJYJQWytfP/xKhgwZQxnv8KgtWNSGCsGKhgwZMkYzamGu1krjr4a322KYDBkytmWkYwDOSMN0K+DKkCHjAEYa+Grttv5/ALQzIkOGDBlgJLmqAI6zVxkyZMgoNe5JUE6XMxYEXBkyZGzI6LTya2scteHognabDBkyNmSkedcT4wFObQ01ZciQsR/jC9HcGQZAoc0+AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

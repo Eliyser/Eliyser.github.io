@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="参考文章 代码实例：ideaProjects/thz/thz-manager-web/test  普通测试@RunWith(SpringJUnit4ClassRunner.class) @ContextConfiguration(locations=&amp;quot;classpath:config/applicationContext.xml&amp;quot;)      //classpath:在当前项">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Spring建立单元测试/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="参考文章 代码实例：ideaProjects/thz/thz-manager-web/test  普通测试@RunWith(SpringJUnit4ClassRunner.class) @ContextConfiguration(locations=&amp;quot;classpath:config/applicationContext.xml&amp;quot;)      //classpath:在当前项">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-22T08:59:38.482Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="参考文章 代码实例：ideaProjects/thz/thz-manager-web/test  普通测试@RunWith(SpringJUnit4ClassRunner.class) @ContextConfiguration(locations=&amp;quot;classpath:config/applicationContext.xml&amp;quot;)      //classpath:在当前项">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.867Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#普通测试"><span class="post-toc-number">1.</span> <span class="post-toc-text">普通测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#controller层测试"><span class="post-toc-number">2.</span> <span class="post-toc-text">controller层测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#事务自动回滚"><span class="post-toc-number">3.</span> <span class="post-toc-text">事务自动回滚</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Spring建立单元测试"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.867Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li><a href="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7240.PNG" target="_blank" rel="noopener">参考文章</a></li>
+<li>代码实例：ideaProjects/thz/thz-manager-web/test</li>
+</ul>
+<h3 id="普通测试"><a href="#普通测试" class="headerlink" title="普通测试"></a>普通测试</h3><pre><code>@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations=&quot;classpath:config/applicationContext.xml&quot;) 
+    //classpath:在当前项目查找；classpath*：在所有依赖的jar包的classpath下找
+@Transactional
+public class UserServiceImplTest {
+    @Resource
+    private UserService userService;
+
+    @Test
+    public void addUser() {
+        User user=new User();
+        user.setUsername(&quot;test&quot;);
+        user.setPassword(&quot;123456&quot;);
+        int result=userService.addUser(user);
+        Assert.assertThat(result,is(1));
+    }
+}
+</code></pre><ul>
+<li>@RunWith: 运行器。@RunWith(JUnit4.class)就是指用JUnit4来运行测试；@RunWith(SpringJUnit4ClassRunner.class)则是运行于Spring测试环境。</li>
+<li>@ContextConfiguration：当我们想要在测试类使用@Resource注解注入bean时，只需要添加该注解指明去哪里能找到这些bean即可。我们知道注册bean的方法有：</li>
+</ul>
+<ol>
+<li><p>在xml中注册bean：先定义好这个类然后到xml中注册成bean。</p>
+<pre><code>&lt;bean id=&quot;cacheManager&quot; 
+      class=&quot;org.springframework.cache.ehcache.EhCacheCacheManager&quot;&gt;
+    &lt;property name=&quot;cacheManager&quot; value=&quot;ehcacheManager&quot;/&gt;
+&lt;/bean&gt;
+</code></pre></li>
+</ol>
+<ul>
+<li>那么测试时：</li>
+</ul>
+<pre><code>@ContextConfiguration(locations = &quot;classpath:spring-beans.xml&quot;)
+</code></pre><ul>
+<li>代码示例：ideaProjects\shirochapter12\ShiroTest</li>
+</ul>
+<ol start="2">
+<li>定义类时顺便加@Component等注解注册成bean，再扫描这些bean，扫描bean的方式也分两种：</li>
+</ol>
+<p>i. 在xml中配置component-scan：</p>
+<pre><code>&lt;context:component-scan base-package=&quot;com.haien.chapter16&quot;&gt;
+</code></pre><ul>
+<li>那么测试时引入该配置文件即可：</li>
+</ul>
+<pre><code>@ContextConfiguration(locations = &quot;classpath:spring-config.xml&quot;)
+</code></pre><p>  ii. 在Java configuration类中加@ComponentScan</p>
+<pre><code>@ComponentScan(basePackages = &quot;com.haien.sping.cache.service&quot;)
+public class AnnotationCacheConfig {
+
+}
+</code></pre><ul>
+<li>那么测试时引入这个类即可：</li>
+</ul>
+<pre><code>@ContextConfiguration(classes=AnnotationCacheConfig.class)
+</code></pre><ul>
+<li>多个则：</li>
+</ul>
+<pre><code>@ContextConfiguration(classes = {WebMvcConfig.class, HibernateConfig.class})
+</code></pre><ul>
+<li>代码示例：ideaProjects\spring-cache\test\UserServiceTest</li>
+<li><a href="https://www.cnblogs.com/bihanghang/p/10023759.html" target="_blank" rel="noopener">参考文章</a></li>
+</ul>
+<h3 id="controller层测试"><a href="#controller层测试" class="headerlink" title="controller层测试"></a>controller层测试</h3><pre><code>@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations={&quot;classpath:config/applicationContext.xml&quot;,&quot;classpath:config/spring-mvc.xml&quot;})
+public class GoodsControllerTest {
+
+    @Resource
+    private GoodsController goodsController;
+
+    private MockMvc mockMvc;
+
+    @Before
+    public void setUp() {
+        mockMvc=MockMvcBuilders.standaloneSetup(goodsController).build(); //缺少这一步抛异常：No mapping found for HTTP request with URI [...] in DispatcherServlet；找不到路径
+    }
+
+    @Test
+    public void queryGoods() throws Exception {
+        String url=&quot;/goods/query?pageNum=1&amp;rows=5&amp;type=液体&quot;;
+        ResultActions resultActions=mockMvc.perform(MockMvcRequestBuilders.get(url));
+        MvcResult mvcResult=resultActions.andReturn();
+        String result=mvcResult.getResponse().getContentAsString();
+        System.out.println(&quot;客户端获得反馈数据：&quot;+result);
+        //也可以从response中获取状态码、header、cookies...
+        System.out.println(mvcResult.getResponse().getStatus());
+    }
+}
+</code></pre><h3 id="事务自动回滚"><a href="#事务自动回滚" class="headerlink" title="事务自动回滚"></a>事务自动回滚</h3><ul>
+<li><p>引入依赖</p>
+<pre><code>&lt;dependency&gt; &lt;!--用于开启事务，否则测试将无法自动回滚--&gt;
+  &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-tx&lt;/artifactId&gt;
+  &lt;version&gt;4.2.4.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li><p>applicationContext.xml：配置事务管理器、开启事务</p>
+<pre><code>&lt;!-- (事务管理)transaction manager, use JtaTransactionManager for global tx --&gt;
+&lt;bean id=&quot;transactionManager&quot;
+      class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+    &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;
+&lt;/bean&gt;
+&lt;!--开启事务--&gt;
+&lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot;/&gt;
+</code></pre></li>
+<li><p>创建单元测试，添加@Transactional注解</p>
+</li>
+</ul>
+<pre><code>@RunWith(SpringJUnit4ClassRunner.class) //告诉Junit使用Spring TestRunner
+@ContextConfiguration(locations = {&quot;classpath:spring-beans.xml&quot;,
+    &quot;classpath:spring-shiro.xml&quot;}) //指定bean注入的配置文件
+@Transactional
+public class ShiroTest {
+    @Autowired
+    protected RoleService roleService;
+
+    @Test
+    public void addRole(){
+        Role r = new Role(&quot;test&quot;, &quot;测试&quot;, Boolean.TRUE);
+        r=roleService.createRole(r);
+        Assert.assertThat(r.getId(),is(51L));
+    }
+}
+</code></pre><ul>
+<li>如果前面不配置事务管理器并开启事务的话，测试类加@Transactional不会报错，但也不会回滚。</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-22T08:59:38.482Z" itemprop="dateUpdated">2019-03-22 16:59:38</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Spring建立单元测试/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Spring建立单元测试/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Spring建立单元测试/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Spring建立单元测试/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Spring建立单元测试/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Spring建立单元测试/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Spring建立单元测试/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Spring项目集成tomcat/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Spring基础概念/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Spring建立单元测试/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Spring建立单元测试/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Spring建立单元测试/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Spring建立单元测试/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Spring建立单元测试/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIklEQVR42u3aS24CMRAFQO5/aSJllSyYvNcmSGOXVxFgxsWi0x8/HvF6fq/2M88f6/oz7bOGCwMD47aM5+V612deYdafi4GBcQ7jOoAmoTPf1SKjfwAYGBgYl4dLkrw8ccTAwMBYZ7Qp3Uqhi4GBgTFL19q917A8BL+tFsfAwLghox0MfPLvf5xvYGBg3ITxLFebPv7fSX6dCgMDY2vGq69o08GWtBJqiwwXAwNjC0bbrJ+NMGdN/6QkxsDAOIHRNsLaAWQ+QrhmRwEaAwPjGEbelP9MCC5GAhgYGJsy8kSwqIkXjpic4Y+uIQYGxtaMvFxMgmae8OVh+uUrGBgYWzPaEJk3/fPidvZjFU03DAyMmzPaB+SlbDvgnBXPGBgYJzPyYUAbjvMBQA7GwMA4gTG7SNo2+pOfYFjoYmBgHMBoW2azFLCop9uxAQYGxtaMfMPsgum7wneyFwMD4wRG2/R/7wghL5hfficGBsYBjCQJmw0GZu28Oq3EwMDYlNE25ds1G1vWVzQwMDAOY+QFans5NS9361EBBgbG1oz8wsSs9ZYkhW1YL/ZiYGBswVgvU6+p7Vi0HY5iYGCcwJiFubzsXHmlbclhYGDszVgJsvm7+a5hExADA+MAxkpbv233t9cyMDAwMNoDrTTj2nZ/UcRiYGBgLKSMbTmaBF8MDIwzGXkR2172mrXt2jIbAwNjb8b6YKBoipXNvjw9xcDA2JTxBUgS4WfMV4xtAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简介 自Spring 3.1起，提供了基于注解的Cache支持（之前是用aop实现的），且提供了Cache抽象。 Spring Cache优点：   提供基本的cache抽象，方便切换各种底层cache。 通过注解Cache可以实现逻辑代码透明缓存。 支持事故回滚时也自动回滚缓存。 支持复杂的缓存逻辑。  API及默认实现 Cache接口：主要是缓存的增删查功能。  package org.spr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Spring Cache一之CacheManager的创建/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="简介 自Spring 3.1起，提供了基于注解的Cache支持（之前是用aop实现的），且提供了Cache抽象。 Spring Cache优点：   提供基本的cache抽象，方便切换各种底层cache。 通过注解Cache可以实现逻辑代码透明缓存。 支持事故回滚时也自动回滚缓存。 支持复杂的缓存逻辑。  API及默认实现 Cache接口：主要是缓存的增删查功能。  package org.spr">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-23T11:55:09.044Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="简介 自Spring 3.1起，提供了基于注解的Cache支持（之前是用aop实现的），且提供了Cache抽象。 Spring Cache优点：   提供基本的cache抽象，方便切换各种底层cache。 通过注解Cache可以实现逻辑代码透明缓存。 支持事故回滚时也自动回滚缓存。 支持复杂的缓存逻辑。  API及默认实现 Cache接口：主要是缓存的增删查功能。  package org.spr">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.764Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#API及默认实现"><span class="post-toc-number">2.</span> <span class="post-toc-text">API及默认实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#示例"><span class="post-toc-number">3.</span> <span class="post-toc-text">示例</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Spring Cache一之CacheManager的创建"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.764Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>自Spring 3.1起，提供了基于注解的Cache支持（之前是用aop实现的），且提供了Cache抽象。</li>
+<li>Spring Cache优点：</li>
+</ul>
+<ol>
+<li>提供基本的cache抽象，方便切换各种底层cache。</li>
+<li>通过注解Cache可以实现逻辑代码透明缓存。</li>
+<li>支持事故回滚时也自动回滚缓存。</li>
+<li>支持复杂的缓存逻辑。</li>
+</ol>
+<h3 id="API及默认实现"><a href="#API及默认实现" class="headerlink" title="API及默认实现"></a>API及默认实现</h3><ul>
+<li>Cache接口：主要是缓存的增删查功能。</li>
+</ul>
+<pre><code>package org.springframework.cache;
+
+public interface Cache {
+    String getName();  //缓存的名字
+
+    Object getNativeCache(); //得到底层使用的缓存，如Ehcache
+
+    ValueWrapper get(Object key); //根据key得到一个ValueWrapper，
+        然后调用其get方法获取值
+
+    &lt;T&gt; T get(Object key, Class&lt;T&gt; type);//根据key，和value的类型直接获取value
+
+    void put(Object key, Object value);//往缓存放数据
+
+    void evict(Object key);//从缓存中移除key对应的缓存
+
+    void clear(); //清空缓存
+
+    interface ValueWrapper { //缓存值的Wrapper
+        Object get(); //得到真实的value
+    }
+}
+</code></pre><ul>
+<li><p>由此可见，缓存的对象就是键值对。</p>
+</li>
+<li><p>默认实现：</p>
+</li>
+<li>ConCurrentMapCache：使用java.util.concurrentHashMap实现的Cache。</li>
+<li>GuavaCache: 对Gguava com.google.common.cache.Cache进行的Wrapper，需要Google Guava 12.0或更高版本。</li>
+<li>EhCacheCache: 使用Ehcache实现。</li>
+<li><p>JCacheCache：对javax.cache.Cache进行的Wrapper。</p>
+</li>
+<li><p>CacheManager：Spring提供的缓存管理器，便于管理程序中的多个cache。</p>
+</li>
+</ul>
+<pre><code>package org.springframework.cache;
+import java.util.Collection;
+
+public interface CacheManager {
+    Cache getCache(String name); //根据Cache名字获取Cache 
+    Collection&lt;String&gt; getCacheNames(); //得到所有Cache的名字
+}
+</code></pre><ul>
+<li>默认实现：</li>
+<li>SimpleCacheManager</li>
+<li>NoOpCacheManager</li>
+<li>ConcurrentMapCacheManager</li>
+<li>CompositeCacheManager</li>
+<li>EhCacheCacheManager</li>
+<li>RedisCacheManager: 来自spring data redis项目</li>
+<li><p>GemfireCacheManager：来自spring data gemfire项目</p>
+</li>
+<li><p>具体要选择哪个取决于要使用的底层缓存。</p>
+</li>
+<li><p>另外还提供了CompositeCacheManager用于组合CacheManager，即可以从多个CacheManager轮询得到相应的cache。</p>
+<pre><code>&lt;bean id=&quot;cacheManager&quot;     
+      class=&quot;org.springframework.cache.support.CompositeCacheManager&quot;&gt;
+    &lt;!--注入多个CacheManager--&gt;
+    &lt;property name=&quot;cacheManagers&quot;&gt;
+        &lt;list&gt;
+            &lt;ref bean=&quot;ehcacheManager&quot;/&gt;
+            &lt;ref bean=&quot;jcacheManager&quot;/&gt;
+        &lt;/list&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;fallbackToNoOpCache&quot; value=&quot;true&quot;/&gt;
+&lt;/bean&gt;
+</code></pre></li>
+<li><p>除了多出cacheManagers属性外，其他方法应该和CacheManager差不多，比如，当调用cacheManager.getCache（cacheName）时，会先从第一CacheManager找起，找到为止，最终找不到的话，因为fallbackToNoOpCache=true，将返回一个NOP的cache，否则返回null。</p>
+</li>
+<li><p>事务回滚：除了GuavaCacheManager之外，其他Cache都支持Spring事务，即如果事务回滚了，C阿策划的数据也会移除掉。</p>
+</li>
+<li><p>Spring不进行cache的定义，也不进行Cache的缓存策略的维护。这些都是由底层cache自己实现，然后外部创建一个cache注入进来的。Spring只是提供了一个Wrapper，提供一套对外一致的API。</p>
+</li>
+</ul>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
+<li><p>采用Ehcache，依赖：</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;net.sf.ehcache&lt;/groupId&gt;
+    &lt;artifactId&gt;ehcache-core&lt;/artifactId&gt;
+    &lt;version&gt;2.6.6&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li><p>配置底层ehcache：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;ehcache name=&quot;es&quot;&gt;
+    &lt;diskStore path=&quot;java.io.tmpdir&quot;/&gt;
+
+    &lt;!--这个好像可有可无--&gt;
+    &lt;defaultCache
+            maxEntriesLocalHeap=&quot;1000&quot;
+            eternal=&quot;false&quot;
+            timeToIdleSeconds=&quot;3600&quot;
+            timeToLiveSeconds=&quot;3600&quot;
+            overflowToDisk=&quot;false&quot;&gt;
+    &lt;/defaultCache&gt;
+
+    &lt;!--定义一个Cache，名为user，CacheManager维护一个CacheMap,以下name属性为key，
+    cache实例为value，调用getCache(&quot;user&quot;)即执行cacheMap.get(&quot;user&quot;),
+    返回cache实例--&gt;
+    &lt;cache name=&quot;user&quot;
+           maxEntriesLocalHeap=&quot;2000&quot;
+           eternal=&quot;false&quot;
+           timeToIdleSeconds=&quot;600&quot;
+           timeToLiveSeconds=&quot;600&quot;
+           overflowToDisk=&quot;false&quot;
+           statistics=&quot;true&quot;&gt;
+    &lt;/cache&gt;
+
+    &lt;!--可以继续定义多个Cache--&gt;
+&lt;/ehcache&gt;
+</code></pre></li>
+<li><p>创建CacheManager：一般Spring的CacheManager的实现都是不会添加setCache()的方法，但会添加setCacheManager()，把其他框架的CacheManager设置进来，而其他框架的CacheManager（比如net.sf.ehcache的CacheManager）则可以设置cache，设置进去之后spring的CacheManager会自动把其中的Cache集合获取到自己维护的CacheMap中。</p>
+</li>
+<li>所以创建CacheManager分三步，先做个测试：</li>
+</ul>
+<pre><code>@Test
+public void test() throws IOException{
+    //2. 把底层cache设置到底层CacheManager；这里使用net.sf.ehcache的CacheManager
+    CacheManager ehcacheManager=new CacheManager(
+            new ClassPathResource(&quot;ehcache.xml&quot;).getInputStream()); //1. 创建
+                                                                    底层cache
+    //3. 把底层CacheManager设置到spring的CacheManager
+    EhCacheCacheManager cacheCacheManager=new EhCacheCacheManager();
+    cacheCacheManager.setCacheManager(ehcacheManager);
+
+    //根据缓存名字获取缓存;使用spring的cache;“user”cache定义在ehcache.xml中
+    Cache cache=cacheCacheManager.getCache(&quot;user&quot;);
+
+    //往缓存写数据
+    Long id=1L;
+    User user=new User(id,&quot;zhang&quot;,&quot;zhang@gmail.com&quot;);
+    cache.put(id,user); //id为键，user等下被转为json作值
+    //从缓冲读数据
+    Assert.assertNotNull(cache.get(id,User.class)); 
+    //根据id找值，再根据User类信息转json为类
+}
+</code></pre><ul>
+<li><p>上面三步用配置文件实现更快：</p>
+<pre><code>&lt;!--2. 创建底层CacheManager；Spring提供EhCacheManagerFactoryBean来简化
+外部依赖ehcache的CacheManager的创建；指定configuration路径比编码方式简单多了--&gt;
+&lt;bean id=&quot;ehcacheManager&quot;
+      class=&quot;org.springframework.cache.ehcache.EhCacheManagerFactoryBean&quot;&gt;
+    &lt;!--1. 创建底层cache--&gt;
+    &lt;property name=&quot;configuration&quot; value=&quot;classpath:ehcache.xml&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!--3. 创建spring的CacheManager--&gt;
+&lt;bean id=&quot;cacheManager&quot; 
+      class=&quot;org.springframework.cache.ehcache.EhCacheCacheManager&quot;&gt;
+    &lt;property name=&quot;cacheManager&quot; value=&quot;ehcacheManager&quot;/&gt;
+    &lt;!--是否支持事务，是则事务回滚，缓存也回滚，默认false--&gt;
+    &lt;property name=&quot;transactionAware&quot; value=&quot;true&quot;/&gt; 
+&lt;/bean&gt;
+</code></pre></li>
+<li><p>上面测试其实就是使用Java configure方式，我们把它写成个配置类来代替上述xml配置：</p>
+</li>
+</ul>
+<pre><code>@Configuration //配置spring容器
+@EnableCaching(proxyTargetClass = true)
+public class CacheConfig {
+    @Bean //往容器注册bean实例
+    public CacheManager cacheManager() {
+        try {
+            //2. 创建底层CacheManager
+            net.sf.ehcache.CacheManager ehcacheCacheManager=
+                new net.sf.ehcache.CacheManager( 
+                    //1. 创建底层cache
+                    new ClassPathResource(&quot;ehcache.xml&quot;).getInputStream()
+                ); 
+            //3. 创建spring的CacheManager
+            EhCacheCacheManager cacheCacheManager=
+                new EhCacheCacheManager(ehcacheCacheManager);
+
+            return cacheCacheManager;
+        } catch (IOException e) { //getInputStream()抛出的
+            throw new RuntimeException(e);
+        }
+    }
+}
+</code></pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-23T11:55:09.044Z" itemprop="dateUpdated">2019-03-23 19:55:09</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Spring Cache一之CacheManager的创建/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Spring Cache一之CacheManager的创建/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Spring Cache一之CacheManager的创建/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Spring Cache一之CacheManager的创建/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Spring Cache一之CacheManager的创建/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Spring Cache一之CacheManager的创建/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Spring Cache一之CacheManager的创建/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Spring Security/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Spring Cache二之Cache注解/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Spring Cache一之CacheManager的创建/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Spring Cache一之CacheManager的创建/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Spring Cache一之CacheManager的创建/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Spring Cache一之CacheManager的创建/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Spring Cache一之CacheManager的创建/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsElEQVR42u3awW4iMRAE0Pz/T7PSXhNIVbdNOLw5ITIwfkayner++oqvx/8rf+fx7fp+5+t7kjEcu/Dw8PBGQ3/9yEdwJYN49p2v30mm7+k04eHh4V3jzYbyeppObTmvqb98Fg8PD+9Pee1xuR7KYnLx8PDwPpk3W+jbYzceHh7e5/M2EUMb0W6Cj4tZCx4eHl7Ma5f7T3h9sb6Hh4eHt6iq70OHPG7Ybxg/fAoPDw/vAu91LJs3QuXFsM1xeTYSPDw8vBu8NsBtw4t2iJtRRT8MHh4e3oLXNk7NjtoJMv9rAsPDw8O7x9u0AiQPyN/fNB9synV4eHh4p3gtaXYIbqOHZLKu/GJ4eHh4oxB2thnkz2p7AKJ78PDw8C7w2uV7FrzmE7FiPJtEPDw8vAu8PETYR6tty9QmMsbDw8O7zduXmjatA6dS5yKewMPDwxvx9svx2W2jnaZfXuPh4eFd47WxQl5Vy6fvVAT8tKcMDw8P7xCvLc8nzVKzIHj2rLZNAQ8PD2/Py4fSDj0/pieH5lm4jIeHh3eP15avhtFAvjuVn3q6qeDh4eG9hdf+279pwMqLW7PQBA8PD+82Lw8L8qBhFgrngcgvI8HDw8O7zMtDh7bMP2u3ylsT8PDw8N7JywedL+KHK3JxNPyUjYeHh3eUdzZ6mC3lSRls+BQ8PDy8N/La4GB2mG43iXYDw8PDw7vBa4+8yaJ8tgVhHwrj4eHhneU9yisqOy3aC2ZH9iiMwMPDwzvEaxffvOjVFsxmz2pbHPDw8PBO8ZLNID/4bsr/p9q/8PDw8N7Dmy3QbYF/X0irI2A8PDy8P+W1x+W20WoWHNf5NB4eHt6H8Tbv7BuzVkdqPDw8vJKXhxHRl5YH3+TpyWd/uAcPDw/vAu9sAayNaNt2rratAQ8PD+8o7x9ZXkrfO9yD1wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简介 Engine X，一种web服务器，和Apache是同行。 Apache是一个重量级的、不支持高并发的服务器。 Nginx是一个轻量级高并发的服务器。 Nginx是一款自由的、开源的、高性能的HTTP服务器和反向代理服务器。Nginx可以作为一个HTTP服务器进行网站的发布处理，也可以作为反向代理进行负载均衡的实现。  正向代理（forward proxy） 位于国外的某些网站通过浏览器是没">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Nginx负载均衡服务器/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="简介 Engine X，一种web服务器，和Apache是同行。 Apache是一个重量级的、不支持高并发的服务器。 Nginx是一个轻量级高并发的服务器。 Nginx是一款自由的、开源的、高性能的HTTP服务器和反向代理服务器。Nginx可以作为一个HTTP服务器进行网站的发布处理，也可以作为反向代理进行负载均衡的实现。  正向代理（forward proxy） 位于国外的某些网站通过浏览器是没">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2F688ABA6C2C44BE11DD10A761E6014CC7">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2FFE75527FB05A5F5B8012A13C80A3A98A">
+<meta property="og:image" content="https://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20171231140104635.png">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg02.sogoucdn.com%2Fapp%2Fa%2F100520146%2FD97B6941CEBA2861D569975C27952D88">
+<meta property="og:updated_time" content="2019-04-27T06:19:47.214Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="简介 Engine X，一种web服务器，和Apache是同行。 Apache是一个重量级的、不支持高并发的服务器。 Nginx是一个轻量级高并发的服务器。 Nginx是一款自由的、开源的、高性能的HTTP服务器和反向代理服务器。Nginx可以作为一个HTTP服务器进行网站的发布处理，也可以作为反向代理进行负载均衡的实现。  正向代理（forward proxy） 位于国外的某些网站通过浏览器是没">
+<meta name="twitter:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2F688ABA6C2C44BE11DD10A761E6014CC7">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.588Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#正向代理（forward-proxy）"><span class="post-toc-number">2.</span> <span class="post-toc-text">正向代理（forward proxy）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反向代理"><span class="post-toc-number">3.</span> <span class="post-toc-text">反向代理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#区别"><span class="post-toc-number">4.</span> <span class="post-toc-text">区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#负载均衡"><span class="post-toc-number">5.</span> <span class="post-toc-text">负载均衡</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考文章"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考文章</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用nginx实现负载均衡"><span class="post-toc-number">7.</span> <span class="post-toc-text">使用nginx实现负载均衡</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Nginx负载均衡服务器"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.588Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>Engine X，一种web服务器，和Apache是同行。</li>
+<li>Apache是一个重量级的、不支持高并发的服务器。</li>
+<li>Nginx是一个轻量级高并发的服务器。</li>
+<li>Nginx是一款自由的、开源的、高性能的HTTP服务器和反向代理服务器。Nginx可以作为一个HTTP服务器进行网站的发布处理，也可以作为反向代理进行负载均衡的实现。</li>
+</ul>
+<h3 id="正向代理（forward-proxy）"><a href="#正向代理（forward-proxy）" class="headerlink" title="正向代理（forward proxy）"></a>正向代理（forward proxy）</h3><ul>
+<li>位于国外的某些网站通过浏览器是没有办法直接访问的，此时可以用一个操作FQ进行访问。FQ的方式主要是找到一个可以访问国外网站的代理服务器，将请求发送给代理服务器，它会去访问国外的网站，然后将访问到的数据返回给我们。</li>
+<li>简单一点：A向C借钱，由于一些情况不能直接向C借钱，于是A想了一个办法，他让B去向C借钱，这样B就代替A向C借钱，A就得到了C的钱，C并不知道A的存在，B就充当了A的代理人的角色。</li>
+<li>这样的代理模式称为正向代理，其特点是客户端非常明确要访问的服务器地址；而服务器只清楚请求来自哪个代理服务器，而不清楚来自哪个具体的客户端。正向代理模式屏蔽或者隐藏了真实客户端信息。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2F688ABA6C2C44BE11DD10A761E6014CC7" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>此外，使用代理服务器还有以下好处：<ul>
+<li>提高访问速度：由于目标主机返回的数据会存放在代理服务器的硬盘中，因此下一次客户再访问相同的站点数据时，会直接从代理服务器的硬盘中读取，起到了缓存的作用，尤其对热门网站能明显提高访问速度。</li>
+<li>防火墙作用：由于所有客户机请求都必须通过代理服务器访问远程站点，因此可以在代理服务器上设限，过滤掉某些不安全信息。同时正向代理中用户可以隐藏自己的ip，免受攻击。</li>
+<li>突破访问限制：也就是上面说的访问外网。互联网上有许多开发的代理服务器，客户机在访问受限时，可通过不受限的代理服务器访问目标站点。通俗说，我们使用的翻墙浏览器就是利用了代理服务器，可以直接访问外网。</li>
+</ul>
+</li>
+</ul>
+<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><ul>
+<li>例如某宝网站由于访问量爆表，单个服务器远远不能满足需求，此时就会采用分布式部署，也就是通过部署多台服务器来解决访问人数限制的问题。</li>
+<li>多个客户端给服务器发送请求，Nginx服务器接收到之后，按照一定的规则分发给了后端的业务处理服务器进行处理了。此时，请求的来源也就是客户端是明确的，但是请求具体是由那台服务器处理的并不明确，Nginx扮演的就是一个反向代理的觉得。</li>
+<li>简单地说，A向B借钱，B没有拿自己的钱，而是悄悄地向C借钱，拿到钱之后再交给A,A以为是B的钱，他并不知道C的存在。</li>
+<li>反向代理，主要用于服务器集群分布式部署的情况下，反向代理隐藏了服务器的信息。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg01.sogoucdn.com%2Fapp%2Fa%2F100520146%2FFE75527FB05A5F5B8012A13C80A3A98A" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul>
+<li>位置不同<ul>
+<li>正向代理，架设在客户机和目标主机之间。</li>
+<li>反向代理，架设在服务器端。</li>
+</ul>
+</li>
+<li>代理对象不同<ul>
+<li>正向代理，代理客户端，服务端不知道实际发起请求的客户端</li>
+<li>反向代理，代理服务端，客户端不知道实际提供服务的服务端</li>
+</ul>
+</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20171231140104635.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><ul>
+<li>实际项目中，反向代理和正向代理一般是存在于一个应用场景的。正向代理客户端请求访问目标服务器，目标服务器是一个反向代理服务器，反向代理了多台真实的业务处理服务器。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg02.sogoucdn.com%2Fapp%2Fa%2F100520146%2FD97B6941CEBA2861D569975C27952D88" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>而将接收到的请求按照一定的规则分发的过程，称为负载均衡。</li>
+</ul>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a><a href="https://www.cnblogs.com/wcwnina/p/8728391.html" target="_blank" rel="noopener">参考文章</a></h3><ul>
+<li><a href="http://117.128.6.22/cache/nginx.org/download/nginx-1.12.2.zip?ich_args2=468-25162602057424_806d3eb8af894ab84bcc270c01fb8838_10001002_9c89612ad6cbf1d6903b518939a83798_9b9fe892345f40daac9611d32d296227" target="_blank" rel="noopener">安装教程</a></li>
+<li>安装目录：E:/nginx</li>
+</ul>
+<h3 id="使用nginx实现负载均衡"><a href="#使用nginx实现负载均衡" class="headerlink" title="使用nginx实现负载均衡"></a>使用nginx实现负载均衡</h3><ul>
+<li>nginx只负责拦截并转发客户端发起的请求，并不做页面的解析工作等，因为它没有处理servlet请求的能力，这些必须交给tomcat等servlet容器实现。所以在nginx上部署web项目必须配合tomcat实现，除非这个项目只有前端页面。</li>
+<li>通过修改配置文件nginx.conf（其注释符号为#）达到访问nginx代理服务器时跳转到指定服务器的目的。</li>
+<li>用proxy_pass配置请求的转发地址，当我们输入指定请求时将会跳转到该服务器。</li>
+</ul>
+<pre><code>upstream tomcat_server{
+    server localhost:8080;
+
+    /*配置多个服务器则：其中weight表示权重，即被访问几率；
+      当第一个server挂掉时，自动访问第二个。
+    server localhost:8080 weight=2;
+    server 192.168.101.9:8080 weight=1;
+    */
+}
+
+server{
+    #监听端口
+    listen  80;
+    #主机名
+    server_name localhost;
+
+    #路径“/”表示默认的http://localhost:80，需要替换成应用的路径，如/chapter23-server
+    location / { 
+        #跳转到http://localhost:8080，即部署在tomcat的域名:端口号
+        proxy_pass http://tomcat_server
+        #配置静态资源（jpg|png|css|js...）,浏览器访问http://localhost:80/1.png时， 
+        自动到服务器F:/nginx-1.12.2/static目录下找1.png图片
+        root F:/nginx/static;
+        index index.html index.htm;
+    }
+}
+</code></pre><ul>
+<li>修改后需在nginx目录下执行nginx -s reload令改变生效。</li>
+<li><p>将应用部署到tomcat后，访问localhost/chapter23-server，即访问到该项目（地址栏不会改变）。</p>
+</li>
+<li><p><a href="http://117.128.6.22/cache/nginx.org/download/nginx-1.12.2.zip?ich_args2=468-25162602057424_806d3eb8af894ab84bcc270c01fb8838_10001002_9c89612ad6cbf1d6903b518939a83798_9b9fe892345f40daac9611d32d296227" target="_blank" rel="noopener">参考文章</a></p>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-27T06:19:47.214Z" itemprop="dateUpdated">2019-04-27 14:19:47</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Nginx负载均衡服务器/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Nginx负载均衡服务器/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Nginx负载均衡服务器/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Nginx负载均衡服务器/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Nginx负载均衡服务器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Nginx负载均衡服务器/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Nginx负载均衡服务器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/NIO/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/nexus/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Nginx负载均衡服务器/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Nginx负载均衡服务器/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Nginx负载均衡服务器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Nginx负载均衡服务器/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Nginx负载均衡服务器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACH0lEQVR42u3aQW7DMAwEwPz/0+61QFp3KcpFTI9ORaHInhwYiuTrFa/jbX3/f7Lzfc/5Ca8rFgYGxm0Zx+l639M/ufo1RedgYGA8gJGHxQS8RqqehoGBgVFlnCd5yWlJ4oiBgYGxN+BWr7gf+ruBgYHxMYxqwpc87Hx/zth8F8fAwLghIy+c/f/fl/Q3MDAwbsU4iisJi0kq2XmHH07DwMAYzagmdnlZrXpm/7MYGBizGdWiWxXTH91IrrsYGBizGdclf1c0O3/lYWBgDGVUGwC7QnC1RfpayzExMDBGM9ZSt2qYTpLI8pgFBgbGOEZemu/vrA5+5T8AGBgYsxn9glcy5lUN0NVLMgYGxmxG9WFrhbMkpK4liBgYGE9g5IlaDjh/ibz9UDgfAwPjMYwo/VpqXibNyE5iioGBMZvRuVL2y2e7xjswMDCew6j2E5IkslNoy8/BwMCYzciLXEkjM8GstTz/OAEDA2M0Y9crVgtnnTZnNHKBgYExlJGHuQRcbTZUeX/UDjEwMIYyOgNha/jNV2UMDIzHMJJkbi0Ed54V7cfAwBjKOIorH5VITug0DzAwMJ7DqA5m7R0j66Se1WCNgYFxd0b15ToP3tvOLHzTGBgYIxh5CX7v9bVzlY2qhhgYGI9kdBqfOSk/DQMDA2MtHcyHLarscicWAwNjEKNayq8OUrSCaT5sgYGBMZSRfywJvv3WZnW8AwMDYzTjC+VXN/W0hQMQAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

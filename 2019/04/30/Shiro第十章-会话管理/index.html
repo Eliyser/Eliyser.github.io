@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="会话 即用户访问应用时保持的连接关系，在多次交互中应用能识别出当前访问的用户是谁，且可以在多次交互中保存一些数据。如访问一些网站时登录成功后可以记住用户，且在退出之前都可以识别当前用户是谁。 获取会话：登陆成功后即可获取会话。  login(&amp;quot;classpath:shiro.ini&amp;quot;, &amp;quot;zhang&amp;quot;, &amp;quot;123&amp;quot;); //登录成功相当于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Shiro第十章-会话管理/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="会话 即用户访问应用时保持的连接关系，在多次交互中应用能识别出当前访问的用户是谁，且可以在多次交互中保存一些数据。如访问一些网站时登录成功后可以记住用户，且在退出之前都可以识别当前用户是谁。 获取会话：登陆成功后即可获取会话。  login(&amp;quot;classpath:shiro.ini&amp;quot;, &amp;quot;zhang&amp;quot;, &amp;quot;123&amp;quot;); //登录成功相当于">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/eb4cde34-53c1-3c46-abd5-0eda9de6400d.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/6dac0cd6-f6ca-3e2d-b3ba-f8c7104e1b2a.png">
+<meta property="og:updated_time" content="2019-03-09T06:48:29.038Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="会话 即用户访问应用时保持的连接关系，在多次交互中应用能识别出当前访问的用户是谁，且可以在多次交互中保存一些数据。如访问一些网站时登录成功后可以记住用户，且在退出之前都可以识别当前用户是谁。 获取会话：登陆成功后即可获取会话。  login(&amp;quot;classpath:shiro.ini&amp;quot;, &amp;quot;zhang&amp;quot;, &amp;quot;123&amp;quot;); //登录成功相当于">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/eb4cde34-53c1-3c46-abd5-0eda9de6400d.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:29:23.092Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#会话"><span class="post-toc-number">1.</span> <span class="post-toc-text">会话</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#会话管理器"><span class="post-toc-number">2.</span> <span class="post-toc-text">会话管理器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#会话监听器"><span class="post-toc-number">3.</span> <span class="post-toc-text">会话监听器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#会话持久化"><span class="post-toc-number">4.</span> <span class="post-toc-text">会话持久化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义SessionDAO"><span class="post-toc-number">5.</span> <span class="post-toc-text">自定义SessionDAO</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#会话验证"><span class="post-toc-number">6.</span> <span class="post-toc-text">会话验证</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Quartz会话验证调度器"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">Quartz会话验证调度器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分页获取会话并验证"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">分页获取会话并验证</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SessionFactory"><span class="post-toc-number">7.</span> <span class="post-toc-text">SessionFactory</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Shiro第十章-会话管理"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:29:23" datetime="2019-04-30T08:29:23.092Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="会话"><a href="#会话" class="headerlink" title="会话"></a>会话</h3><ul>
+<li>即用户访问应用时保持的连接关系，在多次交互中应用能识别出当前访问的用户是谁，且可以在多次交互中保存一些数据。如访问一些网站时登录成功后可以记住用户，且在退出之前都可以识别当前用户是谁。</li>
+<li>获取会话：登陆成功后即可获取会话。</li>
+</ul>
+<pre><code>login(&quot;classpath:shiro.ini&quot;, &quot;zhang&quot;, &quot;123&quot;); //登录成功相当于创建了会话
+Subject subject = SecurityUtils.getSubject();
+Session session = subject.getSession();
+//等价于
+subject.getSession(true) //没有Session对象会创建一个，若传入false则无Session将返回null
+</code></pre><ul>
+<li><p>若启用会话存储功能则在创建Subject时会主动创建一个Session。</p>
+</li>
+<li><p>获取属性：</p>
+</li>
+</ul>
+<pre><code>//获取当前会话的唯一标识
+session.getId();
+
+//获取主机地址
+session.getHost();
+
+//获取、设置当前Session的过期时间，默认是会话管理器的全局过期时间
+session.getTimeout();
+session.setTimeout();
+
+//获取会话的启动时间及最后访问时间；javaSE应用需要自己定期调用session.touch()更新最后访问时间
+//web应用每次进入ShiroFilter都会自动调用它来更新。
+session.getStartTimestamp();
+session.getLastAccessTime();
+
+//更新会话最后访问时间及销毁会话；Subject.logout()时会自动调用stop()。
+//在web中调用javax.servlet.http.HttpSession. invalidate()也会自动调用它来销毁Session会话。
+session.touch();
+session.stop();
+
+//操作会话属性
+session.setAttribute(&quot;key&quot;,&quot;123&quot;);
+session.getattribute(&quot;key&quot;);
+session.removeAttribute(&quot;key&quot;);
+</code></pre><h3 id="会话管理器"><a href="#会话管理器" class="headerlink" title="会话管理器"></a>会话管理器</h3><ul>
+<li>管理着应用中所有Subject的会话的创建、维护、删除、失效和验证等工作，是Shiro的核心组件。</li>
+<li>SecurityManager都继承了会话管理器SessionSecurityManager。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/eb4cde34-53c1-3c46-abd5-0eda9de6400d.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>SecurityManager：提供了如下接口：</li>
+</ul>
+<pre><code>Session start(SessionContext context); //启动会话
+Session getSession(SessionKey key) throws SessionException; //根据会话Key获取会话
+</code></pre><ul>
+<li>WebSessionManager：专用于web应用，又提供了如下接口：</li>
+</ul>
+<pre><code>boolean isServletContainerSessions();//是否使用Servlet容器的会话
+</code></pre><ul>
+<li>ValidatingSessionManager：用于验证会话是否过期：</li>
+</ul>
+<pre><code>void validateSessions(); //所有会话是否过期
+</code></pre><ul>
+<li>三个内置实现类<ul>
+<li>DefaultSessionManager：DefaultSecurityManager使用，用于javaSE环境。</li>
+<li>ServletContainerSessionManager：DefaultWebSecurityManager使用，用于web环境，直接使用Servlet容器的会话。</li>
+<li>DefaultWebSessionManager：同上，不过是由自己维护着会话，不用Servlet容器的会话管理。</li>
+</ul>
+</li>
+<li>替换SecurityManager默认的SessionManager可以在ini中配置：</li>
+</ul>
+<pre><code>[main]
+sessionManager=org.apache.shiro.session.mgt.DefaultSessionManager
+;web环境下应换为
+sessionManager=org.apache.shiro.web.session.mgt.ServletContainerSessionManager
+
+securityManager.sessionManager=$sessionManager
+</code></pre><ul>
+<li>设置会话的全局过期时间（单位：ms），默认30分钟。将应用给所有Session，不过可以单独设置每个session的timeout属性。</li>
+</ul>
+<pre><code>sessionManager. globalSessionTimeout=1800000
+</code></pre><ul>
+<li><p>如果使用ServletContainerSessionManager进行会话管理Session的超时依赖于底层Servlet容器的超时时间，可以在web.xml中设置（单位：min）：</p>
+<pre><code>&lt;session-config&gt;
+  &lt;session-timeout&gt;30&lt;/session-timeout&gt;
+&lt;/session-config&gt;
+</code></pre></li>
+<li><p>使用DefaultWebSessionManager维护会话：</p>
+</li>
+</ul>
+<pre><code>//sessionIdCookie：创建会话cookie的模板
+sessionIdCookie=org.apache.shiro.web.servlet.SimpleCookie
+
+sessionManager=org.apache.shiro.web.session.mgt.DefaultWebSessionManager
+
+//设置cookie名，默认为JSESSIONID
+sessionIdCookie.name=sid
+//设置cookie域名，默认空，即当前访问的域名
+#sessionIdCookie.domain=sishuok.com
+//设置cookie路径，默认空，即存储在域名根下
+#sessionIdCookie.path=
+//设置cookie过期时间，单位秒，默认-1，即关闭浏览器时过期
+sessionIdCookie.maxAge=1800
+//true表示客户端不会暴露脚本代码，有助于减少某些类型的跨站点脚本攻击，Servlet2.5及以上才支持
+sessionIdCookie.httpOnly=true
+
+sessionManager.sessionIdCookie=$sessionIdCookie
+
+是否启用Session Id Cookie，默认启用；禁用将不会设置Session Id Cookie，即默认使用JSESSIONID
+sessionManager.sessionIdCookieEnabled=true
+securityManager.sessionManager=$sessionManager
+</code></pre><ul>
+<li>配置了会话之后，第一次访问项目（任何页面）报错：There is no session with id […]，没事，这是shiro自己的一个bug，无伤大雅。</li>
+</ul>
+<h3 id="会话监听器"><a href="#会话监听器" class="headerlink" title="会话监听器"></a>会话监听器</h3><ul>
+<li>用于监听会话创建、过期及停止事件。</li>
+</ul>
+<pre><code>public class MySessionListener1 implements SessionListener {
+    @Override
+    public void onStart(Session session) {//会话创建时触发
+        System.out.println(&quot;会话创建：&quot; + session.getId());
+    }
+
+    @Override
+    public void onExpiration(Session session) {//会话过期时触发
+        System.out.println(&quot;会话过期：&quot; + session.getId());
+    }
+
+    @Override
+    public void onStop(Session session) {//退出/会话过期时触发
+        System.out.println(&quot;会话停止：&quot; + session.getId());
+    }  
+}
+</code></pre><ul>
+<li>如果只想监听某一事件，可以继承SessionListenerAdapter实现类。</li>
+</ul>
+<pre><code>public class MySessionListener2 extends SessionListenerAdapter {
+    @Override
+    public void onStart(Session session) {
+        System.out.println(&quot;会话创建：&quot; + session.getId());
+    }
+}
+</code></pre><ul>
+<li>ini配置监听器</li>
+</ul>
+<pre><code>sessionListener1=com.github.zhangkaitao.shiro.chapter10.web.listener.MySessionListener1
+sessionListener2=com.github.zhangkaitao.shiro.chapter10.web.listener.MySessionListener2
+sessionManager.sessionListeners=$sessionListener1,$sessionListener2
+</code></pre><h3 id="会话持久化"><a href="#会话持久化" class="headerlink" title="会话持久化"></a>会话持久化</h3><ul>
+<li>SessionDAO接口：用于会话的CRUD，可以把会话保存到数据库。提供如下基本接口：</li>
+</ul>
+<pre><code>//如DefaultSessionManager在创建完session后会调用该方法；如保存到关系数据库/文件系统/
+//NoSQL数据库；即可以实现会话的持久化；返回会话ID，返回的ID.equals(session.getId())；
+Serializable create(Session session);
+
+//根据会话ID获取会话
+Session readSession(Serializable sessionId) throws UnknownSessionException;
+
+//更新会话；如更新会话最后访问时间/停止会话/设置超时时间/设置移除属性等会调用
+void update(Session session) throws UnknownSessionException;
+
+//删除会话；当会话过期/会话停止（如用户退出时）会调用
+void delete(Session session);
+
+//获取当前所有活跃用户，如果用户量多此方法影响性能
+Collection&lt;Session&gt; getActiveSessions();
+</code></pre><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/6dac0cd6-f6ca-3e2d-b3ba-f8c7104e1b2a.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>AbstractSessionDAO: 提供了SessionDAO的基础实现，如生成会话id等。</li>
+<li>CacheSessionDAO：提供了对开发者透明的会话缓存的功能，如查询会话时先到缓存看有没有，没有再查数据库。只需设置相应的CacheManager即可。自定义SessionDAO继承这个即可。</li>
+<li>MemorySessionDAO：直接在内存中进行会话维护。</li>
+<li><p>EnterpriseCacheSessionDAO：Enterprise，事业；提供了缓存功能的会话维护，默认使用MapCache，内部使用ConcurrentHashMap保存缓存的会话，ConCurrent，同时发生的，同时存在的。</p>
+</li>
+<li><p>ini配置SessionDAO</p>
+</li>
+</ul>
+<pre><code>sessionDAO=org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO
+sessionManager.sessionDAO=$sessionDAO
+</code></pre><ul>
+<li><p>Shiro使用Ehcache存储会话，可以配合TerraCotta实现容器无关的分布式集群，依赖如下：</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.shiro&lt;/groupId&gt;
+    &lt;artifactId&gt;shiro-ehcache&lt;/artifactId&gt;
+    &lt;version&gt;1.2.2&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li><p>shiro-web.ini</p>
+</li>
+</ul>
+<pre><code>sessionDAO=org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO
+//CachingSessionDAO设置Session缓存名字，默认为此
+sessionDAO.activeSessionsCacheName=shiro-activeSessionCache
+sessionManager.sessionDAO=$sessionDAO
+//cacheManager：缓存管理器，次数使用Ehcache实现
+cacheManager = org.apache.shiro.cache.ehcache.EhCacheManager
+//指定Ehcache缓存的配置文件
+cacheManager.cacheManagerConfigFile=classpath:ehcache.xml
+securityManager.cacheManager = $cacheManager
+</code></pre><ul>
+<li><p>ehcache.xml</p>
+<pre><code>&lt;cache name=&quot;shiro-activeSessionCache&quot; //名字与sessionDAO的activeSessionsCacheName属性一致
+   maxEntriesLocalHeap=&quot;10000&quot;
+   overflowToDisk=&quot;false&quot;
+   eternal=&quot;false&quot;
+   diskPersistent=&quot;false&quot;
+   timeToLiveSeconds=&quot;0&quot;
+   timeToIdleSeconds=&quot;0&quot;
+   statistics=&quot;true&quot;/&gt;
+</code></pre></li>
+<li><p>另外可以在ini中配置会话id生成器</p>
+</li>
+</ul>
+<pre><code>//默认为此，底层使用UUID生成。
+sessionIdGenerator=org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator
+sessionDAO.sessionIdGenerator=$sessionIdGenerator
+</code></pre><h3 id="自定义SessionDAO"><a href="#自定义SessionDAO" class="headerlink" title="自定义SessionDAO"></a>自定义SessionDAO</h3><pre><code>public class MySessionDAO extends CachingSessionDAO { //带缓存的SessionDAO，会先从缓存找
+    private JdbcTemplate jdbcTemplate = JdbcTemplateUtils.jdbcTemplate();
+
+    //保存会话
+    protected Serializable doCreate(Session session) {
+        Serializable sessionId = generateSessionId(session);
+        assignSessionId(session, sessionId);
+        String sql = &quot;insert into sessions(id, session) values(?,?)&quot;;
+        //把会话序列化后存储到数据库
+        jdbcTemplate.update(sql, sessionId, SerializableUtils.serialize(session));
+        return session.getId();
+    }
+
+    //更新会话
+    protected void doUpdate(Session session) {
+        if(session instanceof ValidatingSession &amp;&amp; !((ValidatingSession)session).isValid()) {
+            return; //如果会话过期/停止 没必要再更新了
+        }
+        String sql = &quot;update sessions set session=? where id=?&quot;;
+        jdbcTemplate.update(sql, SerializableUtils.serialize(session), session.getId());
+    }
+
+    //删除会话
+    protected void doDelete(Session session) {
+        String sql = &quot;delete from sessions where id=?&quot;;
+        jdbcTemplate.update(sql, session.getId());
+    }
+
+    //查询会话
+    protected Session doReadSession(Serializable sessionId) {
+        String sql = &quot;select session from sessions where id=?&quot;;
+        List&lt;String&gt; sessionStrList = jdbcTemplate.queryForList(sql, String.class,
+            sessionId);
+        if(sessionStrList.size() == 0) return null;
+        return SerializableUtils.deserialize(sessionStrList.get(0));
+    }
+}
+</code></pre><ul>
+<li>接着在shiro-web.ini中配置这个自定义的会话持久化</li>
+</ul>
+<pre><code>sessionDAO=com.github.zhangkaitao.shiro.chapter10.session.dao.MySessionDAO
+</code></pre><h3 id="会话验证"><a href="#会话验证" class="headerlink" title="会话验证"></a>会话验证</h3><ul>
+<li>SessionValidationScheduler：会话验证调度器，用于定期地验证会话是否已过期，是将停止会话。出于性能考虑，一般都是获取会话时来验证会话是否过期并停止会话的，但是在web环境中，如果用户不主动退出是不知道会话是否过期的，因此需要定期检测。</li>
+</ul>
+<pre><code>//默认
+sessionValidationScheduler=org.apache.shiro.session.mgt
+                                .ExecutorServiceSessionValidationScheduler
+
+//调度时间间隔，单位ms，默认1小时
+sessionValidationScheduler.interval = 3600000
+//设置进行会话验证时的会话管理器
+sessionValidationScheduler.sessionManager=$sessionManager
+//设置全局会话超时时间，默认30min，30min内没有访问会话将过期
+sessionManager.globalSessionTimeout=1800000
+//是否开启会话验证器，默认开启
+sessionManager.sessionValidationSchedulerEnabled=true
+
+sessionManager.sessionValidationScheduler=$sessionValidationScheduler
+</code></pre><h4 id="Quartz会话验证调度器"><a href="#Quartz会话验证调度器" class="headerlink" title="Quartz会话验证调度器"></a>Quartz会话验证调度器</h4><ul>
+<li><p>依赖</p>
+<pre><code>&lt;dependency&gt;
+     &lt;groupId&gt;org.apache.shiro&lt;/groupId&gt;
+     &lt;artifactId&gt;shiro-quartz&lt;/artifactId&gt;
+     &lt;version&gt;1.2.2&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt; &lt;!--使用quartz要用到的--&gt;
+    &lt;groupId&gt;commons-collections&lt;/groupId&gt;
+    &lt;artifactId&gt;commons-collections&lt;/artifactId&gt;
+    &lt;version&gt;3.2.1&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li><p>ini配置</p>
+</li>
+</ul>
+<pre><code>sessionValidationScheduler=org.apache.shiro.session.mgt.quartz
+                                .QuartzSessionValidationScheduler
+sessionValidationScheduler.sessionValidationInterval = 3600000
+sessionValidationScheduler.sessionManager=$sessionManager
+</code></pre><h4 id="分页获取会话并验证"><a href="#分页获取会话并验证" class="headerlink" title="分页获取会话并验证"></a>分页获取会话并验证</h4><ul>
+<li>会话验证调度器实际都是调用AbstractValidatingSessionManager的validateSessions()进行验证，该方法调用SessionDAO的getActiveSessions()获取all会话进行验证，会话较多时会影响性能，可以考虑分页获取会话并进行验证。</li>
+<li>自定义分页获取会话并验证的会话验证调度器，核心代码：</li>
+</ul>
+<pre><code>//分页获取会话
+String sql = &quot;select session from sessions limit ?,?&quot;;
+int start = 0; //起始记录
+int size = 20; //每页大小
+List&lt;String&gt; sessionList = jdbcTemplate.queryForList(sql, String.class, start, size);
+
+while(sessionList.size() &gt; 0) {
+    for(String sessionStr : sessionList) {
+        try {
+            Session session = SerializableUtils.deserialize(sessionStr); //反序列化回session对象
+            //获取验证方法
+            Method validateMethod = 
+                ReflectionUtils.findMethod(AbstractValidatingSessionManager.class, 
+                    &quot;validate&quot;, Session.class, SessionKey.class); 
+            validateMethod.setAccessible(true);
+            //调用验证方法
+            ReflectionUtils.invokeMethod(validateMethod, 
+                sessionManager, session, new DefaultSessionKey(session.getId()));
+        } catch (Exception e) {
+            //ignore
+        }
+    }
+    start = start + size;
+    sessionList = jdbcTemplate.queryForList(sql, String.class, start, size);
+}
+</code></pre><ul>
+<li><p>ini配置和之前类似。</p>
+</li>
+<li><p>如果在会话过期时不想删除，可以通过如下配置：</p>
+</li>
+</ul>
+<pre><code>//默认开启，在会话过期后会调用SessionDAO的delete()删除会话
+sessionManager.deleteInvalidSessions=false
+</code></pre><ul>
+<li><p>若在获取会话时验证了会话已过期，将抛出InvalidSessionException，需要捕获该异常并跳转相应页面提示会话已过期，让用户重新登录。可以在web.xml配置错误页面</p>
+<pre><code>&lt;error-page&gt;
+    &lt;exception-type&gt;org.apache.shiro.session.InvalidSessionException&lt;/exception-type&gt;
+    &lt;location&gt;/invalidSession.jsp&lt;/location&gt;
+&lt;/error-page&gt;
+</code></pre></li>
+</ul>
+<h3 id="SessionFactory"><a href="#SessionFactory" class="headerlink" title="SessionFactory"></a>SessionFactory</h3><ul>
+<li>创建会话的工厂。默认用SimpleSessionFactory来创建SimpleSession会话。</li>
+<li>首先自定义一个Session：保存用户的状态。</li>
+</ul>
+<pre><code>public class OnlineSession extends SimpleSession {
+    public static enum OnlineStatus {
+        //创建实例，调用构造器（要求传入字符串，则不能不传）
+        on_line(&quot;在线&quot;), hidden(&quot;隐身&quot;), force_logout(&quot;强制退出&quot;);
+
+        private final String info;
+        private OnlineStatus(String info) {
+            this.info = info;
+        }
+        public String getInfo() {
+            return info;
+        }
+    }
+
+    private String userAgent; //用户浏览器类型
+    private OnlineStatus status = OnlineStatus.on_line; //在线状态
+    private String systemHost; //用户登录时系统IP
+
+    //省略其他
+}
+</code></pre><ul>
+<li>接着自定义SessionFactory</li>
+</ul>
+<pre><code>public class OnlineSessionFactory implements SessionFactory {
+    /**
+     * 根据会话上下文创建OnlineSession，保存用户信息进去
+     */
+    @Override
+    public Session createSession(SessionContext initData) {
+        OnlineSession session = new OnlineSession();
+        if (initData != null &amp;&amp; initData instanceof WebSessionContext) {
+            WebSessionContext sessionContext = (WebSessionContext) initData;
+            HttpServletRequest request = (HttpServletRequest) sessionContext.getServletRequest();
+            if (request != null) {
+                session.setHost(IpUtils.getIpAddr(request));
+                session.setUserAgent(request.getHeader(&quot;User-Agent&quot;));
+                session.setSystemHost(request.getLocalAddr() + &quot;:&quot; + request.getLocalPort());
+            }
+        }
+        return session;
+    }
+}
+</code></pre><ul>
+<li>最后在shiro-web.ini配置自定义的SessionFactory</li>
+</ul>
+<pre><code>sessionFactory=org.apache.shiro.session.mgt.OnlineSessionFactory
+sessionManager.sessionFactory=$sessionFactory
+</code></pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-09T06:48:29.038Z" itemprop="dateUpdated">2019-03-09 14:48:29</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Shiro第十章-会话管理/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Shiro第十章-会话管理/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第十章-会话管理/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第十章-会话管理/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第十章-会话管理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第十章-会话管理/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第十章-会话管理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Shiro第四章-ini配置解析/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Shiro第十一章-cache缓存/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第十章-会话管理/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第十章-会话管理/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第十章-会话管理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第十章-会话管理/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第十章-会话管理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aUY6DMAxF0e5/08wCWsp9djpSnMtX1YHCYSTLyfPrhY/r5iBn3p3z/vnum2WHDBkytmVcX4/3c/jN+C+Q+z68IBkyZBzASMsiL6+8ZPOXJUOGDBnfGRc47h6LkGTIkCFjbcHlJThtBGXIkCGjtohNeYRBWsPFa3EZMmRsyOBl9P8//yTfkCFDxlaMKzxIueSL3lqR/fA7MmTIGM1Iw0i+EF01HcGfR4YMGVMZnWAy/Ssp2aQx/fC9DBkyjmekAUB/dclDAhkyZJzAIOWML0fTMKAYVdaqsgwZMjZnkIv5Bhm5iseli/8/MmTI2JbBW7S0RKYtZivalCFDxmgGuYAsVjuLW/4KHmAyZMgYx+CRJG/mftcyoghThgwZ4xhpS8e3z9Jhi06TKkOGjBMYLX1YQDvgh003GTJkDGWQwlrbmOPN3IJAVIYMGaMZpKily9dawNDZsJMhQ8YJDNKopZtrnQiBR54yZMg4h5FesKqY8mELHhjIkCFjKqN2s7QQ14YtWptuMmTIGMfoRJU1Xm3sTIYMGScz0qVjP6pMO1Y0LSJDhoxxjM7DpZtuKICsbcPJkCFjNCMdzEojhFVDZumLkCFDxjxGbaiCj3zVHjcuuDJkyDiAwW9DwoNOYa0FqzJkyJCRdpc8SODjFGjXUIYMGTLCSLLWSvKIdEHBlSFDxlYMHgZ0xr9qwxbofBkyZIxm8Mt4Y5du7fHwoBVqypAhYz/GHzRA+ghGjMdhAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

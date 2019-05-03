@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简介 一个orm框架，与Spring Data Jpa分庭抗礼。 项目整合Mybatis框架的话大部分公司使用mappers层代替dao层，定义一些增删查改的接口。代码实例 举个栗子，实现学生的增操作 先贴jar包：mybatis的jar包、MySQL的驱动包、log4j的jar包 写model包实体类； public class Student {     private Integer id;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Mybatis/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="简介 一个orm框架，与Spring Data Jpa分庭抗礼。 项目整合Mybatis框架的话大部分公司使用mappers层代替dao层，定义一些增删查改的接口。代码实例 举个栗子，实现学生的增操作 先贴jar包：mybatis的jar包、MySQL的驱动包、log4j的jar包 写model包实体类； public class Student {     private Integer id;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-08T03:11:28.356Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="简介 一个orm框架，与Spring Data Jpa分庭抗礼。 项目整合Mybatis框架的话大部分公司使用mappers层代替dao层，定义一些增删查改的接口。代码实例 举个栗子，实现学生的增操作 先贴jar包：mybatis的jar包、MySQL的驱动包、log4j的jar包 写model包实体类； public class Student {     private Integer id;">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.530Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码实例"><span class="post-toc-number">2.</span> <span class="post-toc-text">代码实例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一对一表关联"><span class="post-toc-number">3.</span> <span class="post-toc-text">一对一表关联</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#动态sql"><span class="post-toc-number">4.</span> <span class="post-toc-text">动态sql</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#处理clog、blob"><span class="post-toc-number">5.</span> <span class="post-toc-text">处理clog、blob</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Mybatis杂项"><span class="post-toc-number">6.</span> <span class="post-toc-text">Mybatis杂项</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分页"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">分页</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#缓存"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">缓存</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sql注解"><span class="post-toc-number">7.</span> <span class="post-toc-text">sql注解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CRUD"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">CRUD</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一对一"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">一对一</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一对多"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">一对多</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#动态sql-1"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">动态sql</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Mybatis"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.530Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>一个orm框架，与Spring Data Jpa分庭抗礼。</li>
+<li>项目整合Mybatis框架的话大部分公司使用mappers层代替dao层，定义一些增删查改的接口。<h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3></li>
+<li>举个栗子，实现学生的增操作</li>
+<li>先贴jar包：mybatis的jar包、MySQL的驱动包、log4j的jar包</li>
+<li><p>写model包实体类；</p>
+<pre><code>public class Student {
+    private Integer id;
+    private String name;
+    private Integer age;
+
+    //getter、setter
+}
+</code></pre></li>
+<li><p>配置mybatis-config.xml文件引入jdbc资源文件（待写）以配置数据源、给实体类起别名、配置映射器引入数据层接口的映射文件（待写）等；</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE configuration
+PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+    &lt;!-- 引入资源文件，推荐 --&gt;
+    &lt;properties resource=&quot;jdbc.properties&quot;/&gt;
+    &lt;!-- 直接配置 --&gt;
+    &lt;!-- 
+    &lt;properties&gt;
+        &lt;property name=&quot;jdbc.driverClassName&quot; value=&quot;com.mysql.jdbc.Driver&quot;&gt;&lt;/property&gt;
+        ...
+    &lt;/properties&gt;
+     --&gt;
+    &lt;!-- 给类起别名 --&gt;
+    &lt;typeAliases&gt;
+        &lt;typeAlias alias=&quot;Student&quot; type=&quot;com.java1234.model.Student&quot;/&gt;
+    &lt;/typeAliases&gt;
+    &lt;!-- 推荐，扫描包，全部起类名为别名，不能自定义 --&gt;
+    &lt;!-- 
+    &lt;typeAliases&gt;
+        &lt;package name=&quot;com.java1234.model&quot;/&gt;
+    &lt;/typeAliases&gt;
+     --&gt;
+    &lt;!-- 创建环境 --&gt;
+    &lt;environments default=&quot;development&quot;&gt; &lt;!-- 默认环境定义为开发环境，与下面的id对应 --&gt;
+        &lt;!-- 创建一个名为development的环境 --&gt;
+        &lt;environment id=&quot;development&quot;&gt;
+            &lt;!-- 由jdbc实现事务管理 --&gt;
+            &lt;transactionManager type=&quot;JDBC&quot; /&gt;
+            &lt;!-- 数据源为连接池 --&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;${jdbc.driverClassName}&quot; /&gt; &lt;!-- value取的是jdbc配置文件里的属性 --&gt;
+                &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot; /&gt;
+                &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot; /&gt;
+                &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot; /&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+        &lt;!-- 一般还会创建生产、测试等环境 --&gt;
+    &lt;/environments&gt;
+    &lt;!-- 映射器 --&gt;
+    &lt;mappers&gt;
+        &lt;!-- 直接找到实体类的映射文件 --&gt;
+        &lt;mapper resource=&quot;com/java1234/mappers/StudentMapper.xml&quot; /&gt;
+        &lt;!-- 通过实体类找其配置文件，不要求配置文件也不用和实体类命名相同 --&gt;
+        &lt;mapper class=&quot;com.java1234.mappers.StudentMapper&quot;/&gt;
+        &lt;!-- 扫描包下所有配置文件，推荐 --&gt;
+        &lt;package name=&quot;com.java1234.mappers&quot;/&gt;
+    &lt;/mappers&gt;
+&lt;/configuration&gt;
+
+//jdbc.properties
+jdbc.driverClassName=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/db_mybatis
+jdbc.username=root
+jdbc.password=123456
+</code></pre><ul>
+<li>dataSource<ul>
+<li>UNPOOLED：没有连接池，每次数据库操作，mybatis都会创建一个新的连接，用完后关闭；适合小并发项目</li>
+<li>POOLED：常用，可以定连接个数，每次都从连接池里拿一个连接，用完后放回去</li>
+<li>JNDI：使用应用服务器配置JNDI数据源获取数据库连接</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>util包写session工厂类</p>
+<pre><code>/**
+ * session工厂
+ * @author 14103
+ */
+public class SqlSessionFactoryUtil {
+
+    //静态域，类的所有实例共享一个sqlSessionFactory，一个对象对其修改则所有对象的该域都被修改
+    private static SqlSessionFactory sqlSessionFactory;
+
+    //单例模式：获取session工厂
+    private static SqlSessionFactory getSqlSessionFactory() {
+        if(sqlSessionFactory==null) {
+            InputStream inputStream=null;
+            try {
+                //把mybatis的配置文件搞成输入流
+                inputStream=Resources.getResourceAsStream(&quot;mybatis-config.xml&quot;);
+                //用这个输入流来创建session工厂
+                sqlSessionFactory=new SqlSessionFactoryBuilder().build(inputStream);
+            }catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return sqlSessionFactory;
+    }
+
+    //打开一个session，相当于打开一个数据库连接
+    public static SqlSession openSession() {
+        return getSqlSessionFactory().openSession(); //用返回的session工厂打开
+    }
+}
+</code></pre></li>
+<li><p>mappers包写数据层接口（定义增删查改等接口方法）</p>
+<pre><code>/**
+ * 操作数据库的接口
+ * @author 14103
+ */
+public interface StudentMapper {
+
+    //返回影响的记录数,默认会返回影响行数的，不用在配置文件定义返回类型
+    public int add(Student student);
+
+    public int update(Student student);
+
+    public int delete(Integer id);
+
+    public Student findById(Integer id);
+
+    public List&lt;Student&gt; find();
+}
+</code></pre></li>
+<li><p>StudentMapper.xml实现这些接口</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;!-- 为指定接口中的方法配置sql语句 --&gt;
+&lt;mapper namespace=&quot;com.java1234.mappers.StudentMapper&quot;&gt; &lt;!-- 对应接口的完整路径 --&gt;
+    &lt;!-- 定义一个集合，名为StudentResult --&gt;
+    &lt;resultMap type=&quot;Student&quot; id=&quot;StudentResult&quot;&gt;
+        &lt;!-- 定义主键 --&gt;
+        &lt;id property=&quot;id&quot; column=&quot;id&quot;/&gt; &lt;!-- 类属性与表字段对应 --&gt;
+        &lt;!-- 定义普通字段 --&gt;
+        &lt;result property=&quot;name&quot; column=&quot;name&quot;/&gt;
+        &lt;result property=&quot;age&quot; column=&quot;age&quot;/&gt;
+    &lt;/resultMap&gt;
+
+    &lt;select id=&quot;findStudentWithAddress&quot; resultMap=&quot;StudentResult&quot; parameterType=&quot;Integer&quot;&gt;
+        select * from t_student t1,t_address t2 where t1.id=#{id} and t2.id=t1.addressId 
+        &lt;!-- t2.id=t1.addressId，等号左右调换也一样;去掉t_address的查询也可以；
+        中括号内是属性而非字段名--&gt;
+    &lt;/select&gt;
+
+    &lt;insert id=&quot;add&quot; parameterType=&quot;Student&quot;&gt; &lt;!-- id是方法名，后面是入参类型（用的是mybatis配置文件的别名 --&gt;
+        insert into t_student values(#{id},#{name},#{age}) 
+        &lt;!-- sql，大括号内是字段;id想要数据库自增的话可以只设置着占位（或者写个null）
+        ，不传值，即实体类可以不setId,但是底层还是会调用占位的所有字段的getter，
+        所以实体类必须有它们的getter；不想占位可以写成：
+        insert into t_student(name,age) values(#{name},#{age}) --&gt;
+    &lt;/insert&gt;
+
+    &lt;update id=&quot;update&quot; parameterType=&quot;Student&quot;&gt;
+        update t_student set name=#{name},age=#{age} where id=#{id}
+    &lt;/update&gt;
+
+    &lt;delete id=&quot;delete&quot; parameterType=&quot;Integer&quot;&gt;
+        delete from t_student where id=#{id}
+    &lt;/delete&gt;
+
+    &lt;select id=&quot;findById&quot; parameterType=&quot;Integer&quot; resultType=&quot;Student&quot;&gt;
+        select * from t_student where id=#{id}
+    &lt;/select&gt;
+
+    &lt;select id=&quot;find&quot; resultMap=&quot;StudentResult&quot;&gt; &lt;!-- 返回类型为集合 --&gt;
+        select * from t_student
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre></li>
+<li><p>如果parameterType(入参类型)是String的话，那么不能用#{xxx}（抛异常：there is no getter for property xxx)，而要用#{_parameter}.</p>
+<pre><code>&lt;select id=&quot;fuzzySearch&quot; resultMap=&quot;GoodsResult&quot;&gt; //fuzzySearch只有一个参数且为string类
+    select * from goods where number=#{_parameter} or name like &apos;%${_parameter}%&apos; or type=#{_parameter} order by Report_Date_Time desc
+&lt;/select&gt;
+</code></pre></li>
+<li><p>配置log4j日志</p>
+<pre><code>&lt;!--根节点，指定日志等级及输出目标--&gt;
+log4j.rootLogger=info,appender1,appender2
+
+log4j.appender.appender1=org.apache.log4j.ConsoleAppender 
+
+log4j.appender.appender2=org.apache.log4j.FileAppender 
+log4j.appender.appender2.File=C:/logFile.txt
+
+ &lt;!--指定日志输出的布局模式--&gt;
+log4j.appender.appender1.layout=org.apache.log4j.TTCCLayout
+log4j.appender.appender2.layout=org.apache.log4j.TTCCLayout
+</code></pre></li>
+<li><p>写测试类</p>
+<pre><code>/**
+ * 用main做个测试
+ * @author 14103
+ */
+public class StudentTest {
+
+    private static Logger logger=Logger.getLogger(StudentTest.class);
+
+    public static void main(String[] args) {
+        //打开一个数据库连接
+        SqlSession sqlSession = SqlSessionFactoryUtil.openSession();
+        //传入一个含有数据库操作的接口，mybatis会把它和配置了sql的xml文件捆绑起来
+        StudentMapper studentMapper=sqlSession.getMapper(StudentMapper.class);
+        Student student=new Student(3,&quot;李四&quot;,11);
+        //然后这个接口的方法就能用了
+        int result=studentMapper.add(student); //直接传入对象，mybatis自动获取属性传入占位符
+        //提交事务
+        sqlSession.commit();
+        if(result&gt;0) {
+            logger.info(&quot;添加成功！&quot;);
+        }
+    }
+}
+</code></pre><h3 id="一对一表关联"><a href="#一对一表关联" class="headerlink" title="一对一表关联"></a>一对一表关联</h3></li>
+<li>学生与地址之间的一对一关联</li>
+<li>分别创建学生类、地址类</li>
+<li><p>写学生类的数据层接口</p>
+<pre><code>public interface AddressMapper {
+
+    public Address findById(Integer id);
+
+}
+</code></pre></li>
+<li><p>配置映射文件</p>
+<pre><code>&lt;mapper namespace=&quot;com.java1234.mappers.StudentMapper&quot;&gt; &lt;!-- 对应接口的完整路径 --&gt;
+    &lt;!-- 定义一个返回结果集合，名为StudentResult --&gt;
+    &lt;resultMap type=&quot;Student&quot; id=&quot;StudentResult&quot;&gt;
+        &lt;!-- 定义主键 --&gt;
+        &lt;id property=&quot;id&quot; column=&quot;id&quot;/&gt; &lt;!-- 类属性与表字段对应 --&gt;
+        &lt;!-- 定义普通字段 --&gt;
+        &lt;result property=&quot;name&quot; column=&quot;name&quot;/&gt;
+        &lt;result property=&quot;age&quot; column=&quot;age&quot;/&gt;
+
+        &lt;!-- 表关联，推荐；后面三种不推荐 --&gt;
+        &lt;association property=&quot;address&quot; column=&quot;addressId&quot; 
+         select=&quot;com.java1234.mappers.AddressMapper.findById&quot;&gt; &lt;!-- 查到目标记录发现addressId字段时，会传入这个select方法中，从而查找到关联的地址并赋给address属性--&gt;
+        &lt;/association&gt;
+        &lt;association property=&quot;grade&quot; column=&quot;gradeId&quot; 
+         select=&quot;com.java1234.mappers.GradeMapper.findById&quot;&gt;
+        &lt;/association&gt;
+
+        &lt;!-- 
+        //对象级联
+        &lt;result property=&quot;address.id&quot; column=&quot;addressId&quot;/&gt; //要用主表的外键字段
+        &lt;result property=&quot;address.sheng&quot; column=&quot;sheng&quot;/&gt; //要用关联表的字段
+        &lt;result property=&quot;address.shi&quot; column=&quot;shi&quot;/&gt; 
+        &lt;result property=&quot;address.qu&quot; column=&quot;qu&quot;/&gt; 
+         --&gt;
+
+        &lt;!--  
+        //嵌套
+        &lt;association property=&quot;address&quot; javaType=&quot;Address&quot;&gt;
+            &lt;result property=&quot;id&quot; column=&quot;id&quot;/&gt;
+            &lt;result property=&quot;sheng&quot; column=&quot;sheng&quot;/&gt;
+            &lt;result property=&quot;shi&quot; column=&quot;shi&quot;/&gt;
+            &lt;result property=&quot;qu&quot; column=&quot;qu&quot;/&gt;
+        &lt;/association&gt;
+         --&gt;
+
+         &lt;!-- 
+        //直接关联，需要另外为Address定义一个结果集合（虽然是一对一，但是集合里面只有一个地址也没事的
+        &lt;association property=&quot;address&quot; resultMap=&quot;AddressResult&quot;/&gt;
+         --&gt;
+    &lt;/resultMap&gt;
+
+    &lt;!-- 
+    &lt;resultMap type=&quot;Address&quot; id=&quot;AddressResult&quot;&gt;
+        &lt;result property=&quot;id&quot; column=&quot;id&quot;/&gt;
+        &lt;result property=&quot;sheng&quot; column=&quot;sheng&quot;/&gt;
+        &lt;result property=&quot;shi&quot; column=&quot;shi&quot;/&gt;
+        &lt;result property=&quot;qu&quot; column=&quot;qu&quot;/&gt;
+    &lt;/resultMap&gt;
+     --&gt;
+
+    &lt;select id=&quot;findStudentWithAddress&quot; resultMap=&quot;StudentResult&quot; parameterType=&quot;Integer&quot;&gt;
+        select * from t_student t1,t_address t2 where t1.addressId=t2.id and t1.id=#{id}
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre></li>
+<li><p>在学生类的数据层接口中写个查询方法</p>
+<pre><code>/**
+ * 操作数据库的接口
+ * @author 14103
+ */
+public interface StudentMapper {
+    public Student findStudentWithAddress(Integer id);
+}
+</code></pre></li>
+<li><p>在学生类的数据层接口映射文件中绑定sql、配置关联关系</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;!-- 为指定接口中的方法配置sql语句 --&gt;
+&lt;mapper namespace=&quot;com.java1234.mappers.StudentMapper&quot;&gt; &lt;!-- 对应接口的完整路径 --&gt;
+    &lt;!-- 定义一个返回结果集合，名为StudentResult --&gt;
+    &lt;resultMap type=&quot;Student&quot; id=&quot;StudentResult&quot;&gt;
+        &lt;!-- 定义主键 --&gt;
+        &lt;id property=&quot;id&quot; column=&quot;id&quot;/&gt; &lt;!-- 类属性与表字段对应 --&gt;
+        &lt;!-- 定义普通字段 --&gt;
+        &lt;result property=&quot;name&quot; column=&quot;name&quot;/&gt;
+        &lt;result property=&quot;age&quot; column=&quot;age&quot;/&gt;
+
+        &lt;!-- 表关联，需要另外实现Address的数据层接口和映射文件，推荐；后面三种不推荐 --&gt;
+        &lt;association property=&quot;address&quot; column=&quot;id&quot; 
+         select=&quot;com.java1234.mappers.AddressMapper.findById&quot;&gt; &lt;!-- column指明子表中与父表关联的字段，查到目标记录发现addressId字段时，会作为下面select方法绑定的t_address表的指定column——id传入方法中，从而查找到关联的地址 --&gt;
+        &lt;/association&gt;
+
+        &lt;!-- 
+        //对象级联
+        &lt;result property=&quot;address.id&quot; column=&quot;addressId&quot;/&gt; //要用主表的外键字段
+        &lt;result property=&quot;address.sheng&quot; column=&quot;sheng&quot;/&gt; //要用关联表的字段
+        &lt;result property=&quot;address.shi&quot; column=&quot;shi&quot;/&gt; 
+        &lt;result property=&quot;address.qu&quot; column=&quot;qu&quot;/&gt; 
+         --&gt;
+
+        &lt;!--  
+        //嵌套
+        &lt;association property=&quot;address&quot; javaType=&quot;Address&quot;&gt;
+            &lt;result property=&quot;id&quot; column=&quot;id&quot;/&gt;
+            &lt;result property=&quot;sheng&quot; column=&quot;sheng&quot;/&gt;
+            &lt;result property=&quot;shi&quot; column=&quot;shi&quot;/&gt;
+            &lt;result property=&quot;qu&quot; column=&quot;qu&quot;/&gt;
+        &lt;/association&gt;
+         --&gt;
+
+         &lt;!-- 
+        //直接关联，需要另外为Address定义一个结果集合（虽然是一对一，但是集合里面只有一个地址也没事的
+        &lt;association property=&quot;address&quot; resultMap=&quot;AddressResult&quot;/&gt;
+         --&gt;
+    &lt;/resultMap&gt;
+
+    &lt;!-- 
+    &lt;resultMap type=&quot;Address&quot; id=&quot;AddressResult&quot;&gt;
+        &lt;result property=&quot;id&quot; column=&quot;id&quot;/&gt;
+        &lt;result property=&quot;sheng&quot; column=&quot;sheng&quot;/&gt;
+        &lt;result property=&quot;shi&quot; column=&quot;shi&quot;/&gt;
+        &lt;result property=&quot;qu&quot; column=&quot;qu&quot;/&gt;
+    &lt;/resultMap&gt;
+     --&gt;
+
+    &lt;select id=&quot;findStudentWithAddress&quot; resultMap=&quot;StudentResult&quot; parameterType=&quot;Integer&quot;&gt;
+        select * from t_student t1,t_address t2 where t1.addressId=t2.id and t1.id=#{id}
+    &lt;/select&gt;
+&lt;/mappers&gt;
+</code></pre></li>
+<li>一对多映射</li>
+<li><p>写个年级类，年级与学生一对多（数据库的话要不要定义成外键都没关系）</p>
+<pre><code>public class Grade {
+
+    private Integer id;
+    private String gradeName;
+    private List&lt;Student&gt; students;
+
+    //getter、setter
+
+    @Override
+    public String toString() {
+        return &quot;Grade [id=&quot; + id + &quot;, gradeName=&quot; + gradeName + &quot;, students=&quot; + students + &quot;]&quot;;
+    }
+}
+</code></pre></li>
+<li><p>给年级类写个数据层接口</p>
+<pre><code>public interface GradeMapper {
+
+    public Grade findById(Integer gradeId);
+
+}
+</code></pre></li>
+<li><p>配置年级类映射文件</p>
+<pre><code>&lt;mapper namespace=&quot;com.java1234.mappers.GradeMapper&quot;&gt; &lt;!-- 对应接口的完整路径 --&gt;
+
+    &lt;resultMap type=&quot;Grade&quot; id=&quot;GradeResult&quot;&gt;
+        &lt;result property=&quot;id&quot; column=&quot;id&quot;/&gt;
+        &lt;result property=&quot;gradeName&quot; column=&quot;gradeName&quot;/&gt;
+        &lt;collection property=&quot;students&quot; column=&quot;id&quot; 
+         select=&quot;com.java1234.mappers.StudentMapper.findByGradeId&quot;&gt; &lt;!-- 调用下面findById查到年级表的id时传入这个学生表的方法中，查到学生并赋给students属性 --&gt;
+        &lt;/collection&gt;
+    &lt;/resultMap&gt;
+
+    &lt;select id=&quot;findById&quot; parameterType=&quot;Integer&quot; resultMap=&quot;GradeResult&quot;&gt;
+        select * from t_grade where id=#{id}
+    &lt;/select&gt;
+
+&lt;/mapper&gt;
+</code></pre></li>
+<li><p>给学生类数据层接口加个findByGradeId方法，然后到映射文件中实现该方法</p>
+<pre><code>&lt;select id=&quot;findByGradeId&quot; resultMap=&quot;StudentResult&quot; parameterType=&quot;Integer&quot;&gt;
+    select * from t_student where gradeId=#{gradeId}
+&lt;/select&gt;
+</code></pre></li>
+<li><p>写个测试</p>
+<pre><code>@Test
+public void testFindGradeWithStudents() {
+    logger.info(&quot;查询年级（带学生）&quot;);
+    Grade grade=gradeMapper.findById(1);
+    System.out.println(grade);
+}
+</code></pre></li>
+<li>目前我们还不能通过学生来获取年级信息，下面我们在学生端也添加年级的获取方式，实现双向关联</li>
+<li><p>学生类加个grade属性，toString加个年级</p>
+<pre><code>/*这里要是加个打印grade属性的话，会调用grade类的tostring方法，
+* 而其中又包含打印students属性，如此往复循环将会报错：StackOverflowError
+*/
+@Override
+public String toString() {
+    return &quot;Student [id=&quot; + id + &quot;, name=&quot; + name + &quot;, age=&quot; + age
+            + &quot;, address=&quot; + address + &quot;, grade=&quot; + grade.getGradeName() +&quot;]&quot;; 
+}
+</code></pre></li>
+<li><p>给学生类映射文件中定义的返回类型StudentResult加个grade属性及其获取方式，这样只要返回类型是StudentResult的查询方法都会获取到grade信息</p>
+<pre><code>&lt;association property=&quot;grade&quot; column=&quot;gradeId&quot; 
+ select=&quot;com.java1234.mappers.GradeMapper.findById&quot;&gt; &lt;!-- 就算设置了外键也必须写这个方法，否则mybatis是不会自动去查t_grade表的 --&gt;
+&lt;/association&gt;
+</code></pre></li>
+<li><p>写个测试</p>
+<pre><code>@Test
+public void testFindStudentWithGrade() {
+    logger.info(&quot;查询学生及其地址、年级&quot;);
+    /*借用findStudentWithAddress就能查到年级了，
+     * 但是用findById是查不到的，
+     * 因为映射文件中它的返回类型指定为Student而非StudentResult
+     */
+    Student student=studentMapper.findStudentWithAddress(2); 
+    System.out.println(student);
+}
+</code></pre></li>
+<li>代码实例：MybatisHelloWorld<h3 id="动态sql"><a href="#动态sql" class="headerlink" title="动态sql"></a>动态sql</h3></li>
+<li>if标签：检测不为空的字段进行条件拼接</li>
+<li>choose标签：指定搜索字段，指定了之后就算还有其他字段传进来也不起作用</li>
+<li>where标签：拼接条件时自动把第一个子句的and|or去掉</li>
+<li>trim：提供前后缀、前后缀覆盖方案</li>
+<li>foreach：遍历条件集合</li>
+<li><p>set：自动把参数放进update的坑位里</p>
+<pre><code>&lt;select id=&quot;searchStudent&quot; parameterType=&quot;Map&quot; resultMap=&quot;StudentResult&quot;&gt; &lt;!-- 也可以是HashMap之类;传入自定义的类，属性的获取方式也跟下面一样，直接写属性名，而不用调用getter --&gt; 
+    select * from t_student where gradeId=#{gradeId}
+    &lt;if test=&quot;name!=null&quot;&gt;and name like #{name}&lt;/if&gt; &lt;!-- like的话等下传进来的name两边要加个% --&gt;
+    &lt;if test=&quot;age!=null&quot;&gt;and age=#{age}&lt;/if&gt;
+&lt;/select&gt;
+
+&lt;!-- 淘宝搜索有个下拉框可以指定按照宝贝或店铺来查询 --&gt;
+&lt;select id=&quot;searchStudent2&quot; parameterType=&quot;Map&quot; resultMap=&quot;StudentResult&quot;&gt; &lt;!-- 也可以是HashMap之类 --&gt; 
+    select * from t_student
+    &lt;choose&gt;
+        &lt;when test=&quot;searchBy==&apos;gradeId&apos;&quot;&gt;where gradeId=#{gradeId}&lt;/when&gt;
+        &lt;when test=&quot;searchBy==&apos;name&apos;&quot;&gt;where name like #{name}&lt;/when&gt;
+        &lt;otherwise&gt;where age=#{age}&lt;/otherwise&gt;
+    &lt;/choose&gt;
+&lt;/select&gt;
+
+&lt;select id=&quot;searchStudent3&quot; parameterType=&quot;Map&quot; resultMap=&quot;StudentResult&quot;&gt; &lt;!-- 也可以是HashMap之类 --&gt; 
+    select * from t_student
+    &lt;where&gt; &lt;!-- 拼接的时候自动把第一个子句的and去掉 --&gt;
+        &lt;if test=&quot;gradeId!=null&quot;&gt;gradeId=#{gradeId}&lt;/if&gt; &lt;!-- 加不加and随意 --&gt;
+        &lt;if test=&quot;name!=null&quot;&gt;and name like #{name}&lt;/if&gt; &lt;!-- 从第二个if开始就要加and了 --&gt;
+        &lt;if test=&quot;age!=null&quot;&gt;and age=#{age}&lt;/if&gt;
+    &lt;/where&gt;
+&lt;/select&gt;
+
+&lt;select id=&quot;searchStudent4&quot; parameterType=&quot;Map&quot; resultMap=&quot;StudentResult&quot;&gt; &lt;!-- 也可以是HashMap之类 --&gt; 
+    select * from t_student
+    &lt;trim prefix=&quot;where&quot; prefixOverrides=&quot;and|or&quot;&gt; &lt;!-- 覆盖掉子句的前缀and|or;这样就跟where标签一样了 --&gt;
+        &lt;if test=&quot;gradeId!=null&quot;&gt;gradeId=#{gradeId}&lt;/if&gt;
+        &lt;if test=&quot;name!=null&quot;&gt;and name like #{name}或者and name like &apos;%${suthor}%&apos;&lt;/if&gt;
+        &lt;if test=&quot;age!=null&quot;&gt;and age=#{age}&lt;/if&gt;
+    &lt;/trim&gt;
+&lt;/select&gt;
+
+&lt;!-- 在某段年级范围内查找学生 --&gt;
+&lt;select id=&quot;searchStudent5&quot; parameterType=&quot;Map&quot; resultMap=&quot;StudentResult&quot;&gt; &lt;!-- 也可以是HashMap之类 --&gt; 
+    select * from t_student
+    &lt;if test=&quot;gradeIds!=null&quot;&gt;
+        &lt;where&gt;
+            gradeId in
+            &lt;!-- 把所有元素搞成(?,?,?) --&gt;
+            &lt;foreach collection=&quot;gradeIds&quot; item=&quot;gradeId&quot; open=&quot;(&quot; separator=&quot;,&quot; close=&quot;)&quot;&gt;
+                #{gradeId}
+            &lt;/foreach&gt;
+        &lt;/where&gt;
+    &lt;/if&gt;
+&lt;/select&gt;
+
+&lt;update id=&quot;updateStudent&quot; parameterType=&quot;Student&quot;&gt;
+    update t_student
+    &lt;set&gt; &lt;!-- set能自动把最后一个逗号去掉 --&gt;
+        &lt;if test=&quot;name!=null&quot;&gt;name=#{name},&lt;/if&gt; &lt;!-- 记得加逗号 --&gt;
+        &lt;if test=&quot;age!=null&quot;&gt;age=#{age},&lt;/if&gt;
+    &lt;/set&gt;    
+    where id=#{id}
+&lt;/update&gt;
+</code></pre></li>
+<li><p>字符串型时间的比较、不同类型的判空操作、特殊符号的写法</p>
+<pre><code>&lt;!--查询在一下时间段内的记录--&gt;
+&lt;if test=&quot;reportDateTime1!=null&quot;&gt;and Report_Date_Time&gt;=#{reportDateTime1}&lt;/if&gt; &lt;!--字符型的时间可以直接这样比--&gt;
+&lt;if test=&quot;reportDateTime2!=null&quot;&gt;and Report_Date_Time &lt;![CDATA[ &lt;= ]]&gt; #{reportDateTime2}&lt;/if&gt;
+&lt;if test=&quot;number!=null&quot;&gt;and number=#{number}&lt;/if&gt; &lt;!--包装在类中，则number!=0(Goods把number定义为long型，默认值为0,；包装在Map中，则number!=null（Map把它定义为Object,默认值为null）--&gt;
+</code></pre></li>
+<li>代码实例：MybatisActiveSql<h3 id="处理clog、blob"><a href="#处理clog、blob" class="headerlink" title="处理clog、blob"></a>处理clog、blob</h3></li>
+<li>数据库字段对应为longtext、longblob（准确来说是blog，但是它有点小），类属性对应为byte[]、String</li>
+<li><p>给Student类加俩属性</p>
+<pre><code>public class Student {
+    private Integer id;
+    private String name;
+    private Integer age;
+    //blob对应为字节数组
+    private byte[] pic;
+    //clog则是String
+    private String remark;
+}
+</code></pre></li>
+<li><p>数据层接口写个保存和获取数据的方法</p>
+<pre><code>&lt;insert id=&quot;insert&quot; parameterType=&quot;Student&quot;&gt;
+    insert into t_student values(#{id},#{name},#{age},null,null,#{pic},#{remark})
+&lt;/insert&gt;
+
+&lt;select id=&quot;getStudentById&quot; parameterType=&quot;Integer&quot; resultType=&quot;Student&quot;&gt;
+     select * from t_student where id=#{id}
+&lt;/select&gt;
+</code></pre></li>
+<li><p>测试方法</p>
+<pre><code>@Test
+public void testInsert() throws IOException {
+    logger.info(&quot;添加学生&quot;);
+    Student student=new Student(4,&quot;张三4&quot;,14);
+    student.setRemark(&quot;很长的文本…&quot;);
+    //插入图片
+    File file=new File(&quot;d://puchijun.jpg&quot;);
+    InputStream bis=new BufferedInputStream(new FileInputStream(file));
+    //创建数组
+    byte[] pic=new byte[bis.available()]; //available()是bis的字节长度
+    //把图片读取到数组
+    bis.read(pic);
+    bis.close();
+    student.setPic(pic); //最终放进去的是字节数组
+    studentMapper.insert(student);
+    sqlSession.commit();
+}
+
+@Test
+public void testGetStudentById() throws IOException {
+    logger.info(&quot;通过id查找学生&quot;);
+    Student student=studentMapper.getStudentById(4);
+    System.out.println(student);
+    byte[] pic=student.getPic(); //获取到的原始类型是字节数组
+    File file=new File(&quot;d://puchijun2.jpg&quot;);
+    OutputStream outputStream=new BufferedOutputStream(new FileOutputStream(file));
+    outputStream.write(pic);
+    outputStream.close();
+}
+</code></pre><h3 id="Mybatis杂项"><a href="#Mybatis杂项" class="headerlink" title="Mybatis杂项"></a>Mybatis杂项</h3><h4 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h4></li>
+<li>逻辑分页：把所有记录都查询出来，然后取出指定数目，并不是真正的分页</li>
+<li><p>数据层接口</p>
+<pre><code>/**
+ * 操作数据库的接口
+ * @author 14103
+ */
+public interface StudentMapper {
+    //逻辑分页
+    public List&lt;Student&gt; findStudent(RowBounds rowBounds);
+}
+</code></pre></li>
+<li><p>映射文件</p>
+<pre><code>&lt;select id=&quot;findStudent&quot; resultMap=&quot;StudentResult&quot; flushCache=&quot;false&quot; useCache=&quot;true&quot;&gt; &lt;!-- 入参类型是RowBounds，定义不了 --&gt; &lt;!--select 默认不清掉缓存、要使用缓存，这俩配置是一样的;其他操作默认清掉缓存--&gt;
+     select * from t_student
+&lt;/select&gt;
+</code></pre></li>
+<li><p>测试</p>
+<pre><code>@Test
+public void testFindStudent() {
+    logger.info(&quot;逻辑分页查询学生&quot;);
+    //offset就是start,起始下标
+    int offset=0,limit=3;
+    //Mybatis的逻辑分页：全部查出来放在内存里，然后只读三条，性能差
+    RowBounds rowBounds=new RowBounds(offset,limit);
+    List&lt;Student&gt; studentList=studentMapper.findStudent(rowBounds);
+    for(Student student:studentList) {
+        System.out.println(student);
+    }
+}
+</code></pre></li>
+<li><p>物理分页：真正的分页</p>
+<pre><code>/**
+ * 操作数据库的接口
+ * @author 14103
+ */
+public interface StudentMapper {
+    //物理分页
+    public List&lt;Student&gt; findStudent2(Map&lt;String, Object&gt; map);
+}
+</code></pre></li>
+<li><pre><code>&lt;!-- sql原生物理分页 --&gt;
+ &lt;select id=&quot;findStudent2&quot; parameterType=&quot;Map&quot; resultMap=&quot;StudentResult&quot;&gt;
+     select * from t_student
+     &lt;if test=&quot;start!=null and size!=null&quot;&gt;
+         limit #{start},#{size}
+     &lt;/if&gt;
+ &lt;/select&gt;
+</code></pre></li>
+<li><pre><code>@Test
+public void testFindStudent2() {
+    logger.info(&quot;物理分页查询学生&quot;);
+    Map&lt;String,Object&gt; map=new HashMap&lt;&gt;();
+    map.put(&quot;start&quot;, 3);
+    map.put(&quot;size&quot;, 3);
+    List&lt;Student&gt; studentList=studentMapper.findStudent2(map);
+    for(Student student:studentList) {
+        System.out.println(student);
+    }
+}
+</code></pre><h4 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h4></li>
+<li>用于并发量很大的查询操作，但要求服务器内存要高。这样可以减轻数据库压力，提高性能。</li>
+<li>Mybatis默认情况下启用一级缓存，即同一个SqlSession接口对象调用了相同的select语句，会直接从缓存中返回结果，而不是再查询一次数据库。</li>
+<li><p>在映射文件中配置缓存</p>
+<pre><code>&lt;!-- 
+    配置缓存：
+    1、size:表示缓存cache中能容纳的最大元素数。默认是1024；
+    2、flushInterval:定义缓存刷新周期，以毫秒计；
+     3、eviction:定义缓存的移除机制；默认是LRU(least recently userd，最近最少使用),还有FIFO(first in first out，先进先出)；这俩是Mybatis的算法，推荐前者
+     4、readOnly:默认值是false，假如是true的话，缓存只能读（select是读，其他是写，但实际也只有select需要用到缓存）。
+ --&gt;
+&lt;cache size=&quot;1024&quot; flushInterval=&quot;60000&quot; eviction=&quot;LRU&quot; readOnly=&quot;false&quot;/&gt;
+
+&lt;select id=&quot;findStudent&quot; resultMap=&quot;StudentResult&quot; flushCache=&quot;false&quot; useCache=&quot;true&quot;&gt; &lt;!-- 入参类型是RowBounds，定义不了 --&gt; &lt;!--select 默认不清掉缓存、要使用缓存，这俩配置是一样的;其他操作默认清掉缓存--&gt;
+     select * from t_student
+ &lt;/select&gt;
+</code></pre><h3 id="sql注解"><a href="#sql注解" class="headerlink" title="sql注解"></a>sql注解</h3><h4 id="CRUD"><a href="#CRUD" class="headerlink" title="CRUD"></a>CRUD</h4></li>
+<li>使用注解方便灵活，但支持的功能较xml要少，而且代码重用性不高，所以目前还是xml比较常用</li>
+<li><p>直接在数据库接口用注解绑定sql语句，不需要在映射文件绑定</p>
+<pre><code>/**
+ * 操作数据库的接口
+ * @author 14103
+ */
+public interface StudentMapper {
+    @Insert(&quot;insert into t_student values(#{id},#{name},#{age},null,null,null,null)&quot;)
+    public int insert(Student student);
+
+    @Update(&quot;update t_student set name=#{name},age=#{age} where id=#{id}&quot;)
+    public int update(Student student);
+
+    @Delete(&quot;delete from t_student where id=#{id}&quot;)
+    public int delete(int id);
+
+    @Select(&quot;select * from t_student where id=#{id}&quot;)
+    public Student getStudentById(Integer id);
+
+    @Select(&quot;select * from t_student&quot;)
+    //结果集合映射
+    @Results(
+            {
+                @Result(id=true,column=&quot;id&quot;,property=&quot;id&quot;),
+                @Result(column=&quot;name&quot;,property=&quot;name&quot;),
+                @Result(column=&quot;age&quot;,property=&quot;age&quot;)
+            }
+    )
+    public List&lt;Student&gt; findStudent();
+}
+</code></pre><h4 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h4></li>
+<li><p>在地址类的数据层接口写个查找地址的方法</p>
+<pre><code>@Select(&quot;select * from t_address where id=#{id}&quot;)
+public Address findById(Integer id);
+</code></pre></li>
+<li><p>在学生类的数据层接口写个查找学生带地址的方法</p>
+<pre><code>@Select(&quot;select * from t_student where id=#{id}&quot;)
+@Results(
+        {
+            @Result(id=true,column=&quot;id&quot;,property=&quot;id&quot;),
+            @Result(column=&quot;name&quot;,property=&quot;name&quot;),
+            @Result(column=&quot;age&quot;,property=&quot;age&quot;),
+            @Result(column=&quot;addressId&quot;,property=&quot;address&quot;,one=@One(select=&quot;com.java1234.mappers.AddressMapper.findById&quot;))
+        }
+)
+public Student selectStudentWithAddress(int id);
+</code></pre><h4 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h4></li>
+<li><p>在年级类的数据层接口里写个查询年级带学生的方法</p>
+<pre><code>@Select(&quot;select * from t_grade where id=#{id}&quot;)
+@Results(
+        {
+            @Result(id=true,column=&quot;id&quot;,property=&quot;id&quot;),
+            @Result(column=&quot;gradeName&quot;,property=&quot;gradeName&quot;),
+            @Result(column=&quot;id&quot;,property=&quot;students&quot;,many=@Many(select=&quot;com.java1234.mappers.StudentMapper.selectStudentByGradeId&quot;))
+        }
+)
+public Grade findById(Integer id);
+</code></pre></li>
+<li><p>在学生类的数据层接口里写个根据年级查找学生的方法</p>
+<pre><code>@Select(&quot;select * from t_student where gradeId=#{gradeId}&quot;)
+@Results(
+        {
+            @Result(id=true,column=&quot;id&quot;,property=&quot;id&quot;),
+            @Result(column=&quot;name&quot;,property=&quot;name&quot;),
+            @Result(column=&quot;age&quot;,property=&quot;age&quot;),
+            @Result(column=&quot;addressId&quot;,property=&quot;address&quot;,one=@One(select=&quot;com.java1234.mappers.AddressMapper.findById&quot;))
+        }
+)
+public Student selectStudentByGradeId(int gradeId);
+</code></pre></li>
+<li>现在查询年级就能带学生了，再实现查询学生带年级的双向关联</li>
+<li><p>在学生类的数据层接口写个查询学生带年级的方法</p>
+<pre><code>@Select(&quot;select * from t_student where id=#{id}&quot;)
+@Results(
+        {
+            @Result(id=true,column=&quot;id&quot;,property=&quot;id&quot;),
+            @Result(column=&quot;name&quot;,property=&quot;name&quot;),
+            @Result(column=&quot;age&quot;,property=&quot;age&quot;),
+            @Result(column=&quot;addressId&quot;,property=&quot;address&quot;,one=@One(select=&quot;com.java1234.mappers.AddressMapper.findById&quot;)),
+            @Result(column=&quot;gradeId&quot;,property=&quot;grade&quot;,one=@One(select=&quot;com.java1234.mappers.GradeMapper.findById&quot;))
+        }
+)
+public Student selectStudentWithAddressAndGrade(int id);
+</code></pre></li>
+<li>代码实例：MybatisSqlAnnotation<h4 id="动态sql-1"><a href="#动态sql-1" class="headerlink" title="动态sql"></a>动态sql</h4></li>
+<li>需要对数据层接口进行实现，但不是通过xml映射文件，而是写一个实现类</li>
+<li><p>首先是数据层接口</p>
+<pre><code>public interface StudentMapper {
+
+    @InsertProvider(type=StudentDynaSqlProvider.class,method=&quot;insertStudent&quot;) //调用了insertStudent方法就会自动把参数传进去，无论insertStudent有无定义入参
+    public int insertStudent(Student student);
+
+    @UpdateProvider(type=StudentDynaSqlProvider.class,method=&quot;updateStudent&quot;)
+    public int updateStudent(Student student);
+
+    @DeleteProvider(type=StudentDynaSqlProvider.class,method=&quot;deleteStudent&quot;)
+    public int deleteStudent(int id);
+
+    @SelectProvider(type=StudentDynaSqlProvider.class,method=&quot;getStudentById&quot;)
+    public Student getStudentById(Integer id);
+
+    @SelectProvider(type=StudentDynaSqlProvider.class,method=&quot;findStudents&quot;)
+    public List&lt;Student&gt; findStudents(Map&lt;String,Object&gt; map);
+
+}
+</code></pre></li>
+<li><p>实现类（和接口在同在mappers包下）</p>
+<pre><code>public class StudentDynaSqlProvider { //类名一般都这样取
+
+    public String insertStudent(final Student student){ //就是得final，这个入参可以写可以不写，但如果是要直接用student.getName()而不是占位符的话就要写
+        //返回一个动态拼接完的sql
+        return new SQL(){
+            {
+                INSERT_INTO(&quot;t_student&quot;);
+                if(student.getName()!=null){
+                    VALUES(&quot;name&quot;, &quot;#{name}&quot;); //也可以直接写student.getName()，但是这样写比较好
+                }
+                if(student.getAge()!=null){
+                    VALUES(&quot;age&quot;, &quot;#{age}&quot;);
+                }
+            }
+        }.toString();
+    }
+
+    public String updateStudent(final Student student){
+        return new SQL(){
+            {
+                UPDATE(&quot;t_student&quot;);
+                if(student.getName()!=null){
+                    SET(&quot;name=#{name}&quot;);
+                }
+                if(student.getAge()!=null){
+                    SET(&quot;age=#{age}&quot;);
+                }
+                WHERE(&quot;id=#{id}&quot;);
+            }
+        }.toString();
+    }
+
+    public String deleteStudent(){
+        return new SQL(){
+            {
+                DELETE_FROM(&quot;t_student&quot;);
+                WHERE(&quot;id=#{id}&quot;);
+            }
+        }.toString();
+    }
+
+    public String getStudentById(){
+        return new SQL(){
+            {
+                SELECT(&quot;*&quot;);
+                FROM(&quot;t_student&quot;);
+                WHERE(&quot;id=#{id}&quot;);
+            }
+        }.toString();
+    }
+
+    public String findStudents(final Map&lt;String,Object&gt; map){
+        return new SQL(){
+            {
+                SELECT(&quot;*&quot;);
+                FROM(&quot;t_student&quot;);
+                StringBuffer sb=new StringBuffer();
+                if(map.get(&quot;name&quot;)!=null){
+                    sb.append(&quot; and name like &apos;&quot;+map.get(&quot;name&quot;)+&quot;&apos;&quot;); //name属性就要自己带上俩%；注：+两边从内到外是一个双引号一个单引号
+                }
+                if(map.get(&quot;age&quot;)!=null){
+                    sb.append(&quot; and age=&quot;+map.get(&quot;age&quot;));
+                }
+                //什么条件都没有就不要拼where语句了
+                if(!sb.toString().equals(&quot;&quot;)){
+                    //去掉第一个子句的and
+                    WHERE(sb.toString().replaceFirst(&quot;and&quot;, &quot;&quot;));                    
+                }
+            }
+        }.toString();
+    }
+}
+</code></pre></li>
+<li>这种用得也是比较少</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-02-08T03:11:28.356Z" itemprop="dateUpdated">2019-02-08 11:11:28</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Mybatis/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Mybatis/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Mybatis/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Mybatis/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Mybatis/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Mybatis/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Mybatis/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Mybatis与Spring、SpringMvc整合一之配置文件详解/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/MVC/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Mybatis/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Mybatis/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Mybatis/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Mybatis/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Mybatis/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABzElEQVR42u3aS24DIRAFQN//0pOtJWfwaxqwLRWrCE2g8ALRn8cjHtfTeJ1//eZufrzasoGLi9vmXsMxpoyPlBwvN+Di4p7n3m0/3jjfvrr+7TwuLu4Xc5PHSufKw8XF/XVu/nzBxcX9LW4S/OQpks6RlsVquLi4DW6epdz395b8Li4u7hT3Ko7kGPlMeXdcXNwj3PxC6TxrksuxsC8uLu4RbvUf8iaMubRIK/jBxcVtc6upkP5lN9fq8eZFhouLu5m7NoU6vpiqpRdcXNzz3E45JGnbyp9Ht+vg4uIe5ybhR+cZVA2f/vkSFxf3Q9w8gMnToNXj3f5AuLi4x7lzydDqM6iaOikHP7i4uIu4c5RqEmRBGQYXF/cIN2dVW7Xyb1ptHLi4uNu4eXdGnhjNmyqSiy/K5eDi4m7gzrVh5QWVagPHm7QpLi7uEW6+6OKe0LlXGC4u7jbuVRx5qbW6TnRIXFzcI9zq5ZInR5KLKU+LlA+Di4vb5uaXTlI07awTFWVxcXEPcqsXTTJTjsM6sREuLu5HudVQZ64oG7Vc4OLifiV3rhCbP33eVH5wcXE3c+eSpFVKp0UDFxf3JLdfUp1rtKo2ZODi4h7h/gFakbloOXOC9gAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

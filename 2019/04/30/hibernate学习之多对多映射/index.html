@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="单向关联 学生和课程是多对多的关系，一个学生能选多门课程，一门课程也可能被多人选中。 单向关联指只有学生类中包含课程类，只在学生映射文件中配置一张中间表的映射 获取时只能从根据学生信息获取课程表，不能反过来 //学生类 public class Student {      private int id;     private String name;     private Set&amp;lt;Co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/hibernate学习之多对多映射/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="单向关联 学生和课程是多对多的关系，一个学生能选多门课程，一门课程也可能被多人选中。 单向关联指只有学生类中包含课程类，只在学生映射文件中配置一张中间表的映射 获取时只能从根据学生信息获取课程表，不能反过来 //学生类 public class Student {      private int id;     private String name;     private Set&amp;lt;Co">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7279.PNG">
+<meta property="og:updated_time" content="2018-08-15T09:22:06.018Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="单向关联 学生和课程是多对多的关系，一个学生能选多门课程，一门课程也可能被多人选中。 单向关联指只有学生类中包含课程类，只在学生映射文件中配置一张中间表的映射 获取时只能从根据学生信息获取课程表，不能反过来 //学生类 public class Student {      private int id;     private String name;     private Set&amp;lt;Co">
+<meta name="twitter:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7279.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:44.951Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#单向关联"><span class="post-toc-number">1.</span> <span class="post-toc-text">单向关联</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#双向关联"><span class="post-toc-number">2.</span> <span class="post-toc-text">双向关联</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码实例"><span class="post-toc-number">3.</span> <span class="post-toc-text">代码实例</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-hibernate学习之多对多映射"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.951Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="单向关联"><a href="#单向关联" class="headerlink" title="单向关联"></a>单向关联</h3><ul>
+<li>学生和课程是多对多的关系，一个学生能选多门课程，一门课程也可能被多人选中。</li>
+<li>单向关联指只有学生类中包含课程类，只在学生映射文件中配置一张中间表的映射</li>
+<li><p>获取时只能从根据学生信息获取课程表，不能反过来</p>
+<pre><code>//学生类
+public class Student {
+
+    private int id;
+    private String name;
+    private Set&lt;Course&gt; courses=new HashSet&lt;Course&gt;();
+}
+
+//课程类
+public class Course {
+
+    private int id;
+    private String name;
+}
+
+//学生映射文件
+&lt;set name=&quot;courses&quot; table=&quot;student_course&quot; cascade=&quot;save-update&quot;&gt; 
+    &lt;key column=&quot;student_id&quot;&gt;&lt;/key&gt; &lt;!--这个主键关联t_student的主键--&gt;
+    &lt;many-to-many class=&quot;com.java1234.model.Course&quot; column=&quot;course_id&quot;&gt;&lt;/many-to-many&gt; &lt;!--这个主键course_id关联的是Course这张表的主键--&gt;
+&lt;/set&gt;
+
+//课程映射表
+&lt;class name=&quot;Course&quot; table=&quot;t_course&quot;&gt;
+
+    &lt;id name=&quot;id&quot; column=&quot;courseId&quot;&gt;
+        &lt;generator class=&quot;native&quot;&gt;&lt;/generator&gt;
+    &lt;/id&gt;
+
+    &lt;property name=&quot;name&quot; column=&quot;courseName&quot;&gt;&lt;/property&gt;
+
+    &lt;!--学生表与课程表的关联是单向的，所以课程表不需要映射学生表，也无法通过课程来获取学生信息--&gt;
+
+&lt;/class&gt;
+</code></pre><ul>
+<li><p>数据库</p>
+<p><img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7279.PNG" alt=""></p>
+<p>  /**</p>
+<ul>
+<li>只在学生映射文件中配置课程映射，只能通过学生表获取课程表，不能反向<br>*/<br>@Test<br>public void testLoad1(){<br>  Student student=(Student)session.get(Student.class, 1);<br>  Set<course> courses=(Set<course>)student.getCourses();<br>  Iterator it=courses.iterator();<br>  while(it.hasNext()){<pre><code>Course c=(Course)it.next();
+System.out.println(c.getName());
+</code></pre>  }<br>}<h3 id="双向关联"><a href="#双向关联" class="headerlink" title="双向关联"></a>双向关联</h3></course></course></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>学生类中包含课程集合，课程类中也包含学生集合</li>
+<li>同时在学生和课程映射文件中配置中间数据库</li>
+<li><p>可以反向获取</p>
+<pre><code>//学生类
+public class Student2 {
+
+    private int id;
+    private String name;
+    private Set&lt;Course2&gt; courses=new HashSet&lt;Course2&gt;();
+}
+
+//课程类
+public class Course2 {
+
+    private int id;
+    private String name;
+    private Set&lt;Student2&gt; students=new HashSet&lt;Student2&gt;();
+}
+
+//学生映射文件
+&lt;set name=&quot;courses&quot; table=&quot;student_course2&quot; cascade=&quot;save-update&quot;&gt; 
+    &lt;key column=&quot;student_id&quot;&gt;&lt;/key&gt; &lt;!--这个主键关联t_student的主键--&gt;
+    &lt;many-to-many class=&quot;com.java1234.model.Course2&quot; column=&quot;course_id&quot;&gt;&lt;/many-to-many&gt; &lt;!--这个主键course_id关联的是Course这张表的主键--&gt;
+&lt;/set&gt;
+
+//课程映射文件
+&lt;set name=&quot;students&quot; table=&quot;student_course2&quot; inverse=&quot;true&quot;&gt;
+    &lt;key column=&quot;course_id&quot;&gt;&lt;/key&gt;
+    &lt;many-to-many class=&quot;com.java1234.model.Student2&quot; column=&quot;student_id&quot;&gt;&lt;/many-to-many&gt;
+&lt;/set&gt;
+</code></pre><ul>
+<li>数据库同上</li>
+</ul>
+</li>
+</ul>
+<pre><code>/**
+* 双向关联，可以反向获取
+*/
+@Test
+public void testLoad2(){
+    Course2 course=(Course2)session.get(Course2.class, 1);
+    Set&lt;Student2&gt; students=(Set&lt;Student2&gt;)course.getStudents();
+    Iterator it=students.iterator();
+    while(it.hasNext()){
+        Student2 s=(Student2)it.next();
+        System.out.println(s.getName());
+    }
+
+}
+</code></pre><h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3><ul>
+<li>HibernateManyToMany</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-15T09:22:06.018Z" itemprop="dateUpdated">2018-08-15 17:22:06</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/hibernate学习之多对多映射/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/hibernate学习之多对多映射/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/hibernate学习之多对多映射/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/hibernate学习之多对多映射/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/hibernate学习之多对多映射/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/hibernate学习之多对多映射/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/hibernate学习之多对多映射/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/hibernate学习之缓存/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/hibernate学习之常用方法重点是merge/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/hibernate学习之多对多映射/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/hibernate学习之多对多映射/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/hibernate学习之多对多映射/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/hibernate学习之多对多映射/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/hibernate学习之多对多映射/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqElEQVR42u3awW7CMBAE0P7/T1Opd8jMbgxUejlVgSR+rhQvs/75iY/H35Gcn51JnptfVR94eHh4o6E/O559J8cnd2snJRkzHh4e3mle+1J+PfTkqvY+ySKBh4eH92281y/xixd0WSi3E4eHh4f3zbz2Fd+W73h4eHj/hZeEEW1eumHP4gw8PDy89/A2jahP/X2wv4eHh4e36KrvG2PJsNoYtxghHh4e3gHeJq6dlbazYr0NRG5Io/Hw8PBK3rOLk4J739baLDD1rwE8PDy8ktc+Jg95hzNdxsoXY8bDw8M7xmvb/G3Ymje02om+WHjw8PDwDvBmcUA7oHyI7bVROY6Hh4d3K68tjvPHJFOzWR7w8PDwPstr44M8pGjj4HyCojvg4eHhHeDNNgRsWmLJRLQLzMW1eHh4eAd4dy0Gs+Fu4uN8JHh4eHjneLNbJ3HDZhvrfrMCHh4e3jle3T0rG/l5mDsr6+v/IR4eHt6I15bF7SaA9s5tgV50+fDw8PDWvHMbp2ZxcLsR4aL0x8PDwzvGyweRv7j3g54tPBcrHh4eHt6al2+Nmg0uf63n54fhCB4eHt5NvKS0bYvgWcDRbtuKphUPDw/vGC+Pa1d7uOLAYra54ekvBjw8PLy38PaxbL5doA2L82fh4eHhneC1t9gUysmn+fm2QMfDw8O7i5eUs3nk2r7W20WlLf3x8PDwTvA2wetbu3NlwIGHh4d3jvcoj/0g2s1V+RIVldR4eHh4a96+ZZUvKpvtAm2cUSPx8PDwSl4eENy1XaCdslnJjoeHh3eat1kMZt+ve3SjMh0PDw/vG3ibhSQvrPfPwsPDw/sG3iwyyEOEpARPot7hwoCHh4d3U4c9L4hnLbR2AagLazw8PLwDvH0DLD/fLhKbMBcPDw/vAO8XAMyIvUhhYyIAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

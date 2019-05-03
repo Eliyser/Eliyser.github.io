@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="java异常分类                                                                                                            java把异常当做对象来处理。Throwable是所有错误或异常的超类。Throwable类有两个直接子类：Error类和Exception类。   Error：jav">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/全局异常/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="java异常分类                                                                                                            java把异常当做对象来处理。Throwable是所有错误或异常的超类。Throwable类有两个直接子类：Error类和Exception类。   Error：jav">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://testerhome.com/uploads/photo/2018/8cc5f43e-f85a-4855-bc1c-f50b71c808b8.png!large">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/820353-20160927114440360-54700140.jpg">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/820353-20160927114420141-613111357.jpg">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5673257-176f86928af23c45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg03.sogoucdn.com%2Fapp%2Fa%2F100520146%2FADDCEDD4C8877EFDEB437D452DF0DB73">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/de3a4d8e-3745-4566-99cb-4b76c90cbaf7.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7601.PNG">
+<meta property="og:updated_time" content="2019-03-06T08:22:00.735Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="java异常分类                                                                                                            java把异常当做对象来处理。Throwable是所有错误或异常的超类。Throwable类有两个直接子类：Error类和Exception类。   Error：jav">
+<meta name="twitter:image" content="https://testerhome.com/uploads/photo/2018/8cc5f43e-f85a-4855-bc1c-f50b71c808b8.png!large">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:46.307Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#java异常分类"><span class="post-toc-number">1.</span> <span class="post-toc-text">java异常分类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#throws、throw-new-XxxException和try-catch的区别"><span class="post-toc-number">2.</span> <span class="post-toc-text">throws、throw new XxxException和try/catch的区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用-ControllerAdvice-ExceptionHandler实现全局异常处理"><span class="post-toc-number">3.</span> <span class="post-toc-text">用@ControllerAdvice+@ExceptionHandler实现全局异常处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#全局异常处理类"><span class="post-toc-number">4.</span> <span class="post-toc-text">全局异常处理类</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-全局异常"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:46" datetime="2019-04-30T08:25:46.307Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="java异常分类"><a href="#java异常分类" class="headerlink" title="java异常分类"></a>java异常分类</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://testerhome.com/uploads/photo/2018/8cc5f43e-f85a-4855-bc1c-f50b71c808b8.png!large" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>java把异常当做对象来处理。Throwable是所有错误或异常的超类。Throwable类有两个直接子类：Error类和Exception类。</li>
+</ul>
+<ol>
+<li>Error：java运行时系统的内部错误和资源耗尽错误，是程序无法处理的异常，应用程序不会抛出该类对象。</li>
+<li><p>Exception：程序本身可以处理的异常，应尽可能去处理这些异常。Exception分两类，一个是运行时异常RuntimeException，一个是检查异常CheckedException。</p>
+<ul>
+<li>CheckedException：可以理解为在代码编写阶段就会被编译器检查到并标示的异常。一般是外部错误，这种异常发生在编译阶段，java编译器会强制程序去捕获此类异常。这类异常必须进行处理（捕获或向上抛出），如果不处理，程序将会出现编译错误。一般情况下，API中写了throws的Exception都是CheckedException。</li>
+<li>RuntimeException：那些在java虚拟机正常运行期间抛出的异常的超类。这种错误是由程序员引起的错误，可以修正代码解决。由于这类异常要么是系统异常，无法处理，如网络问题；要么是程序逻辑异常，如空指针异常，JVM必须停止以改进这种错误，所以可以不进行处理（比如向main外抛出），而由JVM自行处理。Java Runtime会自动catch到程序throw的RuntimeException，然后停止线程，打印异常。</li>
+<li><p>常见CheckedException：</p>
+<p><img src="http://p9vzt8d00.bkt.clouddn.com/820353-20160927114440360-54700140.jpg" alt=""></p>
+</li>
+<li><p>常见RuntimeException：</p>
+<p><img src="http://p9vzt8d00.bkt.clouddn.com/820353-20160927114420141-613111357.jpg" alt=""></p>
+<h3 id="throws、throw-new-XxxException和try-catch的区别"><a href="#throws、throw-new-XxxException和try-catch的区别" class="headerlink" title="throws、throw new XxxException和try/catch的区别"></a>throws、throw new XxxException和try/catch的区别</h3></li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>throws: 出现在方法头，可以单独使用，表示可能会出现某种异常，而不是一定会出现异常。</li>
+<li><p>throw: 出现在方法体，不可以单独使用，要和throws或try/catch之一配套使用，表示已经出现了某种异常</p>
+<pre><code>public void function() throws Exception1, Exception3 {
+    try {
+        ……
+    } catch(Exception1 e) {
+        throw e;
+    } catch(Exception2 e) {
+        System.out.println(&quot;出错了&quot;);
+    }
+    if (a != b)
+        throw new Exception3(&quot;自定义异常&quot;);
+}
+</code></pre></li>
+<li>如果产生Exception1，则捕获之后由方法的调用者去处理,，所以这个方法不能是最外层的方法，不能没人调用。</li>
+<li>如果产生Exception2，则方法自己打印异常信息，所以不会再向外抛出Exception2异常</li>
+<li>如果产生Exception3，则调用者处理。</li>
+<li><p>如果在controller层throw new的话，那么异常堆栈就会被返回给浏览器，出现下面这种情况，给用户造成了非常不好的体验</p>
+<p>  <img src="https://upload-images.jianshu.io/upload_images/5673257-176f86928af23c45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
+<h3 id="用-ControllerAdvice-ExceptionHandler实现全局异常处理"><a href="#用-ControllerAdvice-ExceptionHandler实现全局异常处理" class="headerlink" title="用@ControllerAdvice+@ExceptionHandler实现全局异常处理"></a>用@ControllerAdvice+@ExceptionHandler实现全局异常处理</h3></li>
+<li>通常在Controller层需要去捕获service层的异常，防止返回一些不友好的信息到客户端，但如果controller层每个方法都用模块化的try/catch去捕获异常，会很难看也很难维护。</li>
+<li>异常处理最好是解耦的，并且都放在一个地方集中管理。Spring能够较好的处理这种问题。核心如下：<ul>
+<li>@ControllerAdvice：定义全局异常处理类</li>
+<li>@ExceptionHandler：定义异常处理方法</li>
+<li>@ResponseStatus：可以将异常映射为http状态码,如@ResponseStatus(HttpStatus.UNAUTHORIZED)</li>
+</ul>
+</li>
+<li>单独使用@ExceptionHandler，只能在当前Controller中处理异常，与@ControllerAdvice组合使用，则可以实现全局异常处理，不用每个controller都配置。</li>
+<li>优缺点<ul>
+<li>优点：实现全局异常处理后，所有声明或未声明的异常，只要是在controller层抛出的，都会转到全局处理类处理。减少模板代码，提升扩展性和可维护性。</li>
+<li>缺点：只能处理controller层未捕获（往外抛）的异常，对于Interceptor（拦截器）层、Spring框架的异常无能为力。<h3 id="全局异常处理类"><a href="#全局异常处理类" class="headerlink" title="全局异常处理类"></a>全局异常处理类</h3></li>
+</ul>
+</li>
+<li>@ControllerAdvice：定义全局异常处理类GlobalExceptionHandler</li>
+<li><p>@ExceptionHandler：声明异常处理方法，使用value指定异常类</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 全局异常，对多个异常进行处理
+ * @Date 2018/9/12
+ **/
+@ControllerAdvice
+public class GlobalExceptionHandler {
+    private static final Logger logger=LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
+    @ResponseBody //返回json格式的数据
+    @ExceptionHandler(value=Exception.class) 
+    //处理Controller层抛出的Exception及其子类,出异常会自动找到词类中对应的方法执行
+    public Object defaulterrorHandler(HttpServletRequest request, Exception e){
+
+        JSONObject jsonObject=new JSONObject();
+        jsonObject.put(&quot;message&quot;,e.getMessage()); //不用专门定义一个字段（如errMsg）也能返回事先填入的信息，未填入返回null
+        //jsonObject.put(&quot;message&quot;,&quot;哎呀出错了&quot;);
+
+        //自定义的登录异常（目前没有应用）
+        if(e instanceof AuthenticationException){
+            jsonObject.put(&quot;result&quot;,((AuthenticationException) e).getErrCode()); //获取抛出异常时塞进去的状态码
+        }
+        //自定义的参数异常（目前没有应用）
+        else if(e instanceof BadRequestException){
+            jsonObject.put(&quot;result&quot;,ReturnCode.INVALID_PARAM); //其实状态码在这里塞进去好一点吧
+        }
+        /*错误的请求方式||输入的参数类型不正确||输入参数不全。
+        MissingServletRequestParameterException：
+        参数缺失异常，第一个参数：parameterName；第二个：parameterType；
+        其getMessage()返回：&quot;Required &quot; + this.parameterType + 
+        &quot; parameter &apos;&quot; + this.parameterName + &quot;&apos; is not present&quot;;*/
+        else if(e instanceof HttpRequestMethodNotSupportedException 
+                || e instanceof TypeMismatchException
+                || e instanceof MissingServletRequestParameterException){
+            jsonObject.put(&quot;result&quot;,ReturnCode.INVALID_PARAM);
+        }
+        //输入参数不满足约束（是配合@Valid才会抛出地异常；好像都是抛的BindException异常）
+        else if(e instanceof ValidationException 
+                || e instanceof MethodArgumentNotValidException  //接口数据验证异常
+                || e instanceof BindException){
+            jsonObject.put(&quot;result&quot;,ReturnCode.INVALID_PARAM);
+        }
+        else{
+            //其他情况均以系统异常处理
+            jsonObject.put(&quot;result&quot;,ReturnCode.SYSTEM_ERROR);
+            //e.printStackTrace(); //打印
+        }
+
+        return jsonObject; //直接返回到前端显示
+    }
+
+}
+</code></pre></li>
+<li>就算不明着写打印堆栈，异常也会自动在后台打印，全局异常只是让前端接收到的信息比较友好。</li>
+<li><p>还可以分开方法来处理这些异常</p>
+<pre><code>@ControllerAdvice
+public class GlobalExceptionHandler {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
+    /**
+     * 处理所有不可知的异常
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(Exception.class)
+    @ResponseBody
+    AppResponse handleException(Exception e){
+        LOGGER.error(e.getMessage(), e);
+
+        AppResponse response = new AppResponse();
+        response.setFail(&quot;操作失败！&quot;);
+        return response;
+    }
+
+    /**
+     * 处理所有业务异常
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(BusinessException.class)
+    @ResponseBody
+    AppResponse handleBusinessException(BusinessException e){
+        LOGGER.error(e.getMessage(), e);
+
+        AppResponse response = new AppResponse();
+        response.setFail(e.getMessage());
+        return response;
+    }
+
+    /**
+     * 处理所有接口数据验证异常
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    AppResponse handleMethodArgumentNotValidException(MethodArgumentNotValidException e){
+        LOGGER.error(e.getMessage(), e);
+
+        AppResponse response = new AppResponse();
+        response.setFail(e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
+        return response;
+    }
+}
+</code></pre></li>
+<li>自定义异常类，继承Exception</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg03.sogoucdn.com%2Fapp%2Fa%2F100520146%2FADDCEDD4C8877EFDEB437D452DF0DB73" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>在Service层抛出AuthenticationException：</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/de3a4d8e-3745-4566-99cb-4b76c90cbaf7.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>代码中使用@Valid进行数据校验</p>
+<pre><code>@Controller
+@RequestMapping(&quot;/&quot;)
+public class LoginController {
+    private static final Logger logger=LoggerFactory.getLogger(LoginController.class);
+
+    private UserRepository userRepository;
+
+    @RequestMapping(value = &quot;login&quot;)
+    @ResponseBody
+    public Map&lt;String,Object&gt; login(@Valid User user){ //自动封装；@Valid可以验证字段，不符合抛出异常并由GlobalExceptionHandler处理
+        Map&lt;String,Object&gt; map =new HashMap&lt;String,Object&gt;();
+        String userName=user.getUserName();
+        String password=user.getPassword();
+        //System.out.println(userName);
+        //System.out.println(password);
+
+        User user1=userRepository.findByUserNameAndPassword(userName,password);
+        if(user!=null){
+            map.put(&quot;result&quot;,1);
+            map.put(&quot;role&quot;,user.getRole());
+        }else{
+            map.put(&quot;result&quot;,0);
+        }
+        return map;
+    }
+}
+</code></pre></li>
+<li>数据校验失败时，SpringMvc框架会抛出MethodArgumentNotValidException，在GlobalExceptionHandler中加上对该异常的声明和处理，就可以全局处理数据校验的异常了。</li>
+<li>测试</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7601.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>代码实例：SpringBootJpaCrud(D:/SpringBootJpa)</li>
+<li><a href="https://testerhome.com/topics/12058" target="_blank" rel="noopener">参考文章</a></li>
+<li><a href="https://blog.csdn.net/kinginblue/article/details/70186586" target="_blank" rel="noopener">更详细的文章</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-06T08:22:00.735Z" itemprop="dateUpdated">2019-03-06 16:22:00</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/全局异常/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/全局异常/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/全局异常/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/全局异常/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/全局异常/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/全局异常/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/全局异常/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/日志/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/前端jsp或html页面获取项目根路径/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/全局异常/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/全局异常/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/全局异常/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/全局异常/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/全局异常/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHUlEQVR42u3ay07DQAwFUP7/p4uE2KG01/aAqHOyqkg7mZOF8WM+PuLr8XX9/Hz1nbN/OXZhYGC8LePx9Eq+k6+Qr5bvDQMD4z6MJMg+f0x1u0lAz4M7BgYGxtWD881FW8HAwMA4xKgG6Lw8xsDAwHjOOFuC9jY3SS4xMDB2MyaDgd/+/EfzDQwMjH/M6LX4q0Xp1RPn+/leBwMDYzUjafqfLT7nobaQ4WJgYCxi9I5cTErQXqZ3uOmGgYHxVozqz5I23DwSlv8NYGBgLGUkB7yqm5sPLMvlNAYGxmrG86V7YXfyCnpBGQMDYzfjbIqWl769NPTyLgYGxmpG3pq/WjRphOWwJKxf/goDA2M141RTrJo+NoeUvzHIxMDA+MeMefI3PyqRvI4XrToMDIzVjFOt+QT2R4ctMDAw1jGq6dokmM4PZ7wYDGBgYCxl9Fps1XMO1cDdXAEDA+MGjDw45qnbfDBQCP0YGBirGb3xQDVQ9lpvyQvCwMDYzei5e2PL3t1oBQwMjJsx8mMWvZRuMsJ8MdnAwMBYyuhdObWaSp4abWJgYGxiPIpXdXiQgOftPwwMjN2MapCt3u2lgEnqiYGBcTdGtXztFbGTgxrNSSwGBsY6RhIuJ2VnNQSXQz8GBgZG8ZHz8WR1CIqBgYGRHLColqnVNlxUxGJgYKxmnD1mMQnNeYqJgYFxH8appliy9KS5duC0CAYGxvsxPgHp9aOJffuVEwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

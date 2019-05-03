@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="示例 调用链：开始用户验证login()-&amp;gt;AbstractAuthenticaticator.authenticate()-&amp;gt;子类ModularRealmAuthenticator.doAuthenticate()判断有几个Realm，然后一个个执行-&amp;gt;getAuthenticationInfo()-&amp;gt;AuthenticatingRealm.getAuthenticati">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Shiro第三章二-授权示例/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="示例 调用链：开始用户验证login()-&amp;gt;AbstractAuthenticaticator.authenticate()-&amp;gt;子类ModularRealmAuthenticator.doAuthenticate()判断有几个Realm，然后一个个执行-&amp;gt;getAuthenticationInfo()-&amp;gt;AuthenticatingRealm.getAuthenticati">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-13T12:35:09.916Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="示例 调用链：开始用户验证login()-&amp;gt;AbstractAuthenticaticator.authenticate()-&amp;gt;子类ModularRealmAuthenticator.doAuthenticate()判断有几个Realm，然后一个个执行-&amp;gt;getAuthenticationInfo()-&amp;gt;AuthenticatingRealm.getAuthenticati">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:29:23.012Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#示例"><span class="post-toc-number">1.</span> <span class="post-toc-text">示例</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Shiro第三章二-授权示例"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:29:23" datetime="2019-04-30T08:29:23.012Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
+<li>调用链：开始用户验证login()-&gt;AbstractAuthenticaticator.authenticate()-&gt;子类ModularRealmAuthenticator.doAuthenticate()判断有几个Realm，然后一个个执行-&gt;getAuthenticationInfo()-&gt;AuthenticatingRealm.getAuthenticationInfo()-&gt;MyRealm.doGetAuthenticationInfo()到此完成用户验证-&gt;</li>
+<li>开始授权BitAndWildPermissionResolver.resolvePermission()解析所需权限-&gt;MyRealm.doGetAuthorizationInfo()获取用户权限-&gt;BitAndWildPermissionResolver.resolvePermission()解析用户权限中存在的字符串权限+user2+10、user2:*-&gt;MyRolePermissionResolver.resolvePermissionInRole()解析用户角色role1、role2的权限，返回menu:*</li>
+<li>根据调用链从外到内</li>
+<li><p>AuthorizerTest：测试类</p>
+<pre><code>public class AuthorizerTest extends BaseTest {
+    /**
+     * @Author haien
+     * @Description 测试MyRealm自己设置角色权限的授权方式
+     * @Date 2019/2/19
+     * @Param []
+     * @return void
+     **/
+    @Test
+    public void testIsPermitted(){
+        login(&quot;classpath:config/shiro-jdbc-authorizer.ini&quot;,&quot;zhang&quot;,&quot;123&quot;);
+        Assert.assertTrue(subject().isPermitted(&quot;user1:update&quot;));
+        Assert.assertTrue(subject().isPermitted(&quot;user2:update&quot;));
+        Assert.assertTrue(subject().isPermitted(&quot;+user1+2&quot;)); //新增
+        Assert.assertTrue(subject().isPermitted(&quot;+user1+8&quot;)); //查看
+        Assert.assertTrue(subject().isPermitted(&quot;+user2+10&quot;)); //新增与查看
+        Assert.assertFalse(subject().isPermitted(&quot;+user1+4&quot;)); //没有删除权限
+        //MyRolePermissionResolver解析得到的权限
+        Assert.assertTrue(subject().isPermitted(&quot;menu:view&quot;));
+    }
+}
+</code></pre></li>
+<li><p>MyRealm：doGetAuthenticationInfo()被login()调用，完成用户验证</p>
+<pre><code>public class MyRealm extends AuthorizingRealm { //继承AuthorizingRealm实现Realm接口
+    /**
+     * @Author haien
+     * @Description 获取身份验证信息（和MyRealm1一样）
+     * @Date 2019/2/19
+     * @Param [authenticationToken]
+     * @return org.apache.shiro.authc.AuthenticationInfo
+     **/
+    @Override
+    protected AuthenticationInfo doGetAuthenticationInfo(
+            AuthenticationToken authenticationToken) throws AuthenticationException {
+        String username=(String)authenticationToken.getPrincipal(); //得到用户名
+        String password=new String((char[])authenticationToken.getCredentials()); //得到密码
+        //String password=(String)authenticationToken.getCredentials();
+        //若用户名错误
+        if(!&quot;zhang&quot;.equals(username)){
+            throw new UnknownAccountException();
+        }
+        //若密码错误
+        if(!&quot;123&quot;.equals(password)){
+            throw new IncorrectCredentialsException();
+        }
+        //身份验证成功，返回一个AuthenticationInfo实现
+        return new SimpleAuthenticationInfo(username,password,getName());
+    }
+}
+</code></pre></li>
+<li><p>如果想用数据库而不是自己准备用户和权限的话，可以配置shiro-jdbc-authorizer.ini，替换shiro-authorizer.ini和MyRealm类</p>
+<pre><code>[main]
+;自定义Authorizer
+authorizer=org.apache.shiro.authz.ModularRealmAuthorizer
+;自定义permissionResolver
+permissionResolver=com.haien.shiroHelloWorld.permission.BitAndWildPermissionResolver
+authorizer.permissionResolver=$permissionResolver
+;自定义rolePermissionResolver
+rolePermissionResolver=com.haien.shiroHelloWorld.permission.MyRolePermissionResolver
+authorizer.rolePermissionResolver=$rolePermissionResolver
+
+securityManager.authorizer=$authorizer
+;以上都和shiro-authorizer.ini一样
+
+;自定义JdbcRealm；
+    ;一定要放在SecurityManager。authorizer，因为调用setRealms()会将realms设置给Authorizer，
+    ;并将前面给Authorizer设置的属性permissionResolver和RolePermissionResolver设置给realms
+jdbcRealm=org.apache.shiro.realm.jdbc.JdbcRealm
+dataSource=com.alibaba.druid.pool.DruidDataSource
+dataSource.driverClassName=com.mysql.jdbc.Driver
+dataSource.url=jdbc:mysql://localhost:3306/shiro
+dataSource.username=root
+dataSource.password=123456
+jdbcRealm.dataSource=$dataSource
+jdbcRealm.permissionsLookupEnabled=true //开启权限从数据库查找功能
+securityManager.realms=$jdbcRealm
+</code></pre></li>
+<li><p>BitAndWildPermissionResolver：解析权限字符串（用户拥有的权限和要求的权限）</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 解析权限字符串：根据字符串是否以+开头解析为BitPermission或WildcardPermission
+ * @Date 2019/2/19
+ **/
+public class BitAndWildPermissionResolver implements PermissionResolver {
+    /**
+     * @Author haien
+     * @Description 根据字符串是否以+开头解析为BitPermission或WildcardPermission
+     * @Date 2019/2/19
+     * @Param [s]
+     * @return org.apache.shiro.authz.Permission
+     **/
+    @Override
+    public Permission resolvePermission(String permissionString) {
+        if(permissionString.startsWith(&quot;+&quot;)){
+            return new BitPermission(permissionString);
+        }
+        return new WildcardPermission(permissionString);
+    }
+}
+</code></pre></li>
+<li><p>其中BitPermission实现了Permission接口</p>
+<ul>
+<li>Permission接口</li>
+</ul>
+</li>
+</ul>
+<pre><code>public interface Permission {
+    //权限匹配
+    boolean implies(Permission var1);
+}
+</code></pre><ul>
+<li><p>this是用户拥有的权限，var1是所需权限，当this是user:*或user，var1是user:create或两者完全相同时，返回true。</p>
+</li>
+<li><p>BitPermission</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 实现位移方式的权限定义，解析要求的权限。被BitAndWildPermissionResolver调用。
+ *              规则：+资源+权限位。以+开头，中间通过+分隔；
+ *              权限位：0-all权限（二进制0000），1-新增（0001），2-修改（0010），
+ *              4-删除（0100）、8-查看（1000）；如，+user+10，由于10二进制为1010,
+ *              1位置与2、8相同，按位与返回二进制数非0，所以表示拥有修改、查看权限
+ * @Date 2019/2/18
+ **/
+public class BitPermission implements Permission {
+    //资源
+    private String resourceIdentify;
+    //权限位
+    private int permissionBit;
+    //实例id
+    private String instanceId;
+
+    public BitPermission(String permissionString) {
+        //解析要求的权限字符串
+        String[] array=permissionString.split(&quot;\\+&quot;); //加//防止+被解析
+        if(array.length&gt;1){
+            resourceIdentify=array[1]; //第0个为空
+        }
+        if(StringUtils.isEmpty(resourceIdentify)){ //开头两个+相连，或者length&lt;=1,即根本没定义权限
+            resourceIdentify=&quot;*&quot;;
+        }
+        if(array.length&gt;2){
+            permissionBit=Integer.valueOf(array[2]);
+        }//peimissionBit为空的话即默认值0，不用赋*给它，后面用0来判断即可
+        if(array.length&gt;3){
+            instanceId=array[3];
+        }
+        if(StringUtils.isEmpty(instanceId)){
+            instanceId=&quot;*&quot;;
+        }
+    }
+
+    /**
+     * @Author haien
+     * @Description 判断用户是否拥有权限
+     * @Date 2019/2/18
+     * @Param [p所需权限](this为用户权限)
+     * @return boolean
+     **/
+    @Override
+    public boolean implies(Permission p) {
+        if(!(p instanceof BitPermission)) {
+            return false;
+        }
+
+        BitPermission other=(BitPermission)p;
+        if(!(&quot;*&quot;.equals(this.resourceIdentify) //this：用户拥有的权限，other：所需权限
+             ||this.resourceIdentify.equals(other.resourceIdentify))){
+            return false;
+        }
+        if(!(this.permissionBit==0||(this.permissionBit&amp;other.permissionBit)!=0)){
+            return false;
+        }
+        if(!(&quot;*&quot;.equals(this.instanceId)||this.instanceId.equals(other.instanceId))){
+            return false;
+        }
+        return true;
+    }
+}
+</code></pre></li>
+<li><p>MyRealm：doGetAuthorizationInfo()获取用户权限。</p>
+<pre><code>public class MyRealm extends AuthorizingRealm { //继承AuthorizingRealm实现Realm接口
+    /**
+     * @Author haien
+     * @Description 根据用户身份获取授权信息
+     * @Date 2019/2/19
+     * @Param [principalCollection]
+     * @return org.apache.shiro.authz.AuthorizationInfo
+     **/
+    @Override
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+        SimpleAuthorizationInfo authorizationInfo=new SimpleAuthorizationInfo();
+        /*不从数据库查找，自己设置权限进去*/
+        //用户拥有两个角色
+        authorizationInfo.addRole(&quot;role1&quot;); //添加角色后调用MyRolePermissionResolver解析出权限
+        authorizationInfo.addRole(&quot;role2&quot;); //解析出来后应该是添加回authorizationInfo的权限集合
+        //四个权限
+        authorizationInfo.addObjectPermission(new BitPermission(&quot;+user1+10&quot;));
+        authorizationInfo.addObjectPermission(new WildcardPermission(&quot;user1:*&quot;));
+        authorizationInfo.addStringPermission(&quot;+user2+10&quot;); //10代表2新增与8查看
+        authorizationInfo.addStringPermission(&quot;user2:*&quot;); //字符串权限，等下会调用BitAndWildPermissionResolver解析
+
+        return authorizationInfo;
+    }
+}
+</code></pre></li>
+<li><p>其中，Principle原本是AuthenticationToken的属性之一，表示用户名。</p>
+</li>
+<li><p>MyRolePermissionResolver：解析角色字符串到用户权限集合</p>
+<pre><code>public class MyRolePermissionResolver implements RolePermissionResolver {
+    /**
+     * @Author haien
+     * @Description 如果用户拥有role1，则返回menu:*权限，添加到用户权限集合中
+     * @Date 2019/2/19
+     * @Param [roleString]
+     * @return java.util.Collection&lt;org.apache.shiro.authz.Permission&gt;
+     **/
+    @Override
+    public Collection&lt;Permission&gt; resolvePermissionsInRole(String roleString) {
+        if(&quot;role1&quot;.equals(roleString)){
+            //role1的权限（在MyRealm中添加也一样）
+            /*
+            return Arrays.asList(new WildcardPermission(&quot;menu:*&quot;),
+                    new BitPermission(&quot;+user1+10&quot;),
+                    new WildcardPermission(&quot;user1:*&quot;),
+                    new BitPermission(&quot;+user2+10&quot;),
+                    new WildcardPermission(&quot;user2:*&quot;));
+            */
+            return Arrays.asList((Permission)new WildcardPermission(&quot;menu:*&quot;));
+        }
+        return null;
+    }
+}
+</code></pre></li>
+<li>代码实例：ideaProjects/shiroHelloWorld</li>
+<li><a href="https://jinnianshilongnian.iteye.com/blog/2020017" target="_blank" rel="noopener">《跟我学shiro第三章</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-13T12:35:09.916Z" itemprop="dateUpdated">2019-03-13 20:35:09</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Shiro第三章二-授权示例/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Shiro第三章二-授权示例/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第三章二-授权示例/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第三章二-授权示例/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第三章二-授权示例/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第三章二-授权示例/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第三章二-授权示例/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Shiro第三章一-授权流程/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Shiro第七章-与web集成、ShiroFilter、基于表单的拦截器/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第三章二-授权示例/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第三章二-授权示例/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第三章二-授权示例/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第三章二-授权示例/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第三章二-授权示例/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsUlEQVR42u3aUW4qMQwF0O5/030LeGK4104Qlc58VcBATirFHts/P/H1++J6/mRy7295/dy48PDw8A4t/dUiku95/szzK8/blK8ZDw8P7zbveSn5svLjfkbK14yHh4f3bbw8XU5S7XZD8fDw8P4WLz/u23CS/BYeHh7e9/BmR/wmMCThoS0N4+Hh4X2Gl3eRvufvK/09PDw8vHVXfRYk8mZYknxvLjw8PLwbvLZAMBsd2GxQu1l4eHh4n+e1j/fJKMDZ1LwuZ+Dh4eFd4LWP/fnIVI7M723DFR4eHt49XlsCyAPDbFygOPTz0QQ8PDy8NW92KOdp92Zsazaw9WaheHh4eGve8+E7G2lqh6jaTRw2wPDw8PAujA7sW1kJYBYGZk01PDw8vBu8TWl1n4K3hYx8s6JqBx4eHt6CNyuStglxsgXt1kSrwsPDw7vGaw/iWUm3ba3lK6nbYHh4eHhHeW26PAsM7UhBu6F4eHh4N3izR/196bb9hnyE682zAh4eHt4hXp6qzlLt9pVhfPv/O/Hw8PAu8DYhoU12TxWL89IJHh4e3g3ec9GhTWoT3r52UqTjeHh4eBd4bWsqL0y0xdlTTa83cQ8PDw/vKK9tySdHfJtqz1pfRWKNh4eHd5TXJsp50aHFJKl8vrl4eHh493ibYmubXidhow0nL38dDw8P7xqvOGrLDdq3u1b/Ejw8PLzLvM1S2h/OCx+rAjEeHh7eUd7ZdDYZjcoDRpJ8v7kLDw8P7wKvPXA3xdxZ8t0WSvKNw8PDw9vwNsttRwfyVH72+XqmDA8PD2/B27Tz96nzgdjV5td4eHh4H+S1B3oSNvLSRl2kwMPDw/sCXluwyNtdeUkiHzLAw8PDu8fLF9e+uw8Meaq9qrXg4eHhHeqqt7e1W5C3xM6OZ+Hh4eGNeP8AxlVpzhU+4cIAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

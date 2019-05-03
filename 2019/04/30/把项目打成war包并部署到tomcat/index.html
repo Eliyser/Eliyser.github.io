@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="把web项目打成war包 使用eclipse   右击项目选择export，选择web文件夹中的war file                                                                                                              选择存储位置，可以直接选Tomcat下的webapps目录，反正等一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/把项目打成war包并部署到tomcat/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="把web项目打成war包 使用eclipse   右击项目选择export，选择web文件夹中的war file                                                                                                              选择存储位置，可以直接选Tomcat下的webapps目录，反正等一">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdn.net/20180806101105388?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3h1ZTJ4dWU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180806174728381?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3h1ZTJ4dWU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20140327125735937?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3I2NjZf/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg03.sogoucdn.com%2Fapp%2Fa%2F100520146%2Feaebcdada53877ad41d58c2b4202bdfc">
+<meta property="og:image" content="https://img-blog.csdn.net/20180418140217990">
+<meta property="og:image" content="https://img-blog.csdn.net/20180716165616657?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNTcwMzg4Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg04.sogoucdn.com%2Fapp%2Fa%2F100520146%2F453e10e83ced0d82b76a45e1f1b3cbb4">
+<meta property="og:updated_time" content="2019-03-12T06:36:50.659Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="把web项目打成war包 使用eclipse   右击项目选择export，选择web文件夹中的war file                                                                                                              选择存储位置，可以直接选Tomcat下的webapps目录，反正等一">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180806101105388?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3h1ZTJ4dWU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:46.032Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#把web项目打成war包"><span class="post-toc-number">1.</span> <span class="post-toc-text">把web项目打成war包</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#把项目部署到Linux下的tomcat"><span class="post-toc-number"></span> <span class="post-toc-text">把项目部署到Linux下的tomcat</span></a>
+        </nav>
+    </aside>
+
+
+<article id="post-把项目打成war包并部署到tomcat"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:46" datetime="2019-04-30T08:25:46.032Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="把web项目打成war包"><a href="#把web项目打成war包" class="headerlink" title="把web项目打成war包"></a>把web项目打成war包</h4><ol>
+<li>使用eclipse</li>
+</ol>
+<ul>
+<li>右击项目选择export，选择web文件夹中的war file</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdn.net/20180806101105388?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3h1ZTJ4dWU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>选择存储位置，可以直接选Tomcat下的webapps目录，反正等一下部署到服务器上也是要放到那里去的</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdn.net/20180806174728381?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3h1ZTJ4dWU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ol start="2">
+<li>使用命令行</li>
+</ol>
+<ul>
+<li><p>命令行进入项目StudentInfoManager中，运行</p>
+<pre><code>jar -cvf StudentInfoManager.war *
+</code></pre></li>
+<li>等待打包</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdn.net/20140327125735937?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3I2NjZf/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ol start="3">
+<li>maven打包</li>
+</ol>
+<ul>
+<li>如果是对多模块maven项目打成war包则对web模块执行mvn package即可。</li>
+<li><p>可以在pom.xml中指定war包的一些特性，不声明以下插件则使用默认配置：</p>
+<pre><code>&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+      &lt;!--打成war包名，则部署到tomcat后访问https://localhost:8443/finalName(/login)
+      跳转登录页面--&gt;
+      &lt;warName&gt;${project.build.finalName}&lt;/warName&gt;
+      &lt;webResources&gt;
+        &lt;resource&gt;
+          &lt;directory&gt;${basedir}/src/main/webapp/WEB-INF&lt;/directory&gt;
+          &lt;filtering&gt;true&lt;/filtering&gt;
+          &lt;targetPath&gt;WEB-INF&lt;/targetPath&gt;
+          &lt;includes&gt;
+            &lt;include&gt;**/web.xml&lt;/include&gt;
+          &lt;/includes&gt;
+        &lt;/resource&gt;
+      &lt;/webResources&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+</code></pre></li>
+<li><p>以上三种方法打包成功后会在项目或项目target下生成StudentInfoManager.war文件，将其放到tomcat的webapps目录下</p>
+</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg03.sogoucdn.com%2Fapp%2Fa%2F100520146%2Feaebcdada53877ad41d58c2b4202bdfc" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>然后直接启动tomcat就行，一般都用自动部署而不配置server了，不过可以了解下server配置。一般Tomcat/conf/server.xml如下配置即可：</p>
+<pre><code>  &lt;!--host虚拟主机的作用是运行多个web应用；
+AppBase:指定web应用所在目录（相对于tomcat根目录）
+deployOnStartup:启动时检测是否有新的web并自动部署，一般有autoDeploy就够了
+autoDeploy:运行时定期检测是否有新的web并应用--&gt;
+  &lt;Host name=&quot;localhost&quot;  appBase=&quot;webapps&quot;
+      unpackWARs=&quot;true&quot; autoDeploy=&quot;true&quot;
+      xmlValidation=&quot;false&quot; xmlNamespaceAware=&quot;false&quot;&gt; 
+          &lt;!--一个Context代表一个web应用，每个web应用基于war文件，或war文件解压后对应的目录
+          docBase:war包位置和appBase不一样才需要指定
+          path:访问路径，默认是/项目名；path=&quot;&quot;表示这是虚拟主机的默认web应用，当请求的url与all path都不符合的时候就用它；
+          但是在自动部署的场景下，不能指定path属性--&gt;
+          &lt;Context path=&quot;/StudentInfoManage&quot; docBase=&quot;D:\Eclipse\webApp\StudentInfoManage.war&quot;
+              reloadable=&quot;false&quot;/&gt;
+</code></pre></li>
+<li><p>启动Tomcat：双击bin/startup.bat，窗口闪退的话编辑startup.bat，在末尾增加“pause”,记得下面还要剩下一行或是两行的，否则不生效</p>
+</li>
+<li><p>再次启动，失败的话看下日志，如果是读取环境变量失败的话，编辑startup.bat</p>
+<pre><code>setlocal
+
+&lt;!--添加这两行--&gt;
+SET JAVA_HOME=D:\jdk\1.8
+SET TOMCAT_HOME=D:\apache-tomcat-7.0.86
+</code></pre></li>
+<li>重新启动，浏览器输入localhost:8080/StudentInfoManager即可访问，访问全程不要叉掉两个启动窗口。</li>
+<li><p>其中一个窗口在访问过程中会打印日志，如果出现WARN：</p>
+<pre><code>Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+</code></pre></li>
+<li>原因是mysql在高版本需要指明是否进行SSL连接</li>
+</ul>
+<h3 id="把项目部署到Linux下的tomcat"><a href="#把项目部署到Linux下的tomcat" class="headerlink" title="把项目部署到Linux下的tomcat"></a>把项目部署到Linux下的tomcat</h3><ul>
+<li><p>把项目war包发送到Linux下tomcat的webapps里，执行命令启动tomcat</p>
+<pre><code>cd /usr/java/tomcat/apache-tomcat-7.0.91/bin //进入bin目录
+//方式一：直接启动
+./startup.sh //缺点：客户端断开连接后tomcat服务也会立即停止
+//方式二：作为服务启动
+nohup ./startup.sh &amp; //作为Linux服务一直运行，和方式一一样会将日志写到tomcat的日志文件catalina.out中，不能直接看到
+//方式三：在当前连接界面动态输出tomcat日志
+./catalina.sh run //Ctrl+c退出
+//关闭tomcat
+./shutdown.sh
+</code></pre></li>
+<li>默认网址是————服务器ip:8080/项目名</li>
+<li>怕冲突想要修改端口的话可以修改server.xml，把8005改成8006,8080-&gt;8081,8009-&gt;8010.然后改bin/catalina.sh，在文件首部一堆注释里面加两个export</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdn.net/20180418140217990" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>不过好像都不改也可以的</li>
+<li>不过要保证启用的端口有添加在ECS中，添加过程：实例–管理–本实例安全组–配置规则–添加安全组规则</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdn.net/20180716165616657?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNTcwMzg4Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img01.sogoucdn.com/net/a/04/link?appid=100520145&url=http%3A%2F%2Fimg04.sogoucdn.com%2Fapp%2Fa%2F100520146%2F453e10e83ced0d82b76a45e1f1b3cbb4" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>另外，不用改jdbc的url，本地的数据库是localhost:3306，而对于在服务器上运行的web，它访问服务器上的数据库也是localhost，不过3306端口要记得添加到安全组里，虽然 不是外部访问的，但是添加上去好像也没事。</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-12T06:36:50.659Z" itemprop="dateUpdated">2019-03-12 14:36:50</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/把项目打成war包并部署到tomcat/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/把项目打成war包并部署到tomcat/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/把项目打成war包并部署到tomcat/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/把项目打成war包并部署到tomcat/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/把项目打成war包并部署到tomcat/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/把项目打成war包并部署到tomcat/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/把项目打成war包并部署到tomcat/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/包装类/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/安装jdk/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/把项目打成war包并部署到tomcat/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/把项目打成war包并部署到tomcat/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/把项目打成war包并部署到tomcat/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/把项目打成war包并部署到tomcat/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/把项目打成war包并部署到tomcat/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACp0lEQVR42u3aSW7DMBAEQP//08kDEsk9C70ApVNgyBSLBjRMcx6P+Pr5c00+/ztyPtrjxIWHh4c3nno+3epT7klXs0oW4nJueHh4eMd4vQltLcH9d5MCc/k5Hh4e3kfykmtSiu7ng4eHh/eNvPvRClMpFiE8PDy89/KS13QSH9xvhZPlS554JGvBw8PDi3nzEPb1fx8538PDw8Mbn6r3YoK8kOTb62b8gYeHh3eAl79w50FtHjr0FujyTjw8PLwDvEnY2ntw3nyQI59svvHw8PCWePlhVZW0G/UmW/Zon46Hh4c35uUD5VHC7nTzhq3ol8TDw8Mb8+bR6j2veuSfR8PlUzs8PDy8JV4y6bxg5C1QvXuqUTIeHh7eOV4eHORTrB6J9VoToh8DDw8Pb5WXRADVx8yjjWoIErUL4OHh4R3mTf67z+OJJPwd3YOHh4d3gDcPXnuFpHpUlpSZJ8dgeHh4eEu86nFU9ZPJdjlfoOgxeHh4eEu8nJofXPUO+/OFq8bHeHh4eLu83gZ30gqw1bwVzQEPDw/vAK+3hZ0A8qaEagdEVK7w8PDwDvOqjF5TwtY2vVwY8PDw8Ma8HLP1ct8NbfHw8PDey8uDg+oWvBoulPsgeptpPDw8vCIvh02CgGpTQrIcUfyBh4eHd4w3f2Uno+1+d9QTgYeHhzfmVY+7envX+eLmgQgeHh7eK3m9JoDdNqkq8nI0PDw8vFXeT/HKp9Xc/sZv9aitFg8PD+8AL7+SgKB6hFYNIBaCCTw8PLwlXl4Mquu0GyvkBQkPDw/vNbxevJu/xHutBo/WhYeHh/ctvGoonEcJeQvCPyPj4eHhfQyv+uBJSaiWJTw8PLzX8KqHXtWwNS8SvdarJ4UBDw8Pb5XXi1knwW51QecRMB4eHt4S7xeiPl6TM/9MtwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

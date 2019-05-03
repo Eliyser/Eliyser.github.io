@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简介 在一些环境中，可能需要把web应用做成无状态的，即服务端无状态，也就是说服务端不会存储像会话这种东西，而是每次请求时带上相应的用户名进行登录。 如不使用OAuth2协议来实现，则可以使用REST+HMAC认证。 REST-HMAC：Hash-based Messager Authentication Code,基于散列的消息认证码。使用一个密钥（只有客户端和服务端知道）和一个消息作为输入，生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Shiro第二十章-无状态web应用集成/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="简介 在一些环境中，可能需要把web应用做成无状态的，即服务端无状态，也就是说服务端不会存储像会话这种东西，而是每次请求时带上相应的用户名进行登录。 如不使用OAuth2协议来实现，则可以使用REST+HMAC认证。 REST-HMAC：Hash-based Messager Authentication Code,基于散列的消息认证码。使用一个密钥（只有客户端和服务端知道）和一个消息作为输入，生">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-09T08:19:58.072Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="简介 在一些环境中，可能需要把web应用做成无状态的，即服务端无状态，也就是说服务端不会存储像会话这种东西，而是每次请求时带上相应的用户名进行登录。 如不使用OAuth2协议来实现，则可以使用REST+HMAC认证。 REST-HMAC：Hash-based Messager Authentication Code,基于散列的消息认证码。使用一个密钥（只有客户端和服务端知道）和一个消息作为输入，生">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:29:22.964Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务器端"><span class="post-toc-number">2.</span> <span class="post-toc-text">服务器端</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#禁止建立会话"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">禁止建立会话</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#认证"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">认证</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#测试"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">测试</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Shiro第二十章-无状态web应用集成"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:29:22" datetime="2019-04-30T08:29:22.964Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>在一些环境中，可能需要把web应用做成无状态的，即服务端无状态，也就是说服务端不会存储像会话这种东西，而是每次请求时带上相应的用户名进行登录。</li>
+<li>如不使用OAuth2协议来实现，则可以使用REST+HMAC认证。</li>
+<li>REST-HMAC：Hash-based Messager Authentication Code,基于散列的消息认证码。使用一个密钥（只有客户端和服务端知道）和一个消息作为输入，生成它们的消息摘要。访问时使用该消息摘要进行传播，服务端对该消息摘要进行验证。</li>
+<li>如果以用户名+密码生成消息摘要，一旦被别人而重复使用该摘要进行验证，解决办法如下：</li>
+</ul>
+<ol>
+<li>客户端每次申请一个Token，使用该Token进行加密，而该Token是一次性的；</li>
+<li>客户端每次生成一个唯一的token，使用该Token进行加密，服务器端记录下这些token，如果之前用过就认为是非法请求。</li>
+</ol>
+<ul>
+<li>本例直接用请求的参数生成消息摘要，即无法篡改数据，虽然可能被窃取而多次使用，不过解决方法如上所示。</li>
+</ul>
+<h3 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h3><ul>
+<li>控制用户登录时不建立会话，而是每次请求带上用户身份进行认证。</li>
+</ul>
+<h4 id="禁止建立会话"><a href="#禁止建立会话" class="headerlink" title="禁止建立会话"></a>禁止建立会话</h4><ul>
+<li>StatelessDefaultSubjectFactory：自定义Subject工厂，禁止建立会话。</li>
+</ul>
+<pre><code>public class StatelessDefaultSubjectFactory extends DefaultWebSubjectFactory {
+    @Override
+    public Subject createSubject(SubjectContext context){
+        //不创建session,之后调用Subject.getSession()将抛出DisabledSessionException
+        context.setSessionCreationEnabled(false);
+
+        return super.createSubject(context);
+    }
+}
+</code></pre><ul>
+<li><p>spring-config-shiro.xml: 注册并使用该Subject工厂。</p>
+<pre><code>&lt;!--Subject工厂: 继承DefaultWebSubjectFactory，禁止建立会话--&gt;
+&lt;bean id=&quot;subjectFactory&quot; class=&quot;StatelessDefaultSubjectFactory&quot;/&gt;
+
+&lt;!-- 安全管理器 --&gt;
+&lt;bean id=&quot;securityManager&quot; class=&quot;org.apache.shiro.web.mgt.DefaultWebSecurityManager&quot;&gt;
+    &lt;property name=&quot;realm&quot; ref=&quot;statelessRealm&quot;/&gt;
+    &lt;property name=&quot;subjectDAO.sessionStorageEvaluator.sessionStorageEnabled&quot; value=&quot;false&quot;/&gt;
+    &lt;property name=&quot;subjectFactory&quot; ref=&quot;subjectFactory&quot;/&gt;
+    &lt;property name=&quot;sessionManager&quot; ref=&quot;sessionManager&quot;/&gt;
+&lt;/bean&gt;
+</code></pre></li>
+</ul>
+<h4 id="认证"><a href="#认证" class="headerlink" title="认证"></a>认证</h4><ul>
+<li>StatelessAuthcFilter：拦截每次请求进行认证。主要是获取请求中包含的用户名、参数和消息摘要，封装成token，然后传给realm进行认证。</li>
+</ul>
+<pre><code>public class StatelessAuthcFilter extends AccessControlFilter {
+    @Override
+    protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {
+        return false;
+    }
+
+    /**
+     * @Author haien
+     * @Description 获取客户端传入的用户名、参数和消息摘要，生成StatelessToken，
+                    然后交给realm登录（实际是认证）。
+     * @Date 2019/4/8
+     * @Param [request, response]
+     * @return boolean
+     **/
+    @Override
+    protected boolean onAccessDenied(ServletRequest request, ServletResponse response)
+            throws Exception {
+        //1. 获取客户端生成的消息摘要
+        String clientDigest=request.getParameter(Constants.PARAM_DIGEST);
+        //2. 获取客户端传入的用户身份
+        String username=request.getParameter(Constants.PARAM_USERNAME);
+        //3. 获取客户端请求的参数列表
+        Map&lt;String,String[]&gt; params=new HashMap&lt;&gt;(request.getParameterMap());
+        params.remove(Constants.PARAM_DIGEST);
+        //4. 封装成无状态Token
+        StatelessToken token=new StatelessToken(username,params,clientDigest);
+        //5. 委托给realm进行登录，准确说是认证
+        try {
+            getSubject(request, response).login(token);
+        }catch (Exception e){
+            e.printStackTrace();
+            //6. 认证失败处理
+            onLoginFail(response);
+            return false;
+        }
+
+        //认证成功返回true，执行其他过滤链
+        return true;
+    }
+
+    private void onLoginFail(ServletResponse response) throws IOException {
+        HttpServletResponse httpResponse=(HttpServletResponse)response;
+        httpResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        httpResponse.getWriter().write(&quot;login error&quot;);
+    }
+}
+</code></pre><ul>
+<li>其中用到的token类为StatelessToken：</li>
+</ul>
+<pre><code>/**
+ * @Author haien
+ * @Description 将客户端传来的用户信息、请求参数和消息摘要封装成无状态Token
+ * @Date 2019/4/8
+ **/
+public class StatelessToken implements AuthenticationToken {
+    private String username;
+    private Map&lt;String,?&gt; params;
+    private String clientDigest;
+
+    //全参构造器
+
+    @Override
+    public Object getPrincipal() {
+        return username;
+    }
+
+    @Override
+    public Object getCredentials() {
+        return clientDigest;
+    }
+
+    //getter、setter
+}
+</code></pre><ul>
+<li>StatelessRealm：自定义realm实现认证，主要是服务端自己生成消息摘要，再配合用户名封装成AuthenticationInfo，跟token比对。其实和之前用户名+密码生成的Info、token相比，也只是把密码换成了消息摘要而已。</li>
+</ul>
+<pre><code>public class StatelessRealm extends AuthorizingRealm {
+
+    //supports、doGetAuthorizationIfo方法
+
+    /**
+     * @Author haien
+     * @Description 服务端利用用户名和请求参数生成消息摘要，与客户端消息摘要匹配，
+                    以此作为身份验证； 缺点是一旦别人截获请求，则可以重复请求。
+     * @Date 2019/4/8
+     * @Param [token]
+     * @return org.apache.shiro.authc.AuthenticationInfo
+     **/
+    @Override
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token)
+            throws AuthenticationException {
+        StatelessToken statelessToken=(StatelessToken)token;
+        String username=statelessToken.getUsername();
+
+        //根据用户名获取密钥（和客户端一样）
+        String key=getKey(username);
+        //在服务器端使用对客户端参数生成消息摘要
+        String serverDigest=HmacSHA256Utils.digest(key,statelessToken.getParams());
+
+        //然后进行客户端消息摘要和服务端消息摘要的匹配
+        return new SimpleAuthenticationInfo(username,serverDigest,getName());
+    }
+
+    /**
+     * @Author haien
+     * @Description 获取服务端密钥，此处硬编码一个
+                    （原本应该是有一套和客户端一致的算法的）
+     * @Date 2019/4/8
+     * @Param [username]
+     * @return java.lang.String
+     **/
+    private String getKey(String username){
+        if(&quot;admin&quot;.equals(username))
+            return &quot;dadadswdewq2ewdwqdwadsadasd&quot;;
+
+        return null;
+    }
+}
+</code></pre><ul>
+<li><p>spring-config-shiro.xml: 配置以上过滤器和realm。</p>
+<pre><code>&lt;!-- Realm实现 --&gt;
+&lt;bean id=&quot;statelessRealm&quot; class=&quot;com.haien.chapter20.realm.StatelessRealm&quot;&gt;
+    &lt;!--默认应该是true--&gt;
+    &lt;property name=&quot;cachingEnabled&quot; value=&quot;false&quot;/&gt;
+&lt;/bean&gt;
+&lt;!-- 安全管理器 --&gt;
+&lt;bean id=&quot;securityManager&quot; class=&quot;org.apache.shiro.web.mgt.DefaultWebSecurityManager&quot;&gt;
+    &lt;property name=&quot;realm&quot; ref=&quot;statelessRealm&quot;/&gt;
+    &lt;property name=&quot;subjectDAO.sessionStorageEvaluator.sessionStorageEnabled&quot; value=&quot;false&quot;/&gt;
+    &lt;property name=&quot;subjectFactory&quot; ref=&quot;subjectFactory&quot;/&gt;
+    &lt;property name=&quot;sessionManager&quot; ref=&quot;sessionManager&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!--拦截每次请求做身份认证，因为要截获的参数不止表单参数，
+所以不能直接用FormAuthenticationFilter--&gt;
+&lt;bean id=&quot;statelessAuthcFilter&quot;
+      class=&quot;com.haien.chapter20.filter.StatelessAuthcFilter&quot;/&gt;
+&lt;!-- Shiro的Web过滤器 --&gt;
+&lt;bean id=&quot;shiroFilter&quot; class=&quot;org.apache.shiro.spring.web.ShiroFilterFactoryBean&quot;&gt;
+    &lt;property name=&quot;securityManager&quot; ref=&quot;securityManager&quot;/&gt;
+    &lt;property name=&quot;filters&quot;&gt;
+        &lt;util:map&gt;
+            &lt;entry key=&quot;statelessAuthc&quot; value-ref=&quot;statelessAuthcFilter&quot;/&gt;
+        &lt;/util:map&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;filterChainDefinitions&quot;&gt;
+        &lt;value&gt;
+            /** = statelessAuthc
+        &lt;/value&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre></li>
+</ul>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><ul>
+<li><p>依赖：</p>
+<pre><code>&lt;!--jetty服务器，可代替tomcat--&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.eclipse.jetty&lt;/groupId&gt;
+  &lt;artifactId&gt;jetty-server&lt;/artifactId&gt;
+  &lt;version&gt;8.1.8.v20121106&lt;/version&gt;
+  &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.eclipse.jetty&lt;/groupId&gt;
+  &lt;artifactId&gt;jetty-webapp&lt;/artifactId&gt;
+  &lt;version&gt;8.1.8.v20121106&lt;/version&gt;
+  &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li><p>ClientTest：准备服务器，模拟客户端发起请求。</p>
+</li>
+</ul>
+<pre><code>public class ClientTest {
+    private static Server server;
+    private RestTemplate restTemplate=new RestTemplate();
+
+    /**
+     * @Author haien
+     * @Description 在整个测试开始之前启动服务器
+     * @Date 2019/4/9
+     * @Param
+     * @return
+     **/
+    @BeforeClass //在整个测试开始之前执行
+    public static void beforeClass() throws Exception {
+        //创建一个Server
+        server=new Server(8080);
+
+        WebAppContext context=new WebAppContext();
+        String webappPath=&quot;./src/main/webapp&quot;;
+        context.setDescriptor(webappPath+&quot;/WEB/INF/web.xml&quot;); //指定web.xml配置文件
+        context.setResourceBase(webappPath); //指定webapp目录
+        context.setContextPath(&quot;/&quot;);
+        context.setParentLoaderPriority(true);
+
+        server.setHandler(context);
+        server.start();
+    }
+
+    /**
+     * @Author haien
+     * @Description 测试结束后停止服务器
+     * @Date 2019/4/9
+     * @Param []
+     * @return void
+     **/
+    @AfterClass
+    public static void afterClass() throws Exception {
+        server.stop();
+    }
+
+    /**
+     * @Author haien
+     * @Description 测试成功情况
+     * @Date 2019/4/9
+     * @Param []
+     * @return void
+     **/
+    @Test
+    public void testServiceHelloSuccess(){
+        String username=&quot;admin&quot;;
+        String param11=&quot;param11&quot;;
+        String param12=&quot;param12&quot;;
+        String param2=&quot;param2&quot;;
+        String key=&quot;dadadswdewq2ewdwqdwadsadasd&quot;; //和服务端使用的key一致
+
+        //参数必须按照如下顺序，否则客户端会接收不到某个参数
+        MultiValueMap&lt;String,String&gt; params=new LinkedMultiValueMap&lt;&gt;();
+        params.add(&quot;param1&quot;,param11);
+        params.add(&quot;param1&quot;,param12);
+        params.add(Constants.PARAM_USERNAME,username);
+        params.add(&quot;param2&quot;,param2);
+        params.add(Constants.PARAM_DIGEST,HmacSHA256Utils.digest(key,params)); //和服务端生成摘要方式一致
+
+        //构造url；UriComponentsBuilder需要spring-web依赖
+        String url=UriComponentsBuilder.fromHttpUrl(&quot;http://localhost:8080/hello&quot;)
+                .queryParams(params).build().toUriString();
+        //发起请求并获取响应，指定响应体映射为string对象
+        ResponseEntity responseEntity=restTemplate.getForEntity(url,String.class);
+
+        Assert.assertEquals(&quot;hello&quot;+param11+param2,responseEntity.getBody());
+    }
+
+    /**
+     * @Author haien
+     * @Description 测试失败情况
+     * @Date 2019/4/9
+     * @Param []
+     * @return void
+     **/
+    @Test
+    public void testServiceHelloFail(){
+        String username=&quot;admin&quot;;
+        String param11=&quot;param11&quot;;
+        String param12=&quot;param12&quot;;
+        String param2=&quot;param2&quot;;
+        String key=&quot;dadadswdewq2ewdwqdwadsadasd&quot;; //和服务端使用的key一致
+
+        MultiValueMap&lt;String,String&gt; params=new LinkedMultiValueMap&lt;&gt;();
+        params.add(&quot;param1&quot;,param11);
+        params.add(&quot;param1&quot;,param12);
+        params.add(Constants.PARAM_USERNAME,username);
+        params.add(&quot;param2&quot;,param2);
+        params.add(Constants.PARAM_DIGEST,HmacSHA256Utils.digest(key,params)); //和服务端生成摘要方式一致
+        //篡改请求参数
+        params.set(&quot;param2&quot;,param2+&quot;1&quot;);
+
+        //构造url；UriComponentsBuilder需要spring-web依赖
+        String url=UriComponentsBuilder.fromHttpUrl(&quot;http://localhost:8080/hello&quot;)
+                .queryParams(params).build().toUriString();
+        //发起请求并获取响应，指定响应体映射为string对象
+        try {
+            ResponseEntity responseEntity = restTemplate.getForEntity(url, String.class);
+        } catch (HttpClientErrorException e){
+            Assert.assertEquals(HttpStatus.UNAUTHORIZED,e.getStatusCode());
+            Assert.assertEquals(&quot;login error&quot;,e.getResponseBodyAsString());
+        }
+    }
+}
+</code></pre><ul>
+<li>代码示例：ideaProjects/shiro-chapter20</li>
+<li><a href="https://jinnianshilongnian.iteye.com/blog/2041909" target="_blank" rel="noopener">《跟我学Shiro》第二十章</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-09T08:19:58.072Z" itemprop="dateUpdated">2019-04-09 16:19:58</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Shiro第二十章-无状态web应用集成/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Shiro第二十章-无状态web应用集成/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第二十章-无状态web应用集成/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第二十章-无状态web应用集成/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第二十章-无状态web应用集成/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第二十章-无状态web应用集成/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第二十章-无状态web应用集成/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Shiro第二章二-验证者Authenticator、验证策略AuthenticationStrategy/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Shiro第二十一章-授予身份及切换身份/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第二十章-无状态web应用集成/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第二十章-无状态web应用集成/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第二十章-无状态web应用集成/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第二十章-无状态web应用集成/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第二十章-无状态web应用集成/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsUlEQVR42u3a0WoCQQwF0P3/n7bQJ6GoN8lEK5x9krrMzpnCJia5rvi6/V73n++vv3c+v+fRmo/ueb7OgQsPDw+vtfXn25pvNNl0cmT5nvHw8PC2eXkwqL7Wc2oehApPxMPDw/sob771fIX8cPHw8PC+hZcXJqpsPDw8vG/hJcWIfKN5otw7vpVaCx4eHl7M6zXAPvt5vb+Hh4eH1+qq5y/c5Nsk4U6CR2G3eHh4eAu8SZNp0uavlnpHJWM8PDy8ZV7SvO+NSeXBoJohv1gHDw8Pb4FXbUr1Rld74SFPssvhAQ8PD2/Aqy6a56u9xD0/lCjA4OHh4a3xJsizpY28GRbh8fDw8NZ41YdVE/EkDMxT+RcpNR4eHt6Yl5cV8tJAchDz1lpUJsbDw8Nb4PVS1WopIU+4C1XnvM2Gh4eHd5Q3b/wngSQfIOiNcz3cCR4eHt4Cr7q5ScG32kLLh7Hw8PDw3s/L2/NVZLUmkK9ZSMHx8PDw1njV4sIkPOTU3rAXHh4e3h6vOjRQbT7lr/KVQ8HDw8Nb4+UDBPkW861XR7UKQwl4eHh4C7zyTUF5ojqM1Vv/eucSeHh4eOPNVRtj1QQ9eSIeHh7ep3h52fTssNSkxJCn13h4eHgbvN6P/7x8kJc5JkEr+ifh4eHhHeL1XruTsDEZySqPLODh4eG9hZc0rnpHcCrAJKUQPDw8vD1e/pikfJDcOT++fJ94eHh4G7xb8aoWHZqv7FMJOh4eHt7Wb/+r+rBku5PENw8nIxIeHh7egNf7wV9doXcESWB4EVTw8PDw1njzYFBNf5NEvFeMiL7Gw8PDewsvKUPkm87LCs/XfBFU8PDw8P4ZL0+Uq8MBk5GCZkqNh4eHV+TlxYjJ3/MUvFc4PlBrwcPDwwt480b+ZHzqVGC4JhceHh5eyvsBQ+G7YJrc37MAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

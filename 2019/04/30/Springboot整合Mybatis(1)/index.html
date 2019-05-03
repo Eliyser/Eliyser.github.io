@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="引入mybatis-spring-boot-starter依赖 &amp;lt;!--整合mybatis，不用再引入spring-boot-starter-jdbc，因为这个包含了它--&amp;gt; &amp;lt;dependency&amp;gt;     &amp;lt;groupId&amp;gt;org.mybatis.spring.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;mybat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Springboot整合Mybatis(1)/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="引入mybatis-spring-boot-starter依赖 &amp;lt;!--整合mybatis，不用再引入spring-boot-starter-jdbc，因为这个包含了它--&amp;gt; &amp;lt;dependency&amp;gt;     &amp;lt;groupId&amp;gt;org.mybatis.spring.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;mybat">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-30T06:00:38.102Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="引入mybatis-spring-boot-starter依赖 &amp;lt;!--整合mybatis，不用再引入spring-boot-starter-jdbc，因为这个包含了它--&amp;gt; &amp;lt;dependency&amp;gt;     &amp;lt;groupId&amp;gt;org.mybatis.spring.boot&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;mybat">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.840Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#方式一：注解方式"><span class="post-toc-number">1.</span> <span class="post-toc-text">方式一：注解方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#方式二：xml配置文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">方式二：xml配置文件</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mybatis的分页：PageHelper分页插件"><span class="post-toc-number"></span> <span class="post-toc-text">mybatis的分页：PageHelper分页插件</span></a>
+        </nav>
+    </aside>
+
+
+<article id="post-Springboot整合Mybatis(1)"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.840Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li><p>引入mybatis-spring-boot-starter依赖</p>
+<pre><code>&lt;!--整合mybatis，不用再引入spring-boot-starter-jdbc，因为这个包含了它--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+    &lt;version&gt;1.3.2&lt;/version&gt; &lt;!--必须指定版本，不然找不到@Mapper注解--&gt;
+&lt;/dependency&gt;
+
+&lt;!--同时要引入mysql驱动--&gt;
+&lt;!--数据库驱动--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;mysql&lt;/groupId&gt;
+    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li>mybatis-spring-boot-starter依赖：<ul>
+<li>自动检测现有的DataSource</li>
+<li>创建并注册SqlSessionFactory的实例，该实例使用SqlSessionFactoryBean将该DAtaSource作为输入进行传递</li>
+<li>自动扫描mappers，将它们注入到Spring上下文，以便将它们注入到你的bean中。</li>
+</ul>
+</li>
+<li>就是说，使用了该starter之后，只需要定义一个DataSource即可</li>
+<li><p>配置数据源</p>
+<pre><code>spring.datasource.url = jdbc:mysql://localhost:3306/spring?useUnicode=true&amp;characterEncoding=utf-8
+spring.datasource.username = root
+spring.datasource.password = root
+spring.datasource.driver-class-name = com.mysql.jdbc.Driver
+</code></pre></li>
+<li><p>自定义数据源：Springboot默认使用tomcat-jdbc数据源，如果想用其他数据源，除了在配置原件配置数据源以外，还要额外添加以下依赖</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+    &lt;artifactId&gt;druid&lt;/artifactId&gt;
+    &lt;version&gt;1.0.19&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li>然后这里使用直接引用配置文件的方式来配置数据库连接池<ul>
+<li>application.properties</li>
+</ul>
+</li>
+</ul>
+<pre><code>    #阿里巴巴连接池配置
+    #最大连接池数量
+    spring.datasource.max-active=20 
+    #最小连接池数量
+    spring.datasource.min-idle=8 
+    #获取连接时最大等待时间
+    spring.datasource.maxWait=60000
+    #初始化时建立连接的个数
+    spring.datasource.initialSize=2
+    #申请连接时执行ValidationQuery检测连接是否有效，建议为false，因为做了这个配置会降低性能；若下面那行括号为null则这一行怎么写都不生效
+    spring.datasource.testOnBorrow=false
+    #用来检测连接是否有效的sql，要求是一个查询语句
+    spring.datasource.validationQuery=&quot;SELECT 1&quot;
+    #建议配置为true，不影响性能且保证安全性；作用是在ValidationQuery上加个条件：当空闲时间大于timeBetweenEvictionRunsMillis时才执行连接检测
+    spring.datasource.testWhileIdle=true
+    #是否缓存preparedStatement
+    spring.datasource.poolPreparedStatements=true
+- Application.java
+
+    @SpringBootApplication
+    public class Application {
+        public static void main(String[] args) {
+            SpringApplication.run(Application.class,args);
+        }
+
+        @Bean(destroyMethod = &quot;close&quot;) //destroyMethod = &quot;close&quot;：当数据库连接不使用时就把该连接重新放到数据池中，方便下次调用
+        @ConfigurationProperties(prefix=&quot;spring.datasource&quot;) //直接使用配置文件中前缀为这个的属性来set DataSource的属性
+        public DataSource dataSource(){
+            return new DruidDataSource();
+        }
+    }
+</code></pre><ul>
+<li>ok，这样就算我们自己设置了一个DataSource，Springboot会自动选择我们自己配置的这个DataSource实例</li>
+<li><p>建张表learn_resource，写个实体类LearnResource</p>
+<pre><code>public class LearnResource {
+    private Long id;
+    private String author;
+    private String title;
+    private String url;
+}
+</code></pre><h4 id="方式一：注解方式"><a href="#方式一：注解方式" class="headerlink" title="方式一：注解方式"></a>方式一：注解方式</h4></li>
+<li><p>dao层写增删查改接口，类上加个@Mapper注解或在入口类加个@MapperScan(“com.dudu.dao”)</p>
+<pre><code>@Component //不加的话service那边引入LearnMappers时会警告
+@Mapper
+public interface LearnMapper {
+
+    //简单的可以直接用注解完成
+    @Insert(&quot;insert into learn_resource values(#{id},#{author},#{title},#{url})&quot;)
+    public int add(LearnResource learnResource);
+
+    @Update(&quot;update learn_resource set author=#{author},title=#{title},url=#{url} where id=#{id}&quot;)
+    public int update(LearnResource learnResource);
+
+    //复杂的需要创建动态sql
+    @DeleteProvider(type=LearnSqlBuilder.class,method=&quot;deleteByIds&quot;)
+    public int deleteByIds(@Param(&quot;ids&quot;)String[] ids);
+
+    @Select(&quot;select * from learn_resource where id=#{id}&quot;)
+    @Results(
+            {
+                    @Result(id=true,column=&quot;id&quot;,property = &quot;id&quot;),
+                    @Result(column=&quot;author&quot;,property = &quot;author&quot;),
+                    @Result(column=&quot;title&quot;,property = &quot;title&quot;),
+            }
+    )
+    public LearnResource queryLearnResourceById(@Param(&quot;id&quot;) Long id);
+
+    /**
+     * @Author haien
+     * @Description 动态查询
+     * @Date 2018/11/3
+     * @Param [params]
+     * @return java.util.List&lt;com.dudu.domain.LearnResource&gt;
+     **/
+    @SelectProvider(type=LearnSqlBuilder.class,method=&quot;queryLearnResourceByParams&quot;)
+    public List&lt;LearnResource&gt; queryLearnResourceList(Map&lt;String,Object&gt; params);
+
+    /**
+     * @Author haien
+     * @Description 动态sql的创建类
+     * @Date 2018/11/3
+     **/
+    class LearnSqlBuilder{
+
+        /**
+         * @Author haien
+         * @Description 动态查询
+         * @Date 2018/11/2
+         * @Param [params]
+         * @return java.lang.String
+         **/
+        public String queryLearnResourceByParams(final Map&lt;String,Object&gt; params){
+            //方式一、使用java1234的做法
+             SQL sql= new SQL(){
+                {
+                    SELECT(&quot;*&quot;);
+                    FROM(&quot;learn_resource&quot;);
+                    StringBuffer sb=new StringBuffer();
+                    if(params.get(&quot;author&quot;)!=null){
+                        sb.append(&quot; and author like &apos;%&quot;+params.get(&quot;author&quot;) +&quot;%&apos;&quot;);
+                    }
+                    if(params.get(&quot;title&quot;)!=null){
+                        sb.append(&quot; and title=&quot;+params.get(&quot;title&quot;));
+                    }
+                    if(!sb.toString().equals(&quot;&quot;)){
+                        WHERE(sb.toString().replaceFirst(&quot;and&quot;,&quot;&quot;));
+                    }
+                }
+            };
+            System.out.println(sql.toString());
+            return sql.toString();
+
+            //方式二、用嘟嘟博客的做法
+            /*
+            StringBuffer sql=new StringBuffer();
+            sql.append(&quot;selelct * from learn_resource where 1=1&quot;);
+            if(params.get(&quot;author&quot;)!=null){
+                sql.append(&quot; and author like &apos;%&quot;).append(params.get(&quot;author&quot;)).append(&quot;%&apos;&quot;);
+            }
+            if(params.get(&quot;title&quot;)!=null){
+                sql.append(&quot; and title like &apos;%&quot;).append(params.get(&quot;title&quot;)).append(&quot;%&apos;&quot;);
+            }
+            System.out.println(&quot;查询sql==&quot;+sql.toString());
+            return sql.toString();
+            */
+        }
+
+        /**
+         * @Author haien
+         * @Description 批量删除
+         * @Date 2018/11/2
+         * @Param [ids]
+         * @return java.lang.String
+         **/
+        public String deleteByIds(@Param(&quot;ids&quot;)final String[] ids){
+            StringBuffer sql=new StringBuffer();
+            sql.append(&quot;delete from learn_resource where id in(&quot;);
+            for(int i=0;i&lt;ids.length;i++){
+                if(i==ids.length-1){
+                    sql.append(ids[i]); //最后一个则不用再跟个逗号
+                }else{
+                    sql.append(ids[i]).append(&quot;,&quot;);
+                }
+            }
+            sql.append(&quot;)&quot;);
+            return sql.toString();
+        }
+    }
+}
+</code></pre><h4 id="方式二：xml配置文件"><a href="#方式二：xml配置文件" class="headerlink" title="方式二：xml配置文件"></a>方式二：xml配置文件</h4></li>
+<li><p>xml配置方式一：通过mybatis.config-location指定config.xml路径，然后在里面设置别名、指定mapper包</p>
+<ul>
+<li><p>application.properties</p>
+<pre><code>mybatis.config-location=mybatis-config.xml
+</code></pre></li>
+<li><p>mybatis-config.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE configuration
+        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+    &lt;typeAliases&gt;
+        &lt;package name=&quot;sample.mybatis.domain&quot;/&gt;
+    &lt;/typeAliases&gt;
+    &lt;mappers&gt;
+        &lt;mapper resource=&quot;sample/mybatis/mapper/CityMapper.xml&quot;/&gt;
+        &lt;mapper resource=&quot;sample/mybatis/mapper/HotelMapper.xml&quot;/&gt;
+    &lt;/mappers&gt;
+&lt;/configuration&gt;
+</code></pre></li>
+<li>这样既起了别名，映射文件也被扫描到了，数据层接口就不需要@Mapper注解了</li>
+</ul>
+</li>
+<li>二：通过mybatis.type-aliases-package指定实体类路径，mybatis.mapperLocations指定映射文件路径，数据层接口要加@Mapper接口<ul>
+<li>application.properties</li>
+</ul>
+</li>
+</ul>
+<pre><code>    mybatis.type-aliases-package=com.dudu.domain;
+    mybatis.mapperLocations=classpath:mapper/*.xml //当mapper文件和mapper接口在同一个包下时不用配置
+
+- dao层
+    @Mapper
+    public interface LearnMapperWithXml {
+        public int add(LearnResource learnResource);
+        public int update(LearnResource learnResource);
+        public int deleteByIds(String[] ids);
+        public LearnResource queryLearnResourceById(Long id);
+        public List&lt;LearnResource&gt; queryLearnResourceList(Map&lt;String,Object&gt; params);
+    }
+</code></pre><ul>
+<li><p>根据方式二的路径我们在resources下新建一个文件夹mapper，写LearnMapper.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;!--为指定接口中的方法配置sql语句--&gt;
+&lt;mapper namespace=&quot;com.dudu.dao.LearnMapperWithXml&quot;&gt; &lt;!--指定接口--&gt;
+    &lt;resultMap id=&quot;LearnResource&quot; type=&quot;com.dudu.domain.LearnResource&quot;&gt; &lt;!--一定要用完整路径--&gt;
+        &lt;id column=&quot;id&quot; property=&quot;id&quot;/&gt;
+        &lt;result column=&quot;author&quot; property=&quot;author&quot;/&gt;
+        &lt;result column=&quot;title&quot; property=&quot;title&quot;/&gt;
+        &lt;result column=&quot;url&quot; property=&quot;url&quot;/&gt;
+    &lt;/resultMap&gt;
+
+    &lt;select id=&quot;queryLearnResourceList&quot; resultMap=&quot;LearnResource&quot; parameterType=&quot;hashmap&quot;&gt; &lt;!--大小写不分--&gt;
+        select * from learn_resource
+        &lt;where&gt;
+            &lt;if test=&quot;author!=null and author !=&apos;&apos;&quot;&gt;
+                and author like &apos;%${author}%&apos; &lt;!--like的话是%${author}%而不是%#{author}%--&gt;
+            &lt;/if&gt;
+            &lt;if test=&quot;title!=null and title!=&apos;&apos;&quot;&gt;
+                and title like &apos;%${title}%&apos;
+            &lt;/if&gt;
+        &lt;/where&gt;
+    &lt;/select&gt;
+
+    &lt;select id=&quot;queryLearnResourceById&quot; resultMap=&quot;LearnResource&quot; parameterType=&quot;Long&quot;&gt;
+        select * from learn_resource where id=#{id}
+    &lt;/select&gt;
+
+    &lt;insert id=&quot;add&quot; parameterType=&quot;com.dudu.domain.LearnResource&quot;&gt;
+        insert into learn_resource values(#{id},#{author},#{title},#{url})
+    &lt;/insert&gt;
+
+    &lt;update id=&quot;update&quot; parameterType=&quot;com.dudu.domain.LearnResource&quot;&gt;
+        update learn_resource set author=#{author},title=#{title},url=#{url} where id=#{id}
+    &lt;/update&gt;
+
+    &lt;delete id=&quot;deleteByIds&quot; parameterType=&quot;String&quot;&gt;
+        delete from learn_resource where id in
+        &lt;foreach collection=&quot;params&quot; item=&quot;idItem&quot; open=&quot;(&quot; separator=&quot;,&quot; close=&quot;)&quot;&gt;
+            #{idItem}
+        &lt;/foreach&gt;
+    &lt;/delete&gt;
+&lt;/mapper&gt;
+</code></pre></li>
+<li><sql>：封装sql语句，<include>：调用sql语句<br><br>      <sql id="select"><br>          SELECT * FROM <code>body_index</code><br>      </sql>
+
+<pre><code>&lt;select id=&quot;find&quot; resultType=&quot;*&quot; resultMap=&quot;*&quot;&gt;
+    &lt;include refid=&quot;select&quot;/&gt;
+&lt;/select&gt;
+</code></pre><h3 id="mybatis的分页：PageHelper分页插件"><a href="#mybatis的分页：PageHelper分页插件" class="headerlink" title="mybatis的分页：PageHelper分页插件"></a>mybatis的分页：PageHelper分页插件</h3></include></sql></li>
+<li>物理分页</li>
+<li>原理：分页本质上是sql limit去获取数据，而mybatis则是在Statement生成之前对sql进行改造，之后生成的Statement中包含的sql就能实现分页功能了。这是利用mybatis拦截器实现的。</li>
+<li><p>首先引入依赖</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;
+    &lt;artifactId&gt;pagehelper-spring-boot-starter&lt;/artifactId&gt;
+    &lt;version&gt;1.1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li><p>在service实现层中使用（当然你要放在controller层还是其他层使用都可以）</p>
+<pre><code>/**
+ * @Author haien
+ * @Description 动态查询
+ * @Date 2018/11/3
+ * @Param [params]
+ * @return java.util.List&lt;com.dudu.domain.LearnResource&gt;
+ **/
+@Override
+public List&lt;LearnResource&gt; queryLearnResourceList(Map&lt;String, Object&gt; params) {
+    //物理分页:对mybatis流程进行增强，添加了limit以及count查询
+    PageHelper.startPage(Integer.parseInt(params.get(&quot;pageNum&quot;).toString()), Integer.parseInt(params.get(&quot;rows&quot;).toString())); //page: 页码（从0开始），rows：容量
+    return learnMapperWithXml.queryLearnResourceList(params);
+}
+</code></pre></li>
+<li><p>在controller层转换为pageInfo类，它将数据用List封装，另外还包含许多类似总页数、总条数的属性</p>
+<pre><code>List&lt;LearnResource&gt; learnResourceList=learnService.queryLearnResourceList(params);
+PageInfo&lt;LearnResource&gt; pageInfo=new PageInfo&lt;LearnResource&gt;(learnResourceList);
+//不能直接强转：PageInfo&lt;LearnResource&gt; pageInfo=(PageInfo&lt;LearnResource&gt;)learnService.queryLearnResourceList(params);
+JSONObject jo=new JSONObject();
+jo.put(&quot;rows&quot;,pageInfo); //LearnResource实体类集合
+jo.put(&quot;total&quot;,pageInfo.getPages()); //总页数
+jo.put(&quot;records&quot;,pageInfo.getTotal()); //总记录数
+</code></pre></li>
+<li><p>缺点：不支持条件查询的sql（具体不知道是什么条件查询），不过网上有改良后能支持的PageHelper</p>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;com.mybatis.pagehelper&lt;/groupId&gt;
+  &lt;artifactId&gt;pagehelper&lt;/artifactId&gt;
+  &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
+<li>代码实例：SpringbootIntegrateMybatis</li>
+<li>代码实例：SpringbootIntegrateMybatis</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-30T06:00:38.102Z" itemprop="dateUpdated">2018-11-30 14:00:38</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Springboot整合Mybatis(1)/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Springboot整合Mybatis(1)/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Springboot整合Mybatis(1)/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Springboot整合Mybatis(1)/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Springboot整合Mybatis(1)/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Springboot整合Mybatis(1)/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Springboot整合Mybatis(1)/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Springboot整合Mybatis/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/SpringBoot整合jpa操作数据库/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Springboot整合Mybatis(1)/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Springboot整合Mybatis(1)/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Springboot整合Mybatis(1)/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Springboot整合Mybatis(1)/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Springboot整合Mybatis(1)/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aQW7DMAwEwP7/0+61QOFkV1KKWhqdgiK2NS7AUCS/vuJ1/Vi//373zeSq5J7LFgYGxmMZ18t1950x/N21+XNv94CBgXEA4+7Wd59fP7h9TWNsDAwMjPZ2eQp4BQsDAwNjVcBNvjmGxMDAwBg7xCbHzrYalry+xWdxDAyMBzLywtnff/5IfwMDA+NRjKtcSRF/PpWsd4WBgbE1Iw9wCen1WMbatA8DA+M0xkzRrd3iWPL38dohBgbGv2e0YTQvvbVjFu3gBQYGxgmM/HZtypgfX/NUsojHGBgYGzHaI2JOmk8WF8AwMDA2ZaxN45Ly2UxKioGBcQKjLYHlAXRs04PlPwwMjK0ZyQV5ca0NoPmAxVQnFgMD4+GMNmiOtQfaNHTw/4CBgbEpow2gOSwpvc0MW2BgYGAkDx4bpEjCaL6fN78eGBgYGzHactiqwlzyyuoEEQMDY2tGG16Tx+cvJRm/iI7KGBgYmzLGksLPNTiTYYs3h1gMDIxNGWODX+3YRE6tB9QwMDCOYeRltbx8n7cE8obBm5kRDAyMAxhtQW1m0/PtTAwMjL0ZV7naxsDYHeqrMDAwtma0YS4v67cFtfzQOxOsMTAwnssYC7Iz7ckksNYBFwMD4wBGW9CfOZrO/AK8GbbAwMDAKEcr8sBdNyznAy4GBsYxjDZlzJPFmoqBgXEAIx/SaluYeTBdMGyBgYGxKaMdccgLbfVBdLqpgIGBsR3jG0po2xku4sUZAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

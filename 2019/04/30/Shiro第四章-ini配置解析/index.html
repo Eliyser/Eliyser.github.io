@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="根对象securityManager Shiro是从根对象SecurityManager进行身份验证和授权的，所有操作都是自它开始。这个对象是线程安全的且整个应用只需要一个即可。因此shiro提供了SecurityUtils让我们绑定它为全局的。  Java Configuration 用Java代码代替ini配置 public class NonConfigurationCreateTest {">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Shiro第四章-ini配置解析/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="根对象securityManager Shiro是从根对象SecurityManager进行身份验证和授权的，所有操作都是自它开始。这个对象是线程安全的且整个应用只需要一个即可。因此shiro提供了SecurityUtils让我们绑定它为全局的。  Java Configuration 用Java代码代替ini配置 public class NonConfigurationCreateTest {">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-22T04:02:30.574Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="根对象securityManager Shiro是从根对象SecurityManager进行身份验证和授权的，所有操作都是自它开始。这个对象是线程安全的且整个应用只需要一个即可。因此shiro提供了SecurityUtils让我们绑定它为全局的。  Java Configuration 用Java代码代替ini配置 public class NonConfigurationCreateTest {">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:29:23.095Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#根对象securityManager"><span class="post-toc-number">1.</span> <span class="post-toc-text">根对象securityManager</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Java-Configuration"><span class="post-toc-number">2.</span> <span class="post-toc-text">Java Configuration</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ini配置文件"><span class="post-toc-number">3.</span> <span class="post-toc-text">ini配置文件</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Shiro第四章-ini配置解析"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:29:23" datetime="2019-04-30T08:29:23.095Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="根对象securityManager"><a href="#根对象securityManager" class="headerlink" title="根对象securityManager"></a>根对象securityManager</h3><ul>
+<li>Shiro是从根对象SecurityManager进行身份验证和授权的，所有操作都是自它开始。这个对象是线程安全的且整个应用只需要一个即可。因此shiro提供了SecurityUtils让我们绑定它为全局的。</li>
+</ul>
+<h3 id="Java-Configuration"><a href="#Java-Configuration" class="headerlink" title="Java Configuration"></a>Java Configuration</h3><ul>
+<li><p>用Java代码代替ini配置</p>
+<pre><code>public class NonConfigurationCreateTest {
+    @Test
+    public void test(){
+        DefaultSecurityManager securityManager=new DefaultSecurityManager();
+
+        //设置authenticator
+        ModularRealmAuthenticator authenticator=new ModularRealmAuthenticator();
+        authenticator.setAuthenticationStrategy(new AtLeastOneSuccessfulStrategy());
+        securityManager.setAuthenticator(authenticator);
+
+        //设置authorizer
+        ModularRealmAuthorizer authorizer=new ModularRealmAuthorizer();
+        authorizer.setPermissionResolver(new WildcardPermissionResolver());
+        securityManager.setAuthorizer(authorizer);
+
+        //设置Realm
+        DruidDataSource ds=new DruidDataSource();
+        ds.setDriverClassName(&quot;com.mysql.jdbc.Driver&quot;);
+        ds.setUrl(&quot;jdbc:mysql://localhosr:3306/shiro&quot;);
+        ds.setUsername(&quot;root&quot;);
+        ds.setPassword(&quot;123456&quot;);
+        JdbcRealm jdbcRealm=new JdbcRealm();
+        jdbcRealm.setDataSource(ds);
+        jdbcRealm.setPermissionsLookupEnabled(true);
+        securityManager.setRealms(Arrays.asList((Realm)jdbcRealm));
+
+        //SecurityManager设置到SecurityUtils，方便全局使用
+        SecurityUtils.setSecurityManager(securityManager);
+
+        //测试
+        Subject subject=SecurityUtils.getSubject();
+        UsernamePasswordToken token=new UsernamePasswordToken(&quot;zhang&quot;,&quot;123&quot;);
+        subject.login(token);
+        Assert.assertTrue(subject.isAuthenticated());
+    }
+}
+</code></pre></li>
+</ul>
+<h3 id="ini配置文件"><a href="#ini配置文件" class="headerlink" title="ini配置文件"></a>ini配置文件</h3><ul>
+<li><p>ini配置下，securityManager的获取如下</p>
+<pre><code>Factory&lt;org.apache.shiro.mgt.SecurityManager&gt; factory =  
+ new IniSecurityManagerFactory(&quot;classpath:shiro-config.ini&quot;); 
+
+SecurityManager securityManager = factory.getInstance();
+</code></pre></li>
+<li>IniSecurityManagerFactory是创建securityManager的工厂，它需要一个ini配置文件路径，支持“classpath:”（类路径）、“file:”（文件系统）、“url:”（网络）三种路径格式，默认是文件系统。</li>
+<li>默认创建DefaultSecurityManager类型的securityManager，如果想自定义，需要在ini配置文件中指定securityManager=SecurityManager实现类；名字必须为securityManager。</li>
+<li><p>ini配置文件其中几部分</p>
+<pre><code>[main]
+#提供了对根对象securityManager及其依赖的配置
+securityManager=org.apache.shiro.mgt.DefaultSecurityManager
+…………
+securityManager.realms=$jdbcRealm
+
+[urls]
+#用于web，提供了对web url拦截相关的配置，url=拦截器[参数]，拦截器
+/index.html = anon
+/admin/** = authc, roles[admin], perms[&quot;permission1&quot;]
+</code></pre></li>
+<li><p>Array/Set/List注入</p>
+<pre><code>//多个之间用,分开即可
+authenticator.array=1,2,3 
+authenticator.set=$jdbcRealm,$jdbcRealm&amp;nbsp;
+</code></pre></li>
+<li><p>Map键值对注入</p>
+<pre><code>authenticator.map=$jdbcRealm:$jdbcRealm,1:1,key:abc //常量都看作字符串，如，1，abc
+</code></pre></li>
+<li><p>[users]部分</p>
+<pre><code>[users]  
+#提供了对用户/密码及其角色的配置，用户名=密码，角色1，角色2  
+username=password,role1,role2
+</code></pre></li>
+<li>其中，密码一般生成其摘要或加密存储。</li>
+<li>[roles]部分：如果只有角色没有对应的权限，可以不配[roles]</li>
+</ul>
+<ul>
+<li>重复注入则后面的覆盖前面的。</li>
+<li>代码实例：ideaProjects/shiroHelloWorld/chapter4</li>
+<li><a href="https://jinnianshilongnian.iteye.com/blog/2020820" target="_blank" rel="noopener">《跟我学Shiro第四章》</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-02-22T04:02:30.574Z" itemprop="dateUpdated">2019-02-22 12:02:30</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Shiro第四章-ini配置解析/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Shiro第四章-ini配置解析/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第四章-ini配置解析/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第四章-ini配置解析/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第四章-ini配置解析/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第四章-ini配置解析/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第四章-ini配置解析/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Shiro第五章-编码、加密/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Shiro第十章-会话管理/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第四章-ini配置解析/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第四章-ini配置解析/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第四章-ini配置解析/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第四章-ini配置解析/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第四章-ini配置解析/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACr0lEQVR42u3ay24DMQgF0Pz/T7fbbsa5gGlT6cyqymPGx5UMAV6v+Pp6uH6+m3z+6bv59dq48PDw8C4t/WkRyR3Ozzq/km9otAV4eHh4a7zzUs7LSkjJFjy9m4Six9fx8PDwPoaXBIZzaOl9Hg8PD+//8vKDPnnW+bl/Fvfw8PDwjrxbhdpkoUkanaTUl2steHh4eAtdpM/5e6W/h4eHhzfuqvdKDPlxP2mDRavFw8PDW+BVCwTzwYJeuSHfLDw8PLzf5PUKppMybg9cHizAw8PDW+Aly52n19UWVy/kFCIbHh4e3pg3aWsVEtxBmTgH4+Hh4e3x8o+eA8DkDnkCPWqA4eHh4S3w5iNNk4GtW02vN/09PDw8vDGv2s6vFlWTjesVLJKyCB4eHt4GL29H5fjeQV8dxoo2Cw8PD2+Zlye7vd/71c2ahAQ8PDy8PV5+6x6mV2LoteLetMHw8PDw1njVG/UCRl4RSRL3aBoCDw8P7xIvadVXj+PeEV9tjEXbgYeHh7fGm4wIbLxS3ZTHteHh4eEt8PLG1aToUE2m800pJNZ4eHh4C7x5UjtJ0POjvzpGgIeHh3eX12tulY/m4qBAXno4fxcPDw9vm1dNmqsPyzelGkIeNwUPDw9vgddLVfPb5cEjL+b26gx4eHh4d3lJsXUyENALG3kIKZdx8fDw8C7xeu2ueUEhHyY4p/WPz8LDw8Nb482b+nmYqbbTqm0wPDw8vD3eV/FKUtv5CMK1agoeHh7eAq964Cb4aoHjVphpNsDw8PDwWrztYFAdBZgEm/J/Bg8PD2/AmzTGeuWGJAhdS5fx8PDwPoCXF3+TsFFtbhVSbTw8PLwP4PWKFHm7qzqW+iaQ4OHh4a3x8sVNigsJuzpS8AaJh4eHt8C79Ys+Z8wDyeULDw8PL72+AWImu2C2vj7uAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

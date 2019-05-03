@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="是什么如果在A项目中需要用到B项目的类，那么就必须把B项目打成jar包，然后引到lib下。我们称A依赖于B。引入jar包的方法十分繁琐，而maven就是用来管理这种依赖关系的。 Maven是基于项目对象模型(POM project object model)，可以通过一小段描述信息（配置）来管理项目的构建，报告和文档的软件项目管理工具。通俗点讲，就是通过pom.xml文件的配置获取jar包，而不用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/maven/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="是什么如果在A项目中需要用到B项目的类，那么就必须把B项目打成jar包，然后引到lib下。我们称A依赖于B。引入jar包的方法十分繁琐，而maven就是用来管理这种依赖关系的。 Maven是基于项目对象模型(POM project object model)，可以通过一小段描述信息（配置）来管理项目的构建，报告和文档的软件项目管理工具。通俗点讲，就是通过pom.xml文件的配置获取jar包，而不用">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20181012153123183.jpg">
+<meta property="og:updated_time" content="2019-04-28T06:04:23.664Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="是什么如果在A项目中需要用到B项目的类，那么就必须把B项目打成jar包，然后引到lib下。我们称A依赖于B。引入jar包的方法十分繁琐，而maven就是用来管理这种依赖关系的。 Maven是基于项目对象模型(POM project object model)，可以通过一小段描述信息（配置）来管理项目的构建，报告和文档的软件项目管理工具。通俗点讲，就是通过pom.xml文件的配置获取jar包，而不用">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20181012153123183.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.450Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#是什么"><span class="post-toc-number">1.</span> <span class="post-toc-text">是什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#怎么做"><span class="post-toc-number">2.</span> <span class="post-toc-text">怎么做</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加外部依赖"><span class="post-toc-number">3.</span> <span class="post-toc-text">添加外部依赖</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#plugin插件"><span class="post-toc-number">4.</span> <span class="post-toc-text">plugin插件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#plugins和pluginManagement的区别"><span class="post-toc-number">5.</span> <span class="post-toc-text">plugins和pluginManagement的区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#dependencyManagement"><span class="post-toc-number">6.</span> <span class="post-toc-text">dependencyManagement</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#project下的属性"><span class="post-toc-number">7.</span> <span class="post-toc-text">project下的属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#dependency下的属性"><span class="post-toc-number">8.</span> <span class="post-toc-text">dependency下的属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#repositories和repository"><span class="post-toc-number">9.</span> <span class="post-toc-text">repositories和repository</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#packaging"><span class="post-toc-number">10.</span> <span class="post-toc-text">packaging</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#maven命令"><span class="post-toc-number">11.</span> <span class="post-toc-text">maven命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#执行maven命令异常"><span class="post-toc-number">12.</span> <span class="post-toc-text">执行maven命令异常</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#eclipse创建maven项目"><span class="post-toc-number">13.</span> <span class="post-toc-text">eclipse创建maven项目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多模块maven项目"><span class="post-toc-number">14.</span> <span class="post-toc-text">多模块maven项目</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-maven"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.450Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>如果在A项目中需要用到B项目的类，那么就必须把B项目打成jar包，然后引到lib下。我们称A依赖于B。引入jar包的方法十分繁琐，而maven就是用来管理这种依赖关系的。</p>
+<p>Maven是基于项目对象模型(POM project object model)，可以通过一小段描述信息（配置）来管理项目的构建，报告和文档的软件项目管理工具。通俗点讲，就是通过pom.xml文件的配置获取jar包，而不用手动去添加jar包。</p>
+<ul>
+<li>总之，maven可以帮你构建工程、管理jar包、编译代码、自动运行单元测试、打包、生成报表、部署项目。</li>
+</ul>
+<h3 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h3><p>如果需要使用pom.xml来获取jar包，那么首先该项目就必须为maven项目，maven项目可以这样去想，就是在java项目和web项目的上面包裹了一层maven，本质上java项目还是java项目，web项目还是web项目，但是包裹了maven之后，就可以使用maven提供的一些功能了。<br><a href="https://www.cnblogs.com/whgk/p/7112560.html" target="_blank" rel="noopener">具体操作，看一、二、四、七就行了,其中七是基本操作</a></p>
+<h3 id="添加外部依赖"><a href="#添加外部依赖" class="headerlink" title="添加外部依赖"></a><a href="https://www.yiibai.com/maven/maven_external_dependencies.html#article-start" target="_blank" rel="noopener">添加外部依赖</a></h3><h3 id="plugin插件"><a href="#plugin插件" class="headerlink" title="plugin插件"></a>plugin插件</h3><p>maven本质上是一个插件框架，它的核心并不是执行任何具体的构建任务，所有这些任务都交给插件来完成，例如编译源代码是由maven-complier-plugin完成的。进一步说，每个插件会有一个或者多个目标，例如maven-complier-plugin的complie目标用来编译位于src/main/java目录下的主源码，testComplier目标用来编译位于src/test/java目录下的测试源码。</p>
+<h3 id="plugins和pluginManagement的区别"><a href="#plugins和pluginManagement的区别" class="headerlink" title="plugins和pluginManagement的区别"></a><a href="https://blog.csdn.net/qiumengchen12/article/details/71688155" target="_blank" rel="noopener">plugins和pluginManagement的区别</a></h3><p>plugins和pluginManagement的区别，和我们前面研究过的dependencies和dependencyManagement的区别是非常类似的。plugins下的plugin是真实使用的，而pluginManagement下的plugins下的plugin则仅仅是一种声明，子项目中可以对pluginManagement下的plugin进行信息的选择、集成和覆盖等。</p>
+<h3 id="dependencyManagement"><a href="#dependencyManagement" class="headerlink" title="dependencyManagement"></a>dependencyManagement</h3><ul>
+<li>在父项目中统一管理依赖的版本号，可保证子模块中依赖的版本号一致，若子模块想不一致的话可以另外声明版本号</li>
+<li>只是管理而不会引入依赖，所以子模块还需写dependency</li>
+</ul>
+<h3 id="project下的属性"><a href="#project下的属性" class="headerlink" title="project下的属性"></a>project下的属性</h3><ul>
+<li>modelVersion：声明项目描述符遵循哪一个pom模型版本，通常是4.0.0。</li>
+<li>name：项目的名称。maven产生的文档用。</li>
+<li>url：项目主页的url，maven产生的文档用。</li>
+<li><p>developers：项目开发者列表。</p>
+</li>
+<li><p><a href="https://www.cnblogs.com/momo1210/p/7525690.html" target="_blank" rel="noopener">maven标签大全</a></p>
+</li>
+</ul>
+<h3 id="dependency下的属性"><a href="#dependency下的属性" class="headerlink" title="dependency下的属性"></a>dependency下的属性</h3><ul>
+<li>groupId、artifactId、version是依赖的基本坐标，缺一不可。这三个可以不用讲，都知道。重要的是除了这三个之外的配置属性需要我们理解</li>
+<li>type：依赖的类型，比如是jar包还是war包等。<ul>
+<li>默认为jar，表示依赖的jar包</li>
+<li>注意：<type>pom.lastUpdated</type> 这个我们在上面添加servlet-jar的时候就遇到过，看到lastUpdated的意思是表示使用更新描述信息，占位符作用，通俗点讲，选择该类型，jar包不会被加载进来，只是将该jar包的一些描述信息加载进来，使别的jar包在引用他时，能够看到一些相关的提示信息，仅此而已，所以说他是个占位符，只要记住他的jar包不会被加载进来。</li>
+</ul>
+</li>
+<li>optional：标记依赖是否可选。<ul>
+<li>默认值false</li>
+<li>比如struts2中内置了log4j这个记录日志的功能，就是将log4j内嵌入struts2的jar包中，而struts2有没有log4j这个东西都没关系，有它，提示的信息更多，没它，也能够运行，只是提示的信息就相对而言少一些，所以这个时候，就可以对它进行可选操作，想要它就要，不想要，就设置为false。</li>
+</ul>
+</li>
+<li>exclusions：排除传递依赖，解决jar冲突问题<ul>
+<li>依赖传递的意思就是，A项目 依赖 B项目，B项目 依赖 C项目，当使用A项目时，就会把B也给加载进来，这是传递依赖，依次类推，C也会因此给加载进来。这个有依赖传递有好处，也有坏处，坏处就是jar包的冲突问题，比如，A 依赖 B(B的版本为1)，C 依赖 B(B的版本为2)，如果一个项目同时需要A和C，那么A,C都会传递依赖将B给加载进来，问题就在这里，两个B的版本不一样，将两个都加载进去就会引起冲突，这时候就需要使用exclusions这个属性配置了。maven也会有一个机制避免两个都加载进去，maven 默认配置在前面的优先使用，但是我们还是需要使用exclusions来配置更合理。</li>
+</ul>
+</li>
+<li>scope：依赖范围，意思就是通过pom.xml加载进来的jar包，来什么范围内使用生效，范围包括编译时，运行时，测试时。<ul>
+<li>compile：默认值，如果选择此值，表示编译、测试和运行都使用当前jar</li>
+<li>test：表示只在测试时当前jar生效，在别的范围内就不能使用该jar包。例如：junit ,测试只能写在test/java包下。此处不写也不报错，因为默认是compile，compile包括了测试。</li>
+<li>runtime，表示测试和运行时使用当前jar，编译时不用该jar包。例如：JDBC驱动。JDBC驱动，在编译时(也就是我们写代码的时候都是采用接口编程，压根就没使用到JDBC驱动包内任何东西，只有在运行时才用的到，所以这个是典型的使用runtime这个值的例子)，此处不写也不报错，理由同上。</li>
+<li>provided，表示编译和测试时使用当前jar，运行时不在使用该jar了。例如：servlet-api、jsp-api等。【必须填写】</li>
+<li>import:搭配<type>pom</type>，表示引用外部的pom文件。由于maven的继承和java一样，无法实现多继承，如果一个父模块包含10个、20个甚至更多个子模块，那么这个父模块的pom的dependencyManagement会包含大量的依赖。为了将这些依赖分类以更清晰地管理，我们需要把dependencyManagement放到单独的专门用来管理依赖的pom汇总，然后在需要使用依赖的模块中通过import来引入。</li>
+</ul>
+<ul>
+<li>例如可以写一个管理依赖的pom  </li>
+</ul>
+</li>
+</ul>
+<pre><code>    &lt;project&gt;
+        &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+        &lt;groupId&gt;com.test.sample&lt;/groupId&gt;
+        &lt;!--官方的管理文档一般命名后缀为-bom(bill of material)--&gt;
+        &lt;artifactId&gt;base-parent1&lt;/artifactId&gt; 
+        &lt;packaging&gt;pom&lt;/packaging&gt;
+        &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+
+        &lt;dependencyManagement&gt;
+            &lt;dependencies&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;junit&lt;/groupId&gt;
+                    &lt;artifactid&gt;junit&lt;/artifactId&gt;
+                    &lt;version&gt;4.8.2&lt;/version&gt;
+                &lt;/dependency&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;log4j&lt;/groupId&gt;
+                    &lt;artifactid&gt;log4j&lt;/artifactId&gt;
+                    &lt;version&gt;1.2.16&lt;/version&gt;
+                &lt;/dependency&gt;
+            &lt;/dependencies&gt;
+        &lt;/dependencyManagement&gt;
+    &lt;/project&gt;
+
+- 然后通过非继承的方式来引入这段依赖管理配置
+
+
+        &lt;dependencyManagement&gt;
+            &lt;dependencies&gt;
+                &lt;dependency&gt;
+                    &lt;!--下面三行是上面pom的信息--&gt;
+                    &lt;groupId&gt;com.test.sample&lt;/groupId&gt;
+                    &lt;artifactid&gt;base-parent1&lt;/artifactId&gt;
+                    &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+                    &lt;type&gt;pom&lt;/type&gt;
+                    &lt;scope&gt;import&lt;/scope&gt;
+                &lt;/dependency&gt;
+            &lt;/dependencies&gt;
+        &lt;/dependencyManagement&gt;
+
+        &lt;!--不需要定义版本了--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactid&gt;junit&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;log4j&lt;/groupId&gt;
+            &lt;artifactid&gt;log4j&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+</code></pre><h3 id="repositories和repository"><a href="#repositories和repository" class="headerlink" title="repositories和repository"></a>repositories和repository</h3><ul>
+<li><p>构件可以分成两类，一类是被其他构件依赖的构件（dependencies），这也是maven库中的主要构件；另一种是插件（plugins），这是一种特殊的构件。由于插件的特殊性，插件库独立于依赖库，使用<pluginrepositories>单独设置，但是和<repositories>中的设置基本一致。</repositories></pluginrepositories></p>
+<pre><code>&lt;!--查找依赖和扩展的远程仓库列表；仅限本项目--&gt;
+&lt;repositories&gt;
+    &lt;repository&gt;
+        &lt;!--远程仓库唯一标识符。可以用来匹配在settings.xml文件里配置的远程仓库--&gt;
+        &lt;id&gt;spring-snapshot&lt;/id&gt;
+        &lt;!--远程仓库名称--&gt;
+        &lt;name&gt;Spring Snapshot Repository&lt;/name&gt;
+        &lt;!--远程仓库URL，按protocol://hostname/path形式--&gt;
+        &lt;url&gt;https://repo.spring.io/snapshot&lt;/url&gt;
+    &lt;/repository&gt;
+&lt;/repositories&gt;
+</code></pre></li>
+<li><p>maven中要配置库，可以直接在项目pom.xml中通过<repositories>配置，但仅限于当前项目；也可以通过<profile>中的<repositories>配置在特定环境下的库，这可以在pom.xml中，也可以在setting.xml中配置。如果哦都不设置的话则会到下面这个默认库区获取：</repositories></profile></repositories></p>
+<pre><code>&lt;repository&gt;
+      &lt;snapshots&gt;
+      &lt;enabled&gt;false&lt;/enabled&gt;
+      &lt;/snapshots&gt;
+      &lt;id&gt;central&lt;/id&gt;
+      &lt;name&gt;Maven Repository Switchboard&lt;/name&gt;
+      &lt;url&gt;http://repo1.maven.org/maven2&lt;/url&gt;
+ &lt;/repository&gt;
+</code></pre></li>
+</ul>
+<h3 id="packaging"><a href="#packaging" class="headerlink" title="packaging"></a>packaging</h3><ul>
+<li><p>打包方式：pom/jar/war，默认是jar。父项目必须是pom，并且使用module指定子项目。</p>
+<pre><code>&lt;packaging&gt;pom&lt;/packaging&gt;  
+&lt;modules&gt;  
+    &lt;module&gt;simple-weather&lt;/module&gt;  //项目的子模块
+    &lt;module&gt;simple-webapp&lt;/module&gt;  
+&lt;/modules&gt;
+</code></pre></li>
+<li>pom指的是项目不像之前的项目那样创建一个jar或war，它仅仅是引用其他maven项目的POM。</li>
+<li>maven知道要去这些子模块的目录中寻找pom.xml文件。</li>
+<li><p>子模块中也需要配置父项目的关联</p>
+<pre><code>&lt;parent&gt;
+    &lt;groupId&gt;org.sonatype.mavenbook.ch06&lt;/groupId&gt;
+    &lt;artifactId&gt;simple-parent&lt;/artifactId&gt;  //刚才的父项目名
+    &lt;version&gt;1.0&lt;/version&gt;
+    &lt;!-- &lt;relativePath&gt;../simple-parent/pom.xml&lt;/relativePath&gt; --&gt; //如果子项目不是标准地建在父项目的子模块里，而是跟父项目同级了的话，可以先到它们的上一级目录找到父项目，再找其pom文件；标准情况下不用该属性
+&lt;/parent&gt;
+</code></pre></li>
+<li>子模块的packaging默认是jar，可以改成war。</li>
+<li>这样，子模块会自动继承父模块的依赖。</li>
+<li>子项目的groupId和version如果和父项目的一样可以省略不写，会自动继承父项目的。</li>
+<li>但是子项目之间的互相引用必须注明版本号，比如dao模块引用实体类模块的依赖，必须指明实体类模块的版本号，尽管实体类自己没有显式声明自己的版本号，只是继承父类的。</li>
+<li>当maven执行一个带有子模块的项目时，maven首先载入父pom，然后定位所有子模块的pom（子模块的文件和父pom同级，也就是子pom必须在父pom的下一级文件中），随后将这些pom放入一个maven反应堆（reactor）的东西中，这个反应堆处理组件的排序，以确保相互独立的模块能以适当的顺序被编译和安装。</li>
+</ul>
+<h3 id="maven命令"><a href="#maven命令" class="headerlink" title="maven命令"></a>maven命令</h3><ul>
+<li>mvn compile 编译，没什么用了，现在都是自动编译</li>
+<li>mvn clean 清空target目录</li>
+<li>mvn test 测试，测试依赖能否找到，单元测试成功与否</li>
+<li>mvn package 打包，把项目打jar包或war包。</li>
+<li>mvn install 把项目安装到本地仓库，运行之后本地仓库就会有这个依赖</li>
+<li>子模块编辑完后应该install安装到本地仓库，才能被其他模块引入。子模块修改了应该重新clean再install（除此之外不用其他操作），引入它的模块才能接收到更新。</li>
+<li>有的时候你中有我我中有你，一起更新之后要重新install会出错，最好就是先解开一方对另一方的新内容的引用，不然谁也install不了</li>
+<li>运行父模块发现总是失败可以重新install一下（先clean，否则异名旧包不会被清除），可能是最近的代码修改没有被识别到。</li>
+</ul>
+<h3 id="执行maven命令异常"><a href="#执行maven命令异常" class="headerlink" title="执行maven命令异常"></a>执行maven命令异常</h3><ul>
+<li>Plugin org.apache.maven.plugins:maven-resources-plugin:3.0.2 or one of its dependencies…</li>
+<li><p>就是说它找不到这个依赖，在本地仓库下这个依赖下载失败，肯定有很多lastupdate文件在里面，而且这还不是个依赖，是个plugin，插件，一般来说我们创建maven项目都不会去添加什么插件的，但是有的时候他就是会自动添加插件，比如thz-parent项目的thz-manage-web模块下pom文件就有自动添加过插件</p>
+<pre><code>&lt;build&gt;
+    &lt;!--war包名--&gt;
+    &lt;finalName&gt;thz-manager-web&lt;/finalName&gt;
+    &lt;pluginManagement&gt;&lt;!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) --&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;artifactId&gt;maven-clean-plugin&lt;/artifactId&gt;
+                &lt;version&gt;3.0.0&lt;/version&gt;
+            &lt;/plugin&gt;
+            &lt;!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging --&gt;
+            &lt;plugin&gt;
+                &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;
+                &lt;version&gt;3.0.2&lt;/version&gt;
+            &lt;/plugin&gt;
+            &lt;plugin&gt;
+                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+                &lt;version&gt;3.7.0&lt;/version&gt;
+            &lt;/plugin&gt;
+            &lt;plugin&gt;
+                &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+                &lt;version&gt;2.20.1&lt;/version&gt;
+            &lt;/plugin&gt;
+            &lt;plugin&gt;
+                &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;
+                &lt;version&gt;3.2.0&lt;/version&gt;
+            &lt;/plugin&gt;
+            &lt;plugin&gt;
+                &lt;artifactId&gt;maven-install-plugin&lt;/artifactId&gt;
+                &lt;version&gt;2.5.2&lt;/version&gt;
+            &lt;/plugin&gt;
+            &lt;plugin&gt;
+                &lt;artifactId&gt;maven-deploy-plugin&lt;/artifactId&gt;
+                &lt;version&gt;2.8.2&lt;/version&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/pluginManagement&gt;
+&lt;/build&gt;
+</code></pre></li>
+<li>以上这些代码是某一次查看pom文件时突然多出来的，直接删去，再mvn test，问题解决</li>
+<li>Failed to execute goal org.apache.maven.plugins maven-surefire-plugin</li>
+<li>看报错日志，可能是子模块忘记引入某个依赖了。</li>
+</ul>
+<h3 id="eclipse创建maven项目"><a href="#eclipse创建maven项目" class="headerlink" title="eclipse创建maven项目"></a>eclipse创建maven项目</h3><ul>
+<li>不要用eclipse吧，没有成功过。</li>
+<li><a href="https://jingyan.baidu.com/article/6d704a13420c4728db51cadd.html" target="_blank" rel="noopener">创建单纯的maven项目，不是web项目，也不整合任何框架</a></li>
+<li><a href="https://blog.csdn.net/gaoxiang24/article/details/79390518/" target="_blank" rel="noopener">将项目转为web项目</a></li>
+</ul>
+<h3 id="多模块maven项目"><a href="#多模块maven项目" class="headerlink" title="多模块maven项目"></a>多模块maven项目</h3><ul>
+<li>代码实例：ideaProjects/thz。</li>
+<li>运行子模块之前，先把父模块install一下。</li>
+<li>被其他模块引用的模块改动之后要重新install，引用它的模块才能检索到它的更新。</li>
+<li>创建单元测试时跨模块引用配置文件：</li>
+</ul>
+<pre><code>@ContextConfiguration(locations={&quot;classpath*:config/applicationContext.xml&quot;}) 
+//classpath:在当前项目查找；classpath*：在所有依赖的jar包的classpath下找
+</code></pre><ul>
+<li>在父模块执行maven命令，将对所有的子模块起作用。</li>
+<li>如果是Spring的多模块maven项目，最好把配置文件集中写在dao模块，反正不要在web/controller这种被打包成war的模块中，否则在其他模块写单元测试时引入配置文件失败。原因是配置文件写在了war包中，而war包不能被当成依赖引入这个要建立单元测试的模块，因此配置文件无法引入，从而只能把测试类写在配置文件所在模块了。</li>
+<li>可参见代码示例service模块下测试和web模块下相同测试。</li>
+<li>如果同时有多个子模块都是web应用，它们需要同时运行协同测试，那么可以在debug configuration中添加两个maven命令，命令行都设为tomcat7:run，作用目录则分别选择相应的目录，然后两个都debug起来就行。</li>
+<li><p>若父模块的pom中依赖都写在dependencyManager中，则子模块依然需要引入依赖；若写在dependencies中，则子模块不需要再引入。</p>
+</li>
+<li><p>父项目如果负责引入依赖而不只是管理依赖的话，那么子项目虽然继承了这些依赖，但是一开始写代码是检测不到这些依赖的，有时alt+enter可以直接把依赖add to classpath，但有时代码却只是飘下划线而不能直接add to classpath，此时可以手动import，就能在飘红的包名那里alt+enter把依赖add to classpath了。</p>
+</li>
+<li>网上推荐把.iml文件删除，然后点击以下图标重新生成，如此几次即可：</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20181012153123183.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><a href="https://blog.csdn.net/jcroad/article/details/80360474" target="_blank" rel="noopener">参考文章</a></li>
+<li>代码示例：ideaProjects/shiro-chapter23/shiro-chapter23-client/ClirntShiroFilterFactoryBean/setApplicationContext(){this.applicationContext}，这一段在未添加spring-beans依赖并将其add to classpath时飘红线。</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-28T06:04:23.664Z" itemprop="dateUpdated">2019-04-28 14:04:23</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/maven/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/maven/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/maven/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/maven/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/maven/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/maven/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/maven/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/maven安装/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Map转json/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/maven/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/maven/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/maven/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/maven/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/maven/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByklEQVR42u3aQW7DMAwEwPz/0+41QGt1SZlqUIxOgRJY4xwIaanXKx7Xt7H+9v03yczDAxcXd5t7LUcP9D5/N5M8/4dXwsXFPci9qxjrhdfL7zz/dh4XF/fjuesnJLsUXFzc/8FNSlhvBhcX99O4yfEmwVVfe/CshouLu8HNNyVzn0fyXVxc3Bb3Ko68ACWbm/LquLi4R7h5QenFo/nWJ18XFxf3DHenUZq/WC9YuV0LFxf3CDdB96KKavxRCEdwcXHHuAkx2aCsf7kTwuLi4p7nPtD4jOtl9RpH4fCDi4v7KDcpWL1IdP+aVyEQwcXFfYibHDx64Ujzn1tvd3BxcY9wq22SaoDS2/qUz2q4uLiPcquUXuhZPfz8UndxcXGHuftN1sKFqkcjGFxc3Glu9fDTOzLlLdXCPTJcXNwj3ELli9uu+aWNKJTBxcU9zt3ZlPSubZX/IFxc3GHuVRy92LS3ucHFxf0rbrW4VNst1WZqNbrFxcWd4+ZFJ79UMReU4OLinuTuF5o8+NgpoLi4uJ/MvVqjGZLuFzJcXNxhbk5JmrJ5ExcXF/c8txpu5i3VPDQpNFlxcXGHudXG57roVFss5cMPLi7uLPcLlx/iMe4Ua1AAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

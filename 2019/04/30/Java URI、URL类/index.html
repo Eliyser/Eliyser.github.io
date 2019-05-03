@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简介 URI：Uniform Resource Identifier，统一资源标识符，URI的范畴位于顶层，URL和URN只是子范畴。 URL： Uniform Resource Locator，代表资源的地址信息 URN：Uniform Resource Name，代表某个资源独一无二的名称。 对于程序员来说，URI和URL都是一个意思。 它们的主要格式为：一串以scheme开头的字符串，语法如">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Java URI、URL类/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="简介 URI：Uniform Resource Identifier，统一资源标识符，URI的范畴位于顶层，URL和URN只是子范畴。 URL： Uniform Resource Locator，代表资源的地址信息 URN：Uniform Resource Name，代表某个资源独一无二的名称。 对于程序员来说，URI和URL都是一个意思。 它们的主要格式为：一串以scheme开头的字符串，语法如">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181110143017.jpg">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/563.png">
+<meta property="og:updated_time" content="2018-11-10T07:54:19.249Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="简介 URI：Uniform Resource Identifier，统一资源标识符，URI的范畴位于顶层，URL和URN只是子范畴。 URL： Uniform Resource Locator，代表资源的地址信息 URN：Uniform Resource Name，代表某个资源独一无二的名称。 对于程序员来说，URI和URL都是一个意思。 它们的主要格式为：一串以scheme开头的字符串，语法如">
+<meta name="twitter:image" content="http://p9vzt8d00.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181110143017.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.076Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用法"><span class="post-toc-number">2.</span> <span class="post-toc-text">用法</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Java URI、URL类"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.076Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>URI：Uniform Resource Identifier，统一资源标识符，URI的范畴位于顶层，URL和URN只是子范畴。</li>
+<li>URL： Uniform Resource Locator，代表资源的地址信息</li>
+<li>URN：Uniform Resource Name，代表某个资源独一无二的名称。</li>
+<li>对于程序员来说，URI和URL都是一个意思。</li>
+<li><p>它们的主要格式为：一串以scheme开头的字符串，语法如下：</p>
+<pre><code>[scheme:] scheme-specific-part //&lt;协议&gt;:&lt;特定协议部分&gt;
+//特定协议部分的格式
+//&lt;用户&gt;:&lt;密码&gt;@&lt;主机&gt;:&lt;端口号&gt;/&lt;路径&gt;
+</code></pre></li>
+<li>举个栗子</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181110143017.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>若主机名为openhome.cc，要获取Gossip中的index.html,端口号是8080.则必须使用以下URL：</p>
+<pre><code>http://openhome.cc:8080/Gossip/index.html
+</code></pre></li>
+<li><p>又假设想获取本地计算机文件系统中C://workspace下的jdbc.pdf，则为：</p>
+<pre><code>file://C://workspace/jsbc.pdf
+</code></pre></li>
+<li><p>协议指定了以何种方式获取资源。一些协议名的例子：</p>
+<ul>
+<li>ftp(File Transfer Protocol)文件传输协议</li>
+<li>http(Hypertext Tranfer Protocol)超文本传输协议</li>
+<li>mailto 电子邮件</li>
+<li>file 特定主机文件名</li>
+</ul>
+</li>
+<li>相对URL如：articles/articels.html，是依赖于标识符出现的环境而言的。<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3></li>
+<li>URI类只能解析路径，不包含任何用于访问资源的方法。</li>
+<li>URL类则可以打开一个到达资源的流，访问资源。</li>
+<li><p>用String构建URI对象</p>
+<pre><code>URI uri=new URI(&quot;http://www.cnn.com&quot;); //URI会把String分解为组件存于各个属性中，String不合法则抛URISyntaxException异常
+//效果同上
+URI uri=URI.create(&quot;http://www.cnn.com&quot;);
+</code></pre></li>
+<li><p>URL类：可以用URI的toURL()获取URL对象，也可以直接new</p>
+<pre><code>URL url=new URL(&quot;http://www.cnn.com&quot;);
+</code></pre></li>
+<li><p>openstream()：获取流，读取资源</p>
+<pre><code>URL url = new URL (args [0]);
+InputStream is = url.openStream ();
+int ch;
+while ((ch = is.read ()) != -1) {
+  System.out.print ((char) ch);
+}
+</code></pre></li>
+<li><p>如果是html形式的文本，则打印：</p>
+<pre><code>&lt;html&gt;
+…
+&lt;/html&gt;
+</code></pre></li>
+<li><p>getContent()：返回资源对应的对象，调用instanceof方法检查是否为预期对象之后可以针对性地采用处理流来读取资源</p>
+<pre><code>URL url = new URL (args [0]);
+Object o = url.getContent ();
+if (o instanceof ImageProducer) { //如果资源是JPEG资源的话，获取到的对象应该实现了ImageProducer接口
+  ImageProducer ip = (ImageProducer) o;
+  // ...
+}
+</code></pre></li>
+<li><p>openConnection()：返回URLConnection对象，封装了与资源连接的信息，有点像发起了一个请求，连接到资源后得到了响应。</p>
+<pre><code>public static void main (String[] args) throws IOException {
+    URL url = new URL (&quot;http://www.javajeff.com&quot;); //http://www.javajeff.com
+    // 返回代表某个资源的连接的新的特定协议对象的引用
+    URLConnection uc = url.openConnection ();
+    // 进行连接
+    uc.connect ();
+    // 打印header的内容
+    Map m = uc.getHeaderFields (); //获取header报头中的键值对
+    Iterator i = m.entrySet ().iterator ();
+    while (i.hasNext ()) {
+        System.out.println (i.next()); //自动按键=值的形式输出
+    }
+    // 检查是否资源允许输入和输出操作
+    System.out.println (&quot;Input allowed = &quot; +uc.getDoInput ());
+    System.out.println (&quot;Output allowed = &quot; +uc.getDoOutput ());
+}
+</code></pre></li>
+<li><p>打印</p>
+<pre><code>Date=[Sun, 17 Feb 2002 17:49:32 GMT]
+Connection=[Keep-Alive]
+Content-Type=[text/html; charset=iso-8859-1]
+Accept-Ranges=[bytes]
+Content-Length=[7214]
+null=[HTTP/1.1 200 OK]
+ETag=[&quot;4470e-1c2e-3bf29d5a&quot;]
+Keep-Alive=[timeout=15, max=100]
+Server=[Apache/1.3.19 (Unix) Debian/GNU]
+Last-Modified=[Wed, 14 Nov 2001 16:35:38 GMT]
+Input allowed = true
+Output allowed = false
+</code></pre></li>
+<li>其中ContentType和input/output allowed比较有用</li>
+<li><p>可以用java代码而不是form表单向url提交请求，数据必须是键值对形式，而且按照编码规则来</p>
+<pre><code>String result = URLEncoder.encode (&quot;a b&quot;); //将把空格转换为+号
+</code></pre></li>
+<li><p>把数据发送给某个资源</p>
+<pre><code>class URLDemo3 {
+    public static void main (String [] args) throws IOException {
+        URL url = new URL(&quot;http://banshee.cs.uow.edu.au:2000/~nabg/echo.cgi&quot;);
+        URLConnection uc = url.openConnection ();
+        // 验证连接的类型，必须是HttpURLConnection的
+        if (!(uc instanceof HttpURLConnection)) {
+          System.err.println (&quot;Wrong connection type&quot;);
+          return;
+        }
+        //默认不支持发送数据，这里改为支持
+        uc.setDoOutput (true);
+        // 不使用cache
+        uc.setUseCaches (false);
+        //设置Content-Type指示指定MIME类型
+        uc.setRequestProperty (&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;); //单纯键值对的话就必须是这种类型
+        // 建立名/值对内容发送给服务器
+        String content = buildContent (args);
+        //设置Content-Length
+        uc.setRequestProperty (&quot;Content-Length&quot;, &quot;&quot; + content.length ());
+        // 连接的适当类型
+        HttpURLConnection hc = (HttpURLConnection) uc;
+        // 把HTTP请求方法设置为POST（默认的是GET）
+        hc.setRequestMethod (&quot;POST&quot;);
+        // 输出内容
+        OutputStream os = uc.getOutputStream ();
+        DataOutputStream dos = new DataOutputStream (os);
+        dos.writeBytes (content);
+        dos.flush ();
+        dos.close ();
+        // 从服务器程序资源输入和显示内容
+        InputStream is = uc.getInputStream ();
+        int ch;
+        while ((ch = is.read ()) != -1)
+          System.out.print ((char) ch);
+        is.close ();
+    }
+
+    static String buildContent (String [] args) { //参数：name value name value name value
+        StringBuffer sb = new StringBuffer ();
+        for (int i = 0; i &lt; args.length; i++) {
+          // 对参数编码
+          String encodedItem = URLEncoder.encode (args [i]);
+          sb.append (encodedItem);
+          if (i % 2 == 0)
+            sb.append (&quot;=&quot;); // 分离名称和值
+          else
+            sb.append (&quot;&amp;&quot;); // 分离名称/值对
+        }
+        // 删除最后的 &amp; 间隔符
+        sb.setLength (sb.length () - 1);
+        return sb.toString ();
+    }
+}
+</code></pre></li>
+<li><p>输出</p>
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Echoing your name value pairs&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;ol&gt;
+        &lt;li&gt;name1 : value1
+        &lt;li&gt;name2 : value2
+        &lt;li&gt;name3 : value3
+    &lt;/ol&gt;
+    &lt;hr&gt;
+    Mon Feb 18 08:58:45 2002
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></li>
+<li>URI的作用之一：解析标识符并将它分解为各种不同的部分，可以用一下方法读取各个部分：<ul>
+<li>getScheme</li>
+<li>getSchemeSpecificPart</li>
+<li>getAuthority</li>
+<li>getUserInfo</li>
+<li>getHost</li>
+<li>getPort</li>
+<li>getPath</li>
+<li>getQuery</li>
+<li>getFragment</li>
+</ul>
+</li>
+<li>另一个作用：处理绝对标识符和相对标识符</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p9vzt8d00.bkt.clouddn.com/563.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-10T07:54:19.249Z" itemprop="dateUpdated">2018-11-10 15:54:19</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Java URI、URL类/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Java URI、URL类/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java URI、URL类/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java URI、URL类/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java URI、URL类/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Java URI、URL类/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java URI、URL类/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Java web/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/Java assert断言/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Java URI、URL类/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Java URI、URL类/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Java URI、URL类/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Java URI、URL类/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Java URI、URL类/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3ay26DMBAF0P7/T1Opq0gp7p3BtMU+XkUJMRwWo3n44yNex9d6/fy6xv96/+/Zr+/XTF4YGBiPZRzDNb7l2Y3H1PH+4+9PnwQDA2MDRjXIJoGyCji7b/LiMDAwMPKtr++GgYGBMZeRp27Jo4+DLwYGBkZSxObpY95c+4NaHAMD44GM3mDgdz7fPt/AwMD494yjuKq86gMdrYWBgbE2Y1oBGQfKfHiZ74CBgbEDIwl5yYNWi9i8oJ2WLGJgYDyckSR2VVgySKhe+cPdMTAwlmMko8QEM04Q89B5abKBgYGxGaOXCCZlanXYEAViDAyMpRnVANo7WtE7YFE9DoKBgbEPIz+edSW9u9KMO80JMTAwFmVUR4azCtRZ98LAwNiB0Qt2eYC+ftiiEJQxMDA2Y/SKzGpq2DvwEWW4GBgYGzB6bbJqe643Ri2nhhgYGEswem39PGj2ytQkDcXAwNiBUW3xXzkYkU8q8v2jTh4GBsbDGXlLq3cwIimGZ6WhGBgYqzKqja3qlQmv9zowMDD2ZOTlaK9WzneoFsYYGBhrM/JUbMJhiNYQone8DAMDYyXGUVyF99FC5oc8vhkMYGBgLMqojiR7RWaeSlaLWwwMjH0Y+dbVFlu1AVeeaeQJIgYGxhKM6gGIHvLGWhwDAwNjUru/WpQWgjgGBgZGq/nVK0eT4IuBgbEnI0/grjTr8zFntczGwMBYm3HHMPKOMeclAAYGxlMZn2T5hJpjaTXZAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

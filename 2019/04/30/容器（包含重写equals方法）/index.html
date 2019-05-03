@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="概念 Java中要用到数组的地方一般都用容器替代了。  接口图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/容器（包含重写equals方法）/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="概念 Java中要用到数组的地方一般都用容器替代了。  接口图">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20180426111449590.png">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20180426111459688.png">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B728.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B729.PNG">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20180422235248719.jpg">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B730.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B731.PNG">
+<meta property="og:image" content="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B732.PNG">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/554.png">
+<meta property="og:updated_time" content="2019-04-08T03:35:20.995Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="概念 Java中要用到数组的地方一般都用容器替代了。  接口图">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20180426111449590.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:46.321Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#概念"><span class="post-toc-number">1.</span> <span class="post-toc-text">概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#接口图"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">接口图</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Map"><span class="post-toc-number">2.</span> <span class="post-toc-text">Map</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HashMap"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">HashMap</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法实现"><span class="post-toc-number">3.</span> <span class="post-toc-text">方法实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Map的底层实现"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Map的底层实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Set"><span class="post-toc-number">4.</span> <span class="post-toc-text">Set</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Iterator迭代器"><span class="post-toc-number">5.</span> <span class="post-toc-text">Iterator迭代器</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-容器（包含重写equals方法）"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:46" datetime="2019-04-30T08:25:46.321Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li>Java中要用到数组的地方一般都用容器替代了。</li>
+</ul>
+<h4 id="接口图"><a href="#接口图" class="headerlink" title="接口图"></a>接口图</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20180426111449590.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20180426111459688.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>Set  重复的话会被覆盖，即任意两个元素e1、e2都有e1.equals(e2)=false，因此存入Set的对象必须重写equals()和hashCode()。</li>
+<li>Set  最多只能有一个null元素。</li>
+<li>Set  只能遍历不能get得到某元素，因为无序无索引</li>
+<li>List  可以重复。</li>
+<li>List  有序。</li>
+<li>List接口下还有一些子（实现）类</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B728.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>数组：查询快</p>
+</li>
+<li><p>链表：插入、修改快</p>
+</li>
+<li><p>ArrayList </p>
+<p>初始长度就是10，超容量后扩容</p>
+</li>
+<li><p>LinkedList</p>
+<p>链表实现</p>
+<p>其添加方法文档中为：void add(int index, E element);//尽管有索引但是查找的时候也是遍历的方式</p>
+</li>
+<li><p>list.get() </p>
+<p>返回Object类，需要强制转换</p>
+</li>
+<li><p>list.set(0) </p>
+<p>指定位置往里扔 </p>
+</li>
+</ul>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><ul>
+<li>Map接口下也有一些子（实现）类</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B729.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>无序、不可重复，因为它是无序的，所以需要通过key来查找，所以不能重复。</p>
+</li>
+<li><p>map.values()：返回值的Collection，不能向下转换（如强转为List），只能向上转为Object之类的父类。</p>
+</li>
+</ul>
+<pre><code>public static void main(String[] args) {
+    Map&lt;String,String&gt; map = new HashMap&lt;String,String&gt;();
+    map.put(&quot;A&quot;, &quot;A&quot;);
+    map.put(&quot;B&quot;, &quot;B&quot;);
+    map.put(&quot;C&quot;, &quot;C&quot;);
+    map.put(&quot;D&quot;, &quot;D&quot;);
+    map.put(&quot;E&quot;, &quot;E&quot;);
+
+    //直接打印
+    System.out.println(map.values()); //[A, B, C, D, E]
+
+    //报错：java.util.HashMap$Values cannot be cast to java.util.List
+    //List&lt;String&gt; valuesList = (List&lt;String&gt;) map.values();
+
+    //向上转换
+    //Object values=map.values(); //不过后面就不能直接遍历打印了
+
+    //除了向上转换，也可以利用ArrayList的构造方法(Collection)传入一个Collection
+    List&lt;String&gt; valuesList=new ArrayList&lt;&gt;(map.values());
+    for(String str:valuesList){
+        System.out.println(str); //A回车B回车...
+    }
+}
+</code></pre><ul>
+<li>代码示例：ideaProjects/shiro-chapter20/test/MapValuesTest、chapter20/codec/HmacSHA256Utils</li>
+<li><a href="https://www.cnblogs.com/chengpeng15/p/5804376.html" target="_blank" rel="noopener">参考文章</a></li>
+<li><a href="https://www.yiibai.com/java/util/hashmap_values.html" target="_blank" rel="noopener">参考文章</a></li>
+</ul>
+<h4 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h4><ul>
+<li>无序，且不保证顺序恒久不变。</li>
+<li>底层是数组，数组元素是链表，因此查找容易，插入和删除也容易。</li>
+<li>当我们调用put()存储对象到HashMap时，它先调用键对象的hashCode()，返回hashCode作为索引；然后再调用equals()方法判断是否已有键的hashCode和当前的一样，一样则覆盖，否则存为新的键值对。</li>
+<li>当两个对象的hashCode相同时，它们也可能不相同，即equals()=false，还是需要存为新元素，此时HashMap把它们存在同个位置的链表下一结点中。</li>
+<li>而get()时，HashMap使用键对象的hashCode找到其在数组中的位置，接着调用key.equals()方法找到正确的结点。因此即使这一位置的链表中存在多个结点，HashMap也能找到正确的。</li>
+<li>允许使用null键和null值。</li>
+<li>线程不安全，效率高。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/20180422235248719.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>  HashTable  线程安全，效率低</p>
+<ul>
+<li>map.entrySet():获取一个个体为Map.Entry对象的Set集合，即Set&lt;Map.Entry&lt;k,V&gt;&gt;。Map.Entry包含getKay和getValue方法。</li>
+</ul>
+<pre><code>for(Map.Entry&lt;String,String&gt; entry:map.entrySet()){
+    System.out.println(entry.getKey()+entry.getValue());
+}
+//或
+Iterator i=map.entrySet().iterator();
+while(i.hasNext()){
+    System.out.println(i.next());
+    //等同于下两行
+    Map.Entry&lt;String, String&gt; entry = (Map.Entry&lt;String, String&gt;)i.next();
+    System.out.println(&quot;key:&quot; + entry.getKey() + &quot; value&quot; + entry.getValue());
+}
+</code></pre><ul>
+<li>map.keySet()：单独获取key的集合</li>
+</ul>
+<pre><code>Set keys = m.keySet( );
+if(keys != null)
+    for(String s : keys)
+        t.append(s + &quot;: &quot; + m.get(s) + &quot;/n&quot;);
+</code></pre><h3 id="方法实现"><a href="#方法实现" class="headerlink" title="方法实现"></a>方法实现</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B730.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<pre><code>//重写equals方法，判断两个对象内容上是否相同，相同返回ture
+public boolean equals(Object obj){
+    if(this == obj)  //比较的是引用（地址），不同对象地址肯定不同，相同则肯定是同一个对象
+        return ture;
+    if(obj == null)
+        return false;
+    if(getclass() != obj.getclass())  //判断类型上是否相同，不相同也肯定不是相同对象
+        return false;
+    Person other = (person) obj;
+    if(id != other.id)
+        return false;
+    return ture;  //都不是上面的情况表示相同，返回true
+}
+</code></pre><h4 id="Map的底层实现"><a href="#Map的底层实现" class="headerlink" title="Map的底层实现"></a>Map的底层实现</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B731.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>存入元素放入一个链表数组中，即元素为链表的数组，同一链表各结点hashcode相同（当链表太长时自动转换为红黑树，提高查找效率）</p>
+<ul>
+<li>Object中有hashcode方法，也就意味着所有的类中都有hashcode方法</li>
+</ul>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://p6ib6uu2n.bkt.clouddn.com/%E6%8D%95%E8%8E%B732.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>HashSet的底层实现是HashMap<br><a href="http://note.youdao.com/noteshare?id=0ec0b9e812bd116eb3d562683f237114" target="_blank" rel="noopener">测试</a></p>
+<h3 id="Iterator迭代器"><a href="#Iterator迭代器" class="headerlink" title="Iterator迭代器"></a>Iterator迭代器</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/554.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>集合内部一般都会实现Iterator接口以便遍历集合元素，下面模拟ArrayList内的迭代器实现</li>
+</ul>
+<pre><code>/**
+ * @Author haien
+ * @Description 模拟ArrayList内部类Itr对Iterator的实现
+ * @Date 2018/10/23
+ **/
+public class MyIterator {
+    //下一个元素的游标
+    int cursor;
+    //上一个元素的游标(cursor、lastRet在数组中的位置是相邻的)
+    int lastRet=-1;
+    //预期被修改（add/set/remove）的次数;modCount是外部类的属性,也是预期被修改的次数
+    int exceptedModCount=modCount;
+
+    final void checkForComodification(){
+        //在调用Iterator遍历时，如果其他线程修改list则外部类的modCount会改变，但内部类的exceptedModCount不会，那么抛异常
+        if(exceptedModCount!=modCount){
+            throw new ConcurrentModificationException();
+        }
+    }
+
+    public boolean hasNext(){
+        return cursor!=size; //size是外部类的属性，是数组容量
+    }
+
+    //用过一次这个方法就相当于把一个元素给出栈了一样，而lastRet就相当于指着栈顶元素，cursor指着第二个元素
+    public E next(){
+        checkForComodification();
+        //cursor指着当前要被返出去的元素
+        int i=cursor;
+        //尽管调用该方法前调用者会先检查是否hasNext()，但依然要做异常处理
+        if(i&gt;size){
+            throw new NoSuchElementException();
+        }
+        //ArrayList实际是用一个数组来盛放元素的，迭代的时候要把这个数组拿到
+        Object[] elementData=ArrayList.this.elementData;
+        //可能i刚传进来elementData就在另一个线程里被删了一个元素
+        if(i&gt;=elementData.length){
+            throw new ConcurrentModificationException();
+        }
+        cursor++;
+        return (E)elementData[lastRet=i];
+    }
+
+    /**相当于栈顶元素出栈；调用方式一般为：
+     * if(&quot;abc&quot;.equals(it.next()))
+     * {
+     *    it.remove();
+     * }
+     */
+    public void remove(){
+        if(lastRet&lt;0){
+            throw new IllegalStateException();
+        }
+        checkForComodification();
+        //lastRet就是要删除的元素，remove方法不会改变lastRet，但会改modCount；删除元素后把后面的元素前移一位
+        try {
+            ArrayList.this.remove(lastRet);
+            //前移之后lastRet就指着被删除元素的下一个元素了
+            cursor = lastRet;
+            lastRet = -1;
+            exceptedModCount = modCount;
+        }catch (IndexOutOfBoundsException e){ //溢出了一定是线程并发的问题
+            throw new ConcurrentModificationException();
+        }
+    }
+
+}
+</code></pre><ul>
+<li>代码实例：DataStructure/iterator/MyIterator</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-08T03:35:20.995Z" itemprop="dateUpdated">2019-04-08 11:35:20</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/容器（包含重写equals方法）/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/容器（包含重写equals方法）/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/容器（包含重写equals方法）/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/容器（包含重写equals方法）/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/容器（包含重写equals方法）/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/容器（包含重写equals方法）/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/容器（包含重写equals方法）/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/三大范式/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/容器(1)/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/容器（包含重写equals方法）/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/容器（包含重写equals方法）/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/容器（包含重写equals方法）/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/容器（包含重写equals方法）/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/容器（包含重写equals方法）/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtklEQVR42u3a0U7DMAwFUP7/p0HiCUQ37o2TMqTTp2krXU6QYs/221t8vX9eX19/veZ3tmvYfOHh4eEtLf3R9fOetS1I2I/eyZ9/sUI8PDy8Y7xJMEgW/Rzw6P7n64mCBx4eHt6f8tYS3zzwJJuLh4eH9x95bcr7iJpUD/Dw8PBemZcf3Pni2vJEsqqDtRY8PDy8mLfWAPvb18f7e3h4eHhLXfWk8b93dGASDC7+Cg8PD+8AL29c5cWLtUGBPPnOSxh4eHh4J3h7i7PtkEGbQNflEjw8PLzDvOToTxpU7XbsKg1fvIOHh4d3jJccx23DLB8XaL8x3248PDy8O3n56MBa8XeUKMeJOx4eHt6dvKRwkBcjWnCeUkdlXDw8PLytvOLjwSE+L+9OGmN4eHh4e3lrLfm2qLr2tHYM68KFh4eHd4CXH7j5UNR81CChJv8SPDw8vBO85JhuxwvaokMSTtpCCR4eHt6dvNODVnUTqxw++HYnHh4e3u28NmlOkuM8FLW/DOrAgIeHhzfgbTuIy/GCtlDbbhMeHh7eCd6u5Lht/+ejDBuGEvDw8PC28tqlJPi1dDwvheQbhIeHh3cPb9L4z4sLbfhpw8nFLwY8PDy8Y7w2JExS8KSQsRZIFrNyPDw8vPJqh6Umx/pkqOv5c6KKCx4eHt6A1zac1gawkqW3KXjyHDw8PLx7eKdbYpOCchJsRlELDw8Pr+zatw2wXRuUh4F85Xh4eHjneO/lNQ8ba0NXi+k+Hh4e3gFe2z/Ki7l5uyt5cl2GWGuP4eHh4cW8tWCQF23XkvhJgPn2KR4eHt4x3tqhPAkG7ffmwQMPDw/vdXjzUkKeiOdNr1+2Aw8PD+8FeLuCRLHEGL8hMODh4eHFvLwYkSyibZLlm1gXkfHw8PAO8HY1wI6UEsYlXTw8PLytvA92HiIWrXu+SAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

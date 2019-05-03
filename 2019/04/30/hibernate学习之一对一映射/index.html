@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="通过共享主键映射 举例，用户和地址的一对一关系。用共享主键来关联的话，就是两张表的主键之一作为外键，关系限定为一对一。 //用户类（包含地址） public class User {     private int id;     private String name;     private Address address; }  //地址类（包含用户） public class Addres">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/hibernate学习之一对一映射/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="通过共享主键映射 举例，用户和地址的一对一关系。用共享主键来关联的话，就是两张表的主键之一作为外键，关系限定为一对一。 //用户类（包含地址） public class User {     private int id;     private String name;     private Address address; }  //地址类（包含用户） public class Addres">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7278.PNG">
+<meta property="og:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B72799.PNG">
+<meta property="og:updated_time" content="2018-08-18T06:26:04.518Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="通过共享主键映射 举例，用户和地址的一对一关系。用共享主键来关联的话，就是两张表的主键之一作为外键，关系限定为一对一。 //用户类（包含地址） public class User {     private int id;     private String name;     private Address address; }  //地址类（包含用户） public class Addres">
+<meta name="twitter:image" content="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7278.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:44.983Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#通过共享主键映射"><span class="post-toc-number">1.</span> <span class="post-toc-text">通过共享主键映射</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加外键进行映射"><span class="post-toc-number">2.</span> <span class="post-toc-text">添加外键进行映射</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码实例"><span class="post-toc-number">3.</span> <span class="post-toc-text">代码实例</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-hibernate学习之一对一映射"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:44" datetime="2019-04-30T08:25:44.983Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="通过共享主键映射"><a href="#通过共享主键映射" class="headerlink" title="通过共享主键映射"></a>通过共享主键映射</h3><ul>
+<li><p>举例，用户和地址的一对一关系。用共享主键来关联的话，就是两张表的主键之一作为外键，关系限定为一对一。</p>
+<pre><code>//用户类（包含地址）
+public class User {
+    private int id;
+    private String name;
+    private Address address;
+}
+
+//地址类（包含用户）
+public class Address {
+    private int id;
+    private String address;
+    private String zipcode; //邮编
+    private User user;
+}
+
+//用户映射文件
+&lt;class name=&quot;User&quot; table=&quot;t_user&quot;&gt;
+
+&lt;id name=&quot;id&quot; column=&quot;userId&quot;&gt;
+    &lt;generator class=&quot;native&quot;&gt;&lt;/generator&gt;
+&lt;/id&gt;
+
+&lt;property name=&quot;name&quot; column=&quot;UserName&quot;&gt;&lt;/property&gt;
+
+&lt;!--可以去掉，但每次获取到的user对象将不带其对应address--&gt;
+&lt;one-to-one name=&quot;address&quot; class=&quot;com.java1234.model.Address&quot; cascade=&quot;all&quot;&gt;&lt;/one-to-one&gt; &lt;!--all：级联删除、更新都有了--&gt;
+
+&lt;/class&gt;
+
+//地址映射文件
+&lt;class name=&quot;Address&quot; table=&quot;t_address&quot;&gt;
+
+&lt;!-- 主键也作为外键与user属性关联 --&gt;
+&lt;id name=&quot;id&quot; column=&quot;addressId&quot;&gt; 
+    &lt;generator class=&quot;foreign&quot;&gt; &lt;!--addressId作为外键关联userId--&gt;
+        &lt;param name=&quot;property&quot;&gt;user&lt;/param&gt; &lt;!--关联user属性--&gt;
+    &lt;/generator&gt;
+&lt;/id&gt;
+
+&lt;property name=&quot;address&quot; column=&quot;address&quot;&gt;&lt;/property&gt;
+&lt;property name=&quot;zipcode&quot; column=&quot;zipcode&quot;&gt;&lt;/property&gt;
+
+&lt;!--可以去掉，两张表已然有关联，但获取address不带其对应user--&gt;
+&lt;one-to-one name=&quot;user&quot; class=&quot;com.java1234.model.User&quot; constrained=&quot;true&quot;&gt;&lt;/one-to-one&gt; &lt;!--constrained：共享主键--&gt;
+
+&lt;/class&gt;
+</code></pre><ul>
+<li><p>数据库</p>
+<p><img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B7278.PNG" alt=""></p>
+</li>
+<li><p>两张表的主键相关联</p>
+<h3 id="添加外键进行映射"><a href="#添加外键进行映射" class="headerlink" title="添加外键进行映射"></a>添加外键进行映射</h3></li>
+</ul>
+</li>
+<li><p>在用户表中添加一个外键与地址表相关联，并且将外键设置为唯一外键，相当于一对一的效果</p>
+<pre><code>//用户类和地址类同上
+
+//用户表增加外键
+&lt;!--一对多外键，但是加了unique（不允许重复）之后又变成一对一--&gt;
+&lt;many-to-one name=&quot;address&quot; class=&quot;com.java1234.model.Address2&quot; column=&quot;addressId&quot; cascade=&quot;all&quot; unique=&quot;true&quot;&gt;&lt;/many-to-one&gt; &lt;!--all：级联删除、更新都有了--&gt;
+
+//地址映射文件说明一对一关系
+&lt;class name=&quot;Address2&quot; table=&quot;t_address2&quot;&gt;
+
+    &lt;!-- 主键也作为外键与user属性关联 --&gt;
+    &lt;id name=&quot;id&quot; column=&quot;addressId&quot;&gt;
+        &lt;generator class=&quot;native&quot;&gt;&lt;/generator&gt;
+    &lt;/id&gt;
+
+    &lt;property name=&quot;address&quot; column=&quot;address&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;zipcode&quot; column=&quot;zipcode&quot;&gt;&lt;/property&gt;
+
+    &lt;!-- user属性与User2类的address属性一对一 --&gt;
+    &lt;one-to-one name=&quot;user&quot; class=&quot;com.java1234.model.User2&quot; property-ref=&quot;address&quot;&gt;&lt;/one-to-one&gt; &lt;!--constrained：共享主键--&gt;
+
+&lt;/class&gt;
+</code></pre><ul>
+<li><p>数据库</p>
+<p><img src="http://p9vzt8d00.bkt.clouddn.com/%E6%8D%95%E8%8E%B72799.PNG" alt=""></p>
+<h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3><p>HibernateOneToOne</p>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-18T06:26:04.518Z" itemprop="dateUpdated">2018-08-18 14:26:04</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/hibernate学习之一对一映射/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/hibernate学习之一对一映射/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/hibernate学习之一对一映射/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/hibernate学习之一对一映射/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/hibernate学习之一对一映射/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/hibernate学习之一对一映射/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/hibernate学习之一对一映射/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/hibernate学习之映射继承/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/hibernate学习之实体类状态/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/hibernate学习之一对一映射/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/hibernate学习之一对一映射/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/hibernate学习之一对一映射/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/hibernate学习之一对一映射/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/hibernate学习之一对一映射/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuElEQVR42u3aQW4jMQwEwPz/07vXALvjdJNS4gDlk2HHMyoHkOgmPz7ix59Pj/zd/JXPr//7/PXdDzzw8PDwFkt/ulwOaNnJHfN3/7MePDw8vGu8p8UljFMbenL85GvGw8PDe09ecni0h0FSjuPh4eH9Xl6eAERLia+Dh4eH9w685Mf/rIBOtv7XB8w3ZS14eHh4MS/f6N/n+ZX+Hh4eHt66q55s9/kowOu/TN6tV4uHh4d3gbcJBdoFzZpnSUD8xZeOh4eHd5SXfGw2jNXWt3l0mx9FeHh4eLd5pwaeZnHwpkm2Os3w8PDw1sj29U2zqg0mvjgGktEBPDw8vEO89hLJ3ts2+/MrHOvg4eHh4a176/mgQPJu8nUkRfax/h4eHh7eIV4bEBQRaoyfHQnJwYOHh4d3m5fcPglwZ1VuXqbnEQYeHh7eT/Fm0cOp4YM8zng8wPDw8PCO8toSOQ8LZgX3bPTq8S54eHh4F3izgapNgDsrrPOIuc6M8fDw8EpeXp7mC9oz9rEIHh4e3nfy2g06OnnK0ryNSB7Lazw8PLwLvGRQYNP+b0cT8jGv4egAHh4e3iFee+O2lZXHuG3jbTVGgIeHh7fg5e35Wburff1UyY6Hh4d3g9du4m2YO1tiWy5H/zc8PDy8Q7xZNDCLWZPDoG2GRRY8PDy8y7z2p37e1sqjirbgLvIVPDw8vKO8zdBAWxAPFxqv/DHGxcPDw7vAa8OIvLQ9HDHMwlw8PDy8Ne9so2sWEOfLbUt/PDw8vBu8dsPNy+h8rKr9WldTEnh4eHiHePtLbwKF9mgZzkfg4eHhXeDlQwPt1jzb4mdhBB4eHt478/LNui2FN/HHFyk1Hh4e3g/x9i2r2bDCrBWHh4eHd4/XjkbNxgU2nxoeYHh4eHgXeLMW/iySmH2hh+MJPDw8vDnvL6Ayc6ghzXdsAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

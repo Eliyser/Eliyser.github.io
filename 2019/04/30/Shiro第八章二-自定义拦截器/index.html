@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="自定义拦截器 自定义拦截器可以扩展一些功能，如，从Subject获取用户身份信息绑定到Request、验证码验证、在线用户信息的保存等。  扩展OncePerRequestFilter OncePerRequestFilter保证请求只调用一次doFilterInternal()。  public class MyOncePerRequestFilter extends OncePerReques">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/Shiro第八章二-自定义拦截器/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="自定义拦截器 自定义拦截器可以扩展一些功能，如，从Subject获取用户身份信息绑定到Request、验证码验证、在线用户信息的保存等。  扩展OncePerRequestFilter OncePerRequestFilter保证请求只调用一次doFilterInternal()。  public class MyOncePerRequestFilter extends OncePerReques">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7612.PNG">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7616.PNG">
+<meta property="og:updated_time" content="2019-04-28T06:17:00.497Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="自定义拦截器 自定义拦截器可以扩展一些功能，如，从Subject获取用户身份信息绑定到Request、验证码验证、在线用户信息的保存等。  扩展OncePerRequestFilter OncePerRequestFilter保证请求只调用一次doFilterInternal()。  public class MyOncePerRequestFilter extends OncePerReques">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7612.PNG">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:29:22.891Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义拦截器"><span class="post-toc-number">1.</span> <span class="post-toc-text">自定义拦截器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#扩展OncePerRequestFilter"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">扩展OncePerRequestFilter</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展AdviceFilter"><span class="post-toc-number">2.</span> <span class="post-toc-text">扩展AdviceFilter</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展PathMatchingFilter"><span class="post-toc-number">3.</span> <span class="post-toc-text">扩展PathMatchingFilter</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展AccessControllerFilter"><span class="post-toc-number">4.</span> <span class="post-toc-text">扩展AccessControllerFilter</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基于表单的拦截器"><span class="post-toc-number">5.</span> <span class="post-toc-text">基于表单的拦截器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#任意角色授权拦截器"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">任意角色授权拦截器</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Shiro第八章二-自定义拦截器"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:29:22" datetime="2019-04-30T08:29:22.891Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="自定义拦截器"><a href="#自定义拦截器" class="headerlink" title="自定义拦截器"></a>自定义拦截器</h3><ul>
+<li>自定义拦截器可以扩展一些功能，如，从Subject获取用户身份信息绑定到Request、验证码验证、在线用户信息的保存等。</li>
+</ul>
+<h4 id="扩展OncePerRequestFilter"><a href="#扩展OncePerRequestFilter" class="headerlink" title="扩展OncePerRequestFilter"></a>扩展OncePerRequestFilter</h4><ul>
+<li>OncePerRequestFilter保证请求只调用一次doFilterInternal()。</li>
+</ul>
+<pre><code>public class MyOncePerRequestFilter extends OncePerRequestFilter {
+    @Override
+    protected void doFilterInternal(ServletRequest request, ServletResponse response,
+      FilterChain chain) throws ServletException, IOException {
+        System.out.println(&quot;once per request filter&quot;);
+        chain.doFilter(request, response);
+    }
+}
+</code></pre><ul>
+<li>shiro.ini: 指定拦截器为自定义拦截器</li>
+</ul>
+<pre><code>[main]
+;注册Filter
+myFilter1=com.haien.shiroChapter8.web.filter.MyOncePerRequestFilter
+
+;或在这里注册
+#[filters]
+#myFilter1=com.haien.shiroChapter8.web.filter.MyOncePerRequestFilter
+
+;然后在urls配置url与filter的映射关系即可
+[urls]
+;访问任意url，后台调用myFilter1拦截器，该拦截器在控制台打印一行字
+/**=myFilter1
+</code></pre><h3 id="扩展AdviceFilter"><a href="#扩展AdviceFilter" class="headerlink" title="扩展AdviceFilter"></a>扩展AdviceFilter</h3><ul>
+<li>提供了aop的功能。其中preHandle()返回false将中断后续拦截器链的执行。</li>
+</ul>
+<pre><code>public class MyAdviceFilter extends AdviceFilter {
+    //根据返回值决定是否继续处理，true：继续过滤过滤链，可以通过它实现权限控制。
+    @Override
+    protected boolean preHandle(ServletRequest request, ServletResponse response)
+      throws Exception {
+        System.out.println(&quot;====预处理/前置处理====&quot;);
+
+        //返回false将中断后续拦截器链的执行
+        return true; 
+    }
+
+    //执行完过滤器后正常返回则调用该方法。
+    @Override
+    protected void postHandle(ServletRequest request, ServletResponse response) 
+      throws Exception {
+        System.out.println(&quot;====后处理/后置返回处理====&quot;);
+    }
+
+    //不过最后有没有异常都会执行，完成如清理资源等功能。
+    @Override
+    public void afterCompletion(ServletRequest request, ServletResponse response, 
+      Exception exception) throws Exception {
+        System.out.println(&quot;====完成处理/后置最终处理====&quot;);
+    }
+}
+</code></pre><ul>
+<li>shiro.ini</li>
+</ul>
+<pre><code>[filters]
+myFilter1=com.haien.shiroChapter8.web.filter.MyOncePerRequestFilter
+myFilter2=com.haien.shiroChapter8.web.filter.MyAdviceFilter
+[urls]
+/**=myFilter1,myFilter2
+</code></pre><ul>
+<li>运行结果</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7612.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="扩展PathMatchingFilter"><a href="#扩展PathMatchingFilter" class="headerlink" title="扩展PathMatchingFilter"></a>扩展PathMatchingFilter</h3><ul>
+<li>继承了AdviceFilter，提供了url模式过滤的功能，适用于需要对指定请求进行处理的情况。</li>
+</ul>
+<pre><code>public class MyPathMatchingFilter extends PathMatchingFilter {
+    @Override
+    protected boolean onPreHandle(ServletRequest request, ServletResponse response, 
+      Object mappedValue) throws Exception {
+       System.out.println(&quot;url matches,config is &quot; + Arrays.toString((String[])mappedValue));
+       return true;
+    }
+}
+</code></pre><ul>
+<li>preHandle：将当前url与已有url进行匹配，成功则调用onPreHandle()；否则直接返回true。</li>
+<li><p>onPreHandle: 被调用后获取ini配置文件中为拦截器配置的参数，默认什么都不处理直接返回true。</p>
+</li>
+<li><p>shiro.ini</p>
+</li>
+</ul>
+<pre><code>[filters]
+myFilter3=com.github.zhangkaitao.shiro.chapter8.web.filter.MyPathMatchingFilter
+[urls]
+/**= myFilter3[config]
+</code></pre><ul>
+<li><p>config：拦截器的参数，指定权限或角色，多个参数用逗号分隔。onPreHandle使用mappedVaule接收该参数。</p>
+</li>
+<li><p>打印结果：url matches,config is null</p>
+</li>
+</ul>
+<h3 id="扩展AccessControllerFilter"><a href="#扩展AccessControllerFilter" class="headerlink" title="扩展AccessControllerFilter"></a>扩展AccessControllerFilter</h3><ul>
+<li>继承了PathMatchingFilter，扩展了两个方法：</li>
+</ul>
+<pre><code>public boolean onPreHandle(ServletRequest request, ServletResponse response, 
+  Object mappedValue) throws Exception {
+    return isAccessAllowed(request, response, mappedValue)
+        || onAccessDenied(request, response, mappedValue);
+}
+</code></pre><ul>
+<li>isAccessAllowed：是否允许访问，返回true表示允许。</li>
+<li>onAccessDenied：拒绝访问时是否需要继续处理，返回true表示是，则返回上一级调用链，继续过滤链执行，false不用继续处理了，已在方法内处理好了（如重定向到另一个页面，也就不能继续执行过滤链）。</li>
+<li>这俩方法的实现有两种模型：</li>
+</ul>
+<ol>
+<li>isAccessAllowed直接返回false，然后校验逻辑全在onAccessDenied实现。会在需要权限的方法执行前调用这俩，比如判断用户是否已登录，未登录则重定向至登录页面，正在登录则调用以下login()接收表单验证，已登录则继续过滤链，最终访问到目标方法。</li>
+<li>isAccessAllowed实现校验逻辑，onAccessDenied做校验失败处理，如，把失败信息存入request。代码示例：ideaProjects/shiro-chapter22/jcaptcha/JCaptchaValidateFilter</li>
+</ol>
+<ul>
+<li>自定义AccessControllerFilter：</li>
+</ul>
+<pre><code>/**
+ * @Author haien
+ * @Description 以下两个方法同时被onPreHandle()调用
+ * @Date 2019/3/1
+ **/
+public class MyAccessControlFilter extends AccessControlFilter {
+    /**
+     * @Author haien
+     * @Description 是否允许访问，true表示允许
+     * @Date 2019/3/1
+     * @Param [request, response, mappedValue]
+     * @return boolean
+     **/
+    @Override
+    protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {
+        System.out.println(&quot;access allowed&quot;);
+        return true;
+    }
+
+    /**
+     * @Author haien
+     * @Description 拒绝访问时是否自己处理，返回true表示自己不处理且继续执行拦截器，
+     *              false表示自己已经处理了（如重定向到另一页面）
+     * @Date 2019/3/1
+     * @Param [request, response]
+     * @return boolean
+     **/
+    @Override
+    protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
+        //访问未被拒绝的话不会执行该方法
+        System.out.println(&quot;访问拒绝也不自己处理，继续拦截器链的执行&quot;);
+        return true;
+
+        /*or
+        ...重定向到另一页面...
+        return false；
+        */
+    }
+}
+</code></pre><ul>
+<li>shiro.ini:</li>
+</ul>
+<pre><code>[filters]
+myFilter4=com.haien.shiroChapter8.web.filter.MyAccessControlFilter
+[urls]
+/**=myFilter4
+</code></pre><ul>
+<li>打印结果：access allowed</li>
+</ul>
+<h3 id="基于表单的拦截器"><a href="#基于表单的拦截器" class="headerlink" title="基于表单的拦截器"></a>基于表单的拦截器</h3><ul>
+<li>之前我们已经接触过Shiro内置的基于表单的拦截器了，具体事例参见笔记：Shiro第七章-与web集成。其实就是截获表单、封装成token传给Subject.login(token)执行登录而已。</li>
+<li>现在我们自定义一个：</li>
+</ul>
+<pre><code>public class FormLoginFilter extends PathMatchingFilter {
+    private String loginUrl = &quot;/login.jsp&quot;;
+    private String successUrl = &quot;/&quot;;
+
+    /**
+    * 总方法
+    */
+    @Override
+    protected boolean onPreHandle(ServletRequest request, ServletResponse response, 
+      Object mappedValue) throws Exception {
+
+        //1、判断是否已登录且非登录请求，是则直接进入过滤链下一步
+        if(SecurityUtils.getSubject().isAuthenticated() &amp;&amp; !isLoginRequest(req)) {
+            return true;//已经登录过且非登录请求
+        }
+
+        //2、未登录则判断是否为登录请求，是，则若是get请求，继续过滤链（跳转登录
+        //页面），若是post请求，认为是表单验证请求，进行表单验证，执行subject.login()；
+        //否，若是get方法的其他页面请求则保存当前请求并重定向到登录页面，非get请求可能报错吧
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse resp = (HttpServletResponse) response;
+        if(isLoginRequest(req)) { //是登录请求
+            if(&quot;post&quot;.equalsIgnoreCase(req.getMethod())) { //form表单提交
+                boolean loginSuccess = login(req); //登录
+                if(loginSuccess) { //登录成功
+                    return redirectToSuccessUrl(req, resp);
+                }
+            }
+
+            //是get请求|登录失败，继续过滤器链，可能是被分配到controller处理/login
+            return true;
+        } 
+        else { //不是登录请求，保存当前地址并重定向到登录界面
+            saveRequestAndRedirectToLogin(req, resp);
+            return false;
+        }
+    }
+
+    /**
+    * 登录成功后调用，若有之前的请求则重定向到它，否则到默认成功页面
+    */
+    private boolean redirectToSuccessUrl(HttpServletRequest req, HttpServletResponse resp)
+      throws IOException {
+        WebUtils.redirectToSavedRequest(req, resp, successUrl);
+        return false;
+    }
+
+    /**
+    * 保存当前请求并跳转登录页面
+    */
+    private void saveRequestAndRedirectToLogin(HttpServletRequest req,
+      HttpServletResponse resp) throws IOException {
+        WebUtils.saveRequest(req);
+        WebUtils.issueRedirect(req, resp, loginUrl);
+    }
+
+    /**
+    * 表单验证，执行登录方法
+    */
+    private boolean login(HttpServletRequest req) {
+        String username = req.getParameter(&quot;username&quot;);
+        String password = req.getParameter(&quot;password&quot;);
+        try {
+            SecurityUtils.getSubject().login(new UsernamePasswordToken(
+                username, password));
+        } catch (Exception e) {
+            req.setAttribute(&quot;shiroLoginFailure&quot;, e.getClass());
+            return false;
+        }
+        return true;
+    }
+
+    /**
+    * 判断是否登录请求
+    */
+    private boolean isLoginRequest(HttpServletRequest req) {
+        return pathsMatch(loginUrl, WebUtils.getPathWithinApplication(req));
+    }
+}
+</code></pre><ul>
+<li>第一步，直接结束的前提除了是否已登录，还要有是否为登录请求，可能用户已登录但仍然进入登录页面重新登录；否则直接返回后被前端url为/login的controller处理，而该controller只负责失败处理，会重新重定向到登录页面，导致死循环。</li>
+<li>表单验证和登录成功的重定向已经实现了，剩下的就是请求登录页面的get请求和登录失败的处理需要自己在controller中实现。</li>
+<li><p>也可以继承AuthenticatingFilter来实现，它提供了很多登录相关的基础代码。另外可以参考Shiro内置FormAuthenticationFilter源码，思路是一样的。</p>
+</li>
+<li><p>测试：访问/test.jsp,自动跳转登录页面，登录成功后跳回test.jsp。</p>
+</li>
+</ul>
+<h4 id="任意角色授权拦截器"><a href="#任意角色授权拦截器" class="headerlink" title="任意角色授权拦截器"></a>任意角色授权拦截器</h4><ul>
+<li>Shiro内置的roles（RolesAuthorizationFilter）拦截器验证用户是否拥有指定的所有角色，但没有提供能验证用户拥有任意角色的拦截器。</li>
+<li>我们自定义一个：</li>
+</ul>
+<pre><code>public class AnyRolesFilter extends AccessControlFilter {
+    private String unauthorizedUrl = &quot;/unauthorized.jsp&quot;;
+    private String loginUrl = &quot;/login.jsp&quot;;
+
+    /**
+     * 权限验证
+     */
+    protected boolean isAccessAllowed(ServletRequest request, ServletResponse response,
+      Object mappedValue) throws Exception {
+        String[] roles = (String[])mappedValue;
+
+        //如果没有设置角色参数，默认成功
+        if(roles == null) {
+            return true;
+        }
+
+        //判断用户是否拥有所需权限
+        for(String role : roles) {
+            if(getSubject(request, response).hasRole(role)) { //未登录情况获取不到任何角色
+                return true;
+            }
+        }
+
+        //拒绝访问
+        return false;//跳到onAccessDenied处理
+    }
+
+    @Override
+    protected boolean onAccessDenied(ServletRequest request, ServletResponse response) 
+      throws Exception {
+        Subject subject = getSubject(request, response);
+
+        //未登录
+        if (subject.getPrincipal() == null) {
+            //重定向到登录页面
+            saveRequest(request); 
+            WebUtils.issueRedirect(request, response, loginUrl);
+        } 
+
+        //已登录但授权失败
+        else {
+            //如果有未授权页面跳转过去
+            if (StringUtils.hasText(unauthorizedUrl)) {
+                WebUtils.issueRedirect(request, response, unauthorizedUrl);
+            }
+
+            //否则返回401未授权状态码
+            else {
+                WebUtils.toHttp(response).sendError(HttpServletResponse.SC_UNAUTHORIZED);
+            }
+        }
+
+        return false;
+    }
+} 
+</code></pre><ul>
+<li>401</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/%E6%8D%95%E8%8E%B7616.PNG" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>可以在web.xml指定方法返回401时映射的错误页面</p>
+<pre><code>&lt;error-page&gt;
+    &lt;error-code&gt;401&lt;/error-code&gt;
+    &lt;location&gt;/unauthorized.jsp&lt;/location&gt;
+&lt;/error-page&gt;
+</code></pre></li>
+<li><p>代码实例：ideaProjects/shiroChapter8</p>
+</li>
+<li><a href="https://jinnianshilongnian.iteye.com/blog/2025656" target="_blank" rel="noopener">参考文章</a>   </li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-28T06:17:00.497Z" itemprop="dateUpdated">2019-04-28 14:17:00</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/Shiro第八章二-自定义拦截器/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/Shiro第八章二-自定义拦截器/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第八章二-自定义拦截器/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第八章二-自定义拦截器/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第八章二-自定义拦截器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第八章二-自定义拦截器/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第八章二-自定义拦截器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/Shiro第八章一-拦截器机制/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/最小生成树/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/Shiro第八章二-自定义拦截器/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/Shiro第八章二-自定义拦截器/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/Shiro第八章二-自定义拦截器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/Shiro第八章二-自定义拦截器/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/Shiro第八章二-自定义拦截器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACwElEQVR42u3cQY7bMBAEQP3/0xsgpwSJ5e4ZcZ0ApZPhlSWWDJDjHmKvKz6+fh6/vv7zSM68v2Zyx+vEgYeHhzcaejLo9pz8jveM2Xjw8PDwTvPyxWAzcd9f5/6d+0+9fB8PDw/vo7z20slDaYt4PDw8vP+Rl0QSebSRLx54eHh4/xpvE84myDwIbmOLx7IWPDw8vO7udQPss6+P9/fw8PDwRl31dlLOC+JZpFuPFg8PD+8ALylbn1pUcmT+1+hMPDw8vEd5m+ihjTM2rbV8QfrtNR4eHt4x3mwSzzdLte20dgPBm18MeHh4eAd4yXQ8a/C314mm+zxoxsPDwzvGy3/2b4rv2dSfR7pX/gE8PDy8BS9vUCUTdA7IC/EcEzXA8PDw8Na8/cLQbgIYfgOjR4mHh4d3jrcvi/Mgo91AkBfxeHh4eN/DG064cTSwb2ttlh88PDy8E7w2kN1vzMoXj7YQ/8s7eHh4eMd4ydT81KA3DyX/AvDw8PDO8fLNTPltngoXis0B9202PDw8vMO8NqjNl4f89WxReXkFPDw8vEd5bcCaLyT7B5c8jjelOR4eHt5h3iwUyAvlDbgtr+s8GA8PD6+rh4t/jvzUsNoyenZHPDw8vBO8tqE1G0T7/h4Z7UrAw8PDW9ec+U/9dqPAftLPl64opcbDw8Nb8PJB70OKWRTbFvR4eHh438nLNzzlscW+bZYsJC/vi4eHh3eA14YU7RIyC4Xvqe2Dw8PDw3uW91Uesw0Hs+HOCvQ3nT08PDy8NW+zVLTNrVWsEJfd1+zAw8PDK3mb8LRlzzYutJFHsfrh4eHhLXh5tLrZJtUGvg9kLXh4eHgf5W2GPosq8mu+6fLh4eHhfZTXhgWbbQEtZlVS4+Hh4ZW8Zzc2bUKNTdus7vLh4eHhjXhtAyynJrdsF4bkzFV/Dw8PD+9uDD8ALG9K3xP5xA4AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

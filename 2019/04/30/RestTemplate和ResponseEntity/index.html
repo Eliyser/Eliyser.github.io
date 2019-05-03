@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>No title | never belief any book | love youself,love life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#F98A8A">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="ResponseEntity 简介：继承自HttPEntity类，封装了请求后返回的响应头、响应体和响应状态。 作用：用于controller层向前端返回数据和状态码。 构造器： new ResponseEntity(HttpStatus.OK): http状态码。 new ResponseEntity(new User(),HttpStatus.OK): 泛型对象的数据和http状态码。 new">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="http://47.107.237.149/2019/04/30/RestTemplate和ResponseEntity/index.html">
+<meta property="og:site_name" content="never belief any book">
+<meta property="og:description" content="ResponseEntity 简介：继承自HttPEntity类，封装了请求后返回的响应头、响应体和响应状态。 作用：用于controller层向前端返回数据和状态码。 构造器： new ResponseEntity(HttpStatus.OK): http状态码。 new ResponseEntity(new User(),HttpStatus.OK): 泛型对象的数据和http状态码。 new">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/11.png">
+<meta property="og:updated_time" content="2019-03-25T06:57:14.833Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="ResponseEntity 简介：继承自HttPEntity类，封装了请求后返回的响应头、响应体和响应状态。 作用：用于controller层向前端返回数据和状态码。 构造器： new ResponseEntity(HttpStatus.OK): http状态码。 new ResponseEntity(new User(),HttpStatus.OK): 泛型对象的数据和http状态码。 new">
+<meta name="twitter:image" content="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/11.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="never belief any book" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Haien</h5>
+          <a href="mailto:1410343862@qq.com" title="1410343862@qq.com" class="mail">1410343862@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Eliyser" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-30T08:25:45.726Z" itemprop="datePublished" class="page-time">
+  2019-04-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ResponseEntity"><span class="post-toc-number">1.</span> <span class="post-toc-text">ResponseEntity</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RestTemplate"><span class="post-toc-number">2.</span> <span class="post-toc-text">RestTemplate</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#getForEntity"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">getForEntity()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#getForObject"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">getForObject()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#postForEntity"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">postForEntity()</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HttpStatus-FORBIDDEN起什么作用呢"><span class="post-toc-number">3.</span> <span class="post-toc-text">HttpStatus.FORBIDDEN起什么作用呢</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-RestTemplate和ResponseEntity"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"></h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-30 16:25:45" datetime="2019-04-30T08:25:45.726Z"  itemprop="datePublished">2019-04-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="ResponseEntity"><a href="#ResponseEntity" class="headerlink" title="ResponseEntity"></a>ResponseEntity</h3><ul>
+<li>简介：继承自HttPEntity类，封装了请求后返回的响应头、响应体和响应状态。</li>
+<li>作用：用于controller层向前端返回数据和状态码。</li>
+<li>构造器：</li>
+<li>new ResponseEntity(HttpStatus.OK): http状态码。</li>
+<li>new ResponseEntity(new User(),HttpStatus.OK): 泛型对象的数据和http状态码。</li>
+<li>new ResponseEntity(MultiValueMap&lt;String, String&gt; headers, HttpStatus statusCode)：http首部（如，HttpHeaders类）和状态码。</li>
+<li>new ResponseEntity(new User(), MultiValueMap&lt;String, String&gt; headers, HttpStatus statusCode)</li>
+<li>示例：</li>
+</ul>
+<pre><code>@RequestMapping(value=&quot;/response/entity/status&quot;, method=RequestMethod.GET)   
+public ResponseEntity&lt;String&gt; responseEntityStatusCode() {  
+
+    return new ResponseEntity&lt;String&gt;(&quot;The String ResponseBody with 
+        custom status code (403 Forbidden)&quot;,   
+        HttpStatus.FORBIDDEN);   
+}
+</code></pre><ul>
+<li>以上方法相当于以下@ResponseBody+@ResponseStatus，它会返回@RequestMapping原页面，显示字符串，并带回一个状态码：</li>
+</ul>
+<pre><code>@RequestMapping(value=&quot;/response/entity/status&quot;, method=RequestMethod.GET)   
+@ResponseStatus(HttpStatus.FORBIDDEN)
+public String responseEntityStatusCode() {  
+
+    return &quot;The String ResponseBody with 
+        custom status code (403 Forbidden)&quot;,   
+}
+</code></pre><ul>
+<li>虽然这里将状态码设为HttpStatus.FORBIDDEN，但是字符串仍能正常显示在页面上，那么HttpStatus.FORBIDDEN起什么作用呢？</li>
+<li>我们配合RestTemplate写个例子，对该url发起访问，运行结果显示，发起请求失败，后台抛出402异常，但前端照常显示字符串：</li>
+</ul>
+<pre><code>public static void main(String[] args) {  
+    RestTemplate template = new RestTemplate();  
+    //调用getForEntity抛出异常
+    ResponseEntity&lt;String&gt; entity = template.getForEntity(  
+            &quot;http://localhost:8080/web/response/entity/status&quot;, String.class);  
+    String body = entity.getBody();  
+    MediaType contentType = entity.getHeaders().getContentType();  
+    HttpStatus statusCode = entity.getStatusCode();  
+    System.out.println(&quot;statusCode:[&quot; + statusCode + &quot;]&quot;);  
+}
+</code></pre><ul>
+<li>异常日志：</li>
+</ul>
+<pre><code>Exception in thread &quot;main&quot; org.springframework.web.client.HttpClientErrorException: 403 Forbidden
+    at org.springframework.web.client.DefaultResponseErrorHandler
+        .handleError(DefaultResponseErrorHandler.java:76)
+    at org.springframework.web.client.RestTemplate.handleResponseError(
+        RestTemplate.java:486)
+    at org.springframework.web.client.RestTemplate.doExecute(
+        RestTemplate.java:443)
+    at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:401)
+    at org.springframework.web.client.RestTemplate.getForEntity(
+        RestTemplate.java:221)
+    at org.springframework.samples.mvc.response.ResponseControllerTest.main(
+        ResponseControllerTest.java:12)
+</code></pre><ul>
+<li>回到ResponseEntity构造器的测试，以下代码进一步指定返回内容的content-type为text/plain。</li>
+</ul>
+<pre><code>@RequestMapping(value=&quot;/response/entity/headers&quot;, method=RequestMethod.GET)  
+public ResponseEntity&lt;String&gt; responseEntityCustomHeaders() {  
+
+    HttpHeaders headers = new HttpHeaders();  
+    headers.setContentType(MediaType.TEXT_PLAIN);  
+    return new ResponseEntity&lt;String&gt;(&quot;The String ResponseBody with 
+        custom header Content-Type=text/plain&quot;,  
+        headers, //指定content-type
+        HttpStatus.OK);  
+} 
+</code></pre><ul>
+<li><a href="https://stephansun.iteye.com/blog/1469165" target="_blank" rel="noopener">参考文章</a></li>
+<li>代码示例：ideaProjects/shiro-cahpter17/web/AuthorizeController</li>
+</ul>
+<h3 id="RestTemplate"><a href="#RestTemplate" class="headerlink" title="RestTemplate"></a>RestTemplate</h3><ul>
+<li>Spring提供的用于访问Rest服务器的客户端。通常用于模拟请求，分析返回的响应数据。</li>
+<li>方法：</li>
+<li>getForEntity():发送get请求，返回ResponseEntity类，包含了响应体所映射成的对象，比如，响应体数据为一个由User转化的json，那么它被封装进ResponseEntity时将转回User对象。我们用一个ResponseEntity对象接收该方法返回值后，可取出其中的响应体对象、响应头和响应状态。</li>
+<li>getForObject():同上，不过只返回User对象。</li>
+<li>postForEntity():post请求。</li>
+<li>postForObject():post请求。</li>
+<li>delete()：在特定的URL上对资源执行HTTP DELETE操作。</li>
+<li>exchange()：在URL上执行特定的HTTP方法，返回包含对象的ResponseEntity，这个对象是从响应体中映射得到的。</li>
+<li>execute()：在URL上执行特定的HTTP方法，返回一个从响应体映射得到的对象。</li>
+<li>headForHeaders()：发送HTTP HEAD请求，返回包含特定资源URL的HTTP头。</li>
+<li>optionsForAllow()：发送HTTP OPTIONS请求，返回对特定URL的Allow头信息。</li>
+<li>postForLocation()：POST 数据到一个URL，返回新创建资源的URL。</li>
+<li>put()：PUT 资源到特定的URL。</li>
+</ul>
+<h4 id="getForEntity"><a href="#getForEntity" class="headerlink" title="getForEntity()"></a>getForEntity()</h4><ul>
+<li>getForEntity(String url,Class<t> responseType,Map&lt;String,?&gt; uriVariables/Object… uriVariables):目标url，响应体映射的对象，url参数(0个或多个）。</t></li>
+</ul>
+<pre><code>/**
+ * 将要被请求的controller
+ **/
+@RestController
+public class UserController {
+    @Autowired
+    private UserService userService;
+
+    @RequestMapping(value = &quot;getAll&quot;)
+    public List&lt;UserEntity&gt; getUser() {
+        List&lt;UserEntity&gt; list = userService.getAll();
+        return list;
+    }
+}
+
+/**
+ * 模拟请求的controller
+ **/
+@RestController
+public class UserController {
+    @RequestMapping(&quot;getForEntity&quot;)
+    public List&lt;UserEntity&gt; getAll2() {
+        //模拟请求并获取响应数据
+        ResponseEntity&lt;List&gt; responseEntity = 
+            restTemplate.getForEntity(&quot;http://localhost/getAll&quot;, List.class);
+        //获取响应头
+        HttpHeaders headers = responseEntity.getHeaders();
+        //响应状态
+        HttpStatus statusCode = responseEntity.getStatusCode();
+        int code = statusCode.value();
+        //响应体
+        List&lt;UserEntity&gt; list = responseEntity.getBody();
+
+        System.out.println(list.toString());
+        return list;
+    }
+}
+</code></pre><ul>
+<li>有参数的getForEntity()，可以使用{}先在url中占位，然后在方法最后一位参数补上此url参数：</li>
+</ul>
+<pre><code>//待请求的controller类中
+@RequestMapping(&quot;get/{id}&quot;)
+public UserEntity getById(@PathVariable(name = &quot;id&quot;) String id) {
+    return userService.getById(id);
+}
+
+//模拟请求的controller
+@RequestMapping(&quot;getForEntity/{id}&quot;)
+public UserEntity getById2(@PathVariable(name = &quot;id&quot;) String id) {
+    //模拟带参数的get请求
+    ResponseEntity&lt;UserEntity&gt; responseEntity = restTemplate.getForEntity(
+        &quot;http://localhost/get/{id}&quot;, UserEntity.class, id); //Object...形式的参数
+    /*也可采用Map形式的参数
+    * HashMap&lt;String, String&gt; map = new HashMap&lt;&gt;();
+    * map.put(&quot;id&quot;,id);
+    * ResponseEntity&lt;UserEntity&gt; responseEntity = restTemplate.getForEntity(
+    *     &quot;http://localhost/get/{id}&quot;, UserEntity.class, map);
+    */
+
+    UserEntity userEntity = responseEntity.getBody();
+    return userEntity;
+}
+</code></pre><ul>
+<li>getForEntity(URI uri,Class<t> responseType): 不做测试了。</t></li>
+</ul>
+<h4 id="getForObject"><a href="#getForObject" class="headerlink" title="getForObject()"></a>getForObject()</h4><ul>
+<li>有的时候不需要全部的响应数据，只要响应体就足够了。</li>
+<li>getForObject(URI uri,Class<t> responseType)。</t></li>
+<li>getForObject(String url.Class<t> responseType,Map&lt;String,?&gt;/Object… uriVariables)：</t></li>
+</ul>
+<pre><code>//无参数的 getForObject 请求
+@RequestMapping(&quot;getAll2&quot;)
+public List&lt;UserEntity&gt; getAll() {
+    List&lt;UserEntity&gt; list = restTemplate.getForObject(&quot;http://localhost/getAll&quot;, 
+                                                      List.class);
+
+    System.out.println(list.toString());
+    return list;
+}
+
+//有参数的 getForObject 请求
+@RequestMapping(&quot;get2/{id}&quot;)
+public UserEntity getById(@PathVariable(name = &quot;id&quot;) String id) {
+    //使用Object...形式的参数
+    UserEntity userEntity = restTemplate.getForObject(
+        &quot;http://localhost/get/{id}&quot;, UserEntity.class, id);
+    /*也可使用Map形式
+    * HashMap&lt;String, String&gt; map = new HashMap&lt;&gt;();
+    * map.put(&quot;id&quot;,id);
+    * UserEntity userEntity = * restTemplate.getForObject(
+    *       &quot;http://localhost/get/{id}&quot;, UserEntity.class, map);
+    */
+
+    return userEntity;
+}
+</code></pre><h4 id="postForEntity"><a href="#postForEntity" class="headerlink" title="postForEntity()"></a>postForEntity()</h4><ul>
+<li>postForEntity(String url,Object request,Class<t> responseType,Map&lt;String,?&gt;/Object… uriVariables): url,request:要放在post报体中的参数；响应体映射的实体，url参数。</t></li>
+</ul>
+<pre><code>@RequestMapping(value = &quot;save&quot;)
+public String save(UserEntity userEntity) {
+    return &quot;保存成功&quot;;
+}
+
+//post 请求,提交 UserEntity 对象
+@RequestMapping(&quot;saveUser&quot;)
+public String save(UserEntity userEntity) {
+    ResponseEntity&lt;String&gt; responseEntity = restTemplate.postForEntity(
+        &quot;http://localhost/save&quot;, userEntity, String.class);
+    String body = responseEntity.getBody();
+
+    return body;
+}
+</code></pre><ul>
+<li>浏览器访问<a href="http://localhost/saveUser?username=itguang&amp;password=123456&amp;age=20&amp;email=123@123.com，后面参数将被自动封装到UserEntity中传入方法。提交的数据和请求后返回的ResponseEntity如下：" target="_blank" rel="noopener">http://localhost/saveUser?username=itguang&amp;password=123456&amp;age=20&amp;email=123@123.com，后面参数将被自动封装到UserEntity中传入方法。提交的数据和请求后返回的ResponseEntity如下：</a></li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://zhuzhuzai.oss-cn-shenzhen.aliyuncs.com/11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>有参数的postForEntity():</li>
+</ul>
+<pre><code>@RequestMapping(value = &quot;saveByType/{type}&quot;) //type实际并非参数，而是url的一部分
+public String saveByType(UserEntity userEntity,
+     @PathVariable(&quot;type&quot;)String type) { //但是它要作为参数传给方法使用
+    return &quot;保存成功,type=&quot;+type;
+}
+
+@RequestMapping(&quot;saveUserByType/{type}&quot;)
+public String save2(UserEntity userEntity,@PathVariable(&quot;type&quot;)String type) {
+
+    //使用Object...形式传参，也可使用Map
+    ResponseEntity&lt;String&gt; responseEntity = restTemplate.postForEntity(
+        &quot;http://localhost/saveByType/{type}&quot;, userEntity, String.class, type);
+
+    String body = responseEntity.getBody();
+    return body;
+}
+</code></pre><ul>
+<li><p>浏览器访问<a href="mailto:localhost/saveUserByType/120?username=itguang&amp;password=123456&amp;age=20&amp;email=123@123.com" target="_blank" rel="noopener">localhost/saveUserByType/120?username=itguang&amp;password=123456&amp;age=20&amp;email=123@123.com</a>，返回：保存成功，type=120.</p>
+</li>
+<li><p><a href="https://blog.csdn.net/itguangit/article/details/78825505" target="_blank" rel="noopener">参考文章</a></p>
+</li>
+</ul>
+<h3 id="HttpStatus-FORBIDDEN起什么作用呢"><a href="#HttpStatus-FORBIDDEN起什么作用呢" class="headerlink" title="HttpStatus.FORBIDDEN起什么作用呢"></a>HttpStatus.FORBIDDEN起什么作用呢</h3><ul>
+<li>前面ResponseEntity第一个例子将状态码设为HttpStatus.FORBIDDEN，但是字符串仍能正常显示在页面上，那么HttpStatus.FORBIDDEN起什么作用呢？</li>
+<li>我们配合RestTemplate写个例子，对该url发起访问，运行结果显示，发起请求失败，后台抛出402异常，但前端照常显示字符串：</li>
+</ul>
+<pre><code>public static void main(String[] args) {  
+    RestTemplate template = new RestTemplate();  
+    //调用getForEntity抛出异常
+    ResponseEntity&lt;String&gt; entity = template.getForEntity(  
+            &quot;http://localhost:8080/web/response/entity/status&quot;, String.class);  
+    String body = entity.getBody();  
+    MediaType contentType = entity.getHeaders().getContentType();  
+    HttpStatus statusCode = entity.getStatusCode();  
+    System.out.println(&quot;statusCode:[&quot; + statusCode + &quot;]&quot;);  
+}
+</code></pre><ul>
+<li>异常日志：</li>
+</ul>
+<pre><code>Exception in thread &quot;main&quot; org.springframework.web.client.HttpClientErrorException: 403 Forbidden
+    at org.springframework.web.client.DefaultResponseErrorHandler
+        .handleError(DefaultResponseErrorHandler.java:76)
+    at org.springframework.web.client.RestTemplate.handleResponseError(
+        RestTemplate.java:486)
+    at org.springframework.web.client.RestTemplate.doExecute(
+        RestTemplate.java:443)
+    at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:401)
+    at org.springframework.web.client.RestTemplate.getForEntity(
+        RestTemplate.java:221)
+    at org.springframework.samples.mvc.response.ResponseControllerTest.main(
+        ResponseControllerTest.java:12)
+</code></pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-25T06:57:14.833Z" itemprop="dateUpdated">2019-03-25 14:57:14</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/04/30/RestTemplate和ResponseEntity/" target="_blank" rel="external">http://47.107.237.149/2019/04/30/RestTemplate和ResponseEntity/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://47.107.237.149">
+            <img src="/img/logo.jpg" alt="Haien">
+            Haien
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/RestTemplate和ResponseEntity/&title=never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/RestTemplate和ResponseEntity/&title=never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/RestTemplate和ResponseEntity/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=never belief any book&url=http://47.107.237.149/2019/04/30/RestTemplate和ResponseEntity/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/RestTemplate和ResponseEntity/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/30/salt值/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/30/REST/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Haien &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://47.107.237.149/2019/04/30/RestTemplate和ResponseEntity/&title=《No title》 — never belief any book&pic=http://47.107.237.149/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://47.107.237.149/2019/04/30/RestTemplate和ResponseEntity/&title=《No title》 — never belief any book&source=love youself,love life" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://47.107.237.149/2019/04/30/RestTemplate和ResponseEntity/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — never belief any book&url=http://47.107.237.149/2019/04/30/RestTemplate和ResponseEntity/&via=http://47.107.237.149" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://47.107.237.149/2019/04/30/RestTemplate和ResponseEntity/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtklEQVR42u3awY7iMBAE0Pn/n2alOa20Q6jqjmFWejkhFIifkWxT3V9f8fX4vv5+/ey6/uy/33B9z/U7t114eHh4o6FfD/cRXMkg2mmajQcPDw/vPbzZUK4HsXlKwouegoeHh/dRXnv8nYHzCcXDw8P7X3h7RhIrJBsGHh4e3md57UJ8DdtHtJtwBA8PD+80b1YA++zr4/U9PDw8vFFVPV9w20j3xGbww6fw8PDwDvBmRaa8fWpW0JodlIt/DHh4eHgLXhsT5BHDNbINgpNf6Yen4+Hh4R3jzcpRybE4bxfYTMHTqcTDw8M7wMv/5N/VTHB9yM6nrCjX4eHh4d3Ka8PZ9p7ZN+TFsBcbGx4eHt4xXnuc3RTJkpCibfB6eg8eHh7eYV4eGWxaBPaRbnFkx8PDwzvAmwWvSey7b6WatSa8yFrw8PDw1rxZENAWxpJFvEidg59klXPg4eHhlbzNgj4r9ueH9baBAA8PD+8Er11287BgM9C8JSuKhvHw8PBu5bXRwGxwydCT6agP9Hh4eHgHePvhtg0Bmxg3iU5eFMDw8PDw1rz2ONsu3JvpywPlp+PBw8PDO8zLi/R5oStfypOQt44t8PDw8I7xZsfWpA3r+v18KvHw8PB+Dy9fdttD7ez9PEpOWhDw8PDwzvE2B9z9dpIHHLMgGA8PD+9e3l2kWUvWjFo8HQ8PD+8tvOSr22U6wc+e+IKNh4eHd4C3Wbjb0KFtBUiaEpKfBA8PD+9e3qO82qHP5ng/WXh4eHjnePmVL9DDHemm7QQPDw/vPbxkM8g3jE2w27YURBONh4eHd4w3a7TKo9i2pWC/IeHh4eH9Bl5+Em9j3018fNvGgIeHh/d23uzxm0/h4eHhfZbXhhFJySoPgjfBR3SkxsPDw7uVNyuAtc2jefSQP6uNLfDw8PDWvD+vNWnOeBdo0wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
